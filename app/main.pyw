@@ -25,7 +25,7 @@ LAB_NAME = 'ИЛ «ИТС-ПБ»'
 OPERATORS = ["Зуева А.С.", "Королев А.И.", "Васильева Д.В.", "Тарабанова А.А."]
 
 try:
-    from PySide6.QtCore import Qt, QSize
+    from PySide6.QtCore import Qt, QSize, QPoint
     from PySide6.QtGui import QAction, QIcon, QPixmap
     from PySide6.QtSvgWidgets import QSvgWidget
     from PySide6.QtWidgets import (
@@ -54,6 +54,27 @@ def import_from(path: Path, name: str):
 icp = import_from(ICP_DIR / "icp_os_generator.py", "icp_os_generator_suite_qt")
 aas = import_from(AAS_DIR / "aas_report_generator.py", "aas_report_generator_suite_qt")
 tox = import_from(TOX_DIR / "toxicity_generator.py", "toxicity_generator_suite_qt")
+
+
+class AppComboBox(QComboBox):
+    """Единый выпадающий список для приложения.
+
+    На некоторых Windows стандартный popup QComboBox раскрывается поверх
+    выбранного значения. Сдвигаем popup ниже поля, чтобы пользователь всегда
+    видел, что выбрал.
+    """
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.setMinimumHeight(38)
+        self.setMaxVisibleItems(12)
+
+    def showPopup(self):
+        super().showPopup()
+        try:
+            popup = self.view().window()
+            popup.move(self.mapToGlobal(QPoint(0, self.height() + 2)))
+        except Exception:
+            pass
 
 
 def safe_name(s: str) -> str:
@@ -129,8 +150,10 @@ def qss() -> str:
     QFrame#Card { background: white; border: 1px solid #DDE4EE; border-radius: 14px; }
     QLabel#CardTitle { color: #132338; font-size: 12pt; font-weight: 750; }
     QLabel#Hint { color: #6B7280; }
-    QLineEdit, QComboBox, QSpinBox { background: white; border: 1px solid #C9D3E1; border-radius: 8px; padding: 7px 10px; min-height: 24px; }
+    QLineEdit, QComboBox, QSpinBox { background: white; border: 1px solid #C9D3E1; border-radius: 8px; padding: 8px 12px; min-height: 30px; }
     QLineEdit:focus, QComboBox:focus, QSpinBox:focus { border: 1px solid #1C5DAA; }
+    QComboBox { padding-right: 28px; }
+    QComboBox QAbstractItemView { background: white; border: 1px solid #C9D3E1; selection-background-color: #D8E8FA; padding: 6px; outline: 0; }
     QTabWidget::pane { border: none; }
     QTabBar::tab { background: #E8EEF6; color: #26384F; padding: 10px 18px; margin-right: 5px; border-top-left-radius: 9px; border-top-right-radius: 9px; }
     QTabBar::tab:selected { background: white; color: #0E2F57; font-weight: 700; border: 1px solid #DDE4EE; border-bottom: none; }
@@ -169,10 +192,10 @@ class CommonParams(Card):
         grid.setVerticalSpacing(8)
         self.body.addLayout(grid)
         now = dt.datetime.now().replace(microsecond=0)
-        self.operator = QComboBox(); self.operator.addItems(OPERATORS)
+        self.operator = AppComboBox(); self.operator.addItems(OPERATORS)
         self.date = QLineEdit(now.strftime('%d.%m.%Y'))
         self.time = QLineEdit(now.strftime('%H:%M:%S'))
-        self.method = QComboBox()
+        self.method = AppComboBox()
         if method_items:
             for mid, title in method_items:
                 self.method.addItem(title, mid)
@@ -387,7 +410,7 @@ class AasPage(ModulePage):
         w = QWidget(); lay = QVBoxLayout(w); lay.setContentsMargins(0, 12, 0, 0)
         c = Card("Параметры отчета")
         g = QGridLayout(); g.setHorizontalSpacing(14); g.setVerticalSpacing(10); c.body.addLayout(g)
-        self.aas_el = QComboBox(); self.aas_el.addItems(aas.elements_for_profile(self.current_aas_profile()))
+        self.aas_el = AppComboBox(); self.aas_el.addItems(aas.elements_for_profile(self.current_aas_profile()))
         self.aas_sn = QLineEdit("ИТС-ПБ-26-000001")
         self.aas_c = QLineEdit("0.52978")
         g.addWidget(QLabel("Элемент"),0,0); g.addWidget(self.aas_el,1,0)

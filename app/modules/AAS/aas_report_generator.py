@@ -36,39 +36,78 @@ CONFIG_DIR = ROOT / "configs"
 OUTPUT_DIR = ROOT / "output"
 ELEMENTS = ["Fe", "Mn", "Cr", "Cd", "Ba", "As", "Se", "Sb", "Pb", "Ti", "Sn", "Hg"]
 
-# Профили методик ААС.
-# Один и тот же элемент может относиться к разным методикам, поэтому
-# в генератор передается не только элемент, но и profile_id.
+# Профили нормативных методик ААС.
+# ВАЖНО: методика НЕ меняет строку «Метод» в шаблоне.
+# Методика ограничивает доступные элементы и формирует строку
+# «файл концентрации» по правилу: cnc_prefix + element + ".cnc".
 METHOD_PROFILES = {
-    "GOST_31870": {
-        "title": "ГОСТ 31870",
-        "elements": ["Fe", "Mn", "Cr", "Cd", "Ba", "As", "Se", "Sb", "Pb", "Ti", "Sn"],
-        "overrides": {}
+    "GOST_31870_2012": {
+        "title": "ГОСТ 31870-2012",
+        "cnc_prefix": "ГОСТ 31870",
+        "elements": ["Al", "Ba", "Fe", "Cd", "Mn", "Cu", "As", "Ni", "Sn", "Pb", "Se", "Ag", "Sb", "Ti", "Cr", "Zn"],
     },
-    "GOST_31950": {
-        "title": "ГОСТ 31950",
-        "elements": ["Hg"],
-        "overrides": {
-            "Hg": {
-                "instrument_method": "Стандартный",
-                "concentration_file": "ГОСТ 31950Hg.cnc",
-                "calculation_factor": "5.000000",
-                "v": "5000.00"
-            }
-        }
-    },
-    "PND_140_98": {
+    "PND_F_140_98": {
         "title": "ПНД Ф 14.1:2:4.140-98",
-        "elements": ["Cd"],
-        "overrides": {
-            "Cd": {
-                "instrument_method": "модиф",
-                "concentration_file": "ПНД Ф 140-98Cd.cnc",
-                "calculation_factor": "4.000000",
-                "v": "3.33"
-            }
-        }
-    }
+        "cnc_prefix": "ПНД Ф 140-98",
+        "elements": ["Cd", "Co", "Cu", "As", "Ni", "Sn", "Pb", "Se", "Ag", "Sb", "Cr"],
+    },
+    "GOST_32094_2013": {
+        "title": "ГОСТ 32094-2013",
+        "cnc_prefix": "ГОСТ 32094",
+        "elements": ["Cd", "Pb"],
+    },
+    "GOST_25185_93": {
+        "title": "ГОСТ 25185-93",
+        "cnc_prefix": "ГОСТ 25185",
+        "elements": ["Cd", "Pb"],
+    },
+    "GOST_IEC_62321_5_2016": {
+        "title": "ГОСТ IEC 62321-5-2016",
+        "cnc_prefix": "ГОСТ IEC 62321-5",
+        "elements": ["Cd", "Pb", "Cr"],
+    },
+    "GOST_31266_2004": {
+        "title": "ГОСТ 31266-2004",
+        "cnc_prefix": "ГОСТ 31266",
+        "elements": ["As"],
+    },
+    # Методики только для ртути.
+    "GOST_31950_2012": {
+        "title": "ГОСТ 31950-2012",
+        "cnc_prefix": "ГОСТ 31950",
+        "elements": ["Hg"],
+        "default_v": "5000.00",
+    },
+    "GOST_26927_86": {
+        "title": "ГОСТ 26927-86",
+        "cnc_prefix": "ГОСТ 26927",
+        "elements": ["Hg"],
+        "default_v": "5000.00",
+    },
+    "GOST_R_53183_2008": {
+        "title": "ГОСТ Р 53183-2008",
+        "cnc_prefix": "ГОСТ Р 53183",
+        "elements": ["Hg"],
+        "default_v": "5000.00",
+    },
+    "M_04_46_2007": {
+        "title": "Методика М 04-46-2007",
+        "cnc_prefix": "М 04-46-2007",
+        "elements": ["Hg"],
+        "default_v": "5000.00",
+    },
+    "GOST_IEC_62321_4_2016": {
+        "title": "ГОСТ IEC 62321-4-2016",
+        "cnc_prefix": "ГОСТ IEC 62321-4",
+        "elements": ["Hg"],
+        "default_v": "5000.00",
+    },
+    "GOST_33022_2014": {
+        "title": "ГОСТ 33022-2014",
+        "cnc_prefix": "ГОСТ 33022",
+        "elements": ["Hg"],
+        "default_v": "5000.00",
+    },
 }
 
 
@@ -78,17 +117,32 @@ def method_profile_titles():
 
 def get_profile(profile_id: str | None) -> dict:
     if not profile_id or profile_id not in METHOD_PROFILES:
-        profile_id = "GOST_31870"
+        profile_id = "GOST_31870_2012"
     return METHOD_PROFILES[profile_id]
 
 
 def elements_for_profile(profile_id: str | None):
-    return list(get_profile(profile_id).get("elements", ELEMENTS))
+    
+    profile_elements = list(get_profile(profile_id).get("elements", ELEMENTS))
+    # В интерфейсе показываем только элементы, для которых уже есть и шаблон, и JSON-конфигурация.
+    # Полный список методики хранится в METHOD_PROFILES; недостающие шаблоны/конфиги можно добавить позже.
+    available = []
+    for el in profile_elements:
+        el = normalize_element(el)
+        if (TEMPLATE_DIR / f"{el}.docx").exists() and (CONFIG_DIR / f"{el}.json").exists():
+            available.append(el)
+    return available
 
 
 def get_profile_override(profile_id: str | None, element: str) -> dict:
     profile = get_profile(profile_id)
-    return dict(profile.get("overrides", {}).get(normalize_element(element), {}))
+    element = normalize_element(element)
+    out = {}
+    if profile.get("default_v"):
+        out["v"] = profile["default_v"]
+    if profile.get("cnc_prefix"):
+        out["concentration_file"] = f"{profile['cnc_prefix']}{element}.cnc"
+    return out
 
 W_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
 ET.register_namespace("w", W_NS)
@@ -127,6 +181,12 @@ def normalize_element(value: str) -> str:
         "ti": "Ti", "титан": "Ti",
         "sn": "Sn", "олово": "Sn",
         "hg": "Hg", "ртуть": "Hg",
+        "co": "Co", "кобальт": "Co",
+        "cu": "Cu", "медь": "Cu",
+        "ni": "Ni", "никель": "Ni",
+        "al": "Al", "алюминий": "Al",
+        "ag": "Ag", "серебро": "Ag",
+        "zn": "Zn", "цинк": "Zn",
     }
     return aliases.get(low, s)
 
@@ -345,19 +405,23 @@ def replace_literal_in_paragraph(p, old: str, new: str):
 
 
 def profile_text_replacements(context: dict):
+    """Текстовые замены, зависящие от выбранной нормативной методики.
+
+    Строку «Метод» не меняем: стандартный/модификаторный режим является
+    свойством шаблона элемента. Методика меняет только «файл концентрации».
+    """
     element = normalize_element(context.get("element", "")) if context.get("element") else ""
     profile_id = context.get("method_profile")
     override = get_profile_override(profile_id, element) if element else {}
     repl = []
-    if override.get("instrument_method"):
-        for old in ["Стандартный", "Cтандартный", "с модификатором", "c модификатором", "модиф"]:
-            repl.append((old, override["instrument_method"]))
     if override.get("concentration_file") and element:
-        for prefix in ["ГОСТ 31870", "ГОСТ 31950", "ПНД Ф 140-98"]:
+        prefixes = [
+            "ГОСТ 31870", "ПНД Ф 140-98", "ГОСТ 32094", "ГОСТ 25185",
+            "ГОСТ IEC 62321-5", "ГОСТ 31266", "ГОСТ 31950", "ГОСТ 26927",
+            "ГОСТ Р 53183", "М 04-46-2007", "ГОСТ IEC 62321-4", "ГОСТ 33022",
+        ]
+        for prefix in prefixes:
             repl.append((f"{prefix}{element}.cnc", override["concentration_file"]))
-    if override.get("calculation_factor"):
-        for old in ["1.500000", "1.700000", "2.000000", "4.000000", "5.000000"]:
-            repl.append((old, override["calculation_factor"]))
     return repl
 
 def replace_in_xml(xml_bytes: bytes, context: dict) -> bytes:
