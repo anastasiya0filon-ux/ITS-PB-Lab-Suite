@@ -35,6 +35,61 @@ TEMPLATE_DIR = ROOT / "templates"
 CONFIG_DIR = ROOT / "configs"
 OUTPUT_DIR = ROOT / "output"
 ELEMENTS = ["Fe", "Mn", "Cr", "Cd", "Ba", "As", "Se", "Sb", "Pb", "Ti", "Sn", "Hg"]
+
+# Профили методик ААС.
+# Один и тот же элемент может относиться к разным методикам, поэтому
+# в генератор передается не только элемент, но и profile_id.
+METHOD_PROFILES = {
+    "GOST_31870": {
+        "title": "ГОСТ 31870",
+        "elements": ["Fe", "Mn", "Cr", "Cd", "Ba", "As", "Se", "Sb", "Pb", "Ti", "Sn"],
+        "overrides": {}
+    },
+    "GOST_31950": {
+        "title": "ГОСТ 31950",
+        "elements": ["Hg"],
+        "overrides": {
+            "Hg": {
+                "instrument_method": "Стандартный",
+                "concentration_file": "ГОСТ 31950Hg.cnc",
+                "calculation_factor": "5.000000",
+                "v": "5000.00"
+            }
+        }
+    },
+    "PND_140_98": {
+        "title": "ПНД Ф 14.1:2:4.140-98",
+        "elements": ["Cd"],
+        "overrides": {
+            "Cd": {
+                "instrument_method": "модиф",
+                "concentration_file": "ПНД Ф 140-98Cd.cnc",
+                "calculation_factor": "4.000000",
+                "v": "3.33"
+            }
+        }
+    }
+}
+
+
+def method_profile_titles():
+    return [(pid, data["title"]) for pid, data in METHOD_PROFILES.items()]
+
+
+def get_profile(profile_id: str | None) -> dict:
+    if not profile_id or profile_id not in METHOD_PROFILES:
+        profile_id = "GOST_31870"
+    return METHOD_PROFILES[profile_id]
+
+
+def elements_for_profile(profile_id: str | None):
+    return list(get_profile(profile_id).get("elements", ELEMENTS))
+
+
+def get_profile_override(profile_id: str | None, element: str) -> dict:
+    profile = get_profile(profile_id)
+    return dict(profile.get("overrides", {}).get(normalize_element(element), {}))
+
 W_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
 ET.register_namespace("w", W_NS)
 
@@ -147,10 +202,11 @@ def generate_three_values(mean_c: float, seed_text: str, mode: str = "normal", e
     return vals
 
 
-def build_context(element: str, action_time: str, sn: str, mean_c: float, mode: str = "normal") -> dict:
+def build_context(element: str, action_time: str, sn: str, mean_c: float, mode: str = "normal", method_profile: str | None = None) -> dict:
     element = normalize_element(element)
     cfg = load_config(element)
-    v = float(cfg["v"])
+    profile_override = get_profile_override(method_profile, element)
+    v = float(profile_override.get("v", cfg["v"]))
     cc_div = float(cfg["ccDivided"])
     seed = f"{element}|{action_time}|{sn}|{mean_c:.9f}|{mode}"
     c_values = generate_three_values(mean_c, seed, mode, element)
@@ -180,6 +236,8 @@ def build_context(element: str, action_time: str, sn: str, mean_c: float, mode: 
         "sn": sn,
         "v": fmt2(v),
         "result": mean_c,
+        "method_profile": method_profile or "GOST_31870",
+        "method_title": get_profile(method_profile).get("title", "ГОСТ 31870"),
         "row_1.C": rows[0]["C"],
         "row_1.CXm": rows[0]["CXm"],
         "row_1.Ci": rows[0]["Ci"],
@@ -270,11 +328,46 @@ def replace_paragraph_placeholders(p, context: dict, state: dict):
         _replace_span_in_text_nodes(text_nodes, idx, idx + len(pat), value)
 
 
+
+def replace_literal_in_paragraph(p, old: str, new: str):
+    if not old or old == new:
+        return
+    t_tag = f"{{{W_NS}}}t"
+    text_nodes = [el for el in p.iter(t_tag)]
+    if not text_nodes:
+        return
+    while True:
+        full = "".join(el.text or "" for el in text_nodes)
+        idx = full.find(old)
+        if idx < 0:
+            break
+        _replace_span_in_text_nodes(text_nodes, idx, idx + len(old), new)
+
+
+def profile_text_replacements(context: dict):
+    element = normalize_element(context.get("element", "")) if context.get("element") else ""
+    profile_id = context.get("method_profile")
+    override = get_profile_override(profile_id, element) if element else {}
+    repl = []
+    if override.get("instrument_method"):
+        for old in ["Стандартный", "Cтандартный", "с модификатором", "c модификатором", "модиф"]:
+            repl.append((old, override["instrument_method"]))
+    if override.get("concentration_file") and element:
+        for prefix in ["ГОСТ 31870", "ГОСТ 31950", "ПНД Ф 140-98"]:
+            repl.append((f"{prefix}{element}.cnc", override["concentration_file"]))
+    if override.get("calculation_factor"):
+        for old in ["1.500000", "1.700000", "2.000000", "4.000000", "5.000000"]:
+            repl.append((old, override["calculation_factor"]))
+    return repl
+
 def replace_in_xml(xml_bytes: bytes, context: dict) -> bytes:
     root = ET.fromstring(xml_bytes)
     state = {}
+    replacements = profile_text_replacements(context)
     for p in root.iter(f"{{{W_NS}}}p"):
         replace_paragraph_placeholders(p, context, state)
+        for old, new in replacements:
+            replace_literal_in_paragraph(p, old, new)
     return ET.tostring(root, encoding="utf-8", xml_declaration=True)
 
 
@@ -298,12 +391,13 @@ def safe_name(s: str) -> str:
     return "".join(ch if ch.isalnum() or ch in "-_" else "_" for ch in str(s))
 
 
-def generate_report(element: str, action_time: str, sn: str, mean_c: float, mode: str = "normal", output_dir: Path = OUTPUT_DIR) -> Path:
+def generate_report(element: str, action_time: str, sn: str, mean_c: float, mode: str = "normal", output_dir: Path = OUTPUT_DIR, method_profile: str | None = None) -> Path:
     element = normalize_element(element)
     template = TEMPLATE_DIR / f"{element}.docx"
     if not template.exists():
         raise FileNotFoundError(f"Не найден шаблон: {template}")
-    ctx = build_context(element, action_time, sn, mean_c, mode)
+    ctx = build_context(element, action_time, sn, mean_c, mode, method_profile)
+    ctx["element"] = element
     safe_sn = safe_name(sn)
     out = output_dir / f"Отчет_{element}_{safe_sn}.docx"
     # Если такой отчет уже есть, добавляем номер, чтобы не перезаписать.
@@ -385,7 +479,7 @@ def read_xlsx_rows(path: Path):
         return rows
 
 
-def parse_excel_batch(xlsx_path: Path, default_date: str):
+def parse_excel_batch(xlsx_path: Path, default_date: str, method_profile: str | None = None):
     rows = read_xlsx_rows(xlsx_path)
     if not rows:
         return []
@@ -405,12 +499,12 @@ def parse_excel_batch(xlsx_path: Path, default_date: str):
             date_idx = i
         else:
             el = normalize_element(h_clean)
-            if el in ELEMENTS:
+            if el in elements_for_profile(method_profile):
                 element_cols.append((i, el))
     if sn_idx is None:
         raise ValueError("В Excel должен быть столбец 'Шифр пробы'")
     if not element_cols:
-        raise ValueError("В Excel не найдены столбцы элементов: Fe, Mn, Cr, Cd, Ba, As, Se, Sb, Pb, Ti, Sn, Hg")
+        raise ValueError("В Excel не найдены столбцы элементов для выбранной методики")
 
     tasks = []
     for rnum, row in enumerate(rows[1:], start=2):
@@ -436,8 +530,8 @@ def parse_excel_batch(xlsx_path: Path, default_date: str):
     return tasks
 
 
-def generate_from_excel(xlsx_path: Path, default_date: str, mode: str = "normal", output_dir: Path = OUTPUT_DIR):
-    tasks = parse_excel_batch(xlsx_path, default_date)
+def generate_from_excel(xlsx_path: Path, default_date: str, mode: str = "normal", output_dir: Path = OUTPUT_DIR, method_profile: str | None = None):
+    tasks = parse_excel_batch(xlsx_path, default_date, method_profile)
     if not tasks:
         raise ValueError("В Excel не найдено ни одного заполненного результата")
     batch_dir = output_dir / ("AAS_batch_" + Path(xlsx_path).stem)
@@ -445,7 +539,7 @@ def generate_from_excel(xlsx_path: Path, default_date: str, mode: str = "normal"
     created = []
     log = []
     for t in tasks:
-        out = generate_report(t["element"], t["action_time"], t["sn"], t["mean_c"], mode, batch_dir)
+        out = generate_report(t["element"], t["action_time"], t["sn"], t["mean_c"], mode, batch_dir, method_profile)
         created.append(out)
         log.append({**t, "file": str(out.name)})
     with (batch_dir / "generation_log.json").open("w", encoding="utf-8") as f:

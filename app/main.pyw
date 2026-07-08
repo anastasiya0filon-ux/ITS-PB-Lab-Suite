@@ -162,7 +162,7 @@ class Card(QFrame):
 
 
 class CommonParams(Card):
-    def __init__(self, title="Общие параметры", show_operator=True, show_time=True, show_mode=True):
+    def __init__(self, title="Общие параметры", show_operator=True, show_time=True, show_mode=True, method_items=None):
         super().__init__(title)
         grid = QGridLayout()
         grid.setHorizontalSpacing(18)
@@ -172,6 +172,10 @@ class CommonParams(Card):
         self.operator = QComboBox(); self.operator.addItems(OPERATORS)
         self.date = QLineEdit(now.strftime('%d.%m.%Y'))
         self.time = QLineEdit(now.strftime('%H:%M:%S'))
+        self.method = QComboBox()
+        if method_items:
+            for mid, title in method_items:
+                self.method.addItem(title, mid)
         self.mode_group = QButtonGroup(self)
         self.mode_normal = QRadioButton("Обычный")
         self.mode_precise = QRadioButton("Очень точный")
@@ -186,11 +190,16 @@ class CommonParams(Card):
         grid.addWidget(self._caption("Дата"), 0, col); grid.addWidget(self.date, 1, col); col += 1
         if show_time:
             grid.addWidget(self._caption("Время"), 0, col); grid.addWidget(self.time, 1, col); col += 1
+        row_base = 2
+        if method_items:
+            grid.addWidget(self._caption("Методика"), row_base, 0, 1, max(col, 1))
+            grid.addWidget(self.method, row_base + 1, 0, 1, max(col, 1))
+            row_base += 2
         if show_mode:
             mode_box = QHBoxLayout(); mode_box.setSpacing(12)
             mode_box.addWidget(self.mode_normal); mode_box.addWidget(self.mode_precise); mode_box.addWidget(self.mode_rough); mode_box.addStretch(1)
-            grid.addWidget(self._caption("Режим СКО"), 2, 0, 1, max(col, 1))
-            grid.addLayout(mode_box, 3, 0, 1, max(col, 1))
+            grid.addWidget(self._caption("Режим СКО"), row_base, 0, 1, max(col, 1))
+            grid.addLayout(mode_box, row_base + 1, 0, 1, max(col, 1))
         for i in range(max(col, 1)):
             grid.setColumnStretch(i, 1)
 
@@ -352,17 +361,33 @@ class AasPage(ModulePage):
     def __init__(self, main_window):
         super().__init__("AAS", "Генерация отчетов атомно-абсорбционного анализа")
         self.main = main_window
-        self.common = CommonParams(show_operator=False, show_time=False, show_mode=True)
+        self.common = CommonParams(show_operator=False, show_time=False, show_mode=True, method_items=aas.method_profile_titles())
         self.content.addWidget(self.common)
         tabs = QTabWidget(); self.content.addWidget(tabs, 1)
         tabs.addTab(self.single_tab(), "Одиночная генерация")
         tabs.addTab(self.excel_tab(), "Массовая через Excel")
+        self.common.method.currentIndexChanged.connect(self.update_aas_elements)
+
+    def current_aas_profile(self):
+        return self.common.method.currentData() or "GOST_31870"
+
+    def update_aas_elements(self):
+        if not hasattr(self, "aas_el"):
+            return
+        current = self.aas_el.currentText()
+        elements = aas.elements_for_profile(self.current_aas_profile())
+        self.aas_el.blockSignals(True)
+        self.aas_el.clear()
+        self.aas_el.addItems(elements)
+        if current in elements:
+            self.aas_el.setCurrentText(current)
+        self.aas_el.blockSignals(False)
 
     def single_tab(self):
         w = QWidget(); lay = QVBoxLayout(w); lay.setContentsMargins(0, 12, 0, 0)
         c = Card("Параметры отчета")
         g = QGridLayout(); g.setHorizontalSpacing(14); g.setVerticalSpacing(10); c.body.addLayout(g)
-        self.aas_el = QComboBox(); self.aas_el.addItems(list(aas.ELEMENTS.keys()) if isinstance(aas.ELEMENTS, dict) else list(aas.ELEMENTS))
+        self.aas_el = QComboBox(); self.aas_el.addItems(aas.elements_for_profile(self.current_aas_profile()))
         self.aas_sn = QLineEdit("ИТС-ПБ-26-000001")
         self.aas_c = QLineEdit("0.52978")
         g.addWidget(QLabel("Элемент"),0,0); g.addWidget(self.aas_el,1,0)
@@ -386,19 +411,20 @@ class AasPage(ModulePage):
     def create_aas_template(self):
         p,_=QFileDialog.getSaveFileName(self,"Сохранить шаблон",str(APP_DIR/"AAS_template.xlsx"),"Excel (*.xlsx)")
         if p:
-            rows=[["Шифр пробы","Дата","Fe","Mn","Cr","Cd","Ba","As","Se","Sb","Pb","Ti","Sn","Hg"],["ИТС-ПБ-26-000001",self.common.date.text(),"0.52978","","","","","","","","","","",""]]
+            elements = aas.elements_for_profile(self.current_aas_profile())
+            rows=[["Шифр пробы","Дата",*elements],["ИТС-ПБ-26-000001",self.common.date.text(),"0.52978",*("" for _ in elements[1:])]]
             write_xlsx(Path(p), rows); self.main.info("Шаблон Excel ААС сохранен")
 
     def generate_aas_single(self):
         try:
-            out=aas.generate_report(self.aas_el.currentText(), self.common.date.text(), self.aas_sn.text().strip(), parse_float(self.aas_c.text()), self.common.mode(), AAS_DIR/'output')
+            out=aas.generate_report(self.aas_el.currentText(), self.common.date.text(), self.aas_sn.text().strip(), parse_float(self.aas_c.text()), self.common.mode(), AAS_DIR/'output', self.current_aas_profile())
             self.main.done("Отчет ААС сформирован",1,AAS_DIR/'output')
         except Exception: self.main.error(traceback.format_exc())
 
     def generate_aas_excel(self):
         try:
             if not self.aas_excel.text().strip(): raise ValueError("Выберите Excel-файл")
-            created,batch_dir=aas.generate_from_excel(Path(self.aas_excel.text()), self.common.date.text(), self.common.mode(), AAS_DIR/'output')
+            created,batch_dir=aas.generate_from_excel(Path(self.aas_excel.text()), self.common.date.text(), self.common.mode(), AAS_DIR/'output', self.current_aas_profile())
             self.main.done("Серия ААС сформирована",len(created),batch_dir)
         except Exception: self.main.error(traceback.format_exc())
 
