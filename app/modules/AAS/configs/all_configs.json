@@ -1,0 +1,14 @@
+{
+  "Mn": {"x":[0,50,100,125,150],"y":[0.009,0.13,0.255,0.314,0.372],"v":40,"cRangeFrom":0,"cRangeTo":1,"cRangeFromBonus":8.65356,"cRangeToBonus":-5.23648,"ccDivided":20},
+  "Fe": {"v":40,"cRangeToBonus":0,"cRangeFromBonus":0,"cRangeFrom":0,"ccDivided":20,"x":[0,50,100,125,150,200],"y":[0.009,0.13,0.255,0.314,0.372,0.487],"cRangeTo":1},
+  "Cd": {"cRangeFromBonus":8.65356,"cRangeToBonus":-5.23648,"ccDivided":20,"v":40,"x":[0,100,200,300,400],"cRangeFrom":0,"cRangeTo":1,"y":[0.05,0.26,0.504,0.726,0.912]},
+  "Ba": {"cRangeFromBonus":8.65356,"cRangeToBonus":-5.23648,"ccDivided":20,"v":40,"x":[0,100,200,300,400],"cRangeFrom":0,"cRangeTo":1,"y":[0.03,0.079,0.14,0.212,0.282]},
+  "As": {"cRangeFromBonus":8.65356,"cRangeToBonus":-5.23648,"ccDivided":20,"v":40,"x":[0,100,200,400],"cRangeFrom":0,"cRangeTo":1,"y":[0.03,0.051,0.097,0.209]},
+  "Cr": {"cRangeFromBonus":8.65356,"cRangeToBonus":-5.23648,"ccDivided":20,"v":40,"x":[0,50,100,125,150,200],"cRangeFrom":0,"cRangeTo":1,"y":[0.009,0.13,0.255,0.314,0.372,0.487]},
+  "Se": {"cRangeFromBonus":8.65356,"cRangeToBonus":-5.23648,"ccDivided":20,"v":40,"x":[0,100,200,300,400],"cRangeFrom":0,"cRangeTo":1,"y":[0.03,0.079,0.14,0.212,0.282]},
+  "Sb": {"cRangeFromBonus":8.65356,"cRangeToBonus":-5.23648,"ccDivided":20,"v":40,"x":[0,100,200,300,400],"cRangeFrom":0,"cRangeTo":1,"y":[0,0.068,0.136,0.196,0.253]},
+  "Pb": {"cRangeFromBonus":8.65356,"cRangeToBonus":-5.23648,"ccDivided":20,"v":40,"x":[0,100,200,300,400],"cRangeFrom":0,"cRangeTo":1,"y":[0.03,0.079,0.14,0.212,0.282]},
+  "Ti": {"x":[0,500,1000,1500,2000],"y":[0.01,0.035,0.061,0.088,0.113],"v":40,"cRangeFrom":0,"cRangeTo":1,"cRangeFromBonus":8.65356,"cRangeToBonus":-5.23648,"ccDivided":20},
+  "Sn": {"cRangeTo":1,"y":[0.010,0.143,0.213,0.287,0.424],"ccDivided":20,"x":[0,500,750,1000,1500],"cRangeToBonus":-5.23648,"v":40,"cRangeFrom":0,"cRangeFromBonus":8.65356},
+  "Hg": {"cRangeFromBonus":8.65356,"cRangeToBonus":-5.23648,"ccDivided":20,"v":5000,"x":[0,100,200,300,400],"cRangeFrom":0,"cRangeTo":1,"y":[0.03,0.079,0.14,0.212,0.282]}
+}

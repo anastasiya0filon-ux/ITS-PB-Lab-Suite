@@ -1,0 +1,20 @@
+{
+  "cRangeFromBonus": 8.65356,
+  "cRangeToBonus": -5.23648,
+  "ccDivided": 20,
+  "v": 40,
+  "x": [
+    0,
+    100,
+    200,
+    400
+  ],
+  "cRangeFrom": 0,
+  "cRangeTo": 1,
+  "y": [
+    0.03,
+    0.051,
+    0.097,
+    0.209
+  ]
+}
