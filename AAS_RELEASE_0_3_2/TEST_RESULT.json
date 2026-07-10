@@ -1,0 +1,13 @@
+{
+  "version": "0.3.2",
+  "tested_elements": [
+    "Al",
+    "Ag",
+    "Zn",
+    "Cu",
+    "Ni",
+    "Co"
+  ],
+  "measurements_per_report": 3,
+  "unique_timestamps_verified": true
+}
