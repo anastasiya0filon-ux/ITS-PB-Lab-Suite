@@ -14,6 +14,8 @@ Excel-формат:
 """
 import json
 import math
+from copy import deepcopy
+from datetime import datetime, timedelta
 import os
 import random
 import shutil
@@ -251,32 +253,96 @@ def interp_linear(x_values, y_values, x):
     return y0 + (x - x0) * (y1 - y0) / (x1 - x0)
 
 
-def generate_three_values(mean_c: float, seed_text: str, mode: str = "normal", element: str = ""):
+def parse_action_datetime(value: str) -> datetime:
+    """Parse user-entered date/time. Date-only values default to 09:00."""
+    raw = str(value or "").strip()
+    formats = (
+        "%d.%m.%Y %H:%M:%S",
+        "%d.%m.%Y %H:%M",
+        "%d.%m.%y %H:%M:%S",
+        "%d.%m.%y %H:%M",
+        "%d.%m.%Y",
+        "%d.%m.%y",
+    )
+    for fmt in formats:
+        try:
+            dt = datetime.strptime(raw, fmt)
+            if "%H" not in fmt:
+                dt = dt.replace(hour=9, minute=0, second=0)
+            return dt
+        except ValueError:
+            continue
+    raise ValueError(
+        "Дата и время должны быть в формате ДД.ММ.ГГГГ ЧЧ:ММ "
+        "(например, 19.11.2024 15:30)."
+    )
+
+
+def format_header_time(dt: datetime) -> str:
+    return dt.strftime("%d.%m.%y %H:%M")
+
+
+def format_row_time(dt: datetime) -> str:
+    return dt.strftime("%d.%m.%y  %H:%M:%S")
+
+
+def _interval_seconds(seed_text: str, index: int) -> int:
+    """Deterministic realistic interval: 9:00–10:00, concentrated near 9:30."""
+    rnd = random.Random(f"{seed_text}|time|{index}")
+    seconds = int(round(rnd.gauss(570, 15)))
+    return max(540, min(600, seconds))
+
+
+def build_measurement_times(action_time: str, count: int, seed_text: str):
+    latest = parse_action_datetime(action_time)
+    # The header is the later analysis time, without seconds. Generate seconds
+    # deterministically so repeated generation produces the same report.
+    rnd = random.Random(f"{seed_text}|latest-seconds")
+    latest = latest.replace(second=rnd.randint(5, 55))
+    times = [latest]
+    for i in range(1, count):
+        times.append(times[-1] - timedelta(seconds=_interval_seconds(seed_text, i)))
+    return times
+
+
+def generate_values(mean_c: float, seed_text: str, count: int = 2, mode: str = "normal", element: str = ""):
+    if count < 2 or count > 5:
+        raise ValueError("Количество параллельных измерений должно быть от 2 до 5")
     rnd = random.Random(seed_text)
     rel_sd = pick_target_rel_cv(element, mean_c, seed_text, mode)
+    # Build a symmetric set around the requested mean, then shuffle it.
+    if count == 2:
+        offsets = [-1.0, 1.0]
+    else:
+        offsets = [i - (count - 1) / 2 for i in range(count)]
+        scale = max(abs(x) for x in offsets) or 1.0
+        offsets = [x / scale for x in offsets]
     base = mean_c * rel_sd
     if mean_c - base <= 0:
         base = mean_c * 0.45
-    vals = [mean_c - base, mean_c, mean_c + base]
+    vals = [mean_c + base * off for off in offsets]
     rnd.shuffle(vals)
     return vals
 
 
-def build_context(element: str, action_time: str, sn: str, mean_c: float, mode: str = "normal", method_profile: str | None = None) -> dict:
+def build_context(element: str, action_time: str, sn: str, mean_c: float, mode: str = "normal", method_profile: str | None = None, measurements: int = 2) -> dict:
     element = normalize_element(element)
     cfg = load_config(element)
     profile_override = get_profile_override(method_profile, element)
     v = float(profile_override.get("v", cfg["v"]))
     cc_div = float(cfg["ccDivided"])
-    seed = f"{element}|{action_time}|{sn}|{mean_c:.9f}|{mode}"
-    c_values = generate_three_values(mean_c, seed, mode, element)
+    seed = f"{element}|{action_time}|{sn}|{mean_c:.9f}|{mode}|{measurements}"
+    c_values = generate_values(mean_c, seed, measurements, mode, element)
+    measurement_times = build_measurement_times(action_time, measurements, seed)
 
     rows = []
-    for c in c_values:
+    for idx, (c, row_time) in enumerate(zip(c_values, measurement_times), start=1):
         cxm = c * v
         ci = interp_linear(cfg["x"], cfg["y"], cxm)
         cc = c / cc_div
         rows.append({
+            "index": idx,
+            "action_time": format_row_time(row_time),
             "C": fmt6(c),
             "CXm": fmt6(cxm),
             "Ci": fmt6(ci),
@@ -285,31 +351,20 @@ def build_context(element: str, action_time: str, sn: str, mean_c: float, mode: 
 
     masses = [float(r["CXm"]) for r in rows]
     concs = [float(r["C"]) for r in rows]
-    avg_m = sum(masses) / 3
-    avg_c = sum(concs) / 3
+    avg_m = statistics.mean(masses)
+    avg_c = statistics.mean(concs)
     sd_m = statistics.stdev(masses)
     sd_c = statistics.stdev(concs)
     rel = (sd_c / avg_c * 100) if avg_c else 0
 
     ctx = {
-        "action_time": action_time,
+        "action_time": format_header_time(measurement_times[0]),
         "sn": sn,
         "v": fmt2(v),
         "result": mean_c,
+        "measurements": measurements,
         "method_profile": method_profile or "GOST_31870",
         "method_title": get_profile(method_profile).get("title", "ГОСТ 31870"),
-        "row_1.C": rows[0]["C"],
-        "row_1.CXm": rows[0]["CXm"],
-        "row_1.Ci": rows[0]["Ci"],
-        "row_1.CC": rows[0]["CC"],
-        "row_2.C": rows[1]["C"],
-        "row_2.CXm": rows[1]["CXm"],
-        "row_2.Ci": rows[1]["Ci"],
-        "row_2.CC": rows[1]["CC"],
-        "row_3.C": rows[2]["C"],
-        "row_3.CXm": rows[2]["CXm"],
-        "row_3.Ci": rows[2]["Ci"],
-        "row_3.CC": rows[2]["CC"],
         "row_avg.M": fmt6(avg_m),
         "row_avg.MM": fmt6(avg_c),
         "row_avg_abs.M": fmt6(sd_m),
@@ -317,8 +372,13 @@ def build_context(element: str, action_time: str, sn: str, mean_c: float, mode: 
         "row_avg_rel.M": fmt6(rel),
         "row_avg_rel.MM": fmt6(rel),
     }
+    for i, row in enumerate(rows, start=1):
+        ctx[f"row_{i}.action_time"] = row["action_time"]
+        ctx[f"row_{i}.C"] = row["C"]
+        ctx[f"row_{i}.CXm"] = row["CXm"]
+        ctx[f"row_{i}.Ci"] = row["Ci"]
+        ctx[f"row_{i}.CC"] = row["CC"]
     return ctx
-
 
 def _placeholder_patterns(context: dict):
     patterns = []
@@ -435,6 +495,46 @@ def replace_in_xml(xml_bytes: bytes, context: dict) -> bytes:
     return ET.tostring(root, encoding="utf-8", xml_declaration=True)
 
 
+def _row_text(row) -> str:
+    return "".join(t.text or "" for t in row.iter(f"{{{W_NS}}}t"))
+
+
+def _set_first_cell_number(row, number: int):
+    cells = row.findall(f"{{{W_NS}}}tc")
+    if not cells:
+        return
+    text_nodes = list(cells[0].iter(f"{{{W_NS}}}t"))
+    if text_nodes:
+        text_nodes[0].text = str(number)
+        for node in text_nodes[1:]:
+            node.text = ""
+
+
+def _prepare_dynamic_measurement_rows(xml_bytes: bytes, measurements: int) -> bytes:
+    root = ET.fromstring(xml_bytes)
+    for table in root.iter(f"{{{W_NS}}}tbl"):
+        rows = list(table.findall(f"{{{W_NS}}}tr"))
+        data_rows = [r for r in rows if "{{row_" in _row_text(r)]
+        if not data_rows:
+            continue
+        prototype = data_rows[0]
+        insert_at = list(table).index(prototype)
+        for row in data_rows:
+            table.remove(row)
+        for i in range(1, measurements + 1):
+            row = deepcopy(prototype)
+            for node in row.iter(f"{{{W_NS}}}t"):
+                txt = node.text or ""
+                txt = txt.replace("row_1.", f"row_{i}.")
+                txt = txt.replace("{{ action_time }}", f"{{{{ row_{i}.action_time }}}}")
+                txt = txt.replace("{{action_time}}", f"{{{{row_{i}.action_time}}}}")
+                node.text = txt
+            _set_first_cell_number(row, i)
+            table.insert(insert_at + i - 1, row)
+        break
+    return ET.tostring(root, encoding="utf-8", xml_declaration=True)
+
+
 def fill_docx(template_path: Path, out_path: Path, context: dict):
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory() as tmp:
@@ -444,7 +544,10 @@ def fill_docx(template_path: Path, out_path: Path, context: dict):
         for rel in ["word/document.xml", "word/header1.xml", "word/footer1.xml"]:
             p = tmp / rel
             if p.exists():
-                p.write_bytes(replace_in_xml(p.read_bytes(), context))
+                xml_bytes = p.read_bytes()
+                if rel == "word/document.xml":
+                    xml_bytes = _prepare_dynamic_measurement_rows(xml_bytes, int(context.get("measurements", 2)))
+                p.write_bytes(replace_in_xml(xml_bytes, context))
         with zipfile.ZipFile(out_path, "w", zipfile.ZIP_DEFLATED) as zout:
             for file in tmp.rglob("*"):
                 if file.is_file():
@@ -455,12 +558,12 @@ def safe_name(s: str) -> str:
     return "".join(ch if ch.isalnum() or ch in "-_" else "_" for ch in str(s))
 
 
-def generate_report(element: str, action_time: str, sn: str, mean_c: float, mode: str = "normal", output_dir: Path = OUTPUT_DIR, method_profile: str | None = None) -> Path:
+def generate_report(element: str, action_time: str, sn: str, mean_c: float, mode: str = "normal", output_dir: Path = OUTPUT_DIR, method_profile: str | None = None, measurements: int = 2) -> Path:
     element = normalize_element(element)
     template = TEMPLATE_DIR / f"{element}.docx"
     if not template.exists():
         raise FileNotFoundError(f"Не найден шаблон: {template}")
-    ctx = build_context(element, action_time, sn, mean_c, mode, method_profile)
+    ctx = build_context(element, action_time, sn, mean_c, mode, method_profile, measurements)
     ctx["element"] = element
     safe_sn = safe_name(sn)
     out = output_dir / f"Отчет_{element}_{safe_sn}.docx"
@@ -594,7 +697,7 @@ def parse_excel_batch(xlsx_path: Path, default_date: str, method_profile: str | 
     return tasks
 
 
-def generate_from_excel(xlsx_path: Path, default_date: str, mode: str = "normal", output_dir: Path = OUTPUT_DIR, method_profile: str | None = None):
+def generate_from_excel(xlsx_path: Path, default_date: str, mode: str = "normal", output_dir: Path = OUTPUT_DIR, method_profile: str | None = None, measurements: int = 2):
     tasks = parse_excel_batch(xlsx_path, default_date, method_profile)
     if not tasks:
         raise ValueError("В Excel не найдено ни одного заполненного результата")
@@ -602,10 +705,25 @@ def generate_from_excel(xlsx_path: Path, default_date: str, mode: str = "normal"
     batch_dir.mkdir(parents=True, exist_ok=True)
     created = []
     log = []
-    for t in tasks:
-        out = generate_report(t["element"], t["action_time"], t["sn"], t["mean_c"], mode, batch_dir, method_profile)
+    sequence_time = parse_action_datetime(default_date)
+    for idx, t in enumerate(tasks):
+        raw_time = str(t.get("action_time") or "").strip()
+        # Explicit date-time in Excel takes precedence; a date-only cell keeps
+        # the continuous sequence time for that day.
+        try:
+            parsed = parse_action_datetime(raw_time) if raw_time else sequence_time
+            has_clock = ":" in raw_time
+            if has_clock:
+                report_time = parsed
+            else:
+                report_time = sequence_time.replace(year=parsed.year, month=parsed.month, day=parsed.day)
+        except ValueError:
+            report_time = sequence_time
+        action_time = report_time.strftime("%d.%m.%Y %H:%M")
+        out = generate_report(t["element"], action_time, t["sn"], t["mean_c"], mode, batch_dir, method_profile, measurements)
         created.append(out)
-        log.append({**t, "file": str(out.name)})
+        log.append({**t, "action_time": action_time, "measurements": measurements, "file": str(out.name)})
+        sequence_time = report_time + timedelta(seconds=_interval_seconds(f"batch|{xlsx_path}|{idx}", idx + 1))
     with (batch_dir / "generation_log.json").open("w", encoding="utf-8") as f:
         json.dump(log, f, ensure_ascii=False, indent=2)
     return created, batch_dir
@@ -615,7 +733,7 @@ class App:
     def __init__(self, root):
         self.root = root
         root.title("Генератор отчетов ААС v3 Excel")
-        root.geometry("560x430")
+        root.geometry("600x500")
         frm = ttk.Frame(root, padding=16)
         frm.pack(fill="both", expand=True)
 
@@ -624,8 +742,8 @@ class App:
         self.element = tk.StringVar(value="Fe")
         ttk.Combobox(frm, textvariable=self.element, values=ELEMENTS, state="readonly", width=18).grid(row=1, column=1, sticky="ew", pady=4)
 
-        ttk.Label(frm, text="Дата").grid(row=2, column=0, sticky="w", pady=4)
-        self.action_time = tk.StringVar(value="07.07.2026")
+        ttk.Label(frm, text="Дата и время последнего анализа").grid(row=2, column=0, sticky="w", pady=4)
+        self.action_time = tk.StringVar(value="07.07.2026 09:00")
         ttk.Entry(frm, textvariable=self.action_time, width=25).grid(row=2, column=1, sticky="ew", pady=4)
 
         ttk.Label(frm, text="Шифр пробы").grid(row=3, column=0, sticky="w", pady=4)
@@ -640,21 +758,25 @@ class App:
         self.mode = tk.StringVar(value="normal")
         ttk.Combobox(frm, textvariable=self.mode, values=["precise", "normal", "rough"], state="readonly", width=18).grid(row=5, column=1, sticky="ew", pady=4)
 
-        ttk.Button(frm, text="Сформировать одиночный Word-отчет", command=self.run_single).grid(row=6, column=0, columnspan=3, pady=(10, 18), sticky="ew")
+        ttk.Label(frm, text="Параллельные измерения").grid(row=6, column=0, sticky="w", pady=4)
+        self.measurements = tk.IntVar(value=2)
+        ttk.Spinbox(frm, from_=2, to=5, textvariable=self.measurements, width=8, state="readonly").grid(row=6, column=1, sticky="w", pady=4)
 
-        ttk.Separator(frm).grid(row=7, column=0, columnspan=3, sticky="ew", pady=6)
-        ttk.Label(frm, text="Массовая генерация из Excel", font=("Segoe UI", 10, "bold")).grid(row=8, column=0, columnspan=3, sticky="w", pady=(8, 6))
+        ttk.Button(frm, text="Сформировать одиночный Word-отчет", command=self.run_single).grid(row=7, column=0, columnspan=3, pady=(10, 18), sticky="ew")
 
-        ttk.Label(frm, text="Excel-файл").grid(row=9, column=0, sticky="w", pady=4)
+        ttk.Separator(frm).grid(row=8, column=0, columnspan=3, sticky="ew", pady=6)
+        ttk.Label(frm, text="Массовая генерация из Excel", font=("Segoe UI", 10, "bold")).grid(row=9, column=0, columnspan=3, sticky="w", pady=(8, 6))
+
+        ttk.Label(frm, text="Excel-файл").grid(row=10, column=0, sticky="w", pady=4)
         self.excel_path = tk.StringVar(value="")
-        ttk.Entry(frm, textvariable=self.excel_path).grid(row=9, column=1, sticky="ew", pady=4)
-        ttk.Button(frm, text="Выбрать", command=self.pick_excel).grid(row=9, column=2, sticky="ew", padx=(8, 0), pady=4)
+        ttk.Entry(frm, textvariable=self.excel_path).grid(row=10, column=1, sticky="ew", pady=4)
+        ttk.Button(frm, text="Выбрать", command=self.pick_excel).grid(row=10, column=2, sticky="ew", padx=(8, 0), pady=4)
 
-        ttk.Button(frm, text="Сгенерировать серию из Excel", command=self.run_excel).grid(row=10, column=0, columnspan=3, pady=12, sticky="ew")
-        ttk.Button(frm, text="Открыть папку output", command=self.open_output).grid(row=11, column=0, columnspan=3, sticky="ew")
+        ttk.Button(frm, text="Сгенерировать серию из Excel", command=self.run_excel).grid(row=11, column=0, columnspan=3, pady=12, sticky="ew")
+        ttk.Button(frm, text="Открыть папку output", command=self.open_output).grid(row=12, column=0, columnspan=3, sticky="ew")
 
         self.status = tk.StringVar(value="")
-        ttk.Label(frm, textvariable=self.status, wraplength=520).grid(row=12, column=0, columnspan=3, sticky="w", pady=(12, 0))
+        ttk.Label(frm, textvariable=self.status, wraplength=520).grid(row=13, column=0, columnspan=3, sticky="w", pady=(12, 0))
         frm.columnconfigure(1, weight=1)
 
     def pick_excel(self):
@@ -665,7 +787,7 @@ class App:
     def run_single(self):
         try:
             mean = float(self.mean_c.get().replace(",", "."))
-            out = generate_report(self.element.get(), self.action_time.get().strip(), self.sn.get().strip(), mean, self.mode.get())
+            out = generate_report(self.element.get(), self.action_time.get().strip(), self.sn.get().strip(), mean, self.mode.get(), measurements=self.measurements.get())
             self.status.set(f"Готово: {out}")
             messagebox.showinfo("Готово", f"Отчет сохранен:\n{out}")
         except Exception as e:
@@ -676,7 +798,7 @@ class App:
             p = Path(self.excel_path.get().strip())
             if not p.exists():
                 raise FileNotFoundError("Выберите Excel-файл")
-            created, batch_dir = generate_from_excel(p, self.action_time.get().strip(), self.mode.get())
+            created, batch_dir = generate_from_excel(p, self.action_time.get().strip(), self.mode.get(), measurements=self.measurements.get())
             self.status.set(f"Готово: создано {len(created)} отчетов. Папка: {batch_dir}")
             messagebox.showinfo("Готово", f"Создано отчетов: {len(created)}\nПапка:\n{batch_dir}")
         except Exception as e:
@@ -695,14 +817,16 @@ def main():
     if len(sys.argv) >= 5 and sys.argv[1] != "--excel":
         element, action_time, sn, mean = sys.argv[1], sys.argv[2], sys.argv[3], float(sys.argv[4].replace(",", "."))
         mode = sys.argv[5] if len(sys.argv) >= 6 else "normal"
-        print(generate_report(element, action_time, sn, mean, mode))
+        measurements = int(sys.argv[6]) if len(sys.argv) >= 7 else 2
+        print(generate_report(element, action_time, sn, mean, mode, measurements=measurements))
         return
     # CLI Excel: python aas_report_generator.py --excel input.xlsx 07.07.2026 normal
     if len(sys.argv) >= 3 and sys.argv[1] == "--excel":
         xlsx = Path(sys.argv[2])
         default_date = sys.argv[3] if len(sys.argv) >= 4 else "07.07.2026"
         mode = sys.argv[4] if len(sys.argv) >= 5 else "normal"
-        created, batch_dir = generate_from_excel(xlsx, default_date, mode)
+        measurements = int(sys.argv[5]) if len(sys.argv) >= 6 else 2
+        created, batch_dir = generate_from_excel(xlsx, default_date, mode, measurements=measurements)
         print(f"Создано отчетов: {len(created)}")
         print(batch_dir)
         return
