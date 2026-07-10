@@ -19,6 +19,7 @@ MODULES = APP_DIR / "modules"
 ICP_DIR = MODULES / "ICP_OS"
 AAS_DIR = MODULES / "AAS"
 TOX_DIR = MODULES / "Toxicity"
+GC_DIR = MODULES / "GC"
 ASSETS_DIR = APP_DIR / "assets"
 LOGO_PATH = ASSETS_DIR / "logo.svg"
 LAB_NAME = 'ИЛ «ИТС-ПБ»'
@@ -54,6 +55,7 @@ def import_from(path: Path, name: str):
 icp = import_from(ICP_DIR / "icp_os_generator.py", "icp_os_generator_suite_qt")
 aas = import_from(AAS_DIR / "aas_report_generator.py", "aas_report_generator_suite_qt")
 tox = import_from(TOX_DIR / "toxicity_generator.py", "toxicity_generator_suite_qt")
+gc = import_from(GC_DIR / "gc_generator.py", "gc_generator_suite_qt")
 
 
 class AppComboBox(QComboBox):
@@ -384,7 +386,7 @@ class AasPage(ModulePage):
     def __init__(self, main_window):
         super().__init__("AAS", "Генерация отчетов атомно-абсорбционного анализа")
         self.main = main_window
-        self.common = CommonParams(show_operator=False, show_time=False, show_mode=True, method_items=aas.method_profile_titles())
+        self.common = CommonParams(show_operator=False, show_time=True, show_mode=True, method_items=aas.method_profile_titles())
         self.content.addWidget(self.common)
         tabs = QTabWidget(); self.content.addWidget(tabs, 1)
         tabs.addTab(self.single_tab(), "Одиночная генерация")
@@ -413,9 +415,13 @@ class AasPage(ModulePage):
         self.aas_el = AppComboBox(); self.aas_el.addItems(aas.elements_for_profile(self.current_aas_profile()))
         self.aas_sn = QLineEdit("ИТС-ПБ-26-000001")
         self.aas_c = QLineEdit("0.52978")
+        self.aas_measurements = QSpinBox()
+        self.aas_measurements.setRange(2, 5)
+        self.aas_measurements.setValue(2)
         g.addWidget(QLabel("Элемент"),0,0); g.addWidget(self.aas_el,1,0)
         g.addWidget(QLabel("Шифр образца"),0,1); g.addWidget(self.aas_sn,1,1)
         g.addWidget(QLabel("Средняя концентрация"),0,2); g.addWidget(self.aas_c,1,2)
+        g.addWidget(QLabel("Параллельные измерения"),0,3); g.addWidget(self.aas_measurements,1,3)
         actions=QHBoxLayout(); actions.addStretch(1); actions.addWidget(self.main.primary("Сформировать отчет", self.generate_aas_single)); c.body.addLayout(actions)
         lay.addWidget(c); lay.addStretch(1); return w
 
@@ -440,16 +446,187 @@ class AasPage(ModulePage):
 
     def generate_aas_single(self):
         try:
-            out=aas.generate_report(self.aas_el.currentText(), self.common.date.text(), self.aas_sn.text().strip(), parse_float(self.aas_c.text()), self.common.mode(), AAS_DIR/'output', self.current_aas_profile())
+            out=aas.generate_report(self.aas_el.currentText(), f'{self.common.date.text()} {self.common.time.text()}', self.aas_sn.text().strip(), parse_float(self.aas_c.text()), self.common.mode(), AAS_DIR/'output', self.current_aas_profile(), self.aas_measurements.value())
             self.main.done("Отчет ААС сформирован",1,AAS_DIR/'output')
         except Exception: self.main.error(traceback.format_exc())
 
     def generate_aas_excel(self):
         try:
             if not self.aas_excel.text().strip(): raise ValueError("Выберите Excel-файл")
-            created,batch_dir=aas.generate_from_excel(Path(self.aas_excel.text()), self.common.date.text(), self.common.mode(), AAS_DIR/'output', self.current_aas_profile())
+            created,batch_dir=aas.generate_from_excel(Path(self.aas_excel.text()), f'{self.common.date.text()} {self.common.time.text()}', self.common.mode(), AAS_DIR/'output', self.current_aas_profile(), self.aas_measurements.value())
             self.main.done("Серия ААС сформирована",len(created),batch_dir)
         except Exception: self.main.error(traceback.format_exc())
+
+
+class GcPage(ModulePage):
+    def __init__(self, main_window):
+        super().__init__("Газовая хроматография", "МУК 4.1.3166 · генерация двух хроматограмм с независимыми моделями ПИД-1/ПИД-2")
+        self.main = main_window
+        self.common = CommonParams(
+            show_operator=False,
+            show_time=True,
+            show_mode=False,
+            method_items=[("MUK_4_1_3166", "МУК 4.1.3166")],
+        )
+        self.content.addWidget(self.common)
+
+        info = QLabel("Количество хроматограмм определяется методикой: 2")
+        info.setObjectName("Hint")
+        self.content.addWidget(info)
+
+        tabs = QTabWidget()
+        self.content.addWidget(tabs, 1)
+        tabs.addTab(self._single_random_tab(), "Одиночная — рандом")
+        tabs.addTab(self._single_actual_tab(), "Одиночная — фактические")
+        tabs.addTab(self._excel_tab("random"), "Массовая — рандом")
+        tabs.addTab(self._excel_tab("actual"), "Массовая — фактические")
+
+    def _component_table(self, actual=False):
+        columns = ["Компонент", "Базовая концентрация"] if not actual else ["Компонент", "Хроматограмма 1", "Хроматограмма 2"]
+        table = QTableWidget(len(gc.COMPONENT_DEFAULTS), len(columns))
+        table.setHorizontalHeaderLabels(columns)
+        table.verticalHeader().setVisible(False)
+        table.horizontalHeader().setSectionResizeMode(0, QHeaderView.Stretch)
+        for col in range(1, len(columns)):
+            table.horizontalHeader().setSectionResizeMode(col, QHeaderView.ResizeToContents)
+        for row, (component, default) in enumerate(gc.COMPONENT_DEFAULTS):
+            name_item = QTableWidgetItem(component)
+            name_item.setFlags(name_item.flags() & ~Qt.ItemIsEditable)
+            table.setItem(row, 0, name_item)
+            table.setItem(row, 1, QTableWidgetItem(f"{default:.5f}".replace(".", ",")))
+            if actual:
+                table.setItem(row, 2, QTableWidgetItem(f"{default:.5f}".replace(".", ",")))
+        table.setMinimumHeight(460)
+        return table
+
+    def _sample_card(self):
+        card = Card("Параметры образца")
+        grid = QGridLayout()
+        self.gc_sample = QLineEdit("ИТС-ПБ-26-000001")
+        grid.addWidget(QLabel("Шифр образца"), 0, 0)
+        grid.addWidget(self.gc_sample, 1, 0)
+        card.body.addLayout(grid)
+        return card
+
+    def _single_random_tab(self):
+        widget = QWidget()
+        layout = QVBoxLayout(widget)
+        layout.setContentsMargins(0, 10, 0, 0)
+        layout.addWidget(self._sample_card())
+        self.gc_random_table = self._component_table(False)
+        layout.addWidget(self.gc_random_table, 1)
+        row = QHBoxLayout()
+        row.addWidget(self.main.secondary("Вернуть значения по умолчанию", lambda: self._reset_table(self.gc_random_table, False)))
+        row.addStretch(1)
+        row.addWidget(self.main.primary("Сформировать хроматограммы", self._run_single_random))
+        layout.addLayout(row)
+        return widget
+
+    def _single_actual_tab(self):
+        widget = QWidget()
+        layout = QVBoxLayout(widget)
+        layout.setContentsMargins(0, 10, 0, 0)
+        card = Card("Параметры образца")
+        self.gc_actual_sample = QLineEdit("ИТС-ПБ-26-000001")
+        card.body.addWidget(QLabel("Шифр образца"))
+        card.body.addWidget(self.gc_actual_sample)
+        layout.addWidget(card)
+        self.gc_actual_table = self._component_table(True)
+        layout.addWidget(self.gc_actual_table, 1)
+        row = QHBoxLayout()
+        row.addWidget(self.main.secondary("Вернуть значения по умолчанию", lambda: self._reset_table(self.gc_actual_table, True)))
+        row.addStretch(1)
+        row.addWidget(self.main.primary("Сформировать хроматограммы", self._run_single_actual))
+        layout.addLayout(row)
+        return widget
+
+    def _excel_tab(self, mode):
+        widget = QWidget()
+        layout = QVBoxLayout(widget)
+        layout.setContentsMargins(0, 10, 0, 0)
+        card = Card("Файл массовой генерации")
+        line = QLineEdit()
+        choose = self.main.secondary("Выбрать Excel", lambda: self._pick_excel(line))
+        template = self.main.secondary("Открыть шаблон", lambda: self._open_template(mode))
+        row = QHBoxLayout()
+        row.addWidget(line, 1)
+        row.addWidget(choose)
+        row.addWidget(template)
+        card.body.addLayout(row)
+        run = self.main.primary("Сформировать серию", lambda: self._run_excel(line, mode))
+        card.body.addWidget(run, 0, Qt.AlignRight)
+        layout.addWidget(card)
+        layout.addStretch(1)
+        return widget
+
+    def _reset_table(self, table, actual):
+        for row, (_, default) in enumerate(gc.COMPONENT_DEFAULTS):
+            table.item(row, 1).setText(f"{default:.5f}".replace(".", ","))
+            if actual:
+                table.item(row, 2).setText(f"{default:.5f}".replace(".", ","))
+
+    def _table_values(self, table, actual):
+        values = {}
+        for row in range(table.rowCount()):
+            component = table.item(row, 0).text()
+            if actual:
+                values[component] = (
+                    parse_float(table.item(row, 1).text()),
+                    parse_float(table.item(row, 2).text()),
+                )
+            else:
+                values[component] = parse_float(table.item(row, 1).text())
+        return values
+
+    def _run_single_random(self):
+        try:
+            out = gc.build_sample(
+                self.gc_sample.text().strip(),
+                self.common.date.text(),
+                self.common.time.text(),
+                "random",
+                self._table_values(self.gc_random_table, False),
+                GC_DIR / "output",
+            )
+            self.main.done("Хроматограммы сформированы", 4, out)
+        except Exception as exc:
+            self.main.error(traceback.format_exc())
+
+    def _run_single_actual(self):
+        try:
+            out = gc.build_sample(
+                self.gc_actual_sample.text().strip(),
+                self.common.date.text(),
+                self.common.time.text(),
+                "actual",
+                self._table_values(self.gc_actual_table, True),
+                GC_DIR / "output",
+            )
+            self.main.done("Хроматограммы сформированы", 4, out)
+        except Exception:
+            self.main.error(traceback.format_exc())
+
+    def _pick_excel(self, line):
+        path, _ = QFileDialog.getOpenFileName(self, "Выберите Excel", "", "Excel (*.xlsx)")
+        if path:
+            line.setText(path)
+
+    def _open_template(self, mode):
+        path = gc.excel_template_path(mode)
+        try:
+            os.startfile(str(path))
+        except Exception:
+            open_folder(path.parent)
+
+    def _run_excel(self, line, mode):
+        try:
+            path = Path(line.text().strip())
+            if not path.exists():
+                raise FileNotFoundError("Выберите Excel-файл")
+            created, batch_dir = gc.generate_from_excel(path, mode, GC_DIR / "output")
+            self.main.done("Серия хроматограмм сформирована", len(created) * 4, batch_dir)
+        except Exception:
+            self.main.error(traceback.format_exc())
 
 
 class ToxicityPage(ModulePage):
@@ -515,7 +692,7 @@ class ServicePage(ModulePage):
         super().__init__("Сервис", "Папки, шаблоны и служебные действия")
         self.main=main_window
         c=Card("Рабочие папки")
-        for title,path in [("Output ICP OS", ICP_DIR/'output'), ("Output AAS", AAS_DIR/'output'), ("Output токсичность", TOX_DIR/'output'), ("Папка приложения", APP_DIR)]:
+        for title,path in [("Output ICP OS", ICP_DIR/'output'), ("Output AAS", AAS_DIR/'output'), ("Output токсичность", TOX_DIR/'output'), ("Output GC", GC_DIR/'output'), ("Папка приложения", APP_DIR)]:
             row=QHBoxLayout(); row.addWidget(QLabel(title)); row.addStretch(1); row.addWidget(main_window.secondary("Открыть", lambda p=path: open_folder(p))); c.body.addLayout(row)
         self.content.addWidget(c); self.content.addStretch(1)
 
@@ -538,7 +715,7 @@ class MainWindow(QMainWindow):
         side.addSpacing(24)
         self.buttons=[]
         self.stack=QStackedWidget()
-        pages=[("ICP OS","Отчеты ICP-OES",IcpPage(self)),("AAS","Атомная абсорбция",AasPage(self)),("Токсичность","Протоколы",ToxicityPage(self)),("Сервис","Папки и настройки",ServicePage(self))]
+        pages=[("ICP OS","Отчеты ICP-OES",IcpPage(self)),("AAS","Атомная абсорбция",AasPage(self)),("GC","Газовая хроматография",GcPage(self)),("Токсичность","Протоколы",ToxicityPage(self)),("Сервис","Папки и настройки",ServicePage(self))]
         for idx,(name,hint,page) in enumerate(pages):
             btn=QPushButton(f"{name}\n{hint}"); btn.setObjectName("SidebarButton"); btn.setCheckable(True); btn.clicked.connect(lambda checked=False, i=idx: self.select(i)); side.addWidget(btn); self.buttons.append(btn); self.stack.addWidget(page)
         side.addStretch(1)

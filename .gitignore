@@ -21,3 +21,48 @@ output/
 # Windows
 Thumbs.db
 Desktop.ini
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Build artifacts
+build/
+dist/
+*.spec.bak
+
+# Generated output
+output/
+logs/
+
+# Local backups
+*.backup*
+*.before_*
+*_backup.py
+*_before_*.py
+
+# Temporary patch packages
+GC_APEX_FIX_*/
+GC_REFERENCE_LAYOUT_FIX_*/
+GC_INSTRUMENT_REFERENCE_FIX_*/
+GC_FINAL_RENDERER_*/
+
+# Temporary installers
+INSTALL_GC_*.py
+
+# Runtime generation logs
+generation_log.json
+
+__pycache__/
+*.pyc
+
+build/
+dist/
+
+app/modules/AAS/output/
+app/modules/GC/output/
+
+*.backup
+*.bak
+*.before_*
+backup_*/

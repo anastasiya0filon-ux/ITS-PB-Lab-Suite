@@ -1,0 +1,100 @@
+{
+  "profile_id": "CHROMATEC_CRYSTAL_5000_FINAL_V9",
+  "title": "Хроматэк-Кристалл 5000 — финальный профиль V9",
+  "canvas": {
+    "width": 1600,
+    "height": 720,
+    "background": "#FFFFFF",
+    "margins": {
+      "left": 64,
+      "right": 18,
+      "top": 10,
+      "bottom": 38
+    }
+  },
+  "detectors": {
+    "ПИД-1": {
+      "color": "#000000",
+      "frame_color": "#000000"
+    },
+    "ПИД-2": {
+      "color": "#2638FF",
+      "frame_color": "#2638FF"
+    }
+  },
+  "fonts": {
+    "preferred_regular": [
+      "arialn.ttf",
+      "arial.ttf",
+      "segoeui.ttf"
+    ],
+    "preferred_bold": [
+      "arialnb.ttf",
+      "arialbd.ttf",
+      "segoeuib.ttf"
+    ],
+    "axis_size": 16,
+    "tick_size": 14,
+    "peak_label_size": 15
+  },
+  "lines": {
+    "signal_width": 1,
+    "axis_width": 1,
+    "major_tick_width": 1,
+    "minor_tick_width": 1,
+    "integration_width": 1
+  },
+  "axes": {
+    "x_min": 0.0,
+    "x_max": 38.96,
+    "x_major_step": 2.5,
+    "x_minor_step": 0.25,
+    "y_major_intervals": 5,
+    "y_minor_subdivisions": 5,
+    "draw_top_border": false,
+    "draw_right_border": false
+  },
+  "labels": {
+    "rotation_degrees": 90,
+    "format": "{tR:.3f} {component} {area:.3f}",
+    "x_shifts_px": [
+      0
+    ],
+    "vertical_levels_px": [
+      2,
+      18,
+      34,
+      50,
+      66
+    ],
+    "show_when_concentration_gt": 0,
+    "anchor": "peak_apex",
+    "x_coordinate_source": "retention_time_generated",
+    "allow_overlap": true,
+    "close_distance_px": 20,
+    "layout_mode": "direct_instrument_overlap",
+    "horizontal_repositioning": false,
+    "vertical_repositioning": false,
+    "bottom_anchor": "peak_apex"
+  },
+  "baseline": {
+    "mode": "reference_properties",
+    "rise_start_min": 33.5,
+    "rise_full_min": 38.96,
+    "pid1": {
+      "early_fraction": 0.0045,
+      "slow_wave_fraction": 0.0018,
+      "noise_fraction": 0.00065,
+      "late_rise_fraction": 0.8,
+      "late_rise_power": 1.75
+    },
+    "pid2": {
+      "early_fraction": 0.005,
+      "slow_wave_fraction": 0.002,
+      "noise_fraction": 0.00075,
+      "late_rise_fraction": 0.84,
+      "late_rise_power": 1.7
+    },
+    "reference_locked": true
+  }
+}

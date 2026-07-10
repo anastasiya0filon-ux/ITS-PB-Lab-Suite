@@ -24,6 +24,11 @@ import sys
 import tempfile
 import zipfile
 from pathlib import Path
+import sys
+_AAS_MODULE_DIR = Path(__file__).resolve().parent
+if str(_AAS_MODULE_DIR) not in sys.path:
+    sys.path.insert(0, str(_AAS_MODULE_DIR))
+from aas_rtf_clone import generate_rtf_report
 from xml.etree import ElementTree as ET
 
 try:
@@ -560,25 +565,21 @@ def safe_name(s: str) -> str:
 
 def generate_report(element: str, action_time: str, sn: str, mean_c: float, mode: str = "normal", output_dir: Path = OUTPUT_DIR, method_profile: str | None = None, measurements: int = 2) -> Path:
     element = normalize_element(element)
-    template = TEMPLATE_DIR / f"{element}.docx"
-    if not template.exists():
-        raise FileNotFoundError(f"Не найден шаблон: {template}")
-    ctx = build_context(element, action_time, sn, mean_c, mode, method_profile, measurements)
-    ctx["element"] = element
-    safe_sn = safe_name(sn)
-    out = output_dir / f"Отчет_{element}_{safe_sn}.docx"
-    # Если такой отчет уже есть, добавляем номер, чтобы не перезаписать.
-    if out.exists():
-        for i in range(2, 10000):
-            candidate = output_dir / f"Отчет_{element}_{safe_sn}_{i}.docx"
-            if not candidate.exists():
-                out = candidate
-                break
-    fill_docx(template, out, ctx)
-    json_out = out.with_suffix(".json")
-    with json_out.open("w", encoding="utf-8") as f:
-        json.dump(ctx, f, ensure_ascii=False, indent=2)
-    return out
+    return generate_rtf_report(
+        element=element,
+        action_time=action_time,
+        sample=sn,
+        mean_c=mean_c,
+        mode=mode,
+        method_profile=method_profile,
+        measurements=measurements,
+        output_dir=output_dir,
+        build_context=build_context,
+        load_config=load_config,
+        get_profile_override=get_profile_override,
+        safe_name=safe_name,
+        docx_template_dir=TEMPLATE_DIR,
+    )
 
 # ---------------- Excel reader without external dependencies ----------------
 SS_NS = "http://schemas.openxmlformats.org/spreadsheetml/2006/main"

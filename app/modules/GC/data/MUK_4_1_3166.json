@@ -1,0 +1,174 @@
+{
+  "schema_version": "1.0",
+  "method_id": "MUK_4_1_3166",
+  "display_name": "МУК 4.1.3166",
+  "module": "gas_chromatography",
+  "status": "draft_for_review",
+  "chromatogram_count_per_sample": 2,
+  "detectors": [
+    {
+      "id": "PID_1",
+      "display_name": "ПИД-1",
+      "independent_model": true
+    },
+    {
+      "id": "PID_2",
+      "display_name": "ПИД-2",
+      "independent_model": true
+    }
+  ],
+  "generation_modes": {
+    "single": [
+      "random",
+      "actual"
+    ],
+    "batch": [
+      "random",
+      "actual"
+    ],
+    "batch_templates": {
+      "random": "GC_MUK_4_1_3166_RANDOM.xlsx",
+      "actual": "GC_MUK_4_1_3166_ACTUAL.xlsx"
+    }
+  },
+  "time_rules": {
+    "units": "seconds",
+    "within_sample_between_chromatograms": {
+      "min": 2940,
+      "max": 3540,
+      "description": "Интервал между двумя хроматограммами одного образца"
+    },
+    "between_consecutive_samples_same_date": {
+      "min": 6480,
+      "max": 6600,
+      "description": "Интервал между последовательными образцами в серии в пределах одной даты"
+    },
+    "ordering": {
+      "report_first": "later_chromatogram",
+      "series_direction": "forward"
+    },
+    "deterministic_internal_seed": true
+  },
+  "retention_time": {
+    "reference": "mean_from_calibration_chromatograms",
+    "allowed_relative_shift_pct": 5.0,
+    "shift_distribution": "bounded_deterministic_random",
+    "hard_limits": true,
+    "description": "Максимум пика должен находиться в диапазоне ±5% от среднего времени удерживания"
+  },
+  "calibration": {
+    "source_models_file": "gc_muk_4_1_3166_calibration_model.json",
+    "raw_points_are_primary": true,
+    "cached_models_allowed": true,
+    "boundary_condition": {
+      "concentration": 0,
+      "area": 0,
+      "height": 0,
+      "experimental": false
+    },
+    "model_recalculation_rule": "recalculate_only_when_raw_points_change",
+    "extrapolation": {
+      "allowed": true,
+      "working_range_source": "method_scope",
+      "must_store_calibration_range_separately": true
+    }
+  },
+  "peak_model": {
+    "base_model": "gaussian",
+    "sigma_formula": "S / (60 * H * sqrt(2*pi))",
+    "area_units": "mV*s",
+    "time_units": "min",
+    "imperfection": {
+      "enabled": true,
+      "default_level": 2,
+      "levels": {
+        "0": "ideal",
+        "1": "light",
+        "2": "realistic_instrument",
+        "3": "pronounced"
+      },
+      "components": [
+        "small_asymmetry",
+        "micro_noise",
+        "small_width_variation",
+        "small_height_variation",
+        "small_area_variation_with_conservation_control",
+        "baseline_micro_drift"
+      ],
+      "must_preserve_physical_consistency": true
+    }
+  },
+  "chromatogram_rendering": {
+    "strategy": "full_redraw",
+    "baseline_strategy": "reference_chromatogram",
+    "output_format": "PNG",
+    "visual_identity_required": true,
+    "must_match_reference": [
+      "canvas_size",
+      "plot_area",
+      "x_scale",
+      "y_scale",
+      "line_width",
+      "line_color",
+      "font_family",
+      "font_size",
+      "label_rotation",
+      "legend_position",
+      "grid",
+      "margins",
+      "background"
+    ],
+    "peak_placement": {
+      "by_retention_time": true,
+      "strict_scale": true,
+      "strict_position": true
+    }
+  },
+  "peak_json": {
+    "store_per_component_per_detector_per_chromatogram": true,
+    "required_fields": [
+      "method_id",
+      "sample_code",
+      "chromatogram_index",
+      "detector",
+      "component",
+      "input_concentration",
+      "calculated_area",
+      "calculated_height",
+      "retention_time_reference",
+      "retention_time_generated",
+      "sigma",
+      "peak_imperfection_level",
+      "internal_seed",
+      "model_version"
+    ]
+  },
+  "report_generation": {
+    "engine": "RTF_Clone_Engine",
+    "graph_insertion_format": "PNG",
+    "template_is_immutable": true,
+    "replace_only_variables_and_images": true
+  },
+  "random_mode": {
+    "base_concentration_source": "user_input_or_excel",
+    "output_values_count": 2,
+    "algorithm_status": "to_be_implemented",
+    "must_be_reproducible": true,
+    "must_respect_method_working_range": true
+  },
+  "actual_mode": {
+    "values_per_component": 2,
+    "use_without_modification": true
+  },
+  "validation": {
+    "component_list_is_fixed": true,
+    "negative_concentrations_forbidden": true,
+    "decimal_separators": [
+      ",",
+      "."
+    ],
+    "detector_models_must_not_be_mixed": true,
+    "chromatogram_count_is_method_defined": true,
+    "user_cannot_change_chromatogram_count": true
+  }
+}
