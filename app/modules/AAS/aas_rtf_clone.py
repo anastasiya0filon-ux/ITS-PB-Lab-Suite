@@ -32,6 +32,29 @@ RTF_TEMPLATE_DIR = ROOT / "rtf_templates"
 STANDARD_TEMPLATE = RTF_TEMPLATE_DIR / "MGA_STANDARD.rtf"
 HG_TEMPLATE = RTF_TEMPLATE_DIR / "MGA_HG.rtf"
 
+INSTRUMENT_METHODS = {
+    "Ag": "Стандартный",
+    "Al": "Стандартный",
+    "As": "Стандартный",
+    "Ba": "Стандартный",
+    "Cd": "С модификатором",
+    "Co": "Стандартный",
+    "Cr": "Стандартный",
+    "Cu": "Стандартный",
+    "Fe": "Стандартный",
+    "Hg": "Стандартный",
+    "Mn": "Стандартный",
+    "Ni": "Стандартный",
+    "Pb": "С модификатором",
+    "Sb": "С модификатором",
+    "Se": "Стандартный",
+    "Sn": "Стандартный",
+    "Ti": "Стандартный",
+    "Zn": "Стандартный",
+}
+
+AAS_RELEASE_VERSION = "0.3.3-instrument-methods-locked"
+
 
 def _largest_image(docx_path: Path):
     if not docx_path.exists():
@@ -215,6 +238,18 @@ def generate_rtf_report(
     source = read_rtf(template)
     source = fit_tables_to_page(source, 9800)
     source = replace_once(source, old["element"], element)
+    instrument_method = str(
+        config.get("instrument_method")
+        or INSTRUMENT_METHODS.get(element)
+        or "Стандартный"
+    )
+    # The RTF reference template stores Cyrillic as CP1251 RTF escape sequences.
+    # Replace only the report field value; the normative method profile does not control it.
+    old_method_rtf = rtf_escape("Стандартный")
+    new_method_rtf = rtf_escape(instrument_method)
+    if old_method_rtf not in source:
+        raise RtfCloneError("В RTF не найдено поле приборного метода")
+    source = source.replace(old_method_rtf, new_method_rtf, 1)
     source = replace_once(source, old["header"], context["action_time"])
     source = replace_all(source, old["sample"], sample)
     source = replace_value_line(source, old["cnc"], concentration_file)

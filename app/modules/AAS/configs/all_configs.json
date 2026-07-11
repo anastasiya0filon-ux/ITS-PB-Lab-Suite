@@ -19,7 +19,8 @@
     "cRangeTo": 1,
     "cRangeFromBonus": 8.65356,
     "cRangeToBonus": -5.23648,
-    "ccDivided": 20
+    "ccDivided": 20,
+    "instrument_method": "Стандартный"
   },
   "Fe": {
     "v": 40,
@@ -43,7 +44,8 @@
       0.372,
       0.487
     ],
-    "cRangeTo": 1
+    "cRangeTo": 1,
+    "instrument_method": "Стандартный"
   },
   "Cd": {
     "cRangeFromBonus": 8.65356,
@@ -65,7 +67,8 @@
       0.504,
       0.726,
       0.912
-    ]
+    ],
+    "instrument_method": "С модификатором"
   },
   "Ba": {
     "cRangeFromBonus": 8.65356,
@@ -87,7 +90,8 @@
       0.14,
       0.212,
       0.282
-    ]
+    ],
+    "instrument_method": "Стандартный"
   },
   "As": {
     "cRangeFromBonus": 8.65356,
@@ -107,7 +111,8 @@
       0.051,
       0.097,
       0.209
-    ]
+    ],
+    "instrument_method": "Стандартный"
   },
   "Cr": {
     "cRangeFromBonus": 8.65356,
@@ -131,7 +136,8 @@
       0.314,
       0.372,
       0.487
-    ]
+    ],
+    "instrument_method": "Стандартный"
   },
   "Se": {
     "cRangeFromBonus": 8.65356,
@@ -153,7 +159,8 @@
       0.14,
       0.212,
       0.282
-    ]
+    ],
+    "instrument_method": "Стандартный"
   },
   "Sb": {
     "cRangeFromBonus": 8.65356,
@@ -175,7 +182,8 @@
       0.136,
       0.196,
       0.253
-    ]
+    ],
+    "instrument_method": "С модификатором"
   },
   "Pb": {
     "cRangeFromBonus": 8.65356,
@@ -197,7 +205,8 @@
       0.14,
       0.212,
       0.282
-    ]
+    ],
+    "instrument_method": "С модификатором"
   },
   "Ti": {
     "x": [
@@ -219,7 +228,8 @@
     "cRangeTo": 1,
     "cRangeFromBonus": 8.65356,
     "cRangeToBonus": -5.23648,
-    "ccDivided": 20
+    "ccDivided": 20,
+    "instrument_method": "Стандартный"
   },
   "Sn": {
     "cRangeTo": 1,
@@ -241,7 +251,8 @@
     "cRangeToBonus": -5.23648,
     "v": 40,
     "cRangeFrom": 0,
-    "cRangeFromBonus": 8.65356
+    "cRangeFromBonus": 8.65356,
+    "instrument_method": "Стандартный"
   },
   "Hg": {
     "cRangeFromBonus": 8.65356,
@@ -263,7 +274,8 @@
       0.14,
       0.212,
       0.282
-    ]
+    ],
+    "instrument_method": "Стандартный"
   },
   "Al": {
     "v": 40,
@@ -285,7 +297,8 @@
       0.255,
       0.372,
       0.487
-    ]
+    ],
+    "instrument_method": "Стандартный"
   },
   "Cu": {
     "v": 40,
@@ -307,7 +320,8 @@
       0.236,
       0.349,
       0.461
-    ]
+    ],
+    "instrument_method": "Стандартный"
   },
   "Ni": {
     "v": 40,
@@ -329,7 +343,8 @@
       0.224,
       0.337,
       0.448
-    ]
+    ],
+    "instrument_method": "Стандартный"
   },
   "Ag": {
     "v": 40,
@@ -351,7 +366,8 @@
       0.136,
       0.196,
       0.253
-    ]
+    ],
+    "instrument_method": "Стандартный"
   },
   "Zn": {
     "v": 40,
@@ -373,7 +389,8 @@
       0.244,
       0.361,
       0.476
-    ]
+    ],
+    "instrument_method": "Стандартный"
   },
   "Co": {
     "v": 40,
@@ -395,6 +412,7 @@
       0.218,
       0.327,
       0.435
-    ]
+    ],
+    "instrument_method": "Стандартный"
   }
 }

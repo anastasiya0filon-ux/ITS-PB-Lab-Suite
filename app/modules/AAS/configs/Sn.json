@@ -18,5 +18,6 @@
   "cRangeToBonus": -5.23648,
   "v": 40,
   "cRangeFrom": 0,
-  "cRangeFromBonus": 8.65356
+  "cRangeFromBonus": 8.65356,
+  "instrument_method": "Стандартный"
 }
