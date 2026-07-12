@@ -56,6 +56,7 @@ icp = import_from(ICP_DIR / "icp_os_generator.py", "icp_os_generator_suite_qt")
 aas = import_from(AAS_DIR / "aas_report_generator.py", "aas_report_generator_suite_qt")
 tox = import_from(TOX_DIR / "toxicity_generator.py", "toxicity_generator_suite_qt")
 gc = import_from(GC_DIR / "gc_generator.py", "gc_generator_suite_qt")
+gc_report = import_from(GC_DIR / "gc_report_generator.py", "gc_report_generator_suite_qt")
 
 
 class AppComboBox(QComboBox):
@@ -295,7 +296,7 @@ class IcpPage(ModulePage):
         self.icp_excel = QLineEdit(); self.icp_excel.setPlaceholderText("Выберите Excel-файл серии")
         row = QHBoxLayout(); row.addWidget(self.icp_excel, 1); row.addWidget(self.main.secondary("Выбрать Excel", lambda: self.pick_file(self.icp_excel)))
         c.body.addLayout(row)
-        row2 = QHBoxLayout(); row2.addWidget(self.main.secondary("Создать шаблон Excel", self.create_icp_template)); row2.addStretch(1); row2.addWidget(self.main.primary("Сформировать серию", self.generate_icp_excel))
+        row2 = QHBoxLayout(); row2.addWidget(self.main.secondary("Создать шаблон Excel", self.create_icp_template)); row2.addStretch(1); row2.addWidget(self.main.primary("Сформировать серию отчётов", self.generate_icp_excel))
         c.body.addLayout(row2)
         lay.addWidget(c); lay.addStretch(1); return w
 
@@ -463,11 +464,12 @@ class GcPage(ModulePage):
         super().__init__("Газовая хроматография", "МУК 4.1.3166 · генерация двух хроматограмм с независимыми моделями ПИД-1/ПИД-2")
         self.main = main_window
         self.common = CommonParams(
-            show_operator=False,
+            show_operator=True,
             show_time=True,
             show_mode=False,
             method_items=[("MUK_4_1_3166", "МУК 4.1.3166")],
         )
+        self.common.operator.setCurrentText("Васильева Д.В.")
         self.content.addWidget(self.common)
 
         info = QLabel("Количество хроматограмм определяется методикой: 2")
@@ -518,7 +520,7 @@ class GcPage(ModulePage):
         row = QHBoxLayout()
         row.addWidget(self.main.secondary("Вернуть значения по умолчанию", lambda: self._reset_table(self.gc_random_table, False)))
         row.addStretch(1)
-        row.addWidget(self.main.primary("Сформировать хроматограммы", self._run_single_random))
+        row.addWidget(self.main.primary("Сформировать отчёты", self._run_single_random))
         layout.addLayout(row)
         return widget
 
@@ -536,7 +538,7 @@ class GcPage(ModulePage):
         row = QHBoxLayout()
         row.addWidget(self.main.secondary("Вернуть значения по умолчанию", lambda: self._reset_table(self.gc_actual_table, True)))
         row.addStretch(1)
-        row.addWidget(self.main.primary("Сформировать хроматограммы", self._run_single_actual))
+        row.addWidget(self.main.primary("Сформировать отчёты", self._run_single_actual))
         layout.addLayout(row)
         return widget
 
@@ -553,7 +555,7 @@ class GcPage(ModulePage):
         row.addWidget(choose)
         row.addWidget(template)
         card.body.addLayout(row)
-        run = self.main.primary("Сформировать серию", lambda: self._run_excel(line, mode))
+        run = self.main.primary("Сформировать серию отчётов", lambda: self._run_excel(line, mode))
         card.body.addWidget(run, 0, Qt.AlignRight)
         layout.addWidget(card)
         layout.addStretch(1)
@@ -588,7 +590,11 @@ class GcPage(ModulePage):
                 self._table_values(self.gc_random_table, False),
                 GC_DIR / "output",
             )
-            self.main.done("Хроматограммы сформированы", 4, out)
+            reports = gc_report.generate_reports_for_sample(
+                out,
+                operator=self.common.operator.currentText(),
+            )
+            self.main.done("Отчёты ГХ сформированы", len(reports), out)
         except Exception as exc:
             self.main.error(traceback.format_exc())
 
@@ -602,7 +608,11 @@ class GcPage(ModulePage):
                 self._table_values(self.gc_actual_table, True),
                 GC_DIR / "output",
             )
-            self.main.done("Хроматограммы сформированы", 4, out)
+            reports = gc_report.generate_reports_for_sample(
+                out,
+                operator=self.common.operator.currentText(),
+            )
+            self.main.done("Отчёты ГХ сформированы", len(reports), out)
         except Exception:
             self.main.error(traceback.format_exc())
 
@@ -624,7 +634,11 @@ class GcPage(ModulePage):
             if not path.exists():
                 raise FileNotFoundError("Выберите Excel-файл")
             created, batch_dir = gc.generate_from_excel(path, mode, GC_DIR / "output")
-            self.main.done("Серия хроматограмм сформирована", len(created) * 4, batch_dir)
+            reports = gc_report.generate_reports_for_batch(
+                created,
+                operator=self.common.operator.currentText(),
+            )
+            self.main.done("Серия отчётов ГХ сформирована", len(reports), batch_dir)
         except Exception:
             self.main.error(traceback.format_exc())
 

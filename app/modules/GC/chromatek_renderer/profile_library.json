@@ -1,0 +1,344 @@
+{
+  "version": "2.1-convergence-reference-raster",
+  "zones": [
+    {
+      "name": "early",
+      "from": 0.0,
+      "to": 5.5,
+      "sigma_scale": 0.82,
+      "left": 0.82,
+      "right": 1.08,
+      "tail": 0.003,
+      "label_probability": 0.28
+    },
+    {
+      "name": "mid_polar",
+      "from": 5.5,
+      "to": 12.2,
+      "sigma_scale": 0.96,
+      "left": 0.9,
+      "right": 1.18,
+      "tail": 0.008,
+      "label_probability": 0.34
+    },
+    {
+      "name": "aromatic_pid1",
+      "from": 12.2,
+      "to": 18.8,
+      "sigma_scale": 1.18,
+      "left": 0.96,
+      "right": 1.24,
+      "tail": 0.012,
+      "label_probability": 0.42
+    },
+    {
+      "name": "aromatic_pid2",
+      "from": 18.8,
+      "to": 23.4,
+      "sigma_scale": 1.3,
+      "left": 0.93,
+      "right": 1.31,
+      "tail": 0.016,
+      "label_probability": 0.54
+    },
+    {
+      "name": "quiet_late",
+      "from": 23.4,
+      "to": 33.4,
+      "sigma_scale": 1.12,
+      "left": 0.91,
+      "right": 1.22,
+      "tail": 0.01,
+      "label_probability": 0.86
+    },
+    {
+      "name": "late_rise",
+      "from": 33.4,
+      "to": 39.0,
+      "sigma_scale": 1.45,
+      "left": 0.88,
+      "right": 1.38,
+      "tail": 0.018,
+      "label_probability": 0.98
+    }
+  ],
+  "component_overrides": {
+    "Гексан": {
+      "sigma_scale": 0.9,
+      "family": "sharp"
+    },
+    "Гептан": {
+      "sigma_scale": 0.94,
+      "family": "sharp"
+    },
+    "Ацетальдегид": {
+      "sigma_scale": 0.96,
+      "family": "fronted"
+    },
+    "Метанол": {
+      "sigma_scale": 1.06,
+      "family": "wide"
+    },
+    "Ацетон": {
+      "sigma_scale": 0.98,
+      "family": "fronted"
+    },
+    "Метилацетат": {
+      "sigma_scale": 1.0,
+      "family": "normal"
+    },
+    "Этилацетат": {
+      "sigma_scale": 1.06,
+      "family": "tail"
+    },
+    "Изопропанол": {
+      "sigma_scale": 1.08,
+      "family": "wide"
+    },
+    "Акрилонитрил": {
+      "sigma_scale": 0.92,
+      "family": "sharp"
+    },
+    "Толуол": {
+      "sigma_scale": 1.07,
+      "family": "tail"
+    },
+    "Бутилацетат": {
+      "sigma_scale": 1.14,
+      "family": "tail"
+    },
+    "Этилбензол": {
+      "sigma_scale": 1.1,
+      "family": "normal"
+    },
+    "п-Ксилол": {
+      "sigma_scale": 1.12,
+      "family": "cluster"
+    },
+    "м-Ксилол": {
+      "sigma_scale": 1.14,
+      "family": "cluster"
+    },
+    "о-Ксилол": {
+      "sigma_scale": 1.16,
+      "family": "tail"
+    },
+    "Изопропилбензол": {
+      "sigma_scale": 1.15,
+      "family": "tail"
+    },
+    "Стирол": {
+      "sigma_scale": 1.17,
+      "family": "tail"
+    },
+    "Метилстирол": {
+      "sigma_scale": 1.2,
+      "family": "tail"
+    }
+  },
+  "background_clusters": {
+    "ПИД-1": [
+      [
+        0.9,
+        4.8,
+        9
+      ],
+      [
+        4.9,
+        8.2,
+        7
+      ],
+      [
+        8.4,
+        15.5,
+        10
+      ],
+      [
+        16,
+        22,
+        9
+      ],
+      [
+        22,
+        27,
+        18
+      ],
+      [
+        27,
+        31,
+        20
+      ],
+      [
+        31,
+        34,
+        22
+      ],
+      [
+        34,
+        35.5,
+        10
+      ],
+      [
+        35.5,
+        37.2,
+        14
+      ],
+      [
+        37.2,
+        38.85,
+        16
+      ]
+    ],
+    "ПИД-2": [
+      [
+        1,
+        4.5,
+        10
+      ],
+      [
+        4.6,
+        7.8,
+        9
+      ],
+      [
+        8.2,
+        13.2,
+        10
+      ],
+      [
+        13.2,
+        18.8,
+        10
+      ],
+      [
+        19,
+        23,
+        16
+      ],
+      [
+        23,
+        27,
+        24
+      ],
+      [
+        27,
+        31,
+        26
+      ],
+      [
+        31,
+        34,
+        28
+      ],
+      [
+        34,
+        35.4,
+        13
+      ],
+      [
+        35.4,
+        37,
+        17
+      ],
+      [
+        37,
+        38.85,
+        20
+      ]
+    ]
+  },
+  "late_rise_knots": {
+    "ПИД-1": [
+      [
+        20,
+        0.0
+      ],
+      [
+        24,
+        0.001
+      ],
+      [
+        28,
+        0.003
+      ],
+      [
+        31,
+        0.007
+      ],
+      [
+        33,
+        0.014
+      ],
+      [
+        34,
+        0.027
+      ],
+      [
+        35,
+        0.055
+      ],
+      [
+        36,
+        0.102
+      ],
+      [
+        37,
+        0.162
+      ],
+      [
+        38,
+        0.225
+      ],
+      [
+        38.96,
+        0.275
+      ]
+    ],
+    "ПИД-2": [
+      [
+        20,
+        0.0
+      ],
+      [
+        24,
+        0.001
+      ],
+      [
+        28,
+        0.004
+      ],
+      [
+        31,
+        0.009
+      ],
+      [
+        33,
+        0.018
+      ],
+      [
+        34,
+        0.035
+      ],
+      [
+        35,
+        0.07
+      ],
+      [
+        36,
+        0.128
+      ],
+      [
+        37,
+        0.205
+      ],
+      [
+        38,
+        0.285
+      ],
+      [
+        38.96,
+        0.345
+      ]
+    ]
+  }
+}

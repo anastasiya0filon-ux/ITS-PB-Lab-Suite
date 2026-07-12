@@ -1,0 +1,159 @@
+{
+  "version": "3.3-native-windows-gdi-font",
+  "canvas": {
+    "width": 718,
+    "height": 321,
+    "border_left": 0,
+    "border_right": 717,
+    "border_bottom": 320
+  },
+  "plot": {
+    "x0": 23,
+    "x1": 706,
+    "y0": 1,
+    "y1": 300
+  },
+  "axis": {
+    "minor_x_step": 0.5,
+    "major_x_step": 2.5,
+    "y_major_intervals": 5,
+    "y_minor_per_major": 5,
+    "top_rule_rgb": [
+      185,
+      185,
+      185
+    ],
+    "y_label_mode": "fixed_by_step"
+  },
+  "pid1": {
+    "rgb": [
+      0,
+      0,
+      0
+    ],
+    "axis_rgb": [
+      0,
+      0,
+      0
+    ],
+    "signal_width": 1,
+    "late_start": 33.15,
+    "late_end_fraction": 0.105,
+    "baseline_fraction": 0.008,
+    "noise_fraction": 0.0018
+  },
+  "pid2": {
+    "rgb": [
+      0,
+      0,
+      255
+    ],
+    "axis_rgb": [
+      0,
+      0,
+      255
+    ],
+    "signal_width": 1,
+    "late_start": 33.75,
+    "late_end_fraction": 0.165,
+    "baseline_fraction": 0.009,
+    "noise_fraction": 0.0021
+  },
+  "fonts": {
+    "axis_size": 7,
+    "analytic_size": 7,
+    "background_size": 5,
+    "family_order": [
+      "micross.ttf",
+      "arialn.ttf",
+      "ARIALN.TTF",
+      "tahoma.ttf",
+      "arial.ttf"
+    ],
+    "bold": false,
+    "gdi_face": "Arial Narrow",
+    "gdi_weight": 400,
+    "gdi_quality": "NONANTIALIASED",
+    "gdi_charset": "RUSSIAN_CHARSET",
+    "render_mode": "native-windows-gdi"
+  },
+  "peaks": {
+    "min_sigma_early": 0.022,
+    "min_sigma_slope": 0.00075,
+    "late_broadening_per_min": 0.01,
+    "tail_max_fraction": 0.012
+  },
+  "labels": {
+    "analytic_bottom_mode": "true_apex",
+    "background_bottom_mode": "event_apex",
+    "analytic_gap": 2,
+    "background_gap": 1,
+    "draw_tiny_analytic": true
+  },
+  "background_bands": {
+    "ПИД-1": [
+      [
+        0.8,
+        7.5,
+        8
+      ],
+      [
+        8.0,
+        15.5,
+        8
+      ],
+      [
+        16.0,
+        22.0,
+        6
+      ],
+      [
+        22.0,
+        28.0,
+        16
+      ],
+      [
+        28.0,
+        33.2,
+        18
+      ],
+      [
+        34.0,
+        38.8,
+        38
+      ]
+    ],
+    "ПИД-2": [
+      [
+        0.8,
+        7.5,
+        9
+      ],
+      [
+        8.0,
+        15.0,
+        8
+      ],
+      [
+        15.5,
+        22.8,
+        11
+      ],
+      [
+        22.5,
+        28.0,
+        23
+      ],
+      [
+        28.0,
+        33.4,
+        23
+      ],
+      [
+        34.0,
+        38.8,
+        46
+      ]
+    ]
+  }
+}

@@ -25,7 +25,42 @@ from xml.etree import ElementTree as ET
 
 from PIL import Image, ImageDraw, ImageFont
 
+# CNRE загружается рядом с gc_generator.py.
+# main.pyw импортирует этот файл как самостоятельный модуль, поэтому
+# относительный импорт `.cnre_engine` здесь использовать нельзя.
+import importlib.util as _cnre_importlib_util
+
+_CNRE_PATH = Path(__file__).resolve().with_name("cnre_engine.py")
+_CNRE_SPEC = _cnre_importlib_util.spec_from_file_location(
+    "gc_cnre_engine_runtime",
+    _CNRE_PATH,
+)
+if _CNRE_SPEC is None or _CNRE_SPEC.loader is None:
+    raise ImportError(f"Не удалось создать спецификацию CNRE: {_CNRE_PATH}")
+
+_CNRE_MODULE = _cnre_importlib_util.module_from_spec(_CNRE_SPEC)
+
+# Python 3.14: dataclasses обращается к sys.modules по cls.__module__
+# уже во время выполнения декоратора, поэтому модуль должен быть
+# зарегистрирован ДО exec_module().
+import sys as _cnre_sys
+_cnre_sys.modules[_CNRE_SPEC.name] = _CNRE_MODULE
+
+try:
+    _CNRE_SPEC.loader.exec_module(_CNRE_MODULE)
+except Exception:
+    _cnre_sys.modules.pop(_CNRE_SPEC.name, None)
+    raise
+
+render_chromatogram_cnre = _CNRE_MODULE.render_chromatogram_cnre
+
 ROOT = Path(__file__).resolve().parent
+
+# CHROMATEK_RENDERER_1_0
+import sys as _chromatek_sys
+if str(ROOT) not in _chromatek_sys.path:
+    _chromatek_sys.path.insert(0, str(ROOT))
+from chromatek_renderer import render_chromatogram as _render_chromatek_image
 DATA_DIR = ROOT / "data"
 TEMPLATE_DIR = ROOT / "excel_templates"
 OUTPUT_DIR = ROOT / "output"
@@ -35,49 +70,52 @@ METHOD_TITLE = "МУК 4.1.3166"
 GC_RENDERER_PATCH = "GC_REFERENCE_LAYOUT_V8"
 DETECTORS = ("ПИД-1", "ПИД-2")
 CHROMATOGRAM_COUNT = 2
-FINAL_RENDERER_VERSION = "9.0-crystal5000-reference-locked"
+FINAL_RENDERER_VERSION = "chromatek-renderer-2.3-chromatek-final-style"
 
 COMPONENT_DEFAULTS = [
-    ("Этилацетат", 0.0001),
-    ("Акрилонитрил", 0.003),
-    ("Альфа-метилстирол", 0.00001),
-    ("Ацетальдегид", 0.0001),
-    ("Ацетон", 0.0001),
-    ("Бензол", 0.00001),
     ("Гексан", 0.00001),
     ("Гептан", 0.00001),
-    ("Кумол (изопропил бензол)", 0.00001),
-    ("Спирт изобутиловый", 0.0001),
-    ("Спирт метиловый", 0.0001),
-    ("Стирол", 0.00001),
-    ("Спирт изопропиловый", 0.0001),
-    ("Метилацетат", 0.0001),
-    ("Спирт бутиловый", 0.0001),
-    ("Спирт пропиловый", 0.0001),
-    ("н-Бутанол", 0.0001),
-    ("н-Пропанол", 0.0001),
-    ("Изопропанол", 0.0001),
-    ("Изобутанол", 0.0001),
+    ("Ацетальдегид", 0.0001),
     ("Метанол", 0.0001),
-    ("о-Ксилол", 0.00001),
-    ("п-Ксилол", 0.00001),
-    ("м-ксилол", 0.00001),
-    ("Ксилолы (смесь изомеров)", 0.00001),
-    ("Этилбензол", 0.00001),
-    ("Бутилацетат", 0.0001),
+    ("Ацетон", 0.0001),
+    ("Метилацетат", 0.0001),
+    ("Этилацетат", 0.0001),
+    ("Изопропанол", 0.0001),
+    ("Акрилонитрил", 0.003),
+    ("Н-пропанол", 0.0001),
     ("Толуол", 0.00001),
+    ("Изобутанол", 0.0001),
+    ("Бензол", 0.00001),
+    ("Н-бутанол", 0.0001),
+    ("Бутилацетат", 0.0001),
+    ("Этилбензол", 0.00001),
+    ("п-Ксилол", 0.00001),
+    ("м-Ксилол", 0.00001),
+    ("Изопропилбензол", 0.00001),
+    ("о-Ксилол", 0.00001),
+    ("Стирол", 0.00001),
+    ("Метилстирол", 0.00001),
 ]
 
 ALIASES = {
     "альфа-метилстирол": "Метилстирол",
+    "метилстирол": "Метилстирол",
+    "кумол": "Изопропилбензол",
     "кумол (изопропил бензол)": "Изопропилбензол",
     "кумол (изопропилбензол)": "Изопропилбензол",
+    "изопропил бензол": "Изопропилбензол",
+    "изопропилбензол": "Изопропилбензол",
     "спирт изобутиловый": "Изобутанол",
+    "изобутанол": "Изобутанол",
     "спирт метиловый": "Метанол",
+    "метанол": "Метанол",
     "спирт изопропиловый": "Изопропанол",
+    "изопропанол": "Изопропанол",
     "спирт бутиловый": "Н-бутанол",
-    "спирт пропиловый": "Н-пропанол",
+    "бутанол": "Н-бутанол",
     "н-бутанол": "Н-бутанол",
+    "спирт пропиловый": "Н-пропанол",
+    "пропанол": "Н-пропанол",
     "н-пропанол": "Н-пропанол",
     "бутилацетат": "Бутилацетат",
     "бутилацета": "Бутилацетат",
@@ -361,67 +399,43 @@ def _font(size: int, *, bold: bool = False):
 def _signal_at(t: float, peak: PeakRecord) -> float:
     if peak.calculated_height <= 0 or peak.sigma <= 0:
         return 0.0
-    rnd = random.Random(peak.internal_seed)
-    level = peak.peak_imperfection_level
-    asym = 0.0 if level == 0 else rnd.uniform(-0.07, 0.07) * min(level, 3)
-    sigma_left = peak.sigma * (1.0 - asym)
-    sigma_right = peak.sigma * (1.0 + asym)
-    sigma = sigma_left if t < peak.retention_time_generated else sigma_right
-    return peak.calculated_height * math.exp(-((t - peak.retention_time_generated) ** 2) / (2.0 * sigma ** 2))
+    rnd = random.Random(peak.internal_seed ^ 0x51A7)
+    level = max(0, min(int(peak.peak_imperfection_level), 3))
+    time_broadening = 1.0 + 0.0105 * max(0.0, peak.retention_time_generated - 2.0)
+    base_sigma = max(peak.sigma * time_broadening, 0.0065)
+    asym = rnd.uniform(-0.035, 0.085) * (0.45 + 0.28 * level)
+    sigma_left = base_sigma * max(0.72, 1.0 - asym)
+    sigma_right = base_sigma * max(0.78, 1.0 + asym)
+    dt = t - peak.retention_time_generated
+    sigma = sigma_left if dt < 0.0 else sigma_right
+    value = peak.calculated_height * math.exp(-(dt * dt) / (2.0 * sigma * sigma))
+    tail_share = rnd.uniform(0.0, 0.026) * (level / 2.0)
+    if dt > 0.0 and tail_share > 0.0:
+        tail_tau = max(base_sigma * rnd.uniform(2.2, 4.2), 0.018)
+        value += peak.calculated_height * tail_share * math.exp(-dt / tail_tau)
+    return value
 
-
-def _reference_baseline(
-    t: float,
-    detector: str,
-    rnd: random.Random,
-    state: dict,
-    *,
-    y_max: float,
-    x_max: float,
-    style: dict,
-) -> float:
-    """Базовая линия по свойствам оригинальных хроматограмм МУК 4.1.3166.
-
-    До области 33–34 мин линия низкая, слегка шумящая и медленно дрейфует.
-    Затем начинается выраженный нелинейный подъем, достигающий значимой
-    доли шкалы к концу анализа. Профили ПИД-1 и ПИД-2 независимы.
-    """
-    baseline_cfg = style.get("baseline", {})
-    detector_key = "pid1" if detector == "ПИД-1" else "pid2"
-    cfg = baseline_cfg.get(detector_key, {})
-
-    prev = state.get("noise", 0.0)
-    white = rnd.gauss(0.0, 1.0)
-    prev = prev * 0.965 + white * 0.035
-    state["noise"] = prev
-
-    early_fraction = float(cfg.get("early_fraction", 0.005))
-    slow_fraction = float(cfg.get("slow_wave_fraction", 0.002))
-    noise_fraction = float(cfg.get("noise_fraction", 0.0007))
-
-    phase = 0.35 if detector == "ПИД-1" else 0.85
-    slow = (
-        math.sin(t * 0.43 + phase) * 0.62
-        + math.sin(t * 1.11 + phase * 0.7) * 0.38
-    )
-    early = early_fraction + slow_fraction * slow + noise_fraction * prev
-
-    rise_start = float(baseline_cfg.get("rise_start_min", 33.2))
-    rise_full = float(baseline_cfg.get("rise_full_min", x_max))
-    rise_fraction = float(cfg.get("late_rise_fraction", 0.82))
-    rise_power = float(cfg.get("late_rise_power", 1.5))
-
-    if t <= rise_start:
-        late = 0.0
+def _reference_baseline(t: float, detector: str, rnd: random.Random, state: dict) -> float:
+    prev_fast = state.get("fast", 0.0)
+    prev_mid = state.get("mid", 0.0)
+    prev_fast = 0.72 * prev_fast + 0.28 * rnd.gauss(0.0, 1.0)
+    prev_mid = 0.975 * prev_mid + 0.025 * rnd.gauss(0.0, 1.0)
+    state["fast"] = prev_fast
+    state["mid"] = prev_mid
+    if detector == "ПИД-1":
+        base, drift, start, late_scale = 0.018, 0.00038 * t, 33.35, 0.0078
+        wave = 0.0048 * math.sin(0.43*t+0.35) + 0.0025 * math.sin(1.31*t+1.2) + 0.0014 * math.sin(3.70*t)
+        noise = 0.0037 * prev_fast + 0.0030 * prev_mid
+        phase = 0.4
     else:
-        span = max(0.001, rise_full - rise_start)
-        u = max(0.0, min(1.0, (t - rise_start) / span))
-        # Smooth onset without a visible corner at the start of the rise.
-        smooth_u = u * u * (3.0 - 2.0 * u)
-        late = rise_fraction * (smooth_u ** rise_power)
-
-    return max(0.0, y_max * (early + late))
-
+        base, drift, start, late_scale = 0.021, 0.00044 * t, 33.75, 0.0067
+        wave = 0.0042 * math.sin(0.37*t+0.95) + 0.0029 * math.sin(1.08*t+0.15) + 0.0016 * math.sin(3.25*t+0.7)
+        noise = 0.0040 * prev_fast + 0.0033 * prev_mid
+        phase = 1.1
+    u = max(0.0, t - start)
+    late = late_scale * (u ** 1.48)
+    late_ripple = (0.0012 + 0.00035*u) * math.sin(5.3*t + phase)
+    return max(0.0, base + drift + wave + noise + late + late_ripple)
 
 def _draw_vertical_label(
     image: Image.Image,
@@ -483,221 +497,223 @@ def _nice_tick_max(value: float) -> float:
     return nice * (10 ** exponent)
 
 
+
+def _instrument_font(size: int, *, bold: bool = False):
+    """Фиксированный Windows-шрифт для нативной приборной растризации."""
+    names = (["arialbd.ttf", "tahomabd.ttf"] if bold else
+             ["arial.ttf", "tahoma.ttf", "micross.ttf", "segoeui.ttf"])
+    for name in names:
+        p = Path("C:/Windows/Fonts") / name
+        if p.exists():
+            try:
+                return ImageFont.truetype(str(p), size=size, layout_engine=ImageFont.Layout.BASIC)
+            except Exception:
+                try:
+                    return ImageFont.truetype(str(p), size=size)
+                except Exception:
+                    pass
+    return _font(size, bold=bold)
+
+
+def _vertical_text_native(image: Image.Image, text: str, x: float, baseline_y: int,
+                          font, color, *, bottom_gap: int = 2) -> None:
+    """Вертикальный текст как в PNG Хроматэк: снизу вверх, без подложки."""
+    probe = Image.new("RGBA", (4, 4), (255,255,255,0))
+    d = ImageDraw.Draw(probe)
+    box = d.textbbox((0,0), text, font=font)
+    w = max(1, box[2]-box[0]+2); h = max(1, box[3]-box[1]+1)
+    layer = Image.new("RGBA", (w,h), (255,255,255,0))
+    ImageDraw.Draw(layer).text((1,-box[1]), text, fill=color, font=font, spacing=0)
+    rot = layer.rotate(90, expand=True, resample=Image.Resampling.NEAREST)
+    px = int(round(x - rot.width/2))
+    px = max(0, min(px, image.width-rot.width))
+    py = max(0, baseline_y-bottom_gap-rot.height)
+    image.alpha_composite(rot, (px,py))
+
+
+def _native_peak_value(t: float, peak: PeakRecord) -> float:
+    """Узкий, но не игольчатый профиль в нативном разрешении 718 px."""
+    if peak.calculated_height <= 0 or peak.sigma <= 0:
+        return 0.0
+    rnd = random.Random(peak.internal_seed ^ 0x13A5)
+    tr = peak.retention_time_generated
+    # Минимум соответствует примерно 1.4 пикселя по X в приборном PNG.
+    pixel_time = 38.96 / 678.0
+    sigma0 = max(peak.sigma, pixel_time * (0.42 + 0.006*tr))
+    skew = rnd.uniform(-0.04, 0.12)
+    sl = sigma0 * (1.0-skew*0.45)
+    sr = sigma0 * (1.0+skew)
+    dt = t-tr
+    s = sl if dt < 0 else sr
+    v = peak.calculated_height * math.exp(-0.5*(dt/s)**2)
+    if dt > 0 and rnd.random() < 0.62:
+        v += peak.calculated_height*rnd.uniform(0.004,0.018)*math.exp(-dt/max(0.025, sigma0*3.0))
+    return v
+
+
+def _native_y_scale(heights: list[float], detector: str) -> tuple[float,float]:
+    m = max(heights or [1.0])
+    raw = m*1.12
+    exp = 10**math.floor(math.log10(max(raw,1e-9)))
+    frac = raw/exp
+    for q in (1,1.2,1.5,2,2.5,3,4,5,6,8,10):
+        if frac <= q:
+            ymax=q*exp; break
+    # 5 основных интервалов, как на приборных PNG.
+    return ymax, ymax/5.0
+
+
+def render_chromatek_native(peaks: list[PeakRecord], output_path: Path, *, detector: str,
+                             x_min: float=0.0, x_max: float=38.96) -> Path:
+    """Нативный renderer 718×321 для ПИД-1 и ПИД-2 по 8 приборным эталонам."""
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    W,H = 718,321
+    L,R,T,B = 22,1,1,24
+    X0,X1,Y0,YB = L,W-R,T,H-B
+    PW,PH = X1-X0,YB-Y0
+    color = (0,0,255) if detector == "ПИД-2" else (0,0,0)
+    soft = color
+    image = Image.new("RGBA", (W,H), (255,255,255,255))
+    draw = ImageDraw.Draw(image)
+    font = _instrument_font(10)
+    small = _instrument_font(9)
+
+    positive=[p for p in peaks if p.input_concentration>0 and p.calculated_height>0]
+    ymax, ystep = _native_y_scale([p.calculated_height for p in positive], detector)
+
+    # Приборная геометрия: тонкая верхняя линия, левая и нижняя оси.
+    draw.line((0,0,W-1,0), fill=(150,150,150), width=1)
+    draw.line((X0,Y0,X0,YB), fill=color, width=1)
+    draw.line((X0,YB,X1,YB), fill=color, width=1)
+
+    def tx(t): return X0 + PW*(t-x_min)/(x_max-x_min)
+    def ty(v): return YB - PH*max(0.0,min(v,ymax))/ymax
+
+    # X: основные деления каждые 2.5 мин, мелкие каждые 0.5 мин.
+    k=0
+    v=0.0
+    while v <= x_max+1e-9:
+        x=tx(v)
+        major = abs((v/2.5)-round(v/2.5))<1e-8
+        draw.line((x,YB,x,YB+(5 if major else 2)), fill=color, width=1)
+        if major and v>0 and v < x_max-0.2:
+            s=(f"{v:.1f}" if abs(v-round(v))>1e-8 else f"{int(v)}")
+            bb=draw.textbbox((0,0),s,font=small)
+            draw.text((x-(bb[2]-bb[0])/2,YB+5),s,fill=color,font=small)
+        v += 0.5
+
+    # Y: 5 главных интервалов + 4 малых между ними.
+    for i in range(6):
+        val=i*ystep; y=ty(val)
+        draw.line((X0-5,y,X0,y),fill=color,width=1)
+        if i>0:
+            s=f"{val:g}"
+            bb=draw.textbbox((0,0),s,font=small)
+            draw.text((X0-7-(bb[2]-bb[0]),y-(bb[3]-bb[1])/2),s,fill=color,font=small)
+        if i<5:
+            for j in range(1,5):
+                yy=ty(val+j*ystep/5)
+                draw.line((X0-2,yy,X0,yy),fill=color,width=1)
+    # Единицы как в приборном PNG.
+    _vertical_text_native(image, "мВ", 7, 22, small, color, bottom_gap=0)
+    draw.text((W-27,H-15),"мин",fill=color,font=small)
+
+    sample=positive[0].sample_code if positive else "blank"
+    idx=positive[0].chromatogram_index if positive else 0
+    rnd=random.Random(stable_seed(METHOD_ID,"native-v13",detector,sample,idx))
+
+    # Низкая приборная база + поздний подъём. ПИДы независимы.
+    n=5200
+    state_fast=state_slow=0.0
+    events=[]
+    bands = ([(0.7,22.0,18),(22.0,34.0,38),(34.0,38.9,42)] if detector=="ПИД-1"
+             else [(0.7,22.0,20),(22.0,34.0,48),(34.0,38.9,48)])
+    for lo,hi,count in bands:
+        for _ in range(count+rnd.randint(-3,3)):
+            c=rnd.uniform(lo,hi)
+            # Большинство фоновых событий — почти линии интегратора, не пики.
+            amp=ymax*rnd.uniform(0.0010,0.0060 if c<34 else 0.011)
+            sig=rnd.uniform(0.010,0.036)*(1+c/90)
+            events.append((c,amp,sig,rnd.random()))
+
+    samples=[]; pts=[]
+    for i in range(n):
+        t=x_min+(x_max-x_min)*i/(n-1)
+        state_fast=.63*state_fast+.37*rnd.gauss(0,1)
+        state_slow=.992*state_slow+.008*rnd.gauss(0,1)
+        u=max(0.0,t-(33.45 if detector=="ПИД-1" else 33.75))
+        base_frac=(0.0028 + 0.000045*t + 0.00048*math.sin(.71*t+(.4 if detector=="ПИД-1" else 1.2))
+                   +0.00030*state_fast+0.00045*state_slow)
+        if u>0:
+            # Неровный рост без гладкого плато.
+            base_frac += (0.00135*u**1.48 + 0.00055*u*math.sin(1.17*t) + 0.00032*u*math.sin(4.6*t+.7))
+        baseline=max(0.0,ymax*base_frac)
+        bg=0.0
+        for c,a,s,_ in events:
+            dt=t-c
+            if abs(dt)<5*s:
+                bg += a*math.exp(-0.5*(dt/s)**2)
+        sigv=baseline+bg+sum(_native_peak_value(t,p) for p in positive)
+        x=tx(t); y=ty(sigv)
+        pts.append((x,y)); samples.append((t,sigv,x,y))
+    draw.line(pts,fill=color,width=1)
+
+    # Аналитические подписи: исходят от базовой линии; без искусственного разнесения.
+    ordered=sorted(positive,key=lambda p:p.retention_time_generated)
+    for j,p in enumerate(ordered):
+        tr=p.retention_time_generated
+        left=tr-max(0.06,p.sigma*4); right=tr+max(0.07,p.sigma*5)
+        if j: left=max(left,(ordered[j-1].retention_time_generated+tr)/2)
+        if j+1<len(ordered): right=min(right,(tr+ordered[j+1].retention_time_generated)/2)
+        loc=[s for s in samples if left<=s[0]<=right]
+        apex=max(loc,key=lambda z:z[1]) if loc else min(samples,key=lambda z:abs(z[0]-tr))
+        at, av, ax, ay=apex
+        name=p.component
+        if detector=="ПИД-2" and 20.2<=at<=21.3 and name in {"п-Ксилол","м-Ксилол"}:
+            name="м-Ксилол, п-Ксилол"
+        if detector=="ПИД-2" and 21.6<=at<=22.8 and name in {"Стирол","о-Ксилол"}:
+            name="Стирол, о-Ксилол"
+        label=f"{at:.3f} {name} {p.calculated_area:.3f}"
+        _vertical_text_native(image,label,ax,YB,font,color,bottom_gap=2)
+        p.retention_time_generated=round(float(at),6)
+
+    # Фоновые подписи: смесь коротких чисел и время+площадь, кластерами.
+    for c,a,s,q in events:
+        if q<0.42 and c<22: continue
+        if q<0.18 and 22<=c<34: continue
+        loc=[z for z in samples if c-2.5*s<=z[0]<=c+2.5*s]
+        if not loc: continue
+        at,av,ax,ay=max(loc,key=lambda z:z[1])
+        if q<0.62:
+            label=f"{a/ymax*100:.3f}"
+        else:
+            label=f"{at:.3f} {a*8.7:.3f}"
+        # Поздний кластер имеет небольшой горизонтальный разброс.
+        ax += rnd.uniform(-1.2,1.2) if c>=22 else 0
+        _vertical_text_native(image,label,ax,YB,small,color,bottom_gap=2)
+
+    image.convert("RGB").save(output_path,"PNG")
+    return output_path
+
+
 def render_chromatogram(
     peaks: list[PeakRecord],
     output_path: Path,
     *,
     detector: str,
-    width: int | None = None,
-    height: int | None = None,
-    x_min: float | None = None,
-    x_max: float | None = None,
+    width: int = 1600,
+    height: int = 720,
+    x_min: float = 0.0,
+    x_max: float = 38.96,
 ) -> Path:
-    """Финальный приборный рендерер V9 для Хроматэк-Кристалл 5000."""
-    style = _load_instrument_style()
-    canvas = style.get("canvas", {})
-    axes = style.get("axes", {})
-    fonts = style.get("fonts", {})
-    lines = style.get("lines", {})
-    labels = style.get("labels", {})
-    detector_style = style.get("detectors", {}).get(
-        detector,
-        {"color": "#000000", "frame_color": "#000000"},
+    # width/height оставлены для совместимости со старым API.
+    return _render_chromatek_image(
+        peaks,
+        output_path,
+        detector=detector,
+        x_min=x_min,
+        x_max=x_max,
     )
-
-    width = int(width or canvas.get("width", 1600))
-    height = int(height or canvas.get("height", 720))
-    x_min = float(axes.get("x_min", 0.0) if x_min is None else x_min)
-    x_max = float(axes.get("x_max", 38.96) if x_max is None else x_max)
-
-    margins = canvas.get("margins", {})
-    margin_l = int(margins.get("left", 64))
-    margin_r = int(margins.get("right", 18))
-    margin_t = int(margins.get("top", 10))
-    margin_b = int(margins.get("bottom", 38))
-    plot_w = width - margin_l - margin_r
-    plot_h = height - margin_t - margin_b
-
-    positive_peaks = [
-        p for p in peaks
-        if p.input_concentration > 0 and p.calculated_height > 0
-    ]
-    h_max = max((p.calculated_height for p in positive_peaks), default=1.0)
-    y_max = _nice_tick_max(max(1.0, h_max * 1.07))
-
-    background = _hex_color(canvas.get("background", "#FFFFFF"))
-    detector_color = _hex_color(detector_style.get("color", "#000000"))
-    frame_color = _hex_color(detector_style.get("frame_color", detector_style.get("color", "#000000")))
-
-    image = Image.new("RGBA", (width, height), background + (255,))
-    draw = ImageDraw.Draw(image)
-
-    tick_font = _font(int(fonts.get("tick_size", 14)))
-    label_font = _font(int(fonts.get("peak_label_size", 15)), bold=False)
-    axis_font = _font(int(fonts.get("axis_size", 16)), bold=True)
-
-    axis_width = int(lines.get("axis_width", 1))
-    major_tick_width = int(lines.get("major_tick_width", 1))
-    minor_tick_width = int(lines.get("minor_tick_width", 1))
-    signal_width = int(lines.get("signal_width", 1))
-    integration_width = int(lines.get("integration_width", 1))
-
-    # Весь ПИД-2, включая оси, подписи, деления и выноски, рисуется одним синим.
-    draw.line(
-        (margin_l, margin_t, margin_l, margin_t + plot_h),
-        fill=frame_color,
-        width=axis_width,
-    )
-    draw.line(
-        (margin_l, margin_t + plot_h, margin_l + plot_w, margin_t + plot_h),
-        fill=frame_color,
-        width=axis_width,
-    )
-    if axes.get("draw_top_border", False):
-        draw.line(
-            (margin_l, margin_t, margin_l + plot_w, margin_t),
-            fill=frame_color,
-            width=axis_width,
-        )
-    if axes.get("draw_right_border", False):
-        draw.line(
-            (margin_l + plot_w, margin_t, margin_l + plot_w, margin_t + plot_h),
-            fill=frame_color,
-            width=axis_width,
-        )
-
-    # Частые приборные засечки по X.
-    major_step = float(axes.get("x_major_step", 2.5))
-    minor_step = float(axes.get("x_minor_step", 0.25))
-    tick = math.ceil(x_min / minor_step) * minor_step
-    while tick <= x_max + 1e-9:
-        x = margin_l + plot_w * (tick - x_min) / (x_max - x_min)
-        major = abs((tick / major_step) - round(tick / major_step)) < 1e-7
-        tick_len = 7 if major else 3
-        draw.line(
-            (x, margin_t + plot_h, x, margin_t + plot_h + tick_len),
-            fill=frame_color,
-            width=major_tick_width if major else minor_tick_width,
-        )
-        if major:
-            txt = "0" if abs(tick) < 1e-9 else f"{tick:g}"
-            box = draw.textbbox((0, 0), txt, font=tick_font)
-            draw.text(
-                (x - (box[2] - box[0]) / 2, margin_t + plot_h + 8),
-                txt,
-                fill=detector_color,
-                font=tick_font,
-            )
-        tick += minor_step
-
-    # Основные и мелкие деления Y тем же цветом детектора.
-    y_major_intervals = int(axes.get("y_major_intervals", 5))
-    y_minor_subdivisions = int(axes.get("y_minor_subdivisions", 5))
-    total_minor = y_major_intervals * y_minor_subdivisions
-    for i in range(total_minor + 1):
-        y = margin_t + plot_h - plot_h * i / total_minor
-        major = i % y_minor_subdivisions == 0
-        tick_len = 7 if major else 3
-        draw.line(
-            (margin_l - tick_len, y, margin_l, y),
-            fill=frame_color,
-            width=major_tick_width if major else minor_tick_width,
-        )
-        if major:
-            value = y_max * i / total_minor
-            txt = f"{value:.0f}" if y_max >= 10 else f"{value:.1f}"
-            box = draw.textbbox((0, 0), txt, font=tick_font)
-            draw.text(
-                (margin_l - 10 - (box[2] - box[0]), y - (box[3] - box[1]) / 2),
-                txt,
-                fill=detector_color,
-                font=tick_font,
-            )
-
-    # Обозначения прибора в левом верхнем и правом нижнем углах.
-    draw.text((5, 2), detector, fill=detector_color, font=axis_font)
-    draw.text((5, 20), "мВ", fill=detector_color, font=axis_font)
-    min_text = "мин"
-    min_box = draw.textbbox((0, 0), min_text, font=axis_font)
-    draw.text(
-        (width - min_box[2] - 5, height - min_box[3] - 2),
-        min_text,
-        fill=detector_color,
-        font=axis_font,
-    )
-
-    baseline_seed = stable_seed(
-        METHOD_ID,
-        detector,
-        positive_peaks[0].sample_code if positive_peaks else "blank",
-        positive_peaks[0].chromatogram_index if positive_peaks else 0,
-        "reference-baseline-v4",
-    )
-    brnd = random.Random(baseline_seed)
-    baseline_state = {}
-    n = max(4200, width * 3)
-    signal_points = []
-    rendered_samples = []
-
-    for i in range(n):
-        t = x_min + (x_max - x_min) * i / (n - 1)
-        baseline = _reference_baseline(
-            t,
-            detector,
-            brnd,
-            baseline_state,
-            y_max=y_max,
-            x_max=x_max,
-            style=style,
-        )
-        signal = baseline + sum(_signal_at(t, peak) for peak in positive_peaks)
-        x = margin_l + plot_w * (t - x_min) / (x_max - x_min)
-        y = margin_t + plot_h - plot_h * min(signal, y_max) / y_max
-        signal_points.append((x, y))
-        rendered_samples.append((t, signal, x, y))
-
-    draw.line(signal_points, fill=detector_color, width=signal_width)
-
-    # GC_FINAL_RENDERER_V9 — зафиксированное приборное поведение по реальным распечаткам.
-    #
-    # Каждая подпись полностью независима от соседних:
-    # - X строго равен retention_time_generated данного компонента;
-    # - горизонтальный сдвиг отсутствует;
-    # - нижний край повернутого текста находится непосредственно в вершине;
-    # - наложения не предотвращаются и не корректируются.
-    #
-    # Это намеренно воспроизводит «грязную» приборную раскладку Хроматэк,
-    # где близкие вертикальные подписи печатаются поверх друг друга.
-    for peak in sorted(positive_peaks, key=lambda p: p.retention_time_generated):
-        apex_time = peak.retention_time_generated
-        sample_t, sample_signal, x_apex, y_apex = min(
-            rendered_samples,
-            key=lambda sample: abs(sample[0] - apex_time),
-        )
-
-        draw.line(
-            (x_apex, y_apex, x_apex, margin_t + plot_h),
-            fill=detector_color,
-            width=integration_width,
-        )
-
-        label = (
-            f"{sample_t:.3f} "
-            f"{peak.component} "
-            f"{peak.calculated_area:.3f}"
-        )
-        _draw_vertical_label(
-            image,
-            text=label,
-            x=int(round(x_apex)),
-            y_bottom=int(round(y_apex)),
-            font=label_font,
-            color=detector_color,
-        )
-
-    image.convert("RGB").save(output_path, format="PNG")
-    return output_path
-
 
 def build_chromatogram_times(start: datetime) -> list[datetime]:
     passport = load_passport()
@@ -719,6 +735,12 @@ def build_sample(
 ) -> Path:
     models = load_models()
     start = parse_datetime(date_text, time_text)
+    canonical_values = {}
+    for raw_name, raw_value in values.items():
+        canonical_name = normalize_component(raw_name)
+        if canonical_name not in canonical_values:
+            canonical_values[canonical_name] = raw_value
+    values = canonical_values
     times = build_chromatogram_times(start)
     sample_dir = Path(output_dir) / safe_name(sample_code)
     sample_dir.mkdir(parents=True, exist_ok=True)
