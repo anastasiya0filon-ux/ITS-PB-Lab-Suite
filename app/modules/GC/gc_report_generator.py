@@ -53,7 +53,15 @@ def _next_counter() -> int:
 
 
 def _fmt_sig(value: float) -> str:
-    return f"{float(value):.5g}"
+    """Ровно пять значащих цифр с сохранением конечных нулей."""
+    import math
+    number = float(value)
+    if number == 0:
+        return "0.0000"
+    exponent = math.floor(math.log10(abs(number)))
+    if exponent < -4 or exponent >= 5:
+        return f"{number:.4e}"
+    return f"{number:.{max(0, 4-exponent)}f}"
 
 
 def generate_gc_report(
@@ -117,7 +125,7 @@ def generate_gc_report(
             "",
             f'{sum(float(x["area"]) for x in results):.3f}',
             f'{sum(float(x["height"]) for x in results):.3f}',
-            f'{sum(float(x["concentration"]) for x in results):.3f}',
+            _fmt_sig(sum(float(x["concentration"]) for x in results)),
             "",
             "",
         ]
@@ -161,6 +169,10 @@ def generate_reports_for_sample(
     ]
     peaks = package.get("peaks", [])
     sample_code = str(package["sample_code"])
+    scale_index = {
+        (int(item["chromatogram_index"]), str(item["detector"])): item
+        for item in package.get("scales", [])
+    }
     created = []
 
     for index in (1, 2):
@@ -183,6 +195,26 @@ def generate_reports_for_sample(
                     "detector": peak["detector"],
                 }
             )
+        # Хроматэк объединяет только две приборные группы на ПИД-2.
+        combined = []
+        consumed = set()
+        for group_name, names in (
+            ("м-Ксилол, п-Ксилол", {"м-Ксилол", "п-Ксилол"}),
+            ("Стирол, о-Ксилол", {"Стирол", "о-Ксилол"}),
+        ):
+            group_rows = [r for r in rows if r["detector"] == "ПИД-2" and r["component"] in names]
+            if group_rows:
+                combined.append({
+                    "component": group_name,
+                    "retention_time": sum(float(r["retention_time"]) for r in group_rows) / len(group_rows),
+                    "area": sum(float(r["area"]) for r in group_rows),
+                    "height": sum(float(r["height"]) for r in group_rows),
+                    "concentration": _fmt_sig(sum(float(r["concentration"]) for r in group_rows) / len(group_rows)),
+                    "unit": "мг/дм3",
+                    "detector": "ПИД-2",
+                })
+                consumed.update(id(r) for r in group_rows)
+        rows = [r for r in rows if id(r) not in consumed] + combined
         rows.sort(key=lambda row: float(row["retention_time"]))
         if not rows:
             raise ValueError(
@@ -218,6 +250,8 @@ def generate_reports_for_sample(
             results=rows,
             pid1_image=image_index[(index, "ПИД-1")],
             pid2_image=image_index[(index, "ПИД-2")],
+            pid1_interval=f'{float(scale_index.get((index, "ПИД-1"), {}).get("x_max", 38.955)):.3f}',
+            pid2_interval=f'{float(scale_index.get((index, "ПИД-2"), {}).get("x_max", 38.954)):.3f}',
         )
         created.append(output)
 

@@ -6,104 +6,135 @@ import random
 from . import geometry
 from .fonts import draw_vertical_text, load_font
 from .profiles import zone_for
-from .spec import SPEC, detector_spec
+from .spec import detector_spec
 
 
-def _nearest(samples, left, right):
+ANALYTIC_FONT_PX = 7
+BACKGROUND_FONT_PX = 6
+
+# Один пиксель между вершиной и текстом: читаемо и близко к эталону.
+ANALYTIC_APEX_GAP = 1
+BACKGROUND_APEX_GAP = 0
+
+ANALYTIC_MIN_GAP_PX = 5
+ANALYTIC_SHIFT_STEP_PX = 2
+ANALYTIC_MAX_SHIFT_PX = 6
+
+BACKGROUND_EXCLUSION_PX = 8
+BACKGROUND_MIN_GAP_PX = 5
+
+
+def _nearest_time(samples, target):
+    return min(samples, key=lambda row: abs(row[0] - target)) if samples else None
+
+
+def _nearest_apex(samples, left, right):
     rows = [row for row in samples if left <= row[0] <= right]
     return max(rows, key=lambda row: row[1]) if rows else None
 
 
-def _analytic_label(at, component, area, detector):
-    name = str(component)
-    if detector == "ПИД-2" and 20.2 <= at <= 21.4 and name in {"п-Ксилол", "м-Ксилол"}:
-        name = "м-Ксилол, п-Ксилол"
-    if detector == "ПИД-2" and 21.5 <= at <= 22.9 and name in {"Стирол", "о-Ксилол"}:
-        name = "Стирол, о-Ксилол"
-    return f"{at:.3f} {name} {float(area):.3f}"
+def analytic_label_text(retention_time, component, area, detector):
+    return f"{retention_time:.3f} {component} {float(area):.3f}"
 
 
-def draw_labels(image, *, peaks, samples, events, detector, y_max, seed, x_min, x_max):
+def _resolve_x(base_x, used_x):
+    if all(abs(base_x - previous) >= ANALYTIC_MIN_GAP_PX for previous in used_x):
+        return base_x
+
+    for distance in range(
+        ANALYTIC_SHIFT_STEP_PX,
+        ANALYTIC_MAX_SHIFT_PX + 1,
+        ANALYTIC_SHIFT_STEP_PX,
+    ):
+        for candidate in (base_x - distance, base_x + distance):
+            if candidate <= geometry.PLOT_X0 + 1:
+                continue
+            if candidate >= geometry.PLOT_X1 - 1:
+                continue
+            if all(
+                abs(candidate - previous) >= ANALYTIC_MIN_GAP_PX
+                for previous in used_x
+            ):
+                return candidate
+
+    return base_x
+
+
+def draw_labels(
+    image, *, peaks, samples, events, detector, y_max, seed, x_min, x_max,
+):
     color = tuple(detector_spec(detector)["rgb"])
-    analytic_font = load_font(int(SPEC["fonts"]["analytic_size"]))
-    background_font = load_font(int(SPEC["fonts"]["background_size"]))
+    analytic_font = load_font(ANALYTIC_FONT_PX)
+    background_font = load_font(BACKGROUND_FONT_PX)
 
     ordered = sorted(peaks, key=lambda peak: float(peak.retention_time_generated))
-    merged: set[str] = set()
+    analytic_x_positions = []
 
-    for index, peak in enumerate(ordered):
+    for peak in ordered:
         tr = float(peak.retention_time_generated)
-        sigma = max(float(getattr(peak, "sigma", 0.02)), 0.020)
-
-        left = tr - max(0.055, sigma * 4.2)
-        right = tr + max(0.075, sigma * 5.2)
-        if index:
-            previous = float(ordered[index - 1].retention_time_generated)
-            left = max(left, (previous + tr) / 2.0)
-        if index + 1 < len(ordered):
-            following = float(ordered[index + 1].retention_time_generated)
-            right = min(right, (tr + following) / 2.0)
-
-        apex = _nearest(samples, left, right)
-        if not apex:
+        row = _nearest_time(samples, tr)
+        if row is None:
             continue
 
-        at, av = apex
-        label = _analytic_label(at, peak.component, peak.calculated_area, detector)
+        _, amplitude = row
+        label = analytic_label_text(
+            tr,
+            str(peak.component),
+            peak.calculated_area,
+            detector,
+        )
 
-        if detector == "ПИД-2" and (
-            "м-Ксилол, п-Ксилол" in label or "Стирол, о-Ксилол" in label
-        ):
-            key = label.split(" ", 1)[1].rsplit(" ", 1)[0]
-            if key in merged:
-                peak.retention_time_generated = round(at, 6)
-                continue
-            merged.add(key)
+        base_x = geometry.x_to_px(tr, x_min, x_max)
+        x = _resolve_x(base_x, analytic_x_positions)
+        analytic_x_positions.append(x)
 
-        x = geometry.x_to_px(at, x_min, x_max)
-        apex_y = geometry.y_to_px(av, y_max)
+        bottom_y = int(round(
+            geometry.y_to_px(amplitude, y_max) - ANALYTIC_APEX_GAP
+        ))
 
-        # Final rule: lower edge of the vertical label is just above the
-        # true maximum of the already constructed signal.
         draw_vertical_text(
             image,
             label,
             x,
-            int(round(apex_y - 2)),
+            bottom_y,
             analytic_font,
             color,
             min_y=geometry.PLOT_Y0 + 1,
             min_x=geometry.PLOT_X0 + 1,
             max_x=geometry.PLOT_X1 - 1,
         )
-        peak.retention_time_generated = round(at, 6)
 
     rnd = random.Random(seed ^ 0x91F3)
+    background_x_positions = []
+
     for center, amplitude, width, kind in events:
         zone = zone_for(center)
-        probability = float(zone["label_probability"])
-        probability *= 0.54 if center < 20.0 else 0.92
+        probability = float(zone["label_probability"]) * (
+            0.26 if center < 20.0 else 0.48
+        )
         if kind > probability:
             continue
 
-        apex = _nearest(
-            samples,
-            center - 2.7 * width,
-            center + 2.7 * width,
-        )
-        if not apex:
+        apex = _nearest_apex(samples, center - 2.7 * width, center + 2.7 * width)
+        if apex is None:
             continue
 
-        at, av = apex
-        label = f"{at:.3f}" if kind < 0.35 else f"{at:.3f} {amplitude * 9.0:.3f}"
-        x = geometry.x_to_px(at, x_min, x_max) + rnd.uniform(-0.45, 0.45)
-        apex_y = geometry.y_to_px(av, y_max)
+        at, apex_value = apex
+        x = geometry.x_to_px(at, x_min, x_max)
+
+        if any(abs(x - used_x) < BACKGROUND_EXCLUSION_PX for used_x in analytic_x_positions):
+            continue
+        if any(abs(x - used_x) < BACKGROUND_MIN_GAP_PX for used_x in background_x_positions):
+            continue
+
+        background_x_positions.append(x)
+        text = f"{at:.3f}" if kind < 0.35 else f"{at:.3f} {amplitude * 9:.3f}"
 
         draw_vertical_text(
             image,
-            label,
+            text,
             x,
-            int(round(apex_y - 1)),
+            int(round(geometry.y_to_px(apex_value, y_max))),
             background_font,
             color,
             min_y=geometry.PLOT_Y0 + 1,

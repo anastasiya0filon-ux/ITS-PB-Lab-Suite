@@ -61,6 +61,7 @@ import sys as _chromatek_sys
 if str(ROOT) not in _chromatek_sys.path:
     _chromatek_sys.path.insert(0, str(ROOT))
 from chromatek_renderer import render_chromatogram as _render_chromatek_image
+from chromatek_renderer.scale_profiles import choose_reference_scale
 DATA_DIR = ROOT / "data"
 TEMPLATE_DIR = ROOT / "excel_templates"
 OUTPUT_DIR = ROOT / "output"
@@ -143,6 +144,17 @@ class PeakRecord:
     peak_imperfection_level: int
     internal_seed: int
     model_version: str
+
+
+def format_sig5(value: float) -> str:
+    """Ровно пять значащих цифр, включая конечные нули."""
+    number = float(value)
+    if number == 0:
+        return "0.0000"
+    exponent = math.floor(math.log10(abs(number)))
+    if exponent < -4 or exponent >= 5:
+        return f"{number:.4e}"
+    return f"{number:.{max(0, 4-exponent)}f}"
 
 
 def safe_name(value: str) -> str:
@@ -705,6 +717,8 @@ def render_chromatogram(
     height: int = 720,
     x_min: float = 0.0,
     x_max: float = 38.96,
+    y_max: float | None = None,
+    y_tick_step: float | None = None,
 ) -> Path:
     # width/height оставлены для совместимости со старым API.
     return _render_chromatek_image(
@@ -713,6 +727,8 @@ def render_chromatogram(
         detector=detector,
         x_min=x_min,
         x_max=x_max,
+        y_max=y_max,
+        y_tick_step=y_tick_step,
     )
 
 def build_chromatogram_times(start: datetime) -> list[datetime]:
@@ -766,6 +782,7 @@ def build_sample(
         "chromatogram_times": [dt.isoformat() for dt in times],
         "peaks": [],
         "images": [],
+        "scales": [],
     }
 
     all_rows = []
@@ -789,12 +806,22 @@ def build_sample(
                     all_rows.append(record)
 
             image_name = f"chromatogram_{chrom_idx}_{detector.replace('-', '_')}.png"
-            render_chromatogram(peaks, sample_dir / image_name, detector=detector)
+            component_values = {name: float(pair[chrom_idx - 1]) for name, pair in pairs.items()}
+            scale = choose_reference_scale(component_values, detector)
+            render_chromatogram(
+                peaks,
+                sample_dir / image_name,
+                detector=detector,
+                x_max=float(scale["x_max"]),
+                y_max=float(scale["y_max"]),
+                y_tick_step=float(scale["y_tick_step"]),
+            )
             package["images"].append({
                 "chromatogram_index": chrom_idx,
                 "detector": detector,
                 "file": image_name,
             })
+            package["scales"].append({"chromatogram_index": chrom_idx, "detector": detector, **scale})
 
     with (sample_dir / "generation.json").open("w", encoding="utf-8") as f:
         json.dump(package, f, ensure_ascii=False, indent=2)

@@ -495,9 +495,9 @@ class GcPage(ModulePage):
             name_item = QTableWidgetItem(component)
             name_item.setFlags(name_item.flags() & ~Qt.ItemIsEditable)
             table.setItem(row, 0, name_item)
-            table.setItem(row, 1, QTableWidgetItem(f"{default:.5f}".replace(".", ",")))
+            table.setItem(row, 1, QTableWidgetItem(gc.format_sig5(default).replace(".", ",")))
             if actual:
-                table.setItem(row, 2, QTableWidgetItem(f"{default:.5f}".replace(".", ",")))
+                table.setItem(row, 2, QTableWidgetItem(gc.format_sig5(default).replace(".", ",")))
         table.setMinimumHeight(460)
         return table
 
@@ -516,12 +516,12 @@ class GcPage(ModulePage):
         layout.setContentsMargins(0, 10, 0, 0)
         layout.addWidget(self._sample_card())
         self.gc_random_table = self._component_table(False)
-        layout.addWidget(self.gc_random_table, 1)
         row = QHBoxLayout()
         row.addWidget(self.main.secondary("Вернуть значения по умолчанию", lambda: self._reset_table(self.gc_random_table, False)))
         row.addStretch(1)
         row.addWidget(self.main.primary("Сформировать отчёты", self._run_single_random))
         layout.addLayout(row)
+        layout.addWidget(self.gc_random_table, 1)
         return widget
 
     def _single_actual_tab(self):
@@ -534,12 +534,12 @@ class GcPage(ModulePage):
         card.body.addWidget(self.gc_actual_sample)
         layout.addWidget(card)
         self.gc_actual_table = self._component_table(True)
-        layout.addWidget(self.gc_actual_table, 1)
         row = QHBoxLayout()
         row.addWidget(self.main.secondary("Вернуть значения по умолчанию", lambda: self._reset_table(self.gc_actual_table, True)))
         row.addStretch(1)
         row.addWidget(self.main.primary("Сформировать отчёты", self._run_single_actual))
         layout.addLayout(row)
+        layout.addWidget(self.gc_actual_table, 1)
         return widget
 
     def _excel_tab(self, mode):
@@ -563,9 +563,9 @@ class GcPage(ModulePage):
 
     def _reset_table(self, table, actual):
         for row, (_, default) in enumerate(gc.COMPONENT_DEFAULTS):
-            table.item(row, 1).setText(f"{default:.5f}".replace(".", ","))
+            table.item(row, 1).setText(gc.format_sig5(default).replace(".", ","))
             if actual:
-                table.item(row, 2).setText(f"{default:.5f}".replace(".", ","))
+                table.item(row, 2).setText(gc.format_sig5(default).replace(".", ","))
 
     def _table_values(self, table, actual):
         values = {}
