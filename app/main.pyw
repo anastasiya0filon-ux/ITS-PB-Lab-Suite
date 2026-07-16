@@ -14,7 +14,13 @@ import traceback
 from pathlib import Path
 from xml.sax.saxutils import escape
 
-APP_DIR = Path(__file__).resolve().parent
+# PORTABLE_ENGINE_1_0
+try:
+    from portable import application_dir
+except ImportError:
+    from app.portable import application_dir
+
+APP_DIR = application_dir()
 MODULES = APP_DIR / "modules"
 ICP_DIR = MODULES / "ICP_OS"
 AAS_DIR = MODULES / "AAS"

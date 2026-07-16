@@ -65,4 +65,7 @@ app/modules/GC/output/
 *.backup
 *.bak
 *.before_*
-backup_*/
+backup_*/release_packages/
+release_packages/
+**/backup_before_*/
+**/backup_broken_*/
