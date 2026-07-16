@@ -1,0 +1,68 @@
+{
+  "name": "GC CORE",
+  "version": "1.0",
+  "status": "frozen",
+  "created_at_local": "2026-07-14T21:16:31",
+  "policy": {
+    "purpose": "Контроль неизменности математического ядра GC",
+    "visual_passport_files_may_change": true,
+    "core_changes_require_explicit_new_core_version": true
+  },
+  "files": [
+    {
+      "path": "app/modules/GC/gc_generator.py",
+      "sha256": "ee5b24f40d7e996d1e2368f4bbb4ae5a2fb26e7964c4ff207996e6b323abdc3f",
+      "size_bytes": 42524
+    },
+    {
+      "path": "app/modules/GC/gc_report_generator.py",
+      "sha256": "17ed8443edad4393a1060e2993ed94158cb399c07aa6c3a73d52ed4c384dc1ec",
+      "size_bytes": 9106
+    },
+    {
+      "path": "app/modules/GC/cnre_engine.py",
+      "sha256": "2436035026824647fb43db6387aae7acd643979f0f651c44b58532cd2a3baac8",
+      "size_bytes": 15768
+    },
+    {
+      "path": "app/modules/GC/chromatek_renderer/signal.py",
+      "sha256": "f82250df6ca65304442c73c394e74af8bb899fa160e69f30cfb73cfddf4ef2d8",
+      "size_bytes": 2702
+    },
+    {
+      "path": "app/modules/GC/chromatek_renderer/peaks.py",
+      "sha256": "21d46ff0e9901d76eec0d786e3da1bec817fde26cdf9d76cb38309c83e1e53da",
+      "size_bytes": 1570
+    },
+    {
+      "path": "app/modules/GC/chromatek_renderer/real_profiles.py",
+      "sha256": "767be6b2ffad3fc05e1a90151efc73c5c83f3f7af9c476a4c6491a627dbf998b",
+      "size_bytes": 2167
+    },
+    {
+      "path": "app/modules/GC/chromatek_renderer/profiles.py",
+      "sha256": "a849438f77dd9063ba7b3bab5e47bdd8a4d6669d83b740140c776e9cdd4b3171",
+      "size_bytes": 642
+    },
+    {
+      "path": "app/modules/GC/chromatek_renderer/scale_profiles.py",
+      "sha256": "8fd1c62c405d4aa2f58da81780b484dfb0cdc65e55f0e6bce6be2da8a45e7d6f",
+      "size_bytes": 2806
+    },
+    {
+      "path": "app/modules/GC/chromatek_renderer/real_peak_profiles_levels.json",
+      "sha256": "ac3cdbc9ebc7cc022b428a4430b5517cd0f3c00c8fe6ff9d02359318799c280e",
+      "size_bytes": 73106
+    },
+    {
+      "path": "app/modules/GC/chromatek_renderer/profile_library.json",
+      "sha256": "c90a16d2da3b3e23bb0bc6ab8e4d334f6995e4ef8f69ff116b21f1e0c7e659c5",
+      "size_bytes": 5061
+    },
+    {
+      "path": "app/modules/GC/data/gc_muk_4_1_3166_calibration_model.json",
+      "sha256": "e47e0590426d95eb57b0d9f4d1e538f1a02ee745afb34cce11649f1334f3adf7",
+      "size_bytes": 49232
+    }
+  ]
+}

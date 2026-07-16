@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "name": "Chromatek Multi-Method Platform",
+  "version": "1.0",
+  "installed_at": "2026-07-14T21:25:22",
+  "principles": [
+    "Метод НД рассчитывает данные и не рисует хроматограмму",
+    "Рендер, шрифты, цвета, геометрия и визуальное поведение общие для всех НД",
+    "Отчётный движок не содержит математику конкретного НД",
+    "Добавление нового НД выполняется через app/modules/GC/methods/<METHOD_ID>",
+    "Визуальные исправления не должны менять GC CORE"
+  ],
+  "layers": {
+    "platform": "app/modules/GC/platform",
+    "methods": "app/modules/GC/methods",
+    "passports": "app/modules/GC/passports",
+    "renderer_legacy_active": "app/modules/GC/chromatek_renderer",
+    "report_engine_legacy_active": "app/modules/GC/gc_report_generator.py"
+  },
+  "migration_mode": "non-breaking-foundation",
+  "active_method": "MUK_4_1_3166"
+}

@@ -1,7 +1,7 @@
 {
   "method_id": "MUK_4_1_3166",
   "display_name": "МУК 4.1.3166",
-  "version": "gc-calibration-model-v0.1",
+  "version": "real-reference-rt-v1",
   "principles": {
     "raw_points_are_primary": true,
     "model_is_cached": true,
@@ -11,873 +11,10 @@
       "area": 0,
       "height": 0,
       "experimental": false
-    }
+    },
+    "retention_time_reference": "Средние времена реальных отчётов Хроматэк т.1–т.6; генерация строго в пределах ±5%, порядок пиков сохраняется."
   },
   "models": [
-    {
-      "calibration_part": "Часть 1",
-      "component": "Ацетальдегид",
-      "detector": "ПИД-1",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.090002,
-        1.1351
-      ],
-      "retention_time_mean": 2.51725,
-      "retention_time_sd": 0.0022776083947860432,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 166.8898461597251,
-          "b_quadratic": 45.7040860339823
-        },
-        "formula": "166.88984616*C + 45.704086034*C^2",
-        "R2_experimental": 0.9991702925483175,
-        "MAE": 1.910879763901605,
-        "max_abs_error": 4.415966572479327,
-        "max_rel_error_pct": 10.460409732043129
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 42.64109982364447,
-          "b_quadratic": 9.975250860930426
-        },
-        "formula": "42.6410998236*C + 9.97525086093*C^2",
-        "R2_experimental": 0.9988646721054054,
-        "MAE": 0.5566088563734142,
-        "max_abs_error": 1.274854453640197,
-        "max_rel_error_pct": 11.744398467436175
-      }
-    },
-    {
-      "calibration_part": "Часть 1",
-      "component": "Ацетальдегид",
-      "detector": "ПИД-2",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.08949,
-        0.84905
-      ],
-      "retention_time_mean": 2.823,
-      "retention_time_sd": 0.0033911649915626205,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 60.40644409705885,
-          "b_quadratic": 243.8931462710254
-        },
-        "formula": "60.4064440971*C + 243.893146271*C^2",
-        "R2_experimental": 0.9834535261876786,
-        "MAE": 10.021856513158374,
-        "max_abs_error": 14.625906141323682,
-        "max_rel_error_pct": 44.41437258991792
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 14.0037857334169,
-          "b_quadratic": 52.81958143804339
-        },
-        "formula": "14.0037857334*C + 52.819581438*C^2",
-        "R2_experimental": 0.9812909407713086,
-        "MAE": 2.3318153644863524,
-        "max_abs_error": 3.411695420358079,
-        "max_rel_error_pct": 44.18240773464038
-      }
-    },
-    {
-      "calibration_part": "Часть 1",
-      "component": "Ацетон",
-      "detector": "ПИД-1",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.11138,
-        1.1527
-      ],
-      "retention_time_mean": 3.3899999999999997,
-      "retention_time_sd": 0.001000000000000112,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 146.64425947724803,
-          "b_quadratic": 33.50107022103935
-        },
-        "formula": "146.644259477*C + 33.501070221*C^2",
-        "R2_experimental": 0.9990472980710066,
-        "MAE": 1.73845807715486,
-        "max_abs_error": 4.035005362257628,
-        "max_rel_error_pct": 10.78445907325305
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 31.89549836387247,
-          "b_quadratic": 6.9841833113101925
-        },
-        "formula": "31.8954983639*C + 6.98418331131*C^2",
-        "R2_experimental": 0.99852982174119,
-        "MAE": 0.46273018672169874,
-        "max_abs_error": 1.0769897425916675,
-        "max_rel_error_pct": 12.939922414894479
-      }
-    },
-    {
-      "calibration_part": "Часть 1",
-      "component": "Ацетон",
-      "detector": "ПИД-2",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.11474,
-        1.3867
-      ],
-      "retention_time_mean": 4.6697500000000005,
-      "retention_time_sd": 0.0016393596310756752,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 136.21018887899322,
-          "b_quadratic": 3.416671513807184
-        },
-        "formula": "136.210188879*C + 3.41667151381*C^2",
-        "R2_experimental": 0.9995837921741282,
-        "MAE": 1.1216231459572517,
-        "max_abs_error": 2.1097384667562498,
-        "max_rel_error_pct": 15.553955077825494
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 22.858084666190383,
-          "b_quadratic": 0.5546088257636665
-        },
-        "formula": "22.8580846662*C + 0.554608825764*C^2",
-        "R2_experimental": 0.9994388505045047,
-        "MAE": 0.22652236560444494,
-        "max_abs_error": 0.4195651474384299,
-        "max_rel_error_pct": 15.555281555500219
-      }
-    },
-    {
-      "calibration_part": "Часть 1",
-      "component": "Бутилацета",
-      "detector": "ПИД-1",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.089813,
-        1.1794
-      ],
-      "retention_time_mean": 10.7975,
-      "retention_time_sd": 0.0039051248379533238,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 1184.8796831914262,
-          "b_quadratic": 455.0671230709432
-        },
-        "formula": "1184.87968319*C + 455.067123071*C^2",
-        "R2_experimental": 0.99829762943404,
-        "MAE": 22.828162793264475,
-        "max_abs_error": 52.25850915246713,
-        "max_rel_error_pct": 15.80459004048556
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 209.19419994643255,
-          "b_quadratic": 78.98730068158041
-        },
-        "formula": "209.194199946*C + 78.9873006816*C^2",
-        "R2_experimental": 0.9982449743279317,
-        "MAE": 4.060856810157737,
-        "max_abs_error": 9.318206869811505,
-        "max_rel_error_pct": 15.954194551606863
-      }
-    },
-    {
-      "calibration_part": "Часть 1",
-      "component": "Бутилацетат",
-      "detector": "ПИД-2",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.089721,
-        1.4135
-      ],
-      "retention_time_mean": 18.473,
-      "retention_time_sd": 0.004415880433164091,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 1254.5201743629152,
-          "b_quadratic": 55.19793925419781
-        },
-        "formula": "1254.52017436*C + 55.1979392542*C^2",
-        "R2_experimental": 0.9994947240555464,
-        "MAE": 12.790741969716656,
-        "max_abs_error": 25.93671383617692,
-        "max_rel_error_pct": 13.344574187916944
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 217.00442013519083,
-          "b_quadratic": 9.308946064917235
-        },
-        "formula": "217.004420135*C + 9.30894606492*C^2",
-        "R2_experimental": 0.9994731201951675,
-        "MAE": 2.255331654102286,
-        "max_abs_error": 4.576009175054146,
-        "max_rel_error_pct": 13.599472661561038
-      }
-    },
-    {
-      "calibration_part": "Часть 1",
-      "component": "Изобутанол",
-      "detector": "ПИД-1",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.090218,
-        1.1484
-      ],
-      "retention_time_mean": 11.79125,
-      "retention_time_sd": 0.056654103999621834,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 157.92933119639613,
-          "b_quadratic": 74.09947419135376
-        },
-        "formula": "157.929331196*C + 74.0994741914*C^2",
-        "R2_experimental": 0.998359356034611,
-        "MAE": 3.1361378043621584,
-        "max_abs_error": 7.039094822047723,
-        "max_rel_error_pct": 15.133932795940236
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 30.39912144166038,
-          "b_quadratic": 13.870339505011362
-        },
-        "formula": "30.3991214417*C + 13.870339505*C^2",
-        "R2_experimental": 0.9972371787131458,
-        "MAE": 0.7629360136139978,
-        "max_abs_error": 1.7310904583766158,
-        "max_rel_error_pct": 18.595879883732046
-      }
-    },
-    {
-      "calibration_part": "Часть 1",
-      "component": "Изобутанол",
-      "detector": "ПИД-2",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.089277,
-        1.4336
-      ],
-      "retention_time_mean": 10.717,
-      "retention_time_sd": 0.0014142135623729393,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 161.86160357830747,
-          "b_quadratic": 9.520790248384609
-        },
-        "formula": "161.861603578*C + 9.52079024838*C^2",
-        "R2_experimental": 0.9995158721419181,
-        "MAE": 1.6276115253958676,
-        "max_abs_error": 2.9684027248227114,
-        "max_rel_error_pct": 25.68266763127454
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 20.684334720127385,
-          "b_quadratic": 1.2333111504973635
-        },
-        "formula": "20.6843347201*C + 1.2333111505*C^2",
-        "R2_experimental": 0.9995358412637992,
-        "MAE": 0.2094169565176398,
-        "max_abs_error": 0.3707714321881088,
-        "max_rel_error_pct": 21.416959627352504
-      }
-    },
-    {
-      "calibration_part": "Часть 1",
-      "component": "Изопропанол",
-      "detector": "ПИД-1",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.090179,
-        1.1357
-      ],
-      "retention_time_mean": 5.42,
-      "retention_time_sd": 0.002236067977499941,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 68.8650030361875,
-          "b_quadratic": 28.37859344541906
-        },
-        "formula": "68.8650030362*C + 28.3785934454*C^2",
-        "R2_experimental": 0.9986594998417082,
-        "MAE": 1.2166580228022503,
-        "max_abs_error": 2.6130460519935603,
-        "max_rel_error_pct": 13.262846675431733
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 10.46233037180006,
-          "b_quadratic": 4.1325621383801
-        },
-        "formula": "10.4623303718*C + 4.13256213838*C^2",
-        "R2_experimental": 0.9983396594701166,
-        "MAE": 0.19456912305032883,
-        "max_abs_error": 0.4329678868740272,
-        "max_rel_error_pct": 14.336684995828715
-      }
-    },
-    {
-      "calibration_part": "Часть 1",
-      "component": "Изопропанол",
-      "detector": "ПИД-2",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.095652,
-        1.3686
-      ],
-      "retention_time_mean": 4.8142499999999995,
-      "retention_time_sd": 0.003960744879438594,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 67.99376045621844,
-          "b_quadratic": 4.252215634623815
-        },
-        "formula": "67.9937604562*C + 4.25221563462*C^2",
-        "R2_experimental": 0.9992227945547013,
-        "MAE": 0.7974125434309265,
-        "max_abs_error": 1.6046439933673788,
-        "max_rel_error_pct": 32.495828136236916
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 10.326110703173766,
-          "b_quadratic": 0.8810019689334404
-        },
-        "formula": "10.3261107032*C + 0.881001968933*C^2",
-        "R2_experimental": 0.9994490759698091,
-        "MAE": 0.10477824597152499,
-        "max_abs_error": 0.2127736967909738,
-        "max_rel_error_pct": 27.174163063981325
-      }
-    },
-    {
-      "calibration_part": "Часть 1",
-      "component": "Метанол",
-      "detector": "ПИД-1",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.10629,
-        1.1216
-      ],
-      "retention_time_mean": 4.71225,
-      "retention_time_sd": 0.0032691742076552894,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 10.910914387806363,
-          "b_quadratic": 2.85728160272089
-        },
-        "formula": "10.9109143878*C + 2.85728160272*C^2",
-        "R2_experimental": 0.9995541463971356,
-        "MAE": 0.09360599396298891,
-        "max_abs_error": 0.18500141233842826,
-        "max_rel_error_pct": 18.371540450688013
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 1.9874728932385155,
-          "b_quadratic": 0.39978810405564086
-        },
-        "formula": "1.98747289324*C + 0.399788104056*C^2",
-        "R2_experimental": 0.9993557862940661,
-        "MAE": 0.01863971296217811,
-        "max_abs_error": 0.041820695140452224,
-        "max_rel_error_pct": 8.200136302049456
-      }
-    },
-    {
-      "calibration_part": "Часть 1",
-      "component": "Метанол",
-      "detector": "ПИД-2",
-      "n_experimental_points": 3,
-      "concentration_range": [
-        0.21274,
-        1.062
-      ],
-      "retention_time_mean": 2.9316666666666666,
-      "retention_time_sd": 0.0009428090415819595,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 10.199954511907046,
-          "b_quadratic": 0.8699347565333542
-        },
-        "formula": "10.1999545119*C + 0.869934756533*C^2",
-        "R2_experimental": 0.9990425080637397,
-        "MAE": 0.10387798435226452,
-        "max_abs_error": 0.1796899023337768,
-        "max_rel_error_pct": 7.521553048713973
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 2.290822131444412,
-          "b_quadratic": 0.30542033415769676
-        },
-        "formula": "2.29082213144*C + 0.305420334158*C^2",
-        "R2_experimental": 0.9997740071882681,
-        "MAE": 0.012040402211951165,
-        "max_abs_error": 0.020827692325911973,
-        "max_rel_error_pct": 3.989979372780071
-      }
-    },
-    {
-      "calibration_part": "Часть 1",
-      "component": "Метилацетат",
-      "detector": "ПИД-1",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.09021,
-        1.1475
-      ],
-      "retention_time_mean": 3.54725,
-      "retention_time_sd": 0.0017853571071357334,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 152.8984050869871,
-          "b_quadratic": 74.22879015160592
-        },
-        "formula": "152.898405087*C + 74.2287901516*C^2",
-        "R2_experimental": 0.9986254691757089,
-        "MAE": 2.844933161768833,
-        "max_abs_error": 6.255887708643556,
-        "max_rel_error_pct": 14.55026795823597
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 32.827055202369245,
-          "b_quadratic": 15.254869775470535
-        },
-        "formula": "32.8270552024*C + 15.2548697755*C^2",
-        "R2_experimental": 0.9979954504539611,
-        "MAE": 0.7207511397278629,
-        "max_abs_error": 1.5953839054674726,
-        "max_rel_error_pct": 16.880583064939927
-      }
-    },
-    {
-      "calibration_part": "Часть 1",
-      "component": "Метилацетат",
-      "detector": "ПИД-2",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.089024,
-        1.3874
-      ],
-      "retention_time_mean": 5.3595,
-      "retention_time_sd": 0.0015000000000001308,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 162.41921007782113,
-          "b_quadratic": 13.112578379777045
-        },
-        "formula": "162.419210078*C + 13.1125783798*C^2",
-        "R2_experimental": 0.9996787311426785,
-        "MAE": 1.368391554395727,
-        "max_abs_error": 2.5683670891697545,
-        "max_rel_error_pct": 14.70643128388348
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 25.22235179475676,
-          "b_quadratic": 2.1273616042147627
-        },
-        "formula": "25.2223517948*C + 2.12736160421*C^2",
-        "R2_experimental": 0.999642326452585,
-        "MAE": 0.2252076185877292,
-        "max_abs_error": 0.4209407126690001,
-        "max_rel_error_pct": 15.953591325348274
-      }
-    },
-    {
-      "calibration_part": "Часть 1",
-      "component": "Н-бутанол",
-      "detector": "ПИД-1",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.090367,
-        1.1462
-      ],
-      "retention_time_mean": 13.66625,
-      "retention_time_sd": 0.022185299186623757,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 112.082134072272,
-          "b_quadratic": 49.200848206790646
-        },
-        "formula": "112.082134072*C + 49.2008482068*C^2",
-        "R2_experimental": 0.9983631925611774,
-        "MAE": 2.211142943734965,
-        "max_abs_error": 4.861032537715843,
-        "max_rel_error_pct": 14.746488708032532
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 23.965022218825634,
-          "b_quadratic": 10.12583896778097
-        },
-        "formula": "23.9650222188*C + 10.1258389678*C^2",
-        "R2_experimental": 0.9982975803141753,
-        "MAE": 0.47291321281231335,
-        "max_abs_error": 1.0445940399251885,
-        "max_rel_error_pct": 14.852751882911821
-      }
-    },
-    {
-      "calibration_part": "Часть 1",
-      "component": "Н-бутанол",
-      "detector": "ПИД-2",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.093626,
-        1.1839
-      ],
-      "retention_time_mean": 12.53075,
-      "retention_time_sd": 0.002861380785565253,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 84.74599303177946,
-          "b_quadratic": 49.191442437746666
-        },
-        "formula": "84.7459930318*C + 49.1914424377*C^2",
-        "R2_experimental": 0.9985461944583505,
-        "MAE": 1.9721049407497688,
-        "max_abs_error": 4.052574200127335,
-        "max_rel_error_pct": 18.88066023838047
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 12.39177424149689,
-          "b_quadratic": 7.68498272789653
-        },
-        "formula": "12.3917742415*C + 7.6849827279*C^2",
-        "R2_experimental": 0.9984965595362909,
-        "MAE": 0.29711390820966055,
-        "max_abs_error": 0.6238708323334881,
-        "max_rel_error_pct": 16.00079077541647
-      }
-    },
-    {
-      "calibration_part": "Часть 1",
-      "component": "Н-пропанол",
-      "detector": "ПИД-1",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.094076,
-        1.1351
-      ],
-      "retention_time_mean": 9.589,
-      "retention_time_sd": 0.003162277660168031,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 63.22498064125989,
-          "b_quadratic": 26.241926800146274
-        },
-        "formula": "63.2249806413*C + 26.2419268001*C^2",
-        "R2_experimental": 0.9986980782286017,
-        "MAE": 1.1410830259192377,
-        "max_abs_error": 2.3558438287782515,
-        "max_rel_error_pct": 13.004934191433904
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 8.251170706163242,
-          "b_quadratic": 3.0903562155665694
-        },
-        "formula": "8.25117070616*C + 3.09035621557*C^2",
-        "R2_experimental": 0.9986866362000262,
-        "MAE": 0.14379385765906474,
-        "max_abs_error": 0.29869207694572486,
-        "max_rel_error_pct": 12.775537936087462
-      }
-    },
-    {
-      "calibration_part": "Часть 1",
-      "component": "Н-пропанол",
-      "detector": "ПИД-2",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.10556,
-        1.4953
-      ],
-      "retention_time_mean": 7.3355,
-      "retention_time_sd": 0.009759610647971425,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 50.015433821852085,
-          "b_quadratic": 4.963865756514159
-        },
-        "formula": "50.0154338219*C + 4.96386575651*C^2",
-        "R2_experimental": 0.9985443143240557,
-        "MAE": 0.8311921216529304,
-        "max_abs_error": 2.349941121481542,
-        "max_rel_error_pct": 78.72499569452403
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 6.262936636621571,
-          "b_quadratic": 0.6330005346687144
-        },
-        "formula": "6.26293663662*C + 0.633000534669*C^2",
-        "R2_experimental": 0.9987185497679943,
-        "MAE": 0.09817947360610249,
-        "max_abs_error": 0.2711690616283403,
-        "max_rel_error_pct": 68.3045495285492
-      }
-    },
-    {
-      "calibration_part": "Часть 1",
-      "component": "Этилацетат",
-      "detector": "ПИД-1",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.090282,
-        1.299
-      ],
-      "retention_time_mean": 4.47025,
-      "retention_time_sd": 0.0019202864369670706,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 434.74381694784154,
-          "b_quadratic": 82.45057809226302
-        },
-        "formula": "434.743816948*C + 82.4505780923*C^2",
-        "R2_experimental": 0.999354970109723,
-        "MAE": 5.180005468514928,
-        "max_abs_error": 11.451080167727326,
-        "max_rel_error_pct": 10.332019171285404
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 80.04142752326638,
-          "b_quadratic": 14.814791470674136
-        },
-        "formula": "80.0414275233*C + 14.8147914707*C^2",
-        "R2_experimental": 0.9990272821179209,
-        "MAE": 1.1437167304495206,
-        "max_abs_error": 2.578588083023572,
-        "max_rel_error_pct": 12.36258549728436
-      }
-    },
-    {
-      "calibration_part": "Часть 1",
-      "component": "Этилацетат",
-      "detector": "ПИД-2",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.091048,
-        1.372
-      ],
-      "retention_time_mean": 9.03375,
-      "retention_time_sd": 0.0012990381056767926,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 404.3049291992697,
-          "b_quadratic": 51.13142661026315
-        },
-        "formula": "404.304929199*C + 51.1314266103*C^2",
-        "R2_experimental": 0.9995597892715093,
-        "MAE": 4.165996256384773,
-        "max_abs_error": 8.352814440636493,
-        "max_rel_error_pct": 13.324470704703332
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 53.796701412519226,
-          "b_quadratic": 6.968712383835516
-        },
-        "formula": "53.7967014125*C + 6.96871238384*C^2",
-        "R2_experimental": 0.999479390861729,
-        "MAE": 0.6018507732528351,
-        "max_abs_error": 1.2312815852523435,
-        "max_rel_error_pct": 13.147280186869667
-      }
-    },
-    {
-      "calibration_part": "Часть 2",
-      "component": "Акрилонитрил",
-      "detector": "ПИД-1",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.0047714,
-        0.11634
-      ],
-      "retention_time_mean": 7.8717500000000005,
-      "retention_time_sd": 0.0019202864369671285,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 289.2729192025506,
-          "b_quadratic": 1287.8531497034858
-        },
-        "formula": "289.272919203*C + 1287.8531497*C^2",
-        "R2_experimental": 0.9993307249367824,
-        "MAE": 0.4081484664122231,
-        "max_abs_error": 0.8532217177463526,
-        "max_rel_error_pct": 15.459715849725539
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 48.44625442742186,
-          "b_quadratic": 198.06734575781738
-        },
-        "formula": "48.4462544274*C + 198.067345758*C^2",
-        "R2_experimental": 0.9994586927477964,
-        "MAE": 0.059007906716890726,
-        "max_abs_error": 0.12699824075563626,
-        "max_rel_error_pct": 13.611815729435826
-      }
-    },
-    {
-      "calibration_part": "Часть 2",
-      "component": "Акрилонитрил",
-      "detector": "ПИД-2",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.0049983,
-        0.11894
-      ],
-      "retention_time_mean": 6.138,
-      "retention_time_sd": 0.003240370349203779,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 198.4210624596388,
-          "b_quadratic": 1379.8416939214383
-        },
-        "formula": "198.42106246*C + 1379.84169392*C^2",
-        "R2_experimental": 0.9989684842741284,
-        "MAE": 0.46874202857709457,
-        "max_abs_error": 0.8539405987353055,
-        "max_rel_error_pct": 47.236812843471206
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 30.198974442301985,
-          "b_quadratic": 206.09832971265888
-        },
-        "formula": "30.1989744423*C + 206.098329713*C^2",
-        "R2_experimental": 0.9993235401451205,
-        "MAE": 0.0538560882442446,
-        "max_abs_error": 0.10915075344076097,
-        "max_rel_error_pct": 18.31388480549681
-      }
-    },
-    {
-      "calibration_part": "Часть 2",
-      "component": "Бензол",
-      "detector": "ПИД-1",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.0048879,
-        0.11188
-      ],
-      "retention_time_mean": 5.862,
-      "retention_time_sd": 0.002121320343559723,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 3345.250281350763,
-          "b_quadratic": 10572.255081741367
-        },
-        "formula": "3345.25028135*C + 10572.2550817*C^2",
-        "R2_experimental": 0.9990057454168135,
-        "MAE": 4.7943495824096445,
-        "max_abs_error": 10.19816341539672,
-        "max_rel_error_pct": 38.050009012001794
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 499.03083699710015,
-          "b_quadratic": 1520.1124304982511
-        },
-        "formula": "499.030836997*C + 1520.1124305*C^2",
-        "R2_experimental": 0.9988931781576119,
-        "MAE": 0.7514147274462174,
-        "max_abs_error": 1.5754693047579589,
-        "max_rel_error_pct": 38.890873975758055
-      }
-    },
-    {
-      "calibration_part": "Часть 2",
-      "component": "Бензол",
-      "detector": "ПИД-2",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.0048914,
-        0.11196
-      ],
-      "retention_time_mean": 11.1805,
-      "retention_time_sd": 0.003840572873934141,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 3032.908267267712,
-          "b_quadratic": 9615.928672272928
-        },
-        "formula": "3032.90826727*C + 9615.92867227*C^2",
-        "R2_experimental": 0.9989291249972334,
-        "MAE": 4.541538151782093,
-        "max_abs_error": 9.547763773339856,
-        "max_rel_error_pct": 38.7915482604309
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 433.3112422096785,
-          "b_quadratic": 1345.6856561773536
-        },
-        "formula": "433.31124221*C + 1345.68565618*C^2",
-        "R2_experimental": 0.9988988424352635,
-        "MAE": 0.6522935001643555,
-        "max_abs_error": 1.3793047921109522,
-        "max_rel_error_pct": 39.062724217245886
-      }
-    },
     {
       "calibration_part": "Часть 2",
       "component": "Гексан",
@@ -887,7 +24,7 @@
         0.0050023,
         0.10248
       ],
-      "retention_time_mean": 2.17375,
+      "retention_time_mean": 3.325,
       "retention_time_sd": 0.00147901994577491,
       "area": {
         "model": "quadratic_origin",
@@ -916,42 +53,6 @@
     },
     {
       "calibration_part": "Часть 2",
-      "component": "Гексан",
-      "detector": "ПИД-2",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.0050652,
-        0.10289
-      ],
-      "retention_time_mean": 6.937,
-      "retention_time_sd": 0.002449489742783271,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 518.9600254157248,
-          "b_quadratic": 4417.2947941538605
-        },
-        "formula": "518.960025416*C + 4417.29479415*C^2",
-        "R2_experimental": 0.9862620420779689,
-        "MAE": 3.8663185244263065,
-        "max_abs_error": 5.175032455107774,
-        "max_rel_error_pct": 65.36607875594007
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 60.1897762323413,
-          "b_quadratic": 468.994439277637
-        },
-        "formula": "60.1897762323*C + 468.994439278*C^2",
-        "R2_experimental": 0.9850788181751853,
-        "MAE": 0.4463598963696776,
-        "max_abs_error": 0.6100941063574739,
-        "max_rel_error_pct": 65.81381945603817
-      }
-    },
-    {
-      "calibration_part": "Часть 2",
       "component": "Гептан",
       "detector": "ПИД-1",
       "n_experimental_points": 4,
@@ -959,7 +60,7 @@
         0.0048029,
         0.092945
       ],
-      "retention_time_mean": 2.4515000000000002,
+      "retention_time_mean": 3.754,
       "retention_time_sd": 0.001802775637732104,
       "area": {
         "model": "quadratic_origin",
@@ -987,255 +88,327 @@
       }
     },
     {
-      "calibration_part": "Часть 2",
-      "component": "Гептан",
-      "detector": "ПИД-2",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.0048427,
-        0.092677
-      ],
-      "retention_time_mean": 11.918,
-      "retention_time_sd": 0.0033166247903550347,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 575.6342092390043,
-          "b_quadratic": 758.8356281550348
-        },
-        "formula": "575.634209239*C + 758.835628155*C^2",
-        "R2_experimental": 0.97542842802562,
-        "MAE": 2.8591787737600702,
-        "max_abs_error": 4.170580196567476,
-        "max_rel_error_pct": 59.7846931847402
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 77.9769675865817,
-          "b_quadratic": 93.3132554091668
-        },
-        "formula": "77.9769675866*C + 93.3132554092*C^2",
-        "R2_experimental": 0.9740695153712267,
-        "MAE": 0.3921678197167363,
-        "max_abs_error": 0.5801925805570508,
-        "max_rel_error_pct": 60.436727141359455
-      }
-    },
-    {
-      "calibration_part": "Часть 2",
-      "component": "Изопропилбензол",
+      "calibration_part": "Часть 1",
+      "component": "Ацетальдегид",
       "detector": "ПИД-1",
       "n_experimental_points": 4,
       "concentration_range": [
-        0.0050382,
-        0.10518
+        0.090002,
+        1.1351
       ],
-      "retention_time_mean": 14.5445,
-      "retention_time_sd": 0.006800735254367675,
+      "retention_time_mean": 3.887,
+      "retention_time_sd": 0.0022776083947860432,
       "area": {
         "model": "quadratic_origin",
         "coefficients": {
-          "a_linear": 3516.559824339245,
-          "b_quadratic": 1816.1595310133328
+          "a_linear": 166.8898461597251,
+          "b_quadratic": 45.7040860339823
         },
-        "formula": "3516.55982434*C + 1816.15953101*C^2",
-        "R2_experimental": 0.9977889656126945,
-        "MAE": 4.038321539381174,
-        "max_abs_error": 12.992767881585202,
-        "max_rel_error_pct": 42.24466081930421
+        "formula": "166.88984616*C + 45.704086034*C^2",
+        "R2_experimental": 0.9991702925483175,
+        "MAE": 1.910879763901605,
+        "max_abs_error": 4.415966572479327,
+        "max_rel_error_pct": 10.460409732043129
       },
       "height": {
         "model": "quadratic_origin",
         "coefficients": {
-          "a_linear": 629.8032526348709,
-          "b_quadratic": 168.31332390180864
+          "a_linear": 42.64109982364447,
+          "b_quadratic": 9.975250860930426
         },
-        "formula": "629.803252635*C + 168.313323902*C^2",
-        "R2_experimental": 0.9977543764802246,
-        "MAE": 0.7171618622246629,
-        "max_abs_error": 2.284652878178183,
-        "max_rel_error_pct": 41.82813764515165
+        "formula": "42.6410998236*C + 9.97525086093*C^2",
+        "R2_experimental": 0.9988646721054054,
+        "MAE": 0.5566088563734142,
+        "max_abs_error": 1.274854453640197,
+        "max_rel_error_pct": 11.744398467436175
       }
     },
     {
-      "calibration_part": "Часть 2",
-      "component": "Изопропилбензол",
-      "detector": "ПИД-2",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.00498,
-        0.10541
-      ],
-      "retention_time_mean": 22.894,
-      "retention_time_sd": 0.0036742346141739393,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 3171.2784489178025,
-          "b_quadratic": 1641.788648068357
-        },
-        "formula": "3171.27844892*C + 1641.78864807*C^2",
-        "R2_experimental": 0.9977744906688112,
-        "MAE": 3.6340014152271642,
-        "max_abs_error": 11.776316309201789,
-        "max_rel_error_pct": 42.6523589612524
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 528.8651510250897,
-          "b_quadratic": 279.777622589989
-        },
-        "formula": "528.865151025*C + 279.77762259*C^2",
-        "R2_experimental": 0.9978283024663609,
-        "MAE": 0.6055429035507803,
-        "max_abs_error": 1.9473129509437723,
-        "max_rel_error_pct": 42.443612705836365
-      }
-    },
-    {
-      "calibration_part": "Часть 2",
-      "component": "Метилстирол",
+      "calibration_part": "Часть 1",
+      "component": "Ацетон",
       "detector": "ПИД-1",
       "n_experimental_points": 4,
       "concentration_range": [
-        0.0044582,
-        0.10875
+        0.11138,
+        1.1527
       ],
-      "retention_time_mean": 19.813000000000002,
-      "retention_time_sd": 0.00339116499156285,
+      "retention_time_mean": 5.262,
+      "retention_time_sd": 0.001000000000000112,
       "area": {
         "model": "quadratic_origin",
         "coefficients": {
-          "a_linear": 3282.5207159997,
-          "b_quadratic": 5000.344879462808
+          "a_linear": 146.64425947724803,
+          "b_quadratic": 33.50107022103935
         },
-        "formula": "3282.520716*C + 5000.34487946*C^2",
-        "R2_experimental": 0.9990666352819949,
-        "MAE": 2.837630972060422,
-        "max_abs_error": 9.242481553062083,
-        "max_rel_error_pct": 38.548888693118464
+        "formula": "146.644259477*C + 33.501070221*C^2",
+        "R2_experimental": 0.9990472980710066,
+        "MAE": 1.73845807715486,
+        "max_abs_error": 4.035005362257628,
+        "max_rel_error_pct": 10.78445907325305
       },
       "height": {
         "model": "quadratic_origin",
         "coefficients": {
-          "a_linear": 738.3413534028068,
-          "b_quadratic": 1051.6271527972276
+          "a_linear": 31.89549836387247,
+          "b_quadratic": 6.9841833113101925
         },
-        "formula": "738.341353403*C + 1051.6271528*C^2",
-        "R2_experimental": 0.9990223347183463,
-        "MAE": 0.6526846147801629,
-        "max_abs_error": 2.0884249131053187,
-        "max_rel_error_pct": 38.667374802912775
+        "formula": "31.8954983639*C + 6.98418331131*C^2",
+        "R2_experimental": 0.99852982174119,
+        "MAE": 0.46273018672169874,
+        "max_abs_error": 1.0769897425916675,
+        "max_rel_error_pct": 12.939922414894479
       }
     },
     {
-      "calibration_part": "Часть 2",
-      "component": "Метилстирол",
-      "detector": "ПИД-2",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.0046373,
-        0.1088
-      ],
-      "retention_time_mean": 25.22,
-      "retention_time_sd": 0.00367423461417539,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 3009.4885337545647,
-          "b_quadratic": 4341.43499349798
-        },
-        "formula": "3009.48853375*C + 4341.4349935*C^2",
-        "R2_experimental": 0.9988549352671191,
-        "MAE": 2.827692782446001,
-        "max_abs_error": 9.291738210930081,
-        "max_rel_error_pct": 39.80865520299079
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 557.0229124795756,
-          "b_quadratic": 820.8487914696185
-        },
-        "formula": "557.02291248*C + 820.84879147*C^2",
-        "R2_experimental": 0.9991724001042817,
-        "MAE": 0.44926873585434757,
-        "max_abs_error": 1.4712656630209717,
-        "max_rel_error_pct": 36.13127856141875
-      }
-    },
-    {
-      "calibration_part": "Часть 2",
-      "component": "Стирол",
+      "calibration_part": "Часть 1",
+      "component": "Метилацетат",
       "detector": "ПИД-1",
       "n_experimental_points": 4,
       "concentration_range": [
-        0.0046565,
-        0.10927
+        0.09021,
+        1.1475
       ],
-      "retention_time_mean": 17.5195,
-      "retention_time_sd": 0.004716990566027759,
+      "retention_time_mean": 5.507,
+      "retention_time_sd": 0.0017853571071357334,
       "area": {
         "model": "quadratic_origin",
         "coefficients": {
-          "a_linear": 3165.571452316858,
-          "b_quadratic": 5723.236968712766
+          "a_linear": 152.8984050869871,
+          "b_quadratic": 74.22879015160592
         },
-        "formula": "3165.57145232*C + 5723.23696871*C^2",
-        "R2_experimental": 0.9989835479292751,
-        "MAE": 2.895777558704253,
-        "max_abs_error": 9.562419629449037,
-        "max_rel_error_pct": 39.14692606316387
+        "formula": "152.898405087*C + 74.2287901516*C^2",
+        "R2_experimental": 0.9986254691757089,
+        "MAE": 2.844933161768833,
+        "max_abs_error": 6.255887708643556,
+        "max_rel_error_pct": 14.55026795823597
       },
       "height": {
         "model": "quadratic_origin",
         "coefficients": {
-          "a_linear": 692.1178600670881,
-          "b_quadratic": 1283.8765017334294
+          "a_linear": 32.827055202369245,
+          "b_quadratic": 15.254869775470535
         },
-        "formula": "692.117860067*C + 1283.87650173*C^2",
-        "R2_experimental": 0.9989146125559,
-        "MAE": 0.65790167113168,
-        "max_abs_error": 2.170314900360561,
-        "max_rel_error_pct": 40.03532374765839
+        "formula": "32.8270552024*C + 15.2548697755*C^2",
+        "R2_experimental": 0.9979954504539611,
+        "MAE": 0.7207511397278629,
+        "max_abs_error": 1.5953839054674726,
+        "max_rel_error_pct": 16.880583064939927
+      }
+    },
+    {
+      "calibration_part": "Часть 1",
+      "component": "Этилацетат",
+      "detector": "ПИД-1",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.090282,
+        1.299
+      ],
+      "retention_time_mean": 6.952,
+      "retention_time_sd": 0.0019202864369670706,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 434.74381694784154,
+          "b_quadratic": 82.45057809226302
+        },
+        "formula": "434.743816948*C + 82.4505780923*C^2",
+        "R2_experimental": 0.999354970109723,
+        "MAE": 5.180005468514928,
+        "max_abs_error": 11.451080167727326,
+        "max_rel_error_pct": 10.332019171285404
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 80.04142752326638,
+          "b_quadratic": 14.814791470674136
+        },
+        "formula": "80.0414275233*C + 14.8147914707*C^2",
+        "R2_experimental": 0.9990272821179209,
+        "MAE": 1.1437167304495206,
+        "max_abs_error": 2.578588083023572,
+        "max_rel_error_pct": 12.36258549728436
+      }
+    },
+    {
+      "calibration_part": "Часть 1",
+      "component": "Спирт метиловый",
+      "detector": "ПИД-1",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.10629,
+        1.1216
+      ],
+      "retention_time_mean": 7.32,
+      "retention_time_sd": 0.0032691742076552894,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 10.910914387806363,
+          "b_quadratic": 2.85728160272089
+        },
+        "formula": "10.9109143878*C + 2.85728160272*C^2",
+        "R2_experimental": 0.9995541463971356,
+        "MAE": 0.09360599396298891,
+        "max_abs_error": 0.18500141233842826,
+        "max_rel_error_pct": 18.371540450688013
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 1.9874728932385155,
+          "b_quadratic": 0.39978810405564086
+        },
+        "formula": "1.98747289324*C + 0.399788104056*C^2",
+        "R2_experimental": 0.9993557862940661,
+        "MAE": 0.01863971296217811,
+        "max_abs_error": 0.041820695140452224,
+        "max_rel_error_pct": 8.200136302049456
+      }
+    },
+    {
+      "calibration_part": "Часть 1",
+      "component": "Спирт изопропиловый",
+      "detector": "ПИД-1",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.090179,
+        1.1357
+      ],
+      "retention_time_mean": 8.322,
+      "retention_time_sd": 0.002236067977499941,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 68.8650030361875,
+          "b_quadratic": 28.37859344541906
+        },
+        "formula": "68.8650030362*C + 28.3785934454*C^2",
+        "R2_experimental": 0.9986594998417082,
+        "MAE": 1.2166580228022503,
+        "max_abs_error": 2.6130460519935603,
+        "max_rel_error_pct": 13.262846675431733
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 10.46233037180006,
+          "b_quadratic": 4.1325621383801
+        },
+        "formula": "10.4623303718*C + 4.13256213838*C^2",
+        "R2_experimental": 0.9983396594701166,
+        "MAE": 0.19456912305032883,
+        "max_abs_error": 0.4329678868740272,
+        "max_rel_error_pct": 14.336684995828715
       }
     },
     {
       "calibration_part": "Часть 2",
-      "component": "Стирол, о-Ксилол",
-      "detector": "ПИД-2",
+      "component": "Бензол",
+      "detector": "ПИД-1",
       "n_experimental_points": 4,
       "concentration_range": [
-        0.0046425,
-        0.10866
+        0.0048879,
+        0.11188
       ],
-      "retention_time_mean": 21.88175,
-      "retention_time_sd": 0.003960744879438342,
+      "retention_time_mean": 8.872,
+      "retention_time_sd": 0.002121320343559723,
       "area": {
         "model": "quadratic_origin",
         "coefficients": {
-          "a_linear": 6097.293635168631,
-          "b_quadratic": 9042.330750632957
+          "a_linear": 3345.250281350763,
+          "b_quadratic": 10572.255081741367
         },
-        "formula": "6097.29363517*C + 9042.33075063*C^2",
-        "R2_experimental": 0.9987525821955728,
-        "MAE": 6.215799374985483,
-        "max_abs_error": 19.478426696012818,
-        "max_rel_error_pct": 40.596971021285576
+        "formula": "3345.25028135*C + 10572.2550817*C^2",
+        "R2_experimental": 0.9990057454168135,
+        "MAE": 4.7943495824096445,
+        "max_abs_error": 10.19816341539672,
+        "max_rel_error_pct": 38.050009012001794
       },
       "height": {
         "model": "quadratic_origin",
         "coefficients": {
-          "a_linear": 886.6041060282394,
-          "b_quadratic": 1433.5512073670218
+          "a_linear": 499.03083699710015,
+          "b_quadratic": 1520.1124304982511
         },
-        "formula": "886.604106028*C + 1433.55120737*C^2",
-        "R2_experimental": 0.998850809919736,
-        "MAE": 0.8381732588403914,
-        "max_abs_error": 2.7720433863420633,
-        "max_rel_error_pct": 40.06422006564624
+        "formula": "499.030836997*C + 1520.1124305*C^2",
+        "R2_experimental": 0.9988931781576119,
+        "MAE": 0.7514147274462174,
+        "max_abs_error": 1.5754693047579589,
+        "max_rel_error_pct": 38.890873975758055
+      }
+    },
+    {
+      "calibration_part": "Часть 1",
+      "component": "н-Пропилацетат",
+      "detector": "ПИД-1",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.090218,
+        1.1484
+      ],
+      "retention_time_mean": 10.118,
+      "retention_time_sd": 0.056654103999621834,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 157.92933119639613,
+          "b_quadratic": 74.09947419135376
+        },
+        "formula": "157.929331196*C + 74.0994741914*C^2",
+        "R2_experimental": 0.998359356034611,
+        "MAE": 3.1361378043621584,
+        "max_abs_error": 7.039094822047723,
+        "max_rel_error_pct": 15.133932795940236
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 30.39912144166038,
+          "b_quadratic": 13.870339505011362
+        },
+        "formula": "30.3991214417*C + 13.870339505*C^2",
+        "R2_experimental": 0.9972371787131458,
+        "MAE": 0.7629360136139978,
+        "max_abs_error": 1.7310904583766158,
+        "max_rel_error_pct": 18.595879883732046
+      }
+    },
+    {
+      "calibration_part": "Часть 2",
+      "component": "Акрилонитрил",
+      "detector": "ПИД-1",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.0047714,
+        0.11634
+      ],
+      "retention_time_mean": 11.045,
+      "retention_time_sd": 0.0019202864369671285,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 289.2729192025506,
+          "b_quadratic": 1287.8531497034858
+        },
+        "formula": "289.272919203*C + 1287.8531497*C^2",
+        "R2_experimental": 0.9993307249367824,
+        "MAE": 0.4081484664122231,
+        "max_abs_error": 0.8532217177463526,
+        "max_rel_error_pct": 15.459715849725539
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 48.44625442742186,
+          "b_quadratic": 198.06734575781738
+        },
+        "formula": "48.4462544274*C + 198.067345758*C^2",
+        "R2_experimental": 0.9994586927477964,
+        "MAE": 0.059007906716890726,
+        "max_abs_error": 0.12699824075563626,
+        "max_rel_error_pct": 13.611815729435826
       }
     },
     {
@@ -1247,7 +420,7 @@
         0.0047589,
         0.10744
       ],
-      "retention_time_mean": 9.532499999999999,
+      "retention_time_mean": 12.831,
       "retention_time_sd": 0.004769696007084878,
       "area": {
         "model": "quadratic_origin",
@@ -1275,39 +448,75 @@
       }
     },
     {
-      "calibration_part": "Часть 2",
-      "component": "Толуол",
-      "detector": "ПИД-2",
+      "calibration_part": "Часть 1",
+      "component": "Бутилацетат",
+      "detector": "ПИД-1",
       "n_experimental_points": 4,
       "concentration_range": [
-        0.0047582,
-        0.10767
+        0.089813,
+        1.1794
       ],
-      "retention_time_mean": 16.31325,
-      "retention_time_sd": 0.003031088913245284,
+      "retention_time_mean": 14.046,
+      "retention_time_sd": 0.0039051248379533238,
       "area": {
         "model": "quadratic_origin",
         "coefficients": {
-          "a_linear": 3136.612241705847,
-          "b_quadratic": 5180.193708370823
+          "a_linear": 1184.8796831914262,
+          "b_quadratic": 455.0671230709432
         },
-        "formula": "3136.61224171*C + 5180.19370837*C^2",
-        "R2_experimental": 0.9986631030666583,
-        "MAE": 3.7145390826374682,
-        "max_abs_error": 10.096089625564018,
-        "max_rel_error_pct": 40.162660615657636
+        "formula": "1184.87968319*C + 455.067123071*C^2",
+        "R2_experimental": 0.99829762943404,
+        "MAE": 22.828162793264475,
+        "max_abs_error": 52.25850915246713,
+        "max_rel_error_pct": 15.80459004048556
       },
       "height": {
         "model": "quadratic_origin",
         "coefficients": {
-          "a_linear": 522.8999977435618,
-          "b_quadratic": 850.5451132712008
+          "a_linear": 209.19419994643255,
+          "b_quadratic": 78.98730068158041
         },
-        "formula": "522.899997744*C + 850.545113271*C^2",
-        "R2_experimental": 0.9986024585395599,
-        "MAE": 0.6481567729019728,
-        "max_abs_error": 1.6996804919634254,
-        "max_rel_error_pct": 40.401247729104476
+        "formula": "209.194199946*C + 78.9873006816*C^2",
+        "R2_experimental": 0.9982449743279317,
+        "MAE": 4.060856810157737,
+        "max_abs_error": 9.318206869811505,
+        "max_rel_error_pct": 15.954194551606863
+      }
+    },
+    {
+      "calibration_part": "Часть 1",
+      "component": "Спирт пропиловый",
+      "detector": "ПИД-1",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.094076,
+        1.1351
+      ],
+      "retention_time_mean": 14.884,
+      "retention_time_sd": 0.003162277660168031,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 63.22498064125989,
+          "b_quadratic": 26.241926800146274
+        },
+        "formula": "63.2249806413*C + 26.2419268001*C^2",
+        "R2_experimental": 0.9986980782286017,
+        "MAE": 1.1410830259192377,
+        "max_abs_error": 2.3558438287782515,
+        "max_rel_error_pct": 13.004934191433904
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 8.251170706163242,
+          "b_quadratic": 3.0903562155665694
+        },
+        "formula": "8.25117070616*C + 3.09035621557*C^2",
+        "R2_experimental": 0.9986866362000262,
+        "MAE": 0.14379385765906474,
+        "max_abs_error": 0.29869207694572486,
+        "max_rel_error_pct": 12.775537936087462
       }
     },
     {
@@ -1319,7 +528,7 @@
         0.0046164,
         0.10626
       ],
-      "retention_time_mean": 12.80625,
+      "retention_time_mean": 16.241,
       "retention_time_sd": 0.00816624148553077,
       "area": {
         "model": "quadratic_origin",
@@ -1348,6 +557,798 @@
     },
     {
       "calibration_part": "Часть 2",
+      "component": "п-Ксилол",
+      "detector": "ПИД-1",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.0045922,
+        0.1066
+      ],
+      "retention_time_mean": 16.563,
+      "retention_time_sd": 0.007449832212875952,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 3444.376606229906,
+          "b_quadratic": 3715.847534463116
+        },
+        "formula": "3444.37660623*C + 3715.84753446*C^2",
+        "R2_experimental": 0.9989027529102427,
+        "MAE": 3.0120387423350268,
+        "max_abs_error": 9.782372838188696,
+        "max_rel_error_pct": 38.09631917668314
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 597.5559182845344,
+          "b_quadratic": 658.7728319478326
+        },
+        "formula": "597.555918285*C + 658.772831948*C^2",
+        "R2_experimental": 0.9988493342973092,
+        "MAE": 0.5331092870212663,
+        "max_abs_error": 1.741011312388426,
+        "max_rel_error_pct": 38.6977397730257
+      }
+    },
+    {
+      "calibration_part": "Часть 2",
+      "component": "м-Ксилол",
+      "detector": "ПИД-1",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.0045979,
+        0.1066
+      ],
+      "retention_time_mean": 16.838,
+      "retention_time_sd": 0.007462405778299263,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 3548.534794723409,
+          "b_quadratic": 3941.428218729825
+        },
+        "formula": "3548.53479472*C + 3941.42821873*C^2",
+        "R2_experimental": 0.9988451149333836,
+        "MAE": 3.1768222310285967,
+        "max_abs_error": 10.364867377244401,
+        "max_rel_error_pct": 38.72689948155882
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 621.3419365322874,
+          "b_quadratic": 558.9488361726712
+        },
+        "formula": "621.341936532*C + 558.948836173*C^2",
+        "R2_experimental": 0.9988305563582316,
+        "MAE": 0.5496320849430216,
+        "max_abs_error": 1.7873153490713323,
+        "max_rel_error_pct": 38.38735715359391
+      }
+    },
+    {
+      "calibration_part": "Часть 1",
+      "component": "Спирт бутиловый",
+      "detector": "ПИД-1",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.090367,
+        1.1462
+      ],
+      "retention_time_mean": 17.074,
+      "retention_time_sd": 0.022185299186623757,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 112.082134072272,
+          "b_quadratic": 49.200848206790646
+        },
+        "formula": "112.082134072*C + 49.2008482068*C^2",
+        "R2_experimental": 0.9983631925611774,
+        "MAE": 2.211142943734965,
+        "max_abs_error": 4.861032537715843,
+        "max_rel_error_pct": 14.746488708032532
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 23.965022218825634,
+          "b_quadratic": 10.12583896778097
+        },
+        "formula": "23.9650222188*C + 10.1258389678*C^2",
+        "R2_experimental": 0.9982975803141753,
+        "MAE": 0.47291321281231335,
+        "max_abs_error": 1.0445940399251885,
+        "max_rel_error_pct": 14.852751882911821
+      }
+    },
+    {
+      "calibration_part": "Часть 2",
+      "component": "Изопропилбензол",
+      "detector": "ПИД-1",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.0050382,
+        0.10518
+      ],
+      "retention_time_mean": 18.11,
+      "retention_time_sd": 0.006800735254367675,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 3516.559824339245,
+          "b_quadratic": 1816.1595310133328
+        },
+        "formula": "3516.55982434*C + 1816.15953101*C^2",
+        "R2_experimental": 0.9977889656126945,
+        "MAE": 4.038321539381174,
+        "max_abs_error": 12.992767881585202,
+        "max_rel_error_pct": 42.24466081930421
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 629.8032526348709,
+          "b_quadratic": 168.31332390180864
+        },
+        "formula": "629.803252635*C + 168.313323902*C^2",
+        "R2_experimental": 0.9977543764802246,
+        "MAE": 0.7171618622246629,
+        "max_abs_error": 2.284652878178183,
+        "max_rel_error_pct": 41.82813764515165
+      }
+    },
+    {
+      "calibration_part": "Часть 2",
+      "component": "о-Ксилол",
+      "detector": "ПИД-1",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.0046066,
+        0.10778
+      ],
+      "retention_time_mean": 18.631,
+      "retention_time_sd": 0.005678908345799746,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 3580.1652077701037,
+          "b_quadratic": 4285.41002232023
+        },
+        "formula": "3580.16520777*C + 4285.41002232*C^2",
+        "R2_experimental": 0.9985381225458557,
+        "MAE": 3.837907441447082,
+        "max_abs_error": 11.870671281044931,
+        "max_rel_error_pct": 41.71881380840982
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 662.3902573809439,
+          "b_quadratic": 799.7588561932823
+        },
+        "formula": "662.390257381*C + 799.758856193*C^2",
+        "R2_experimental": 0.9986171440558991,
+        "MAE": 0.6795933066274414,
+        "max_abs_error": 2.1446615467566503,
+        "max_rel_error_pct": 41.14063968457031
+      }
+    },
+    {
+      "calibration_part": "Часть 2",
+      "component": "Стирол",
+      "detector": "ПИД-1",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.0046565,
+        0.10927
+      ],
+      "retention_time_mean": 21.42,
+      "retention_time_sd": 0.004716990566027759,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 3165.571452316858,
+          "b_quadratic": 5723.236968712766
+        },
+        "formula": "3165.57145232*C + 5723.23696871*C^2",
+        "R2_experimental": 0.9989835479292751,
+        "MAE": 2.895777558704253,
+        "max_abs_error": 9.562419629449037,
+        "max_rel_error_pct": 39.14692606316387
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 692.1178600670881,
+          "b_quadratic": 1283.8765017334294
+        },
+        "formula": "692.117860067*C + 1283.87650173*C^2",
+        "R2_experimental": 0.9989146125559,
+        "MAE": 0.65790167113168,
+        "max_abs_error": 2.170314900360561,
+        "max_rel_error_pct": 40.03532374765839
+      }
+    },
+    {
+      "calibration_part": "Часть 2",
+      "component": "альфа-Метилстирол",
+      "detector": "ПИД-1",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.0044582,
+        0.10875
+      ],
+      "retention_time_mean": 23.946,
+      "retention_time_sd": 0.00339116499156285,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 3282.5207159997,
+          "b_quadratic": 5000.344879462808
+        },
+        "formula": "3282.520716*C + 5000.34487946*C^2",
+        "R2_experimental": 0.9990666352819949,
+        "MAE": 2.837630972060422,
+        "max_abs_error": 9.242481553062083,
+        "max_rel_error_pct": 38.548888693118464
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 738.3413534028068,
+          "b_quadratic": 1051.6271527972276
+        },
+        "formula": "738.341353403*C + 1051.6271528*C^2",
+        "R2_experimental": 0.9990223347183463,
+        "MAE": 0.6526846147801629,
+        "max_abs_error": 2.0884249131053187,
+        "max_rel_error_pct": 38.667374802912775
+      }
+    },
+    {
+      "calibration_part": "Часть 1",
+      "component": "Ацетальдегид",
+      "detector": "ПИД-2",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.08949,
+        0.84905
+      ],
+      "retention_time_mean": 4.327,
+      "retention_time_sd": 0.0033911649915626205,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 60.40644409705885,
+          "b_quadratic": 243.8931462710254
+        },
+        "formula": "60.4064440971*C + 243.893146271*C^2",
+        "R2_experimental": 0.9834535261876786,
+        "MAE": 10.021856513158374,
+        "max_abs_error": 14.625906141323682,
+        "max_rel_error_pct": 44.41437258991792
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 14.0037857334169,
+          "b_quadratic": 52.81958143804339
+        },
+        "formula": "14.0037857334*C + 52.819581438*C^2",
+        "R2_experimental": 0.9812909407713086,
+        "MAE": 2.3318153644863524,
+        "max_abs_error": 3.411695420358079,
+        "max_rel_error_pct": 44.18240773464038
+      }
+    },
+    {
+      "calibration_part": "Часть 1",
+      "component": "Спирт метиловый",
+      "detector": "ПИД-2",
+      "n_experimental_points": 3,
+      "concentration_range": [
+        0.21274,
+        1.062
+      ],
+      "retention_time_mean": 4.495,
+      "retention_time_sd": 0.0009428090415819595,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 10.199954511907046,
+          "b_quadratic": 0.8699347565333542
+        },
+        "formula": "10.1999545119*C + 0.869934756533*C^2",
+        "R2_experimental": 0.9990425080637397,
+        "MAE": 0.10387798435226452,
+        "max_abs_error": 0.1796899023337768,
+        "max_rel_error_pct": 7.521553048713973
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 2.290822131444412,
+          "b_quadratic": 0.30542033415769676
+        },
+        "formula": "2.29082213144*C + 0.305420334158*C^2",
+        "R2_experimental": 0.9997740071882681,
+        "MAE": 0.012040402211951165,
+        "max_abs_error": 0.020827692325911973,
+        "max_rel_error_pct": 3.989979372780071
+      }
+    },
+    {
+      "calibration_part": "Часть 1",
+      "component": "Ацетон",
+      "detector": "ПИД-2",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.11474,
+        1.3867
+      ],
+      "retention_time_mean": 7.121,
+      "retention_time_sd": 0.0016393596310756752,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 136.21018887899322,
+          "b_quadratic": 3.416671513807184
+        },
+        "formula": "136.210188879*C + 3.41667151381*C^2",
+        "R2_experimental": 0.9995837921741282,
+        "MAE": 1.1216231459572517,
+        "max_abs_error": 2.1097384667562498,
+        "max_rel_error_pct": 15.553955077825494
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 22.858084666190383,
+          "b_quadratic": 0.5546088257636665
+        },
+        "formula": "22.8580846662*C + 0.554608825764*C^2",
+        "R2_experimental": 0.9994388505045047,
+        "MAE": 0.22652236560444494,
+        "max_abs_error": 0.4195651474384299,
+        "max_rel_error_pct": 15.555281555500219
+      }
+    },
+    {
+      "calibration_part": "Часть 1",
+      "component": "Спирт изопропиловый",
+      "detector": "ПИД-2",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.095652,
+        1.3686
+      ],
+      "retention_time_mean": 7.364,
+      "retention_time_sd": 0.003960744879438594,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 67.99376045621844,
+          "b_quadratic": 4.252215634623815
+        },
+        "formula": "67.9937604562*C + 4.25221563462*C^2",
+        "R2_experimental": 0.9992227945547013,
+        "MAE": 0.7974125434309265,
+        "max_abs_error": 1.6046439933673788,
+        "max_rel_error_pct": 32.495828136236916
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 10.326110703173766,
+          "b_quadratic": 0.8810019689334404
+        },
+        "formula": "10.3261107032*C + 0.881001968933*C^2",
+        "R2_experimental": 0.9994490759698091,
+        "MAE": 0.10477824597152499,
+        "max_abs_error": 0.2127736967909738,
+        "max_rel_error_pct": 27.174163063981325
+      }
+    },
+    {
+      "calibration_part": "Часть 1",
+      "component": "Метилацетат",
+      "detector": "ПИД-2",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.089024,
+        1.3874
+      ],
+      "retention_time_mean": 8.056,
+      "retention_time_sd": 0.0015000000000001308,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 162.41921007782113,
+          "b_quadratic": 13.112578379777045
+        },
+        "formula": "162.419210078*C + 13.1125783798*C^2",
+        "R2_experimental": 0.9996787311426785,
+        "MAE": 1.368391554395727,
+        "max_abs_error": 2.5683670891697545,
+        "max_rel_error_pct": 14.70643128388348
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 25.22235179475676,
+          "b_quadratic": 2.1273616042147627
+        },
+        "formula": "25.2223517948*C + 2.12736160421*C^2",
+        "R2_experimental": 0.999642326452585,
+        "MAE": 0.2252076185877292,
+        "max_abs_error": 0.4209407126690001,
+        "max_rel_error_pct": 15.953591325348274
+      }
+    },
+    {
+      "calibration_part": "Часть 2",
+      "component": "Акрилонитрил",
+      "detector": "ПИД-2",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.0049983,
+        0.11894
+      ],
+      "retention_time_mean": 9.101,
+      "retention_time_sd": 0.003240370349203779,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 198.4210624596388,
+          "b_quadratic": 1379.8416939214383
+        },
+        "formula": "198.42106246*C + 1379.84169392*C^2",
+        "R2_experimental": 0.9989684842741284,
+        "MAE": 0.46874202857709457,
+        "max_abs_error": 0.8539405987353055,
+        "max_rel_error_pct": 47.236812843471206
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 30.198974442301985,
+          "b_quadratic": 206.09832971265888
+        },
+        "formula": "30.1989744423*C + 206.098329713*C^2",
+        "R2_experimental": 0.9993235401451205,
+        "MAE": 0.0538560882442446,
+        "max_abs_error": 0.10915075344076097,
+        "max_rel_error_pct": 18.31388480549681
+      }
+    },
+    {
+      "calibration_part": "Часть 2",
+      "component": "Гексан",
+      "detector": "ПИД-2",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.0050652,
+        0.10289
+      ],
+      "retention_time_mean": 9.86,
+      "retention_time_sd": 0.002449489742783271,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 518.9600254157248,
+          "b_quadratic": 4417.2947941538605
+        },
+        "formula": "518.960025416*C + 4417.29479415*C^2",
+        "R2_experimental": 0.9862620420779689,
+        "MAE": 3.8663185244263065,
+        "max_abs_error": 5.175032455107774,
+        "max_rel_error_pct": 65.36607875594007
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 60.1897762323413,
+          "b_quadratic": 468.994439277637
+        },
+        "formula": "60.1897762323*C + 468.994439278*C^2",
+        "R2_experimental": 0.9850788181751853,
+        "MAE": 0.4463598963696776,
+        "max_abs_error": 0.6100941063574739,
+        "max_rel_error_pct": 65.81381945603817
+      }
+    },
+    {
+      "calibration_part": "Часть 1",
+      "component": "Спирт пропиловый",
+      "detector": "ПИД-2",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.089277,
+        1.4336
+      ],
+      "retention_time_mean": 10.456,
+      "retention_time_sd": 0.0014142135623729393,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 161.86160357830747,
+          "b_quadratic": 9.520790248384609
+        },
+        "formula": "161.861603578*C + 9.52079024838*C^2",
+        "R2_experimental": 0.9995158721419181,
+        "MAE": 1.6276115253958676,
+        "max_abs_error": 2.9684027248227114,
+        "max_rel_error_pct": 25.68266763127454
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 20.684334720127385,
+          "b_quadratic": 1.2333111504973635
+        },
+        "formula": "20.6843347201*C + 1.2333111505*C^2",
+        "R2_experimental": 0.9995358412637992,
+        "MAE": 0.2094169565176398,
+        "max_abs_error": 0.3707714321881088,
+        "max_rel_error_pct": 21.416959627352504
+      }
+    },
+    {
+      "calibration_part": "Часть 1",
+      "component": "Этилацетат",
+      "detector": "ПИД-2",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.091048,
+        1.372
+      ],
+      "retention_time_mean": 12.185,
+      "retention_time_sd": 0.0012990381056767926,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 404.3049291992697,
+          "b_quadratic": 51.13142661026315
+        },
+        "formula": "404.304929199*C + 51.1314266103*C^2",
+        "R2_experimental": 0.9995597892715093,
+        "MAE": 4.165996256384773,
+        "max_abs_error": 8.352814440636493,
+        "max_rel_error_pct": 13.324470704703332
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 53.796701412519226,
+          "b_quadratic": 6.968712383835516
+        },
+        "formula": "53.7967014125*C + 6.96871238384*C^2",
+        "R2_experimental": 0.999479390861729,
+        "MAE": 0.6018507732528351,
+        "max_abs_error": 1.2312815852523435,
+        "max_rel_error_pct": 13.147280186869667
+      }
+    },
+    {
+      "calibration_part": "Часть 2",
+      "component": "Бензол",
+      "detector": "ПИД-2",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.0048914,
+        0.11196
+      ],
+      "retention_time_mean": 14.586,
+      "retention_time_sd": 0.003840572873934141,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 3032.908267267712,
+          "b_quadratic": 9615.928672272928
+        },
+        "formula": "3032.90826727*C + 9615.92867227*C^2",
+        "R2_experimental": 0.9989291249972334,
+        "MAE": 4.541538151782093,
+        "max_abs_error": 9.547763773339856,
+        "max_rel_error_pct": 38.7915482604309
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 433.3112422096785,
+          "b_quadratic": 1345.6856561773536
+        },
+        "formula": "433.31124221*C + 1345.68565618*C^2",
+        "R2_experimental": 0.9988988424352635,
+        "MAE": 0.6522935001643555,
+        "max_abs_error": 1.3793047921109522,
+        "max_rel_error_pct": 39.062724217245886
+      }
+    },
+    {
+      "calibration_part": "Часть 2",
+      "component": "Гептан",
+      "detector": "ПИД-2",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.0048427,
+        0.092677
+      ],
+      "retention_time_mean": 15.228,
+      "retention_time_sd": 0.0033166247903550347,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 575.6342092390043,
+          "b_quadratic": 758.8356281550348
+        },
+        "formula": "575.634209239*C + 758.835628155*C^2",
+        "R2_experimental": 0.97542842802562,
+        "MAE": 2.8591787737600702,
+        "max_abs_error": 4.170580196567476,
+        "max_rel_error_pct": 59.7846931847402
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 77.9769675865817,
+          "b_quadratic": 93.3132554091668
+        },
+        "formula": "77.9769675866*C + 93.3132554092*C^2",
+        "R2_experimental": 0.9740695153712267,
+        "MAE": 0.3921678197167363,
+        "max_abs_error": 0.5801925805570508,
+        "max_rel_error_pct": 60.436727141359455
+      }
+    },
+    {
+      "calibration_part": "Часть 1",
+      "component": "Спирт бутиловый",
+      "detector": "ПИД-2",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.093626,
+        1.1839
+      ],
+      "retention_time_mean": 16.034,
+      "retention_time_sd": 0.002861380785565253,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 84.74599303177946,
+          "b_quadratic": 49.191442437746666
+        },
+        "formula": "84.7459930318*C + 49.1914424377*C^2",
+        "R2_experimental": 0.9985461944583505,
+        "MAE": 1.9721049407497688,
+        "max_abs_error": 4.052574200127335,
+        "max_rel_error_pct": 18.88066023838047
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 12.39177424149689,
+          "b_quadratic": 7.68498272789653
+        },
+        "formula": "12.3917742415*C + 7.6849827279*C^2",
+        "R2_experimental": 0.9984965595362909,
+        "MAE": 0.29711390820966055,
+        "max_abs_error": 0.6238708323334881,
+        "max_rel_error_pct": 16.00079077541647
+      }
+    },
+    {
+      "calibration_part": "Часть 1",
+      "component": "н-Пропилацетат",
+      "detector": "ПИД-2",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.10556,
+        1.4953
+      ],
+      "retention_time_mean": 17.544,
+      "retention_time_sd": 0.009759610647971425,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 50.015433821852085,
+          "b_quadratic": 4.963865756514159
+        },
+        "formula": "50.0154338219*C + 4.96386575651*C^2",
+        "R2_experimental": 0.9985443143240557,
+        "MAE": 0.8311921216529304,
+        "max_abs_error": 2.349941121481542,
+        "max_rel_error_pct": 78.72499569452403
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 6.262936636621571,
+          "b_quadratic": 0.6330005346687144
+        },
+        "formula": "6.26293663662*C + 0.633000534669*C^2",
+        "R2_experimental": 0.9987185497679943,
+        "MAE": 0.09817947360610249,
+        "max_abs_error": 0.2711690616283403,
+        "max_rel_error_pct": 68.3045495285492
+      }
+    },
+    {
+      "calibration_part": "Часть 2",
+      "component": "Толуол",
+      "detector": "ПИД-2",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.0047582,
+        0.10767
+      ],
+      "retention_time_mean": 20.278,
+      "retention_time_sd": 0.003031088913245284,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 3136.612241705847,
+          "b_quadratic": 5180.193708370823
+        },
+        "formula": "3136.61224171*C + 5180.19370837*C^2",
+        "R2_experimental": 0.9986631030666583,
+        "MAE": 3.7145390826374682,
+        "max_abs_error": 10.096089625564018,
+        "max_rel_error_pct": 40.162660615657636
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 522.8999977435618,
+          "b_quadratic": 850.5451132712008
+        },
+        "formula": "522.899997744*C + 850.545113271*C^2",
+        "R2_experimental": 0.9986024585395599,
+        "MAE": 0.6481567729019728,
+        "max_abs_error": 1.6996804919634254,
+        "max_rel_error_pct": 40.401247729104476
+      }
+    },
+    {
+      "calibration_part": "Часть 1",
+      "component": "Бутилацетат",
+      "detector": "ПИД-2",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.089721,
+        1.4135
+      ],
+      "retention_time_mean": 22.546,
+      "retention_time_sd": 0.004415880433164091,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 1254.5201743629152,
+          "b_quadratic": 55.19793925419781
+        },
+        "formula": "1254.52017436*C + 55.1979392542*C^2",
+        "R2_experimental": 0.9994947240555464,
+        "MAE": 12.790741969716656,
+        "max_abs_error": 25.93671383617692,
+        "max_rel_error_pct": 13.344574187916944
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 217.00442013519083,
+          "b_quadratic": 9.308946064917235
+        },
+        "formula": "217.004420135*C + 9.30894606492*C^2",
+        "R2_experimental": 0.9994731201951675,
+        "MAE": 2.255331654102286,
+        "max_abs_error": 4.576009175054146,
+        "max_rel_error_pct": 13.599472661561038
+      }
+    },
+    {
+      "calibration_part": "Часть 2",
       "component": "Этилбензол",
       "detector": "ПИД-2",
       "n_experimental_points": 4,
@@ -1355,7 +1356,7 @@
         0.0046465,
         0.1063
       ],
-      "retention_time_mean": 20.43625,
+      "retention_time_mean": 24.937,
       "retention_time_sd": 0.0030310889132463825,
       "area": {
         "model": "quadratic_origin",
@@ -1384,50 +1385,14 @@
     },
     {
       "calibration_part": "Часть 2",
-      "component": "м-Ксилол",
-      "detector": "ПИД-1",
-      "n_experimental_points": 4,
-      "concentration_range": [
-        0.0045979,
-        0.1066
-      ],
-      "retention_time_mean": 13.34575,
-      "retention_time_sd": 0.007462405778299263,
-      "area": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 3548.534794723409,
-          "b_quadratic": 3941.428218729825
-        },
-        "formula": "3548.53479472*C + 3941.42821873*C^2",
-        "R2_experimental": 0.9988451149333836,
-        "MAE": 3.1768222310285967,
-        "max_abs_error": 10.364867377244401,
-        "max_rel_error_pct": 38.72689948155882
-      },
-      "height": {
-        "model": "quadratic_origin",
-        "coefficients": {
-          "a_linear": 621.3419365322874,
-          "b_quadratic": 558.9488361726712
-        },
-        "formula": "621.341936532*C + 558.948836173*C^2",
-        "R2_experimental": 0.9988305563582316,
-        "MAE": 0.5496320849430216,
-        "max_abs_error": 1.7873153490713323,
-        "max_rel_error_pct": 38.38735715359391
-      }
-    },
-    {
-      "calibration_part": "Часть 2",
-      "component": "м-Ксилол, п-Ксилол",
+      "component": "м- п- Ксилолы",
       "detector": "ПИД-2",
       "n_experimental_points": 4,
       "concentration_range": [
         0.004578,
         0.10699
       ],
-      "retention_time_mean": 20.772,
+      "retention_time_mean": 25.305,
       "retention_time_sd": 0.003240370349204053,
       "area": {
         "model": "quadratic_origin",
@@ -1457,73 +1422,109 @@
     {
       "calibration_part": "Часть 2",
       "component": "о-Ксилол",
-      "detector": "ПИД-1",
+      "detector": "ПИД-2",
       "n_experimental_points": 4,
       "concentration_range": [
-        0.0046066,
-        0.10778
+        0.0046425,
+        0.10866
       ],
-      "retention_time_mean": 14.9655,
-      "retention_time_sd": 0.005678908345799746,
+      "retention_time_mean": 26.61,
+      "retention_time_sd": 0.003960744879438342,
       "area": {
         "model": "quadratic_origin",
         "coefficients": {
-          "a_linear": 3580.1652077701037,
-          "b_quadratic": 4285.41002232023
+          "a_linear": 6097.293635168631,
+          "b_quadratic": 9042.330750632957
         },
-        "formula": "3580.16520777*C + 4285.41002232*C^2",
-        "R2_experimental": 0.9985381225458557,
-        "MAE": 3.837907441447082,
-        "max_abs_error": 11.870671281044931,
-        "max_rel_error_pct": 41.71881380840982
+        "formula": "6097.29363517*C + 9042.33075063*C^2",
+        "R2_experimental": 0.9987525821955728,
+        "MAE": 6.215799374985483,
+        "max_abs_error": 19.478426696012818,
+        "max_rel_error_pct": 40.596971021285576
       },
       "height": {
         "model": "quadratic_origin",
         "coefficients": {
-          "a_linear": 662.3902573809439,
-          "b_quadratic": 799.7588561932823
+          "a_linear": 886.6041060282394,
+          "b_quadratic": 1433.5512073670218
         },
-        "formula": "662.390257381*C + 799.758856193*C^2",
-        "R2_experimental": 0.9986171440558991,
-        "MAE": 0.6795933066274414,
-        "max_abs_error": 2.1446615467566503,
-        "max_rel_error_pct": 41.14063968457031
+        "formula": "886.604106028*C + 1433.55120737*C^2",
+        "R2_experimental": 0.998850809919736,
+        "MAE": 0.8381732588403914,
+        "max_abs_error": 2.7720433863420633,
+        "max_rel_error_pct": 40.06422006564624
       }
     },
     {
       "calibration_part": "Часть 2",
-      "component": "п-Ксилол",
-      "detector": "ПИД-1",
+      "component": "Изопропилбензол",
+      "detector": "ПИД-2",
       "n_experimental_points": 4,
       "concentration_range": [
-        0.0045922,
-        0.1066
+        0.00498,
+        0.10541
       ],
-      "retention_time_mean": 13.095,
-      "retention_time_sd": 0.007449832212875952,
+      "retention_time_mean": 27.729,
+      "retention_time_sd": 0.0036742346141739393,
       "area": {
         "model": "quadratic_origin",
         "coefficients": {
-          "a_linear": 3444.376606229906,
-          "b_quadratic": 3715.847534463116
+          "a_linear": 3171.2784489178025,
+          "b_quadratic": 1641.788648068357
         },
-        "formula": "3444.37660623*C + 3715.84753446*C^2",
-        "R2_experimental": 0.9989027529102427,
-        "MAE": 3.0120387423350268,
-        "max_abs_error": 9.782372838188696,
-        "max_rel_error_pct": 38.09631917668314
+        "formula": "3171.27844892*C + 1641.78864807*C^2",
+        "R2_experimental": 0.9977744906688112,
+        "MAE": 3.6340014152271642,
+        "max_abs_error": 11.776316309201789,
+        "max_rel_error_pct": 42.6523589612524
       },
       "height": {
         "model": "quadratic_origin",
         "coefficients": {
-          "a_linear": 597.5559182845344,
-          "b_quadratic": 658.7728319478326
+          "a_linear": 528.8651510250897,
+          "b_quadratic": 279.777622589989
         },
-        "formula": "597.555918285*C + 658.772831948*C^2",
-        "R2_experimental": 0.9988493342973092,
-        "MAE": 0.5331092870212663,
-        "max_abs_error": 1.741011312388426,
-        "max_rel_error_pct": 38.6977397730257
+        "formula": "528.865151025*C + 279.77762259*C^2",
+        "R2_experimental": 0.9978283024663609,
+        "MAE": 0.6055429035507803,
+        "max_abs_error": 1.9473129509437723,
+        "max_rel_error_pct": 42.443612705836365
+      }
+    },
+    {
+      "calibration_part": "Часть 2",
+      "component": "альфа-Метилстирол",
+      "detector": "ПИД-2",
+      "n_experimental_points": 4,
+      "concentration_range": [
+        0.0046373,
+        0.1088
+      ],
+      "retention_time_mean": 30.4,
+      "retention_time_sd": 0.00367423461417539,
+      "area": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 3009.4885337545647,
+          "b_quadratic": 4341.43499349798
+        },
+        "formula": "3009.48853375*C + 4341.4349935*C^2",
+        "R2_experimental": 0.9988549352671191,
+        "MAE": 2.827692782446001,
+        "max_abs_error": 9.291738210930081,
+        "max_rel_error_pct": 39.80865520299079
+      },
+      "height": {
+        "model": "quadratic_origin",
+        "coefficients": {
+          "a_linear": 557.0229124795756,
+          "b_quadratic": 820.8487914696185
+        },
+        "formula": "557.02291248*C + 820.84879147*C^2",
+        "R2_experimental": 0.9991724001042817,
+        "MAE": 0.44926873585434757,
+        "max_abs_error": 1.4712656630209717,
+        "max_rel_error_pct": 36.13127856141875
       }
     }
   ]

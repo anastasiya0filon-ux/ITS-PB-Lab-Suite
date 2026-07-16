@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "method_id": "MUK_4_1_3166",
+  "math_profile": "MUK_4_1_3166",
+  "report_profile": "chromatek_standard",
+  "instrument_profile": "chromatek_crystal5000_v03_21_17_721",
+  "renderer_override": null,
+  "principle": "Методика определяет математику и при необходимости отчёт; оформление прибора общее."
+}

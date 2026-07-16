@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "name": "Chromatek Profiles 1.0",
+  "status": "installed",
+  "shared_layers": [
+    "firmwares",
+    "detectors",
+    "typography",
+    "geometry",
+    "reports",
+    "baseline",
+    "chromatograms"
+  ],
+  "method_switches": [
+    "math_profile",
+    "report_profile"
+  ],
+  "method_independent": [
+    "firmware",
+    "detectors",
+    "typography",
+    "geometry",
+    "baseline",
+    "chromatogram_renderer"
+  ],
+  "working_files_not_modified": [
+    "app/modules/GC/gc_generator.py",
+    "app/modules/GC/gc_report_generator.py",
+    "app/modules/GC/chromatek_renderer"
+  ]
+}

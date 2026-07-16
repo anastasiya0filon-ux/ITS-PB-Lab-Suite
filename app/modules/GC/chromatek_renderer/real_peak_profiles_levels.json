@@ -1,0 +1,2695 @@
+{
+  "version": "math-frozen-passports-t1-t6-v3",
+  "source": "Реальные градуировочные отчёты Хроматэк т.1–т.6",
+  "interpolation_axis": "calculated_height_mV",
+  "profiles": {
+    "ПИД-1|Гексан": {
+      "detector": "ПИД-1",
+      "component": "Гексан",
+      "levels": [
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 3.325,
+          "measured_rt": 3.329,
+          "area": 26.158,
+          "height": 6.097,
+          "area_height": 4.290306708217156
+        },
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 3.325,
+          "measured_rt": 3.318,
+          "area": 25.156,
+          "height": 6.447,
+          "area_height": 3.901969908484566
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 3.325,
+          "measured_rt": 3.327,
+          "area": 84.51,
+          "height": 19.4,
+          "area_height": 4.35618556701031
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 3.325,
+          "measured_rt": 3.325,
+          "area": 189.935,
+          "height": 19.468,
+          "area_height": 9.75626669406205
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 3.325,
+          "measured_rt": 3.323,
+          "area": 113.751,
+          "height": 20.803,
+          "area_height": 5.468009421718022
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 3.325,
+          "measured_rt": 3.327,
+          "area": 369.083,
+          "height": 85.89,
+          "area_height": 4.297159157061357
+        }
+      ],
+      "height_min": 6.097,
+      "height_max": 85.89,
+      "ratio_min": 3.901969908484566,
+      "ratio_max": 9.75626669406205
+    },
+    "ПИД-1|Гептан": {
+      "detector": "ПИД-1",
+      "component": "Гептан",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 3.754,
+          "measured_rt": 3.749,
+          "area": 27.585,
+          "height": 6.802,
+          "area_height": 4.0554248750367545
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 3.754,
+          "measured_rt": 3.755,
+          "area": 32.822,
+          "height": 7.492,
+          "area_height": 4.380939668980246
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 3.754,
+          "measured_rt": 3.755,
+          "area": 84.647,
+          "height": 20.539,
+          "area_height": 4.121281464530893
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 3.754,
+          "measured_rt": 3.755,
+          "area": 120.096,
+          "height": 23.028,
+          "area_height": 5.215216258467953
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 3.754,
+          "measured_rt": 3.754,
+          "area": 207.404,
+          "height": 23.077,
+          "area_height": 8.987476708410972
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 3.754,
+          "measured_rt": 3.753,
+          "area": 411.032,
+          "height": 93.306,
+          "area_height": 4.40520438128309
+        }
+      ],
+      "height_min": 6.802,
+      "height_max": 93.306,
+      "ratio_min": 4.0554248750367545,
+      "ratio_max": 8.987476708410972
+    },
+    "ПИД-1|Ацетальдегид": {
+      "detector": "ПИД-1",
+      "component": "Ацетальдегид",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 3.887,
+          "measured_rt": 3.884,
+          "area": 1.219,
+          "height": 0.294,
+          "area_height": 4.146258503401361
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 3.887,
+          "measured_rt": 3.89,
+          "area": 2.075,
+          "height": 0.474,
+          "area_height": 4.377637130801689
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 3.887,
+          "measured_rt": 3.887,
+          "area": 4.066,
+          "height": 0.919,
+          "area_height": 4.424374319912949
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 3.887,
+          "measured_rt": 3.887,
+          "area": 5.455,
+          "height": 1.269,
+          "area_height": 4.29866036249015
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 3.887,
+          "measured_rt": 3.887,
+          "area": 8.74,
+          "height": 1.94,
+          "area_height": 4.505154639175258
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 3.887,
+          "measured_rt": 3.89,
+          "area": 17.642,
+          "height": 3.695,
+          "area_height": 4.774560216508796
+        }
+      ],
+      "height_min": 0.294,
+      "height_max": 3.695,
+      "ratio_min": 4.146258503401361,
+      "ratio_max": 4.774560216508796
+    },
+    "ПИД-1|Ацетон": {
+      "detector": "ПИД-1",
+      "component": "Ацетон",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 5.262,
+          "measured_rt": 5.255,
+          "area": 4.827,
+          "height": 1.008,
+          "area_height": 4.788690476190476
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 5.262,
+          "measured_rt": 5.265,
+          "area": 9.517,
+          "height": 1.881,
+          "area_height": 5.059542796384902
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 5.262,
+          "measured_rt": 5.262,
+          "area": 20.601,
+          "height": 4.037,
+          "area_height": 5.103046816943275
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 5.262,
+          "measured_rt": 5.264,
+          "area": 27.261,
+          "height": 5.354,
+          "area_height": 5.091707134852447
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 5.262,
+          "measured_rt": 5.261,
+          "area": 45.917,
+          "height": 8.867,
+          "area_height": 5.178414345325363
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 5.262,
+          "measured_rt": 5.264,
+          "area": 84.452,
+          "height": 16.59,
+          "area_height": 5.090536467751657
+        }
+      ],
+      "height_min": 1.008,
+      "height_max": 16.59,
+      "ratio_min": 4.788690476190476,
+      "ratio_max": 5.178414345325363
+    },
+    "ПИД-1|Метилацетат": {
+      "detector": "ПИД-1",
+      "component": "Метилацетат",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 5.507,
+          "measured_rt": 5.501,
+          "area": 6.032,
+          "height": 1.245,
+          "area_height": 4.844979919678715
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 5.507,
+          "measured_rt": 5.509,
+          "area": 12.722,
+          "height": 2.502,
+          "area_height": 5.084732214228618
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 5.507,
+          "measured_rt": 5.509,
+          "area": 27.89,
+          "height": 5.457,
+          "area_height": 5.110866776617189
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 5.507,
+          "measured_rt": 5.507,
+          "area": 37.429,
+          "height": 7.322,
+          "area_height": 5.111854684512428
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 5.507,
+          "measured_rt": 5.507,
+          "area": 63.224,
+          "height": 12.195,
+          "area_height": 5.184419844198442
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 5.507,
+          "measured_rt": 5.508,
+          "area": 113.713,
+          "height": 22.254,
+          "area_height": 5.109778017435067
+        }
+      ],
+      "height_min": 1.245,
+      "height_max": 22.254,
+      "ratio_min": 4.844979919678715,
+      "ratio_max": 5.184419844198442
+    },
+    "ПИД-1|Этилацетат": {
+      "detector": "ПИД-1",
+      "component": "Этилацетат",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 6.952,
+          "measured_rt": 6.951,
+          "area": 11.271,
+          "height": 1.989,
+          "area_height": 5.666666666666667
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 6.952,
+          "measured_rt": 6.953,
+          "area": 24.339,
+          "height": 4.125,
+          "area_height": 5.900363636363636
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 6.952,
+          "measured_rt": 6.953,
+          "area": 54.041,
+          "height": 9.098,
+          "area_height": 5.939876896021103
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 6.952,
+          "measured_rt": 6.954,
+          "area": 72.043,
+          "height": 12.14,
+          "area_height": 5.934349258649094
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 6.952,
+          "measured_rt": 6.95,
+          "area": 121.972,
+          "height": 20.334,
+          "area_height": 5.998426281105537
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 6.952,
+          "measured_rt": 6.951,
+          "area": 217.649,
+          "height": 36.663,
+          "area_height": 5.936475465728392
+        }
+      ],
+      "height_min": 1.989,
+      "height_max": 36.663,
+      "ratio_min": 5.666666666666667,
+      "ratio_max": 5.998426281105537
+    },
+    "ПИД-1|Спирт метиловый": {
+      "detector": "ПИД-1",
+      "component": "Спирт метиловый",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 7.32,
+          "measured_rt": 7.326,
+          "area": 46.115,
+          "height": 7.065,
+          "area_height": 6.527246992215145
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 7.32,
+          "measured_rt": 7.327,
+          "area": 77.631,
+          "height": 11.761,
+          "area_height": 6.6007142249808695
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 7.32,
+          "measured_rt": 7.319,
+          "area": 157.815,
+          "height": 24.093,
+          "area_height": 6.550242809114681
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 7.32,
+          "measured_rt": 7.319,
+          "area": 240.015,
+          "height": 36.217,
+          "area_height": 6.627136427644476
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 7.32,
+          "measured_rt": 7.314,
+          "area": 396.259,
+          "height": 59.7,
+          "area_height": 6.63750418760469
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 7.32,
+          "measured_rt": 7.315,
+          "area": 712.222,
+          "height": 108.18,
+          "area_height": 6.583675355888333
+        }
+      ],
+      "height_min": 7.065,
+      "height_max": 108.18,
+      "ratio_min": 6.527246992215145,
+      "ratio_max": 6.63750418760469
+    },
+    "ПИД-1|Спирт изопропиловый": {
+      "detector": "ПИД-1",
+      "component": "Спирт изопропиловый",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 8.322,
+          "measured_rt": 8.322,
+          "area": 2.2,
+          "height": 0.368,
+          "area_height": 5.978260869565218
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 8.322,
+          "measured_rt": 8.326,
+          "area": 4.245,
+          "height": 0.696,
+          "area_height": 6.099137931034483
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 8.322,
+          "measured_rt": 8.322,
+          "area": 9.191,
+          "height": 1.462,
+          "area_height": 6.286593707250343
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 8.322,
+          "measured_rt": 8.323,
+          "area": 12.413,
+          "height": 1.951,
+          "area_height": 6.3623782675550995
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 8.322,
+          "measured_rt": 8.315,
+          "area": 20.323,
+          "height": 3.173,
+          "area_height": 6.404979514654901
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 8.322,
+          "measured_rt": 8.321,
+          "area": 38.273,
+          "height": 6.003,
+          "area_height": 6.375645510578044
+        }
+      ],
+      "height_min": 0.368,
+      "height_max": 6.003,
+      "ratio_min": 5.978260869565218,
+      "ratio_max": 6.404979514654901
+    },
+    "ПИД-1|Бензол": {
+      "detector": "ПИД-1",
+      "component": "Бензол",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 8.872,
+          "measured_rt": 8.869,
+          "area": 21.519,
+          "height": 3.653,
+          "area_height": 5.8907747057213244
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 8.872,
+          "measured_rt": 8.873,
+          "area": 41.496,
+          "height": 6.873,
+          "area_height": 6.037538192928852
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 8.872,
+          "measured_rt": 8.872,
+          "area": 90.605,
+          "height": 14.976,
+          "area_height": 6.050013354700854
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 8.872,
+          "measured_rt": 8.874,
+          "area": 120.153,
+          "height": 19.844,
+          "area_height": 6.054878048780488
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 8.872,
+          "measured_rt": 8.869,
+          "area": 200.665,
+          "height": 33.04,
+          "area_height": 6.0733958837772395
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 8.872,
+          "measured_rt": 8.873,
+          "area": 350.375,
+          "height": 57.851,
+          "area_height": 6.056507234101399
+        }
+      ],
+      "height_min": 3.653,
+      "height_max": 57.851,
+      "ratio_min": 5.8907747057213244,
+      "ratio_max": 6.0733958837772395
+    },
+    "ПИД-1|н-Пропилацетат": {
+      "detector": "ПИД-1",
+      "component": "н-Пропилацетат",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 10.118,
+          "measured_rt": 10.116,
+          "area": 21.831,
+          "height": 3.934,
+          "area_height": 5.549313675648195
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 10.118,
+          "measured_rt": 10.117,
+          "area": 46.668,
+          "height": 8.284,
+          "area_height": 5.633510381458232
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 10.118,
+          "measured_rt": 10.117,
+          "area": 103.794,
+          "height": 18.307,
+          "area_height": 5.669634566013001
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 10.118,
+          "measured_rt": 10.12,
+          "area": 137.186,
+          "height": 24.257,
+          "area_height": 5.655522117326957
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 10.118,
+          "measured_rt": 10.116,
+          "area": 232.259,
+          "height": 40.809,
+          "area_height": 5.691367100394521
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 10.118,
+          "measured_rt": 10.119,
+          "area": 409.772,
+          "height": 72.304,
+          "area_height": 5.667348971011285
+        }
+      ],
+      "height_min": 3.934,
+      "height_max": 72.304,
+      "ratio_min": 5.549313675648195,
+      "ratio_max": 5.691367100394521
+    },
+    "ПИД-1|Акрилонитрил": {
+      "detector": "ПИД-1",
+      "component": "Акрилонитрил",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 11.045,
+          "measured_rt": 11.053,
+          "area": 0.744,
+          "height": 0.168,
+          "area_height": 4.428571428571428
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 11.045,
+          "measured_rt": 11.049,
+          "area": 1.463,
+          "height": 0.326,
+          "area_height": 4.487730061349693
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 11.045,
+          "measured_rt": 11.041,
+          "area": 3.306,
+          "height": 0.697,
+          "area_height": 4.743185078909613
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 11.045,
+          "measured_rt": 11.047,
+          "area": 4.901,
+          "height": 1.014,
+          "area_height": 4.833333333333333
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 11.045,
+          "measured_rt": 11.037,
+          "area": 8.258,
+          "height": 1.701,
+          "area_height": 4.854791299235743
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 11.045,
+          "measured_rt": 11.041,
+          "area": 15.049,
+          "height": 3.086,
+          "area_height": 4.876539209332469
+        }
+      ],
+      "height_min": 0.168,
+      "height_max": 3.086,
+      "ratio_min": 4.428571428571428,
+      "ratio_max": 4.876539209332469
+    },
+    "ПИД-1|Толуол": {
+      "detector": "ПИД-1",
+      "component": "Толуол",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 12.831,
+          "measured_rt": 12.829,
+          "area": 27.153,
+          "height": 4.915,
+          "area_height": 5.524516785350966
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 12.831,
+          "measured_rt": 12.833,
+          "area": 53.748,
+          "height": 9.634,
+          "area_height": 5.5789910732821255
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 12.831,
+          "measured_rt": 12.828,
+          "area": 118.072,
+          "height": 21.257,
+          "area_height": 5.554499694218375
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 12.831,
+          "measured_rt": 12.836,
+          "area": 156.549,
+          "height": 28.164,
+          "area_height": 5.558478909245846
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 12.831,
+          "measured_rt": 12.825,
+          "area": 259.036,
+          "height": 46.644,
+          "area_height": 5.55346882771632
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 12.831,
+          "measured_rt": 12.835,
+          "area": 466.581,
+          "height": 82.269,
+          "area_height": 5.671407212923458
+        }
+      ],
+      "height_min": 4.915,
+      "height_max": 82.269,
+      "ratio_min": 5.524516785350966,
+      "ratio_max": 5.671407212923458
+    },
+    "ПИД-1|Бутилацетат": {
+      "detector": "ПИД-1",
+      "component": "Бутилацетат",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 14.046,
+          "measured_rt": 14.049,
+          "area": 35.242,
+          "height": 7.994,
+          "area_height": 4.408556417312984
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 14.046,
+          "measured_rt": 14.046,
+          "area": 74.249,
+          "height": 16.821,
+          "area_height": 4.414065751144403
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 14.046,
+          "measured_rt": 14.042,
+          "area": 164.526,
+          "height": 37.313,
+          "area_height": 4.409347948436202
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 14.046,
+          "measured_rt": 14.049,
+          "area": 215.98,
+          "height": 48.81,
+          "area_height": 4.424912927678754
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 14.046,
+          "measured_rt": 14.039,
+          "area": 363.857,
+          "height": 82.03,
+          "area_height": 4.435657686212362
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 14.046,
+          "measured_rt": 14.048,
+          "area": 635.412,
+          "height": 144.182,
+          "area_height": 4.407013358116825
+        }
+      ],
+      "height_min": 7.994,
+      "height_max": 144.182,
+      "ratio_min": 4.407013358116825,
+      "ratio_max": 4.435657686212362
+    },
+    "ПИД-1|Спирт пропиловый": {
+      "detector": "ПИД-1",
+      "component": "Спирт пропиловый",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 14.884,
+          "measured_rt": 14.841,
+          "area": 3.768,
+          "height": 0.742,
+          "area_height": 5.078167115902965
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 14.884,
+          "measured_rt": 14.894,
+          "area": 5.494,
+          "height": 1.05,
+          "area_height": 5.232380952380952
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 14.884,
+          "measured_rt": 14.893,
+          "area": 11.861,
+          "height": 2.258,
+          "area_height": 5.252878653675819
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 14.884,
+          "measured_rt": 14.895,
+          "area": 15.89,
+          "height": 2.957,
+          "area_height": 5.373689550219818
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 14.884,
+          "measured_rt": 14.889,
+          "area": 26.895,
+          "height": 5.059,
+          "area_height": 5.316268037161494
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 14.884,
+          "measured_rt": 14.891,
+          "area": 49.868,
+          "height": 9.326,
+          "area_height": 5.347201372506969
+        }
+      ],
+      "height_min": 0.742,
+      "height_max": 9.326,
+      "ratio_min": 5.078167115902965,
+      "ratio_max": 5.373689550219818
+    },
+    "ПИД-1|Этилбензол": {
+      "detector": "ПИД-1",
+      "component": "Этилбензол",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 16.241,
+          "measured_rt": 16.162,
+          "area": 26.738,
+          "height": 5.422,
+          "area_height": 4.931390630763556
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 16.241,
+          "measured_rt": 16.253,
+          "area": 53.093,
+          "height": 10.696,
+          "area_height": 4.963818249813015
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 16.241,
+          "measured_rt": 16.271,
+          "area": 116.337,
+          "height": 23.456,
+          "area_height": 4.959797066848568
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 16.241,
+          "measured_rt": 16.253,
+          "area": 153.771,
+          "height": 31.408,
+          "area_height": 4.895918237391747
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 16.241,
+          "measured_rt": 16.256,
+          "area": 251.831,
+          "height": 51.359,
+          "area_height": 4.903347027784808
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 16.241,
+          "measured_rt": 16.253,
+          "area": 455.787,
+          "height": 91.838,
+          "area_height": 4.962945621638102
+        }
+      ],
+      "height_min": 5.422,
+      "height_max": 91.838,
+      "ratio_min": 4.895918237391747,
+      "ratio_max": 4.963818249813015
+    },
+    "ПИД-1|п-Ксилол": {
+      "detector": "ПИД-1",
+      "component": "п-Ксилол",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 16.563,
+          "measured_rt": 16.481,
+          "area": 26.927,
+          "height": 5.616,
+          "area_height": 4.794693732193733
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 16.563,
+          "measured_rt": 16.577,
+          "area": 50.765,
+          "height": 10.501,
+          "area_height": 4.834301495095706
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 16.563,
+          "measured_rt": 16.591,
+          "area": 110.96,
+          "height": 23.253,
+          "area_height": 4.771857394744764
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 16.563,
+          "measured_rt": 16.575,
+          "area": 150.091,
+          "height": 30.836,
+          "area_height": 4.867395252302504
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 16.563,
+          "measured_rt": 16.578,
+          "area": 246.201,
+          "height": 50.763,
+          "area_height": 4.850008864724307
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 16.563,
+          "measured_rt": 16.577,
+          "area": 433.803,
+          "height": 88.977,
+          "area_height": 4.875450959236656
+        }
+      ],
+      "height_min": 5.616,
+      "height_max": 88.977,
+      "ratio_min": 4.771857394744764,
+      "ratio_max": 4.875450959236656
+    },
+    "ПИД-1|м-Ксилол": {
+      "detector": "ПИД-1",
+      "component": "м-Ксилол",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 16.838,
+          "measured_rt": 16.759,
+          "area": 25.021,
+          "height": 5.077,
+          "area_height": 4.928304116604294
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 16.838,
+          "measured_rt": 16.852,
+          "area": 49.405,
+          "height": 10.105,
+          "area_height": 4.889163780306779
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 16.838,
+          "measured_rt": 16.865,
+          "area": 107.882,
+          "height": 22.393,
+          "area_height": 4.817666234984147
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 16.838,
+          "measured_rt": 16.85,
+          "area": 145.924,
+          "height": 29.647,
+          "area_height": 4.922049448510811
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 16.838,
+          "measured_rt": 16.853,
+          "area": 239.988,
+          "height": 49.64,
+          "area_height": 4.834568896051572
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 16.838,
+          "measured_rt": 16.851,
+          "area": 424.157,
+          "height": 86.428,
+          "area_height": 4.907634100060165
+        }
+      ],
+      "height_min": 5.077,
+      "height_max": 86.428,
+      "ratio_min": 4.817666234984147,
+      "ratio_max": 4.928304116604294
+    },
+    "ПИД-1|Спирт бутиловый": {
+      "detector": "ПИД-1",
+      "component": "Спирт бутиловый",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 17.074,
+          "measured_rt": 17.156,
+          "area": 3.345,
+          "height": 0.827,
+          "area_height": 4.044740024183797
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 17.074,
+          "measured_rt": 17.061,
+          "area": 6.293,
+          "height": 1.545,
+          "area_height": 4.073139158576052
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 17.074,
+          "measured_rt": 17.042,
+          "area": 13.199,
+          "height": 3.17,
+          "area_height": 4.163722397476341
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 17.074,
+          "measured_rt": 17.066,
+          "area": 17.788,
+          "height": 4.282,
+          "area_height": 4.154133582438113
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 17.074,
+          "measured_rt": 17.049,
+          "area": 29.037,
+          "height": 6.95,
+          "area_height": 4.177985611510791
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 17.074,
+          "measured_rt": 17.067,
+          "area": 54.765,
+          "height": 13.157,
+          "area_height": 4.162423044767044
+        }
+      ],
+      "height_min": 0.827,
+      "height_max": 13.157,
+      "ratio_min": 4.044740024183797,
+      "ratio_max": 4.177985611510791
+    },
+    "ПИД-1|Изопропилбензол": {
+      "detector": "ПИД-1",
+      "component": "Изопропилбензол",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 18.11,
+          "measured_rt": 18.034,
+          "area": 27.314,
+          "height": 5.679,
+          "area_height": 4.809649586194753
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 18.11,
+          "measured_rt": 18.123,
+          "area": 52.49,
+          "height": 11.026,
+          "area_height": 4.76056593506258
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 18.11,
+          "measured_rt": 18.132,
+          "area": 114.724,
+          "height": 24.192,
+          "area_height": 4.742228835978836
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 18.11,
+          "measured_rt": 18.125,
+          "area": 156.69,
+          "height": 32.953,
+          "area_height": 4.754954025430157
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 18.11,
+          "measured_rt": 18.122,
+          "area": 250.185,
+          "height": 52.765,
+          "area_height": 4.741495309390695
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 18.11,
+          "measured_rt": 18.124,
+          "area": 460.742,
+          "height": 97.022,
+          "area_height": 4.74884046917194
+        }
+      ],
+      "height_min": 5.679,
+      "height_max": 97.022,
+      "ratio_min": 4.741495309390695,
+      "ratio_max": 4.809649586194753
+    },
+    "ПИД-1|о-Ксилол": {
+      "detector": "ПИД-1",
+      "component": "о-Ксилол",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 18.631,
+          "measured_rt": 18.577,
+          "area": 25.884,
+          "height": 5.526,
+          "area_height": 4.684039087947883
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 18.631,
+          "measured_rt": 18.641,
+          "area": 47.826,
+          "height": 10.361,
+          "area_height": 4.615963710066596
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 18.631,
+          "measured_rt": 18.648,
+          "area": 102.575,
+          "height": 22.429,
+          "area_height": 4.5733202550269745
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 18.631,
+          "measured_rt": 18.642,
+          "area": 139.94,
+          "height": 30.362,
+          "area_height": 4.6090507871681705
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 18.631,
+          "measured_rt": 18.637,
+          "area": 234.266,
+          "height": 50.713,
+          "area_height": 4.61944669019778
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 18.631,
+          "measured_rt": 18.641,
+          "area": 408.285,
+          "height": 88.413,
+          "area_height": 4.617929490007126
+        }
+      ],
+      "height_min": 5.526,
+      "height_max": 88.413,
+      "ratio_min": 4.5733202550269745,
+      "ratio_max": 4.684039087947883
+    },
+    "ПИД-1|Стирол": {
+      "detector": "ПИД-1",
+      "component": "Стирол",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 21.42,
+          "measured_rt": 21.399,
+          "area": 19.543,
+          "height": 4.766,
+          "area_height": 4.100503566932438
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 21.42,
+          "measured_rt": 21.426,
+          "area": 38.26,
+          "height": 9.447,
+          "area_height": 4.04996295120144
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 21.42,
+          "measured_rt": 21.423,
+          "area": 81.321,
+          "height": 19.954,
+          "area_height": 4.075423473990178
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 21.42,
+          "measured_rt": 21.427,
+          "area": 111.48,
+          "height": 27.584,
+          "area_height": 4.04147331786543
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 21.42,
+          "measured_rt": 21.419,
+          "area": 189.248,
+          "height": 46.691,
+          "area_height": 4.053200830995267
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 21.42,
+          "measured_rt": 21.426,
+          "area": 325.496,
+          "height": 80.551,
+          "area_height": 4.040868518081711
+        }
+      ],
+      "height_min": 4.766,
+      "height_max": 80.551,
+      "ratio_min": 4.040868518081711,
+      "ratio_max": 4.100503566932438
+    },
+    "ПИД-1|альфа-Метилстирол": {
+      "detector": "ПИД-1",
+      "component": "альфа-Метилстирол",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 23.946,
+          "measured_rt": 23.928,
+          "area": 22.997,
+          "height": 5.811,
+          "area_height": 3.9574944071588365
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 23.946,
+          "measured_rt": 23.95,
+          "area": 46.047,
+          "height": 11.66,
+          "area_height": 3.9491423670668953
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 23.946,
+          "measured_rt": 23.947,
+          "area": 96.586,
+          "height": 24.348,
+          "area_height": 3.9668966650238215
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 23.946,
+          "measured_rt": 23.953,
+          "area": 136.537,
+          "height": 34.48,
+          "area_height": 3.9598897911832953
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 23.946,
+          "measured_rt": 23.945,
+          "area": 230.571,
+          "height": 57.852,
+          "area_height": 3.985532047293093
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 23.946,
+          "measured_rt": 23.953,
+          "area": 396.49,
+          "height": 99.483,
+          "area_height": 3.9855050611662293
+        }
+      ],
+      "height_min": 5.811,
+      "height_max": 99.483,
+      "ratio_min": 3.9491423670668953,
+      "ratio_max": 3.985532047293093
+    },
+    "ПИД-2|Ацетальдегид": {
+      "detector": "ПИД-2",
+      "component": "Ацетальдегид",
+      "levels": [
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 4.327,
+          "measured_rt": 4.323,
+          "area": 1.759,
+          "height": 0.384,
+          "area_height": 4.580729166666666
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 4.327,
+          "measured_rt": 4.328,
+          "area": 3.689,
+          "height": 0.775,
+          "area_height": 4.76
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 4.327,
+          "measured_rt": 4.331,
+          "area": 5.112,
+          "height": 1.089,
+          "area_height": 4.694214876033058
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 4.327,
+          "measured_rt": 4.328,
+          "area": 8.407,
+          "height": 1.713,
+          "area_height": 4.907764156450671
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 4.327,
+          "measured_rt": 4.325,
+          "area": 14.827,
+          "height": 3.057,
+          "area_height": 4.850179914949297
+        }
+      ],
+      "height_min": 0.384,
+      "height_max": 3.057,
+      "ratio_min": 4.580729166666666,
+      "ratio_max": 4.907764156450671
+    },
+    "ПИД-2|Спирт метиловый": {
+      "detector": "ПИД-2",
+      "component": "Спирт метиловый",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 4.495,
+          "measured_rt": 4.499,
+          "area": 46.716,
+          "height": 8.756,
+          "area_height": 5.3353129282777525
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 4.495,
+          "measured_rt": 4.497,
+          "area": 75.208,
+          "height": 13.563,
+          "area_height": 5.545085895450859
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 4.495,
+          "measured_rt": 4.495,
+          "area": 153.62,
+          "height": 28.034,
+          "area_height": 5.479774559463509
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 4.495,
+          "measured_rt": 4.493,
+          "area": 235.786,
+          "height": 42.514,
+          "area_height": 5.546078938702545
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 4.495,
+          "measured_rt": 4.492,
+          "area": 391.066,
+          "height": 70.831,
+          "area_height": 5.521113636684502
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 4.495,
+          "measured_rt": 4.493,
+          "area": 702.777,
+          "height": 130.59,
+          "area_height": 5.3815529519871355
+        }
+      ],
+      "height_min": 8.756,
+      "height_max": 130.59,
+      "ratio_min": 5.3353129282777525,
+      "ratio_max": 5.546078938702545
+    },
+    "ПИД-2|Ацетон": {
+      "detector": "ПИД-2",
+      "component": "Ацетон",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 7.121,
+          "measured_rt": 7.12,
+          "area": 4.038,
+          "height": 0.651,
+          "area_height": 6.202764976958526
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 7.121,
+          "measured_rt": 7.123,
+          "area": 7.888,
+          "height": 1.247,
+          "area_height": 6.325581395348837
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 7.121,
+          "measured_rt": 7.125,
+          "area": 19.023,
+          "height": 2.84,
+          "area_height": 6.698239436619718
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 7.121,
+          "measured_rt": 7.121,
+          "area": 25.636,
+          "height": 3.842,
+          "area_height": 6.672566371681415
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 7.121,
+          "measured_rt": 7.12,
+          "area": 43.059,
+          "height": 6.452,
+          "area_height": 6.67374457532548
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 7.121,
+          "measured_rt": 7.117,
+          "area": 80.217,
+          "height": 12.159,
+          "area_height": 6.597335307179867
+        }
+      ],
+      "height_min": 0.651,
+      "height_max": 12.159,
+      "ratio_min": 6.202764976958526,
+      "ratio_max": 6.698239436619718
+    },
+    "ПИД-2|Спирт изопропиловый": {
+      "detector": "ПИД-2",
+      "component": "Спирт изопропиловый",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 7.364,
+          "measured_rt": 7.371,
+          "area": 1.427,
+          "height": 0.236,
+          "area_height": 6.046610169491526
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 7.364,
+          "measured_rt": 7.365,
+          "area": 2.938,
+          "height": 0.452,
+          "area_height": 6.5
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 7.364,
+          "measured_rt": 7.364,
+          "area": 8.04,
+          "height": 1.072,
+          "area_height": 7.499999999999999
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 7.364,
+          "measured_rt": 7.362,
+          "area": 11.37,
+          "height": 1.48,
+          "area_height": 7.682432432432432
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 7.364,
+          "measured_rt": 7.361,
+          "area": 18.463,
+          "height": 2.421,
+          "area_height": 7.626187525815779
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 7.364,
+          "measured_rt": 7.363,
+          "area": 35.637,
+          "height": 4.694,
+          "area_height": 7.592032381763954
+        }
+      ],
+      "height_min": 0.236,
+      "height_max": 4.694,
+      "ratio_min": 6.046610169491526,
+      "ratio_max": 7.682432432432432
+    },
+    "ПИД-2|Метилацетат": {
+      "detector": "ПИД-2",
+      "component": "Метилацетат",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 8.056,
+          "measured_rt": 8.058,
+          "area": 5.356,
+          "height": 0.857,
+          "area_height": 6.249708284714119
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 8.056,
+          "measured_rt": 8.058,
+          "area": 11.364,
+          "height": 1.77,
+          "area_height": 6.420338983050848
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 8.056,
+          "measured_rt": 8.057,
+          "area": 26.535,
+          "height": 4.029,
+          "area_height": 6.5860014892032765
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 8.056,
+          "measured_rt": 8.057,
+          "area": 35.867,
+          "height": 5.468,
+          "area_height": 6.559436722750548
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 8.056,
+          "measured_rt": 8.053,
+          "area": 61.407,
+          "height": 9.309,
+          "area_height": 6.596519497260716
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 8.056,
+          "measured_rt": 8.054,
+          "area": 111.11,
+          "height": 16.988,
+          "area_height": 6.540499175888863
+        }
+      ],
+      "height_min": 0.857,
+      "height_max": 16.988,
+      "ratio_min": 6.249708284714119,
+      "ratio_max": 6.596519497260716
+    },
+    "ПИД-2|Акрилонитрил": {
+      "detector": "ПИД-2",
+      "component": "Акрилонитрил",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 9.101,
+          "measured_rt": 9.099,
+          "area": 0.283,
+          "height": 0.084,
+          "area_height": 3.3690476190476186
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 9.101,
+          "measured_rt": 9.101,
+          "area": 0.934,
+          "height": 0.188,
+          "area_height": 4.968085106382979
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 9.101,
+          "measured_rt": 9.11,
+          "area": 2.589,
+          "height": 0.437,
+          "area_height": 5.924485125858124
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 9.101,
+          "measured_rt": 9.103,
+          "area": 3.848,
+          "height": 0.654,
+          "area_height": 5.883792048929664
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 9.101,
+          "measured_rt": 9.096,
+          "area": 7.147,
+          "height": 1.163,
+          "area_height": 6.145313843508169
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 9.101,
+          "measured_rt": 9.099,
+          "area": 15.407,
+          "height": 2.289,
+          "area_height": 6.730886850152904
+        }
+      ],
+      "height_min": 0.084,
+      "height_max": 2.289,
+      "ratio_min": 3.3690476190476186,
+      "ratio_max": 6.730886850152904
+    },
+    "ПИД-2|Гексан": {
+      "detector": "ПИД-2",
+      "component": "Гексан",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 9.86,
+          "measured_rt": 9.85,
+          "area": 24.619,
+          "height": 3.278,
+          "area_height": 7.510372178157413
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 9.86,
+          "measured_rt": 9.865,
+          "area": 25.421,
+          "height": 3.363,
+          "area_height": 7.55902468034493
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 9.86,
+          "measured_rt": 9.862,
+          "area": 83.566,
+          "height": 10.866,
+          "area_height": 7.690594515000921
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 9.86,
+          "measured_rt": 9.864,
+          "area": 119.403,
+          "height": 12.054,
+          "area_height": 9.905674464907914
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 9.86,
+          "measured_rt": 9.859,
+          "area": 195.395,
+          "height": 14.255,
+          "area_height": 13.707120308663626
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 9.86,
+          "measured_rt": 9.861,
+          "area": 367.892,
+          "height": 47.688,
+          "area_height": 7.714561315215567
+        }
+      ],
+      "height_min": 3.278,
+      "height_max": 47.688,
+      "ratio_min": 7.510372178157413,
+      "ratio_max": 13.707120308663626
+    },
+    "ПИД-2|Спирт пропиловый": {
+      "detector": "ПИД-2",
+      "component": "Спирт пропиловый",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 10.456,
+          "measured_rt": 10.46,
+          "area": 1.635,
+          "height": 0.172,
+          "area_height": 9.505813953488373
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 10.456,
+          "measured_rt": 10.454,
+          "area": 2.686,
+          "height": 0.308,
+          "area_height": 8.720779220779221
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 10.456,
+          "measured_rt": 10.461,
+          "area": 6.025,
+          "height": 0.681,
+          "area_height": 8.847283406754773
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 10.456,
+          "measured_rt": 10.455,
+          "area": 8.487,
+          "height": 0.964,
+          "area_height": 8.803941908713693
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 10.456,
+          "measured_rt": 10.455,
+          "area": 14.57,
+          "height": 1.62,
+          "area_height": 8.993827160493828
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 10.456,
+          "measured_rt": 10.449,
+          "area": 29.64,
+          "height": 3.317,
+          "area_height": 8.93578534820621
+        }
+      ],
+      "height_min": 0.172,
+      "height_max": 3.317,
+      "ratio_min": 8.720779220779221,
+      "ratio_max": 9.505813953488373
+    },
+    "ПИД-2|Этилацетат": {
+      "detector": "ПИД-2",
+      "component": "Этилацетат",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 12.185,
+          "measured_rt": 12.186,
+          "area": 10.121,
+          "height": 1.568,
+          "area_height": 6.454719387755102
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 12.185,
+          "measured_rt": 12.185,
+          "area": 22.605,
+          "height": 3.443,
+          "area_height": 6.565495207667731
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 12.185,
+          "measured_rt": 12.185,
+          "area": 51.324,
+          "height": 7.805,
+          "area_height": 6.575784753363228
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 12.185,
+          "measured_rt": 12.188,
+          "area": 68.524,
+          "height": 10.425,
+          "area_height": 6.573045563549161
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 12.185,
+          "measured_rt": 12.182,
+          "area": 117.149,
+          "height": 17.753,
+          "area_height": 6.598828367036557
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 12.185,
+          "measured_rt": 12.185,
+          "area": 211.158,
+          "height": 32.005,
+          "area_height": 6.597656616153725
+        }
+      ],
+      "height_min": 1.568,
+      "height_max": 32.005,
+      "ratio_min": 6.454719387755102,
+      "ratio_max": 6.598828367036557
+    },
+    "ПИД-2|Бензол": {
+      "detector": "ПИД-2",
+      "component": "Бензол",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 14.586,
+          "measured_rt": 14.579,
+          "area": 21.324,
+          "height": 3.332,
+          "area_height": 6.399759903961585
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 14.586,
+          "measured_rt": 14.585,
+          "area": 41.097,
+          "height": 6.346,
+          "area_height": 6.476047904191617
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 14.586,
+          "measured_rt": 14.586,
+          "area": 90.168,
+          "height": 13.917,
+          "area_height": 6.478982539340375
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 14.586,
+          "measured_rt": 14.59,
+          "area": 119.809,
+          "height": 18.545,
+          "area_height": 6.460447559989214
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 14.586,
+          "measured_rt": 14.583,
+          "area": 200.062,
+          "height": 30.962,
+          "area_height": 6.4615334926684325
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 14.586,
+          "measured_rt": 14.59,
+          "area": 349.682,
+          "height": 53.999,
+          "area_height": 6.475712513194689
+        }
+      ],
+      "height_min": 3.332,
+      "height_max": 53.999,
+      "ratio_min": 6.399759903961585,
+      "ratio_max": 6.478982539340375
+    },
+    "ПИД-2|Гептан": {
+      "detector": "ПИД-2",
+      "component": "Гептан",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 15.228,
+          "measured_rt": 15.225,
+          "area": 27.154,
+          "height": 4.019,
+          "area_height": 6.756407066434436
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 15.228,
+          "measured_rt": 15.231,
+          "area": 32.234,
+          "height": 4.739,
+          "area_height": 6.801856931842162
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 15.228,
+          "measured_rt": 15.233,
+          "area": 111.607,
+          "height": 14.239,
+          "area_height": 7.838120654540346
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 15.228,
+          "measured_rt": 15.223,
+          "area": 97.002,
+          "height": 14.266,
+          "area_height": 6.799523342212253
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 15.228,
+          "measured_rt": 15.226,
+          "area": 195.75,
+          "height": 15.63,
+          "area_height": 12.523992322456813
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 15.228,
+          "measured_rt": 15.23,
+          "area": 406.465,
+          "height": 59.611,
+          "area_height": 6.818624079448424
+        }
+      ],
+      "height_min": 4.019,
+      "height_max": 59.611,
+      "ratio_min": 6.756407066434436,
+      "ratio_max": 12.523992322456813
+    },
+    "ПИД-2|Спирт бутиловый": {
+      "detector": "ПИД-2",
+      "component": "Спирт бутиловый",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 16.034,
+          "measured_rt": 16.043,
+          "area": 0.997,
+          "height": 0.148,
+          "area_height": 6.736486486486487
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 16.034,
+          "measured_rt": 16.045,
+          "area": 2.276,
+          "height": 0.339,
+          "area_height": 6.71386430678466
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 16.034,
+          "measured_rt": 16.031,
+          "area": 6.716,
+          "height": 0.875,
+          "area_height": 7.675428571428571
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 16.034,
+          "measured_rt": 16.036,
+          "area": 12.759,
+          "height": 1.324,
+          "area_height": 9.636706948640484
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 16.034,
+          "measured_rt": 16.024,
+          "area": 21.31,
+          "height": 2.338,
+          "area_height": 9.114627887082976
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 16.034,
+          "measured_rt": 16.025,
+          "area": 42.955,
+          "height": 4.949,
+          "area_height": 8.679531218427964
+        }
+      ],
+      "height_min": 0.148,
+      "height_max": 4.949,
+      "ratio_min": 6.71386430678466,
+      "ratio_max": 9.636706948640484
+    },
+    "ПИД-2|н-Пропилацетат": {
+      "detector": "ПИД-2",
+      "component": "н-Пропилацетат",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 17.544,
+          "measured_rt": 17.545,
+          "area": 20.167,
+          "height": 3.365,
+          "area_height": 5.9931649331352155
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 17.544,
+          "measured_rt": 17.544,
+          "area": 44.399,
+          "height": 7.387,
+          "area_height": 6.010423717341276
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 17.544,
+          "measured_rt": 17.541,
+          "area": 99.592,
+          "height": 16.609,
+          "area_height": 5.9962670841110235
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 17.544,
+          "measured_rt": 17.548,
+          "area": 132.667,
+          "height": 22.089,
+          "area_height": 6.006021096473358
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 17.544,
+          "measured_rt": 17.536,
+          "area": 225.485,
+          "height": 37.473,
+          "area_height": 6.0172657646839065
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 17.544,
+          "measured_rt": 17.547,
+          "area": 400.999,
+          "height": 67.147,
+          "area_height": 5.97195704945865
+        }
+      ],
+      "height_min": 3.365,
+      "height_max": 67.147,
+      "ratio_min": 5.97195704945865,
+      "ratio_max": 6.0172657646839065
+    },
+    "ПИД-2|Толуол": {
+      "detector": "ПИД-2",
+      "component": "Толуол",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 20.278,
+          "measured_rt": 20.278,
+          "area": 24.731,
+          "height": 4.302,
+          "area_height": 5.7487215248721535
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 20.278,
+          "measured_rt": 20.278,
+          "area": 48.937,
+          "height": 8.466,
+          "area_height": 5.78041578077014
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 20.278,
+          "measured_rt": 20.275,
+          "area": 108.481,
+          "height": 18.708,
+          "area_height": 5.798642292067565
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 20.278,
+          "measured_rt": 20.283,
+          "area": 143.587,
+          "height": 24.931,
+          "area_height": 5.759375877421683
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 20.278,
+          "measured_rt": 20.271,
+          "area": 238.275,
+          "height": 41.306,
+          "area_height": 5.768532416598074
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 20.278,
+          "measured_rt": 20.283,
+          "area": 418.748,
+          "height": 72.415,
+          "area_height": 5.78261409928882
+        }
+      ],
+      "height_min": 4.302,
+      "height_max": 72.415,
+      "ratio_min": 5.7487215248721535,
+      "ratio_max": 5.798642292067565
+    },
+    "ПИД-2|Бутилацетат": {
+      "detector": "ПИД-2",
+      "component": "Бутилацетат",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 22.546,
+          "measured_rt": 22.548,
+          "area": 32.744,
+          "height": 5.839,
+          "area_height": 5.607809556430896
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 22.546,
+          "measured_rt": 22.546,
+          "area": 70.595,
+          "height": 12.632,
+          "area_height": 5.58858454718176
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 22.546,
+          "measured_rt": 22.543,
+          "area": 158.885,
+          "height": 28.505,
+          "area_height": 5.573934397474127
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 22.546,
+          "measured_rt": 22.55,
+          "area": 208.815,
+          "height": 37.634,
+          "area_height": 5.548573098793644
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 22.546,
+          "measured_rt": 22.539,
+          "area": 354.728,
+          "height": 63.645,
+          "area_height": 5.573540733757562
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 22.546,
+          "measured_rt": 22.551,
+          "area": 621.919,
+          "height": 112.107,
+          "area_height": 5.547548324368683
+        }
+      ],
+      "height_min": 5.839,
+      "height_max": 112.107,
+      "ratio_min": 5.547548324368683,
+      "ratio_max": 5.607809556430896
+    },
+    "ПИД-2|Этилбензол": {
+      "detector": "ПИД-2",
+      "component": "Этилбензол",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 24.937,
+          "measured_rt": 24.937,
+          "area": 26.693,
+          "height": 4.804,
+          "area_height": 5.556411323896753
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 24.937,
+          "measured_rt": 24.935,
+          "area": 52.84,
+          "height": 9.523,
+          "area_height": 5.548671637089153
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 24.937,
+          "measured_rt": 24.933,
+          "area": 115.484,
+          "height": 20.763,
+          "area_height": 5.562009343543803
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 24.937,
+          "measured_rt": 24.943,
+          "area": 154.063,
+          "height": 27.948,
+          "area_height": 5.512487476742521
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 24.937,
+          "measured_rt": 24.929,
+          "area": 250.784,
+          "height": 45.689,
+          "area_height": 5.488936067762481
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 24.937,
+          "measured_rt": 24.942,
+          "area": 452.261,
+          "height": 81.617,
+          "area_height": 5.541259786564074
+        }
+      ],
+      "height_min": 4.804,
+      "height_max": 81.617,
+      "ratio_min": 5.488936067762481,
+      "ratio_max": 5.562009343543803
+    },
+    "ПИД-2|м- п- Ксилолы": {
+      "detector": "ПИД-2",
+      "component": "м- п- Ксилолы",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 25.305,
+          "measured_rt": 25.305,
+          "area": 51.877,
+          "height": 9.376,
+          "area_height": 5.532956484641639
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 25.305,
+          "measured_rt": 25.302,
+          "area": 99.373,
+          "height": 17.853,
+          "area_height": 5.566179353610037
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 25.305,
+          "measured_rt": 25.301,
+          "area": 217.722,
+          "height": 39.579,
+          "area_height": 5.500947472144319
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 25.305,
+          "measured_rt": 25.311,
+          "area": 292.913,
+          "height": 52.865,
+          "area_height": 5.540773668778965
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 25.305,
+          "measured_rt": 25.299,
+          "area": 482.994,
+          "height": 86.488,
+          "area_height": 5.5845203958930725
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 25.305,
+          "measured_rt": 25.312,
+          "area": 853.06,
+          "height": 153.942,
+          "area_height": 5.541437684322666
+        }
+      ],
+      "height_min": 9.376,
+      "height_max": 153.942,
+      "ratio_min": 5.500947472144319,
+      "ratio_max": 5.5845203958930725
+    },
+    "ПИД-2|о-Ксилол": {
+      "detector": "ПИД-2",
+      "component": "о-Ксилол",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 26.61,
+          "measured_rt": 26.61,
+          "area": 44.97,
+          "height": 6.088,
+          "area_height": 7.386662286465177
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 26.61,
+          "measured_rt": 26.606,
+          "area": 85.47,
+          "height": 11.6,
+          "area_height": 7.368103448275862
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 26.61,
+          "measured_rt": 26.608,
+          "area": 183.252,
+          "height": 24.728,
+          "area_height": 7.410708508573277
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 26.61,
+          "measured_rt": 26.615,
+          "area": 250.736,
+          "height": 34.107,
+          "area_height": 7.351452780954056
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 26.61,
+          "measured_rt": 26.603,
+          "area": 422.332,
+          "height": 57.207,
+          "area_height": 7.382523117800269
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 26.61,
+          "measured_rt": 26.615,
+          "area": 731.986,
+          "height": 99.616,
+          "area_height": 7.348076614198522
+        }
+      ],
+      "height_min": 6.088,
+      "height_max": 99.616,
+      "ratio_min": 7.348076614198522,
+      "ratio_max": 7.410708508573277
+    },
+    "ПИД-2|Изопропилбензол": {
+      "detector": "ПИД-2",
+      "component": "Изопропилбензол",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 27.729,
+          "measured_rt": 27.731,
+          "area": 27.243,
+          "height": 4.709,
+          "area_height": 5.785304735612657
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 27.729,
+          "measured_rt": 27.727,
+          "area": 51.978,
+          "height": 8.965,
+          "area_height": 5.797880646960402
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 27.729,
+          "measured_rt": 27.725,
+          "area": 114.118,
+          "height": 19.711,
+          "area_height": 5.7895591294201205
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 27.729,
+          "measured_rt": 27.733,
+          "area": 155.709,
+          "height": 26.916,
+          "area_height": 5.7849977708426215
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 27.729,
+          "measured_rt": 27.721,
+          "area": 248.682,
+          "height": 42.752,
+          "area_height": 5.816850673652694
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 27.729,
+          "measured_rt": 27.735,
+          "area": 458.267,
+          "height": 79.929,
+          "area_height": 5.733425915500006
+        }
+      ],
+      "height_min": 4.709,
+      "height_max": 79.929,
+      "ratio_min": 5.733425915500006,
+      "ratio_max": 5.816850673652694
+    },
+    "ПИД-2|альфа-Метилстирол": {
+      "detector": "ПИД-2",
+      "component": "альфа-Метилстирол",
+      "levels": [
+        {
+          "level": 1,
+          "source": "т.1 3166.rtf",
+          "reference_rt": 30.4,
+          "measured_rt": 30.403,
+          "area": 22.788,
+          "height": 4.332,
+          "area_height": 5.26038781163435
+        },
+        {
+          "level": 2,
+          "source": "т.2 3166.rtf",
+          "reference_rt": 30.4,
+          "measured_rt": 30.4,
+          "area": 45.596,
+          "height": 8.714,
+          "area_height": 5.232499426210695
+        },
+        {
+          "level": 3,
+          "source": "т.3 3166.rtf",
+          "reference_rt": 30.4,
+          "measured_rt": 30.397,
+          "area": 95.786,
+          "height": 18.207,
+          "area_height": 5.260943593123524
+        },
+        {
+          "level": 4,
+          "source": "т.4 3166.rtf",
+          "reference_rt": 30.4,
+          "measured_rt": 30.405,
+          "area": 135.592,
+          "height": 25.891,
+          "area_height": 5.237032173342089
+        },
+        {
+          "level": 5,
+          "source": "т.5 3166.rtf",
+          "reference_rt": 30.4,
+          "measured_rt": 30.391,
+          "area": 229.357,
+          "height": 43.196,
+          "area_height": 5.309681451986295
+        },
+        {
+          "level": 6,
+          "source": "т.6 3166.rtf",
+          "reference_rt": 30.4,
+          "measured_rt": 30.405,
+          "area": 406.235,
+          "height": 75.628,
+          "area_height": 5.371489395461999
+        }
+      ],
+      "height_min": 4.332,
+      "height_max": 75.628,
+      "ratio_min": 5.232499426210695,
+      "ratio_max": 5.371489395461999
+    }
+  },
+  "status": "FROZEN_MATHEMATICAL_MODEL",
+  "rules": {
+    "component_detector_passport": true,
+    "level_interpolation": true,
+    "independent_random_peak_family": false,
+    "independent_retention_time_randomization": false,
+    "label_x_must_equal_physical_apex_x": true,
+    "label_collision_resolution": "Y_ONLY_STAIRCASE"
+  }
+}

@@ -53,16 +53,26 @@ def _next_counter() -> int:
 
 
 def _fmt_sig(value: float) -> str:
-    """Ровно пять значащих цифр с сохранением конечных нулей."""
-    import math
-    number = float(value)
+    """Ровно пять значащих цифр без экспоненциальной записи.
+
+    Примеры:
+    0.00001 -> 0.000010000
+    0.0001  -> 0.00010000
+    0.003   -> 0.0030000
+    0.01    -> 0.010000
+    0.65    -> 0.65000
+    """
+    from decimal import Decimal, ROUND_HALF_UP
+
+    number = Decimal(str(value))
     if number == 0:
         return "0.0000"
-    exponent = math.floor(math.log10(abs(number)))
-    if exponent < -4 or exponent >= 5:
-        return f"{number:.4e}"
-    return f"{number:.{max(0, 4-exponent)}f}"
 
+    exponent = number.copy_abs().adjusted()
+    decimal_places = max(0, 4 - exponent)
+    quantum = Decimal(1).scaleb(-decimal_places)
+    rounded = number.quantize(quantum, rounding=ROUND_HALF_UP)
+    return format(rounded, f".{decimal_places}f")
 
 def generate_gc_report(
     *,
@@ -195,26 +205,6 @@ def generate_reports_for_sample(
                     "detector": peak["detector"],
                 }
             )
-        # Хроматэк объединяет только две приборные группы на ПИД-2.
-        combined = []
-        consumed = set()
-        for group_name, names in (
-            ("м-Ксилол, п-Ксилол", {"м-Ксилол", "п-Ксилол"}),
-            ("Стирол, о-Ксилол", {"Стирол", "о-Ксилол"}),
-        ):
-            group_rows = [r for r in rows if r["detector"] == "ПИД-2" and r["component"] in names]
-            if group_rows:
-                combined.append({
-                    "component": group_name,
-                    "retention_time": sum(float(r["retention_time"]) for r in group_rows) / len(group_rows),
-                    "area": sum(float(r["area"]) for r in group_rows),
-                    "height": sum(float(r["height"]) for r in group_rows),
-                    "concentration": _fmt_sig(sum(float(r["concentration"]) for r in group_rows) / len(group_rows)),
-                    "unit": "мг/дм3",
-                    "detector": "ПИД-2",
-                })
-                consumed.update(id(r) for r in group_rows)
-        rows = [r for r in rows if id(r) not in consumed] + combined
         rows.sort(key=lambda row: float(row["retention_time"]))
         if not rows:
             raise ValueError(

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "default_profile_id": "chromatek_crystal5000_v03_21_17_721",
+  "profiles": {
+    "chromatek_crystal5000_v03_21_17_721": {
+      "instrument_family": "Хроматэк-Кристалл 5000",
+      "firmware": "v 03.21.17.721",
+      "renderer_root": "app/modules/GC/chromatek_renderer",
+      "typography_passport": "app/modules/GC/chromatek_renderer/typography_passport.json",
+      "geometry_passport": "app/modules/GC/chromatek_renderer/measured_passport.json",
+      "rendering_spec": "app/modules/GC/chromatek_renderer/rendering_spec.json",
+      "colors": {
+        "ПИД-1": "black",
+        "ПИД-2": "blue"
+      },
+      "method_independent": true
+    },
+    "chromatek_crystal5000_v03_21_17_754": {
+      "instrument_family": "Хроматэк-Кристалл 5000",
+      "firmware": "v 03.21.17.754",
+      "inherits": "chromatek_crystal5000_v03_21_17_721",
+      "status": "reference-library-pending",
+      "method_independent": true
+    }
+  }
+}

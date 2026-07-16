@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "profile_id": "chromatek_standard",
+  "renderer_root": "app/modules/GC/chromatek_renderer",
+  "detectors": [
+    "PID_1",
+    "PID_2"
+  ],
+  "method_independent": true
+}

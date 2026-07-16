@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "profile_id": "chromatek_standard",
+  "engine": "app/modules/GC/gc_report_generator.py",
+  "template_family": "chromatek_analysis_report",
+  "chromatogram_layout": "two_pid_on_report_page",
+  "method_independent": true,
+  "notes": "Используется всеми НД, если метод не объявляет специальный отчёт."
+}

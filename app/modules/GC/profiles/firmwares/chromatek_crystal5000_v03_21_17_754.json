@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "profile_id": "chromatek_crystal5000_v03_21_17_754",
+  "instrument_family": "Хроматэк-Кристалл 5000",
+  "firmware": "v 03.21.17.754",
+  "inherits": "chromatek_crystal5000_v03_21_17_721",
+  "method_independent": true
+}

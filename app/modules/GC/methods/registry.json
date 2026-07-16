@@ -1,0 +1,56 @@
+{
+  "schema_version": 2,
+  "platform": "Chromatek Crystal 5000",
+  "methods": [
+    {
+      "method_id": "MUK_4_1_3166",
+      "title": "МУК 4.1.3166",
+      "status": "active-method-math-engine",
+      "adapter_module": "app.modules.GC.methods.MUK_4_1_3166.adapter",
+      "descriptor_module": "app.modules.GC.methods.MUK_4_1_3166.descriptor",
+      "calibration_model": "app/modules/GC/methods/MUK_4_1_3166/calibration_model.json",
+      "shared_renderer": "app/modules/GC/chromatek_renderer",
+      "shared_report_engine": "app/modules/GC/gc_report_generator.py",
+      "id": "MUK_4_1_3166",
+      "enabled": true,
+      "implemented": true,
+      "chromatogram_count": 2,
+      "math_profile": "MUK_4_1_3166",
+      "report_profile": "chromatek_standard",
+      "instrument_profile": "chromatek_crystal5000_v03_21_17_721",
+      "renderer_profile": "chromatek_standard",
+      "method_controls": [
+        "math_profile",
+        "report_profile"
+      ],
+      "method_does_not_control": [
+        "detector_colors",
+        "typography",
+        "geometry",
+        "baseline_style",
+        "chromatogram_renderer"
+      ],
+      "math_engine": "app/modules/GC/methods/MUK_4_1_3166/math_engine.py",
+      "calculation_policy": {
+        "area": "linear_6_point_per_component_detector",
+        "height": "linear_6_point_per_component_detector",
+        "width": "piecewise_linear_6_point_per_component_detector",
+        "random_quantitative_variability": false
+      }
+    },
+    {
+      "id": "MUK_4_1_3166",
+      "title": "МУК 4.1.3166",
+      "enabled": true,
+      "implemented": true,
+      "chromatogram_count": 2,
+      "math_profile": "MUK_4_1_3166",
+      "report_profile": "chromatek_standard",
+      "renderer_profile": "chromatek_crystal_5000",
+      "legacy_generator": "gc_generator.py",
+      "legacy_report_generator": "gc_report_generator.py"
+    }
+  ],
+  "selection_policy": "method_selects_math_and_optional_report_only",
+  "shared_instrument_profile": "chromatek_crystal5000_v03_21_17_721"
+}

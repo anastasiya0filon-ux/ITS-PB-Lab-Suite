@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "profile_id": "chromatek_standard_39min",
+  "duration_min": 39.0,
+  "source": "app/modules/GC/chromatek_renderer",
+  "method_independent": true
+}

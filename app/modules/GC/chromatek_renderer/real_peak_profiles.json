@@ -1,0 +1,2394 @@
+{
+  "version": "real-calibration-profiles-t1-t6-v1",
+  "source": "Реальные градуировочные отчёты Хроматэк т.1–т.6, МУК 4.1.3166",
+  "principle": "Ширина каждого пика рассчитывается из реального отношения площадь/высота для пары компонент+детектор. Случайные семейства формы исключены.",
+  "profiles": {
+    "ПИД-1|Гексан": {
+      "detector": "ПИД-1",
+      "component": "Гексан",
+      "retention_time_mean_from_t1_t6": 3.324833,
+      "area_height_s_median": 4.326672,
+      "area_height_s_min": 3.90197,
+      "area_height_s_max": 9.756267,
+      "sigma_min": 0.02876821,
+      "left_sigma_factor": 0.93161,
+      "right_sigma_factor": 1.25897,
+      "tail_fraction": 0.055,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 3.318,
+          "area_mV_s": 25.156,
+          "height_mV": 6.447,
+          "area_height_s": 3.901969908484566
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 3.329,
+          "area_mV_s": 26.158,
+          "height_mV": 6.097,
+          "area_height_s": 4.290306708217156
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 3.327,
+          "area_mV_s": 84.51,
+          "height_mV": 19.4,
+          "area_height_s": 4.35618556701031
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 3.323,
+          "area_mV_s": 113.751,
+          "height_mV": 20.803,
+          "area_height_s": 5.468009421718022
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 3.325,
+          "area_mV_s": 189.935,
+          "height_mV": 19.468,
+          "area_height_s": 9.75626669406205
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 3.327,
+          "area_mV_s": 369.083,
+          "height_mV": 85.89,
+          "area_height_s": 4.297159157061357
+        }
+      ]
+    },
+    "ПИД-1|Гептан": {
+      "detector": "ПИД-1",
+      "component": "Гептан",
+      "retention_time_mean_from_t1_t6": 3.7535,
+      "area_height_s_median": 4.393072,
+      "area_height_s_min": 4.055425,
+      "area_height_s_max": 8.987477,
+      "sigma_min": 0.0292097,
+      "left_sigma_factor": 0.939776,
+      "right_sigma_factor": 1.234017,
+      "tail_fraction": 0.050149,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 3.749,
+          "area_mV_s": 27.585,
+          "height_mV": 6.802,
+          "area_height_s": 4.0554248750367545
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 3.755,
+          "area_mV_s": 32.822,
+          "height_mV": 7.492,
+          "area_height_s": 4.380939668980246
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 3.755,
+          "area_mV_s": 84.647,
+          "height_mV": 20.539,
+          "area_height_s": 4.121281464530893
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 3.755,
+          "area_mV_s": 120.096,
+          "height_mV": 23.028,
+          "area_height_s": 5.215216258467953
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 3.754,
+          "area_mV_s": 207.404,
+          "height_mV": 23.077,
+          "area_height_s": 8.987476708410972
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 3.753,
+          "area_mV_s": 411.032,
+          "height_mV": 93.306,
+          "area_height_s": 4.40520438128309
+        }
+      ]
+    },
+    "ПИД-1|Ацетальдегид": {
+      "detector": "ПИД-1",
+      "component": "Ацетальдегид",
+      "retention_time_mean_from_t1_t6": 3.8875,
+      "area_height_s_median": 4.401006,
+      "area_height_s_min": 4.146259,
+      "area_height_s_max": 4.77456,
+      "sigma_min": 0.02926245,
+      "left_sigma_factor": 0.992126,
+      "right_sigma_factor": 1.07406,
+      "tail_fraction": 0.015249,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 3.884,
+          "area_mV_s": 1.219,
+          "height_mV": 0.294,
+          "area_height_s": 4.146258503401361
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 3.89,
+          "area_mV_s": 2.075,
+          "height_mV": 0.474,
+          "area_height_s": 4.377637130801689
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 3.887,
+          "area_mV_s": 4.066,
+          "height_mV": 0.919,
+          "area_height_s": 4.424374319912949
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 3.887,
+          "area_mV_s": 5.455,
+          "height_mV": 1.269,
+          "area_height_s": 4.29866036249015
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 3.887,
+          "area_mV_s": 8.74,
+          "height_mV": 1.94,
+          "area_height_s": 4.505154639175258
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 3.89,
+          "area_mV_s": 17.642,
+          "height_mV": 3.695,
+          "area_height_s": 4.774560216508796
+        }
+      ]
+    },
+    "ПИД-1|Ацетон": {
+      "detector": "ПИД-1",
+      "component": "Ацетон",
+      "retention_time_mean_from_t1_t6": 5.261833,
+      "area_height_s_median": 5.091122,
+      "area_height_s_min": 4.78869,
+      "area_height_s_max": 5.178414,
+      "sigma_min": 0.03385106,
+      "left_sigma_factor": 0.995611,
+      "right_sigma_factor": 1.06341,
+      "tail_fraction": 0.012926,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 5.255,
+          "area_mV_s": 4.827,
+          "height_mV": 1.008,
+          "area_height_s": 4.788690476190476
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 5.265,
+          "area_mV_s": 9.517,
+          "height_mV": 1.881,
+          "area_height_s": 5.059542796384902
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 5.262,
+          "area_mV_s": 20.601,
+          "height_mV": 4.037,
+          "area_height_s": 5.103046816943275
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 5.264,
+          "area_mV_s": 27.261,
+          "height_mV": 5.354,
+          "area_height_s": 5.091707134852447
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 5.261,
+          "area_mV_s": 45.917,
+          "height_mV": 8.867,
+          "area_height_s": 5.178414345325363
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 5.264,
+          "area_mV_s": 84.452,
+          "height_mV": 16.59,
+          "area_height_s": 5.090536467751657
+        }
+      ]
+    },
+    "ПИД-1|Метилацетат": {
+      "detector": "ПИД-1",
+      "component": "Метилацетат",
+      "retention_time_mean_from_t1_t6": 5.506833,
+      "area_height_s_median": 5.110322,
+      "area_height_s_min": 4.84498,
+      "area_height_s_max": 5.18442,
+      "sigma_min": 0.03397873,
+      "left_sigma_factor": 0.996201,
+      "right_sigma_factor": 1.061609,
+      "tail_fraction": 0.012533,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 5.501,
+          "area_mV_s": 6.032,
+          "height_mV": 1.245,
+          "area_height_s": 4.844979919678715
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 5.509,
+          "area_mV_s": 12.722,
+          "height_mV": 2.502,
+          "area_height_s": 5.084732214228618
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 5.509,
+          "area_mV_s": 27.89,
+          "height_mV": 5.457,
+          "area_height_s": 5.110866776617189
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 5.507,
+          "area_mV_s": 37.429,
+          "height_mV": 7.322,
+          "area_height_s": 5.111854684512428
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 5.507,
+          "area_mV_s": 63.224,
+          "height_mV": 12.195,
+          "area_height_s": 5.184419844198442
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 5.508,
+          "area_mV_s": 113.713,
+          "height_mV": 22.254,
+          "area_height_s": 5.109778017435067
+        }
+      ]
+    },
+    "ПИД-1|Этилацетат": {
+      "detector": "ПИД-1",
+      "component": "Этилацетат",
+      "retention_time_mean_from_t1_t6": 6.952,
+      "area_height_s_median": 5.935412,
+      "area_height_s_min": 5.666667,
+      "area_height_s_max": 5.998426,
+      "sigma_min": 0.03946478,
+      "left_sigma_factor": 0.996747,
+      "right_sigma_factor": 1.059941,
+      "tail_fraction": 0.012169,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 6.951,
+          "area_mV_s": 11.271,
+          "height_mV": 1.989,
+          "area_height_s": 5.666666666666667
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 6.953,
+          "area_mV_s": 24.339,
+          "height_mV": 4.125,
+          "area_height_s": 5.900363636363636
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 6.953,
+          "area_mV_s": 54.041,
+          "height_mV": 9.098,
+          "area_height_s": 5.939876896021103
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 6.954,
+          "area_mV_s": 72.043,
+          "height_mV": 12.14,
+          "area_height_s": 5.934349258649094
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 6.95,
+          "area_mV_s": 121.972,
+          "height_mV": 20.334,
+          "area_height_s": 5.998426281105537
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 6.951,
+          "area_mV_s": 217.649,
+          "height_mV": 36.663,
+          "area_height_s": 5.936475465728392
+        }
+      ]
+    },
+    "ПИД-1|Спирт метиловый": {
+      "detector": "ПИД-1",
+      "component": "Спирт метиловый",
+      "retention_time_mean_from_t1_t6": 7.32,
+      "area_height_s_median": 6.592195,
+      "area_height_s_min": 6.527247,
+      "area_height_s_max": 6.637504,
+      "sigma_min": 0.04383175,
+      "left_sigma_factor": 0.998925,
+      "right_sigma_factor": 1.053283,
+      "tail_fraction": 0.010716,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 7.326,
+          "area_mV_s": 46.115,
+          "height_mV": 7.065,
+          "area_height_s": 6.527246992215145
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 7.327,
+          "area_mV_s": 77.631,
+          "height_mV": 11.761,
+          "area_height_s": 6.6007142249808695
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 7.319,
+          "area_mV_s": 157.815,
+          "height_mV": 24.093,
+          "area_height_s": 6.550242809114681
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 7.319,
+          "area_mV_s": 240.015,
+          "height_mV": 36.217,
+          "area_height_s": 6.627136427644476
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 7.314,
+          "area_mV_s": 396.259,
+          "height_mV": 59.7,
+          "area_height_s": 6.63750418760469
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 7.315,
+          "area_mV_s": 712.222,
+          "height_mV": 108.18,
+          "area_height_s": 6.583675355888333
+        }
+      ]
+    },
+    "ПИД-1|Спирт изопропиловый": {
+      "detector": "ПИД-1",
+      "component": "Спирт изопропиловый",
+      "retention_time_mean_from_t1_t6": 8.3215,
+      "area_height_s_median": 6.324486,
+      "area_height_s_min": 5.978261,
+      "area_height_s_max": 6.40498,
+      "sigma_min": 0.04205175,
+      "left_sigma_factor": 0.995442,
+      "right_sigma_factor": 1.063928,
+      "tail_fraction": 0.013039,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 8.322,
+          "area_mV_s": 2.2,
+          "height_mV": 0.368,
+          "area_height_s": 5.978260869565218
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 8.326,
+          "area_mV_s": 4.245,
+          "height_mV": 0.696,
+          "area_height_s": 6.099137931034483
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 8.322,
+          "area_mV_s": 9.191,
+          "height_mV": 1.462,
+          "area_height_s": 6.286593707250343
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 8.323,
+          "area_mV_s": 12.413,
+          "height_mV": 1.951,
+          "area_height_s": 6.3623782675550995
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 8.315,
+          "area_mV_s": 20.323,
+          "height_mV": 3.173,
+          "area_height_s": 6.404979514654901
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 8.321,
+          "area_mV_s": 38.273,
+          "height_mV": 6.003,
+          "area_height_s": 6.375645510578044
+        }
+      ]
+    },
+    "ПИД-1|Бензол": {
+      "detector": "ПИД-1",
+      "component": "Бензол",
+      "retention_time_mean_from_t1_t6": 8.871667,
+      "area_height_s_median": 6.052446,
+      "area_height_s_min": 5.890775,
+      "area_height_s_max": 6.073396,
+      "sigma_min": 0.04024294,
+      "left_sigma_factor": 0.998151,
+      "right_sigma_factor": 1.05565,
+      "tail_fraction": 0.011233,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 8.869,
+          "area_mV_s": 21.519,
+          "height_mV": 3.653,
+          "area_height_s": 5.8907747057213244
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 8.873,
+          "area_mV_s": 41.496,
+          "height_mV": 6.873,
+          "area_height_s": 6.037538192928852
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 8.872,
+          "area_mV_s": 90.605,
+          "height_mV": 14.976,
+          "area_height_s": 6.050013354700854
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 8.874,
+          "area_mV_s": 120.153,
+          "height_mV": 19.844,
+          "area_height_s": 6.054878048780488
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 8.869,
+          "area_mV_s": 200.665,
+          "height_mV": 33.04,
+          "area_height_s": 6.0733958837772395
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 8.873,
+          "area_mV_s": 350.375,
+          "height_mV": 57.851,
+          "area_height_s": 6.056507234101399
+        }
+      ]
+    },
+    "ПИД-1|н-Пропилацетат": {
+      "detector": "ПИД-1",
+      "component": "н-Пропилацетат",
+      "retention_time_mean_from_t1_t6": 10.1175,
+      "area_height_s_median": 5.661436,
+      "area_height_s_min": 5.549314,
+      "area_height_s_max": 5.691367,
+      "sigma_min": 0.0376431,
+      "left_sigma_factor": 0.998536,
+      "right_sigma_factor": 1.054475,
+      "tail_fraction": 0.010976,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 10.116,
+          "area_mV_s": 21.831,
+          "height_mV": 3.934,
+          "area_height_s": 5.549313675648195
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 10.117,
+          "area_mV_s": 46.668,
+          "height_mV": 8.284,
+          "area_height_s": 5.633510381458232
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 10.117,
+          "area_mV_s": 103.794,
+          "height_mV": 18.307,
+          "area_height_s": 5.669634566013001
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 10.12,
+          "area_mV_s": 137.186,
+          "height_mV": 24.257,
+          "area_height_s": 5.655522117326957
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 10.116,
+          "area_mV_s": 232.259,
+          "height_mV": 40.809,
+          "area_height_s": 5.691367100394521
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 10.119,
+          "area_mV_s": 409.772,
+          "height_mV": 72.304,
+          "area_height_s": 5.667348971011285
+        }
+      ]
+    },
+    "ПИД-1|Акрилонитрил": {
+      "detector": "ПИД-1",
+      "component": "Акрилонитрил",
+      "retention_time_mean_from_t1_t6": 11.044667,
+      "area_height_s_median": 4.788259,
+      "area_height_s_min": 4.428571,
+      "area_height_s_max": 4.876539,
+      "sigma_min": 0.03183732,
+      "left_sigma_factor": 0.99313,
+      "right_sigma_factor": 1.070992,
+      "tail_fraction": 0.01458,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 11.053,
+          "area_mV_s": 0.744,
+          "height_mV": 0.168,
+          "area_height_s": 4.428571428571428
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 11.049,
+          "area_mV_s": 1.463,
+          "height_mV": 0.326,
+          "area_height_s": 4.487730061349693
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 11.041,
+          "area_mV_s": 3.306,
+          "height_mV": 0.697,
+          "area_height_s": 4.743185078909613
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 11.047,
+          "area_mV_s": 4.901,
+          "height_mV": 1.014,
+          "area_height_s": 4.833333333333333
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 11.037,
+          "area_mV_s": 8.258,
+          "height_mV": 1.701,
+          "area_height_s": 4.854791299235743
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 11.041,
+          "area_mV_s": 15.049,
+          "height_mV": 3.086,
+          "area_height_s": 4.876539209332469
+        }
+      ]
+    },
+    "ПИД-1|Толуол": {
+      "detector": "ПИД-1",
+      "component": "Толуол",
+      "retention_time_mean_from_t1_t6": 12.831,
+      "area_height_s_median": 5.556489,
+      "area_height_s_min": 5.524517,
+      "area_height_s_max": 5.671407,
+      "sigma_min": 0.03694531,
+      "left_sigma_factor": 0.998497,
+      "right_sigma_factor": 1.054594,
+      "tail_fraction": 0.011002,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 12.829,
+          "area_mV_s": 27.153,
+          "height_mV": 4.915,
+          "area_height_s": 5.524516785350966
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 12.833,
+          "area_mV_s": 53.748,
+          "height_mV": 9.634,
+          "area_height_s": 5.5789910732821255
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 12.828,
+          "area_mV_s": 118.072,
+          "height_mV": 21.257,
+          "area_height_s": 5.554499694218375
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 12.836,
+          "area_mV_s": 156.549,
+          "height_mV": 28.164,
+          "area_height_s": 5.558478909245846
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 12.825,
+          "area_mV_s": 259.036,
+          "height_mV": 46.644,
+          "area_height_s": 5.55346882771632
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 12.835,
+          "area_mV_s": 466.581,
+          "height_mV": 82.269,
+          "area_height_s": 5.671407212923458
+        }
+      ]
+    },
+    "ПИД-1|Бутилацетат": {
+      "detector": "ПИД-1",
+      "component": "Бутилацетат",
+      "retention_time_mean_from_t1_t6": 14.0455,
+      "area_height_s_median": 4.411707,
+      "area_height_s_min": 4.407013,
+      "area_height_s_max": 4.435658,
+      "sigma_min": 0.02933361,
+      "left_sigma_factor": 0.999576,
+      "right_sigma_factor": 1.051294,
+      "tail_fraction": 0.010282,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 14.049,
+          "area_mV_s": 35.242,
+          "height_mV": 7.994,
+          "area_height_s": 4.408556417312984
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 14.046,
+          "area_mV_s": 74.249,
+          "height_mV": 16.821,
+          "area_height_s": 4.414065751144403
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 14.042,
+          "area_mV_s": 164.526,
+          "height_mV": 37.313,
+          "area_height_s": 4.409347948436202
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 14.049,
+          "area_mV_s": 215.98,
+          "height_mV": 48.81,
+          "area_height_s": 4.424912927678754
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 14.039,
+          "area_mV_s": 363.857,
+          "height_mV": 82.03,
+          "area_height_s": 4.435657686212362
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 14.048,
+          "area_mV_s": 635.412,
+          "height_mV": 144.182,
+          "area_height_s": 4.407013358116825
+        }
+      ]
+    },
+    "ПИД-1|Спирт пропиловый": {
+      "detector": "ПИД-1",
+      "component": "Спирт пропиловый",
+      "retention_time_mean_from_t1_t6": 14.883833,
+      "area_height_s_median": 5.284573,
+      "area_height_s_min": 5.078167,
+      "area_height_s_max": 5.37369,
+      "sigma_min": 0.03513733,
+      "left_sigma_factor": 0.99666,
+      "right_sigma_factor": 1.060205,
+      "tail_fraction": 0.012227,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 14.841,
+          "area_mV_s": 3.768,
+          "height_mV": 0.742,
+          "area_height_s": 5.078167115902965
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 14.894,
+          "area_mV_s": 5.494,
+          "height_mV": 1.05,
+          "area_height_s": 5.232380952380952
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 14.893,
+          "area_mV_s": 11.861,
+          "height_mV": 2.258,
+          "area_height_s": 5.252878653675819
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 14.895,
+          "area_mV_s": 15.89,
+          "height_mV": 2.957,
+          "area_height_s": 5.373689550219818
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 14.889,
+          "area_mV_s": 26.895,
+          "height_mV": 5.059,
+          "area_height_s": 5.316268037161494
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 14.891,
+          "area_mV_s": 49.868,
+          "height_mV": 9.326,
+          "area_height_s": 5.347201372506969
+        }
+      ]
+    },
+    "ПИД-1|Этилбензол": {
+      "detector": "ПИД-1",
+      "component": "Этилбензол",
+      "retention_time_mean_from_t1_t6": 16.241333,
+      "area_height_s_median": 4.945594,
+      "area_height_s_min": 4.895918,
+      "area_height_s_max": 4.963818,
+      "sigma_min": 0.03288344,
+      "left_sigma_factor": 0.998973,
+      "right_sigma_factor": 1.053138,
+      "tail_fraction": 0.010685,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 16.162,
+          "area_mV_s": 26.738,
+          "height_mV": 5.422,
+          "area_height_s": 4.931390630763556
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 16.253,
+          "area_mV_s": 53.093,
+          "height_mV": 10.696,
+          "area_height_s": 4.963818249813015
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 16.271,
+          "area_mV_s": 116.337,
+          "height_mV": 23.456,
+          "area_height_s": 4.959797066848568
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 16.253,
+          "area_mV_s": 153.771,
+          "height_mV": 31.408,
+          "area_height_s": 4.895918237391747
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 16.256,
+          "area_mV_s": 251.831,
+          "height_mV": 51.359,
+          "area_height_s": 4.903347027784808
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 16.253,
+          "area_mV_s": 455.787,
+          "height_mV": 91.838,
+          "area_height_s": 4.962945621638102
+        }
+      ]
+    },
+    "ПИД-1|п-Ксилол": {
+      "detector": "ПИД-1",
+      "component": "п-Ксилол",
+      "retention_time_mean_from_t1_t6": 16.563167,
+      "area_height_s_median": 4.842155,
+      "area_height_s_min": 4.771857,
+      "area_height_s_max": 4.875451,
+      "sigma_min": 0.03219567,
+      "left_sigma_factor": 0.9986,
+      "right_sigma_factor": 1.054279,
+      "tail_fraction": 0.010934,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 16.481,
+          "area_mV_s": 26.927,
+          "height_mV": 5.616,
+          "area_height_s": 4.794693732193733
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 16.577,
+          "area_mV_s": 50.765,
+          "height_mV": 10.501,
+          "area_height_s": 4.834301495095706
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 16.591,
+          "area_mV_s": 110.96,
+          "height_mV": 23.253,
+          "area_height_s": 4.771857394744764
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 16.575,
+          "area_mV_s": 150.091,
+          "height_mV": 30.836,
+          "area_height_s": 4.867395252302504
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 16.578,
+          "area_mV_s": 246.201,
+          "height_mV": 50.763,
+          "area_height_s": 4.850008864724307
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 16.577,
+          "area_mV_s": 433.803,
+          "height_mV": 88.977,
+          "area_height_s": 4.875450959236656
+        }
+      ]
+    },
+    "ПИД-1|м-Ксилол": {
+      "detector": "ПИД-1",
+      "component": "м-Ксилол",
+      "retention_time_mean_from_t1_t6": 16.838333,
+      "area_height_s_median": 4.898399,
+      "area_height_s_min": 4.817666,
+      "area_height_s_max": 4.928304,
+      "sigma_min": 0.03256964,
+      "left_sigma_factor": 0.998434,
+      "right_sigma_factor": 1.054786,
+      "tail_fraction": 0.011044,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 16.759,
+          "area_mV_s": 25.021,
+          "height_mV": 5.077,
+          "area_height_s": 4.928304116604294
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 16.852,
+          "area_mV_s": 49.405,
+          "height_mV": 10.105,
+          "area_height_s": 4.889163780306779
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 16.865,
+          "area_mV_s": 107.882,
+          "height_mV": 22.393,
+          "area_height_s": 4.817666234984147
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 16.85,
+          "area_mV_s": 145.924,
+          "height_mV": 29.647,
+          "area_height_s": 4.922049448510811
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 16.853,
+          "area_mV_s": 239.988,
+          "height_mV": 49.64,
+          "area_height_s": 4.834568896051572
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 16.851,
+          "area_mV_s": 424.157,
+          "height_mV": 86.428,
+          "area_height_s": 4.907634100060165
+        }
+      ]
+    },
+    "ПИД-1|Спирт бутиловый": {
+      "detector": "ПИД-1",
+      "component": "Спирт бутиловый",
+      "retention_time_mean_from_t1_t6": 17.0735,
+      "area_height_s_median": 4.158278,
+      "area_height_s_min": 4.04474,
+      "area_height_s_max": 4.177986,
+      "sigma_min": 0.02764855,
+      "left_sigma_factor": 0.997779,
+      "right_sigma_factor": 1.056786,
+      "tail_fraction": 0.011481,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 17.156,
+          "area_mV_s": 3.345,
+          "height_mV": 0.827,
+          "area_height_s": 4.044740024183797
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 17.061,
+          "area_mV_s": 6.293,
+          "height_mV": 1.545,
+          "area_height_s": 4.073139158576052
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 17.042,
+          "area_mV_s": 13.199,
+          "height_mV": 3.17,
+          "area_height_s": 4.163722397476341
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 17.066,
+          "area_mV_s": 17.788,
+          "height_mV": 4.282,
+          "area_height_s": 4.154133582438113
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 17.049,
+          "area_mV_s": 29.037,
+          "height_mV": 6.95,
+          "area_height_s": 4.177985611510791
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 17.067,
+          "area_mV_s": 54.765,
+          "height_mV": 13.157,
+          "area_height_s": 4.162423044767044
+        }
+      ]
+    },
+    "ПИД-1|Изопропилбензол": {
+      "detector": "ПИД-1",
+      "component": "Изопропилбензол",
+      "retention_time_mean_from_t1_t6": 18.11,
+      "area_height_s_median": 4.751897,
+      "area_height_s_min": 4.741495,
+      "area_height_s_max": 4.80965,
+      "sigma_min": 0.03159555,
+      "left_sigma_factor": 0.999117,
+      "right_sigma_factor": 1.052699,
+      "tail_fraction": 0.010589,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 18.034,
+          "area_mV_s": 27.314,
+          "height_mV": 5.679,
+          "area_height_s": 4.809649586194753
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 18.123,
+          "area_mV_s": 52.49,
+          "height_mV": 11.026,
+          "area_height_s": 4.76056593506258
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 18.132,
+          "area_mV_s": 114.724,
+          "height_mV": 24.192,
+          "area_height_s": 4.742228835978836
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 18.125,
+          "area_mV_s": 156.69,
+          "height_mV": 32.953,
+          "area_height_s": 4.754954025430157
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 18.122,
+          "area_mV_s": 250.185,
+          "height_mV": 52.765,
+          "area_height_s": 4.741495309390695
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 18.124,
+          "area_mV_s": 460.742,
+          "height_mV": 97.022,
+          "area_height_s": 4.74884046917194
+        }
+      ]
+    },
+    "ПИД-1|о-Ксилол": {
+      "detector": "ПИД-1",
+      "component": "о-Ксилол",
+      "retention_time_mean_from_t1_t6": 18.631,
+      "area_height_s_median": 4.616947,
+      "area_height_s_min": 4.57332,
+      "area_height_s_max": 4.684039,
+      "sigma_min": 0.03069825,
+      "left_sigma_factor": 0.998725,
+      "right_sigma_factor": 1.053894,
+      "tail_fraction": 0.01085,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 18.577,
+          "area_mV_s": 25.884,
+          "height_mV": 5.526,
+          "area_height_s": 4.684039087947883
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 18.641,
+          "area_mV_s": 47.826,
+          "height_mV": 10.361,
+          "area_height_s": 4.615963710066596
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 18.648,
+          "area_mV_s": 102.575,
+          "height_mV": 22.429,
+          "area_height_s": 4.5733202550269745
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 18.642,
+          "area_mV_s": 139.94,
+          "height_mV": 30.362,
+          "area_height_s": 4.6090507871681705
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 18.637,
+          "area_mV_s": 234.266,
+          "height_mV": 50.713,
+          "area_height_s": 4.61944669019778
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 18.641,
+          "area_mV_s": 408.285,
+          "height_mV": 88.413,
+          "area_height_s": 4.617929490007126
+        }
+      ]
+    },
+    "ПИД-1|Стирол": {
+      "detector": "ПИД-1",
+      "component": "Стирол",
+      "retention_time_mean_from_t1_t6": 21.42,
+      "area_height_s_median": 4.051582,
+      "area_height_s_min": 4.040869,
+      "area_height_s_max": 4.100504,
+      "sigma_min": 0.02693912,
+      "left_sigma_factor": 0.999054,
+      "right_sigma_factor": 1.052892,
+      "tail_fraction": 0.010631,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 21.399,
+          "area_mV_s": 19.543,
+          "height_mV": 4.766,
+          "area_height_s": 4.100503566932438
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 21.426,
+          "area_mV_s": 38.26,
+          "height_mV": 9.447,
+          "area_height_s": 4.04996295120144
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 21.423,
+          "area_mV_s": 81.321,
+          "height_mV": 19.954,
+          "area_height_s": 4.075423473990178
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 21.427,
+          "area_mV_s": 111.48,
+          "height_mV": 27.584,
+          "area_height_s": 4.04147331786543
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 21.419,
+          "area_mV_s": 189.248,
+          "height_mV": 46.691,
+          "area_height_s": 4.053200830995267
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 21.426,
+          "area_mV_s": 325.496,
+          "height_mV": 80.551,
+          "area_height_s": 4.040868518081711
+        }
+      ]
+    },
+    "ПИД-1|альфа-Метилстирол": {
+      "detector": "ПИД-1",
+      "component": "альфа-Метилстирол",
+      "retention_time_mean_from_t1_t6": 23.946,
+      "area_height_s_median": 3.963393,
+      "area_height_s_min": 3.949142,
+      "area_height_s_max": 3.985532,
+      "sigma_min": 0.02635275,
+      "left_sigma_factor": 0.999373,
+      "right_sigma_factor": 1.051915,
+      "tail_fraction": 0.010418,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 23.928,
+          "area_mV_s": 22.997,
+          "height_mV": 5.811,
+          "area_height_s": 3.9574944071588365
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 23.95,
+          "area_mV_s": 46.047,
+          "height_mV": 11.66,
+          "area_height_s": 3.9491423670668953
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 23.947,
+          "area_mV_s": 96.586,
+          "height_mV": 24.348,
+          "area_height_s": 3.9668966650238215
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 23.953,
+          "area_mV_s": 136.537,
+          "height_mV": 34.48,
+          "area_height_s": 3.9598897911832953
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 23.945,
+          "area_mV_s": 230.571,
+          "height_mV": 57.852,
+          "area_height_s": 3.985532047293093
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 23.953,
+          "area_mV_s": 396.49,
+          "height_mV": 99.483,
+          "area_height_s": 3.9855050611662293
+        }
+      ]
+    },
+    "ПИД-2|Ацетальдегид": {
+      "detector": "ПИД-2",
+      "component": "Ацетальдегид",
+      "retention_time_mean_from_t1_t6": 4.327,
+      "area_height_s_median": 4.76,
+      "area_height_s_min": 4.580729,
+      "area_height_s_max": 4.907764,
+      "sigma_min": 0.03164942,
+      "left_sigma_factor": 0.99564,
+      "right_sigma_factor": 1.063322,
+      "tail_fraction": 0.012907,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 4.323,
+          "area_mV_s": 1.759,
+          "height_mV": 0.384,
+          "area_height_s": 4.580729166666666
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 4.328,
+          "area_mV_s": 3.689,
+          "height_mV": 0.775,
+          "area_height_s": 4.76
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 4.331,
+          "area_mV_s": 5.112,
+          "height_mV": 1.089,
+          "area_height_s": 4.694214876033058
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 4.328,
+          "area_mV_s": 8.407,
+          "height_mV": 1.713,
+          "area_height_s": 4.907764156450671
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 4.325,
+          "area_mV_s": 14.827,
+          "height_mV": 3.057,
+          "area_height_s": 4.850179914949297
+        }
+      ]
+    },
+    "ПИД-2|Спирт метиловый": {
+      "detector": "ПИД-2",
+      "component": "Спирт метиловый",
+      "retention_time_mean_from_t1_t6": 4.494833,
+      "area_height_s_median": 5.500444,
+      "area_height_s_min": 5.335313,
+      "area_height_s_max": 5.546079,
+      "sigma_min": 0.03657266,
+      "left_sigma_factor": 0.99731,
+      "right_sigma_factor": 1.05822,
+      "tail_fraction": 0.011794,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 4.499,
+          "area_mV_s": 46.716,
+          "height_mV": 8.756,
+          "area_height_s": 5.3353129282777525
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 4.497,
+          "area_mV_s": 75.208,
+          "height_mV": 13.563,
+          "area_height_s": 5.545085895450859
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 4.495,
+          "area_mV_s": 153.62,
+          "height_mV": 28.034,
+          "area_height_s": 5.479774559463509
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 4.493,
+          "area_mV_s": 235.786,
+          "height_mV": 42.514,
+          "area_height_s": 5.546078938702545
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 4.492,
+          "area_mV_s": 391.066,
+          "height_mV": 70.831,
+          "area_height_s": 5.521113636684502
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 4.493,
+          "area_mV_s": 702.777,
+          "height_mV": 130.59,
+          "area_height_s": 5.3815529519871355
+        }
+      ]
+    },
+    "ПИД-2|Ацетон": {
+      "detector": "ПИД-2",
+      "component": "Ацетон",
+      "retention_time_mean_from_t1_t6": 7.121,
+      "area_height_s_median": 6.634951,
+      "area_height_s_min": 6.202765,
+      "area_height_s_max": 6.698239,
+      "sigma_min": 0.04411604,
+      "left_sigma_factor": 0.994688,
+      "right_sigma_factor": 1.06623,
+      "tail_fraction": 0.013541,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 7.12,
+          "area_mV_s": 4.038,
+          "height_mV": 0.651,
+          "area_height_s": 6.202764976958526
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 7.123,
+          "area_mV_s": 7.888,
+          "height_mV": 1.247,
+          "area_height_s": 6.325581395348837
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 7.125,
+          "area_mV_s": 19.023,
+          "height_mV": 2.84,
+          "area_height_s": 6.698239436619718
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 7.121,
+          "area_mV_s": 25.636,
+          "height_mV": 3.842,
+          "area_height_s": 6.672566371681415
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 7.12,
+          "area_mV_s": 43.059,
+          "height_mV": 6.452,
+          "area_height_s": 6.67374457532548
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 7.117,
+          "area_mV_s": 80.217,
+          "height_mV": 12.159,
+          "area_height_s": 6.597335307179867
+        }
+      ]
+    },
+    "ПИД-2|Спирт изопропиловый": {
+      "detector": "ПИД-2",
+      "component": "Спирт изопропиловый",
+      "retention_time_mean_from_t1_t6": 7.364333,
+      "area_height_s_median": 7.546016,
+      "area_height_s_min": 6.04661,
+      "area_height_s_max": 7.682432,
+      "sigma_min": 0.05017375,
+      "left_sigma_factor": 0.983873,
+      "right_sigma_factor": 1.099278,
+      "tail_fraction": 0.020752,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 7.371,
+          "area_mV_s": 1.427,
+          "height_mV": 0.236,
+          "area_height_s": 6.046610169491526
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 7.365,
+          "area_mV_s": 2.938,
+          "height_mV": 0.452,
+          "area_height_s": 6.5
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 7.364,
+          "area_mV_s": 8.04,
+          "height_mV": 1.072,
+          "area_height_s": 7.499999999999999
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 7.362,
+          "area_mV_s": 11.37,
+          "height_mV": 1.48,
+          "area_height_s": 7.682432432432432
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 7.361,
+          "area_mV_s": 18.463,
+          "height_mV": 2.421,
+          "area_height_s": 7.626187525815779
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 7.363,
+          "area_mV_s": 35.637,
+          "height_mV": 4.694,
+          "area_height_s": 7.592032381763954
+        }
+      ]
+    },
+    "ПИД-2|Метилацетат": {
+      "detector": "ПИД-2",
+      "component": "Метилацетат",
+      "retention_time_mean_from_t1_t6": 8.056167,
+      "area_height_s_median": 6.549968,
+      "area_height_s_min": 6.249708,
+      "area_height_s_max": 6.596519,
+      "sigma_min": 0.04355099,
+      "left_sigma_factor": 0.996595,
+      "right_sigma_factor": 1.060405,
+      "tail_fraction": 0.01227,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 8.058,
+          "area_mV_s": 5.356,
+          "height_mV": 0.857,
+          "area_height_s": 6.249708284714119
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 8.058,
+          "area_mV_s": 11.364,
+          "height_mV": 1.77,
+          "area_height_s": 6.420338983050848
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 8.057,
+          "area_mV_s": 26.535,
+          "height_mV": 4.029,
+          "area_height_s": 6.5860014892032765
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 8.057,
+          "area_mV_s": 35.867,
+          "height_mV": 5.468,
+          "area_height_s": 6.559436722750548
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 8.053,
+          "area_mV_s": 61.407,
+          "height_mV": 9.309,
+          "area_height_s": 6.596519497260716
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 8.054,
+          "area_mV_s": 111.11,
+          "height_mV": 16.988,
+          "area_height_s": 6.540499175888863
+        }
+      ]
+    },
+    "ПИД-2|Акрилонитрил": {
+      "detector": "ПИД-2",
+      "component": "Акрилонитрил",
+      "retention_time_mean_from_t1_t6": 9.101333,
+      "area_height_s_median": 5.904139,
+      "area_height_s_min": 3.369048,
+      "area_height_s_max": 6.730887,
+      "sigma_min": 0.03925684,
+      "left_sigma_factor": 0.964465,
+      "right_sigma_factor": 1.158578,
+      "tail_fraction": 0.03369,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 9.099,
+          "area_mV_s": 0.283,
+          "height_mV": 0.084,
+          "area_height_s": 3.3690476190476186
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 9.101,
+          "area_mV_s": 0.934,
+          "height_mV": 0.188,
+          "area_height_s": 4.968085106382979
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 9.11,
+          "area_mV_s": 2.589,
+          "height_mV": 0.437,
+          "area_height_s": 5.924485125858124
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 9.103,
+          "area_mV_s": 3.848,
+          "height_mV": 0.654,
+          "area_height_s": 5.883792048929664
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 9.096,
+          "area_mV_s": 7.147,
+          "height_mV": 1.163,
+          "area_height_s": 6.145313843508169
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 9.099,
+          "area_mV_s": 15.407,
+          "height_mV": 2.289,
+          "area_height_s": 6.730886850152904
+        }
+      ]
+    },
+    "ПИД-2|Гексан": {
+      "detector": "ПИД-2",
+      "component": "Гексан",
+      "retention_time_mean_from_t1_t6": 9.860167,
+      "area_height_s_median": 7.702578,
+      "area_height_s_min": 7.510372,
+      "area_height_s_max": 13.70712,
+      "sigma_min": 0.05121473,
+      "left_sigma_factor": 0.954878,
+      "right_sigma_factor": 1.187872,
+      "tail_fraction": 0.040081,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 9.85,
+          "area_mV_s": 24.619,
+          "height_mV": 3.278,
+          "area_height_s": 7.510372178157413
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 9.865,
+          "area_mV_s": 25.421,
+          "height_mV": 3.363,
+          "area_height_s": 7.55902468034493
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 9.862,
+          "area_mV_s": 83.566,
+          "height_mV": 10.866,
+          "area_height_s": 7.690594515000921
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 9.864,
+          "area_mV_s": 119.403,
+          "height_mV": 12.054,
+          "area_height_s": 9.905674464907914
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 9.859,
+          "area_mV_s": 195.395,
+          "height_mV": 14.255,
+          "area_height_s": 13.707120308663626
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 9.861,
+          "area_mV_s": 367.892,
+          "height_mV": 47.688,
+          "area_height_s": 7.714561315215567
+        }
+      ]
+    },
+    "ПИД-2|Спирт пропиловый": {
+      "detector": "ПИД-2",
+      "component": "Спирт пропиловый",
+      "retention_time_mean_from_t1_t6": 10.455667,
+      "area_height_s_median": 8.891534,
+      "area_height_s_min": 8.720779,
+      "area_height_s_max": 9.505814,
+      "sigma_min": 0.05912015,
+      "left_sigma_factor": 0.994859,
+      "right_sigma_factor": 1.065707,
+      "tail_fraction": 0.013427,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 10.46,
+          "area_mV_s": 1.635,
+          "height_mV": 0.172,
+          "area_height_s": 9.505813953488373
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 10.454,
+          "area_mV_s": 2.686,
+          "height_mV": 0.308,
+          "area_height_s": 8.720779220779221
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 10.461,
+          "area_mV_s": 6.025,
+          "height_mV": 0.681,
+          "area_height_s": 8.847283406754773
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 10.455,
+          "area_mV_s": 8.487,
+          "height_mV": 0.964,
+          "area_height_s": 8.803941908713693
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 10.455,
+          "area_mV_s": 14.57,
+          "height_mV": 1.62,
+          "area_height_s": 8.993827160493828
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 10.449,
+          "area_mV_s": 29.64,
+          "height_mV": 3.317,
+          "area_height_s": 8.93578534820621
+        }
+      ]
+    },
+    "ПИД-2|Этилацетат": {
+      "detector": "ПИД-2",
+      "component": "Этилацетат",
+      "retention_time_mean_from_t1_t6": 12.185167,
+      "area_height_s_median": 6.574415,
+      "area_height_s_min": 6.454719,
+      "area_height_s_max": 6.598828,
+      "sigma_min": 0.04371354,
+      "left_sigma_factor": 0.998653,
+      "right_sigma_factor": 1.054115,
+      "tail_fraction": 0.010898,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 12.186,
+          "area_mV_s": 10.121,
+          "height_mV": 1.568,
+          "area_height_s": 6.454719387755102
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 12.185,
+          "area_mV_s": 22.605,
+          "height_mV": 3.443,
+          "area_height_s": 6.565495207667731
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 12.185,
+          "area_mV_s": 51.324,
+          "height_mV": 7.805,
+          "area_height_s": 6.575784753363228
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 12.188,
+          "area_mV_s": 68.524,
+          "height_mV": 10.425,
+          "area_height_s": 6.573045563549161
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 12.182,
+          "area_mV_s": 117.149,
+          "height_mV": 17.753,
+          "area_height_s": 6.598828367036557
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 12.185,
+          "area_mV_s": 211.158,
+          "height_mV": 32.005,
+          "area_height_s": 6.597656616153725
+        }
+      ]
+    },
+    "ПИД-2|Бензол": {
+      "detector": "ПИД-2",
+      "component": "Бензол",
+      "retention_time_mean_from_t1_t6": 14.5855,
+      "area_height_s_median": 6.468623,
+      "area_height_s_min": 6.39976,
+      "area_height_s_max": 6.478983,
+      "sigma_min": 0.04301012,
+      "left_sigma_factor": 0.999238,
+      "right_sigma_factor": 1.052329,
+      "tail_fraction": 0.010508,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 14.579,
+          "area_mV_s": 21.324,
+          "height_mV": 3.332,
+          "area_height_s": 6.399759903961585
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 14.585,
+          "area_mV_s": 41.097,
+          "height_mV": 6.346,
+          "area_height_s": 6.476047904191617
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 14.586,
+          "area_mV_s": 90.168,
+          "height_mV": 13.917,
+          "area_height_s": 6.478982539340375
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 14.59,
+          "area_mV_s": 119.809,
+          "height_mV": 18.545,
+          "area_height_s": 6.460447559989214
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 14.583,
+          "area_mV_s": 200.062,
+          "height_mV": 30.962,
+          "area_height_s": 6.4615334926684325
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 14.59,
+          "area_mV_s": 349.682,
+          "height_mV": 53.999,
+          "area_height_s": 6.475712513194689
+        }
+      ]
+    },
+    "ПИД-2|Гептан": {
+      "detector": "ПИД-2",
+      "component": "Гептан",
+      "retention_time_mean_from_t1_t6": 15.228,
+      "area_height_s_median": 6.810241,
+      "area_height_s_min": 6.756407,
+      "area_height_s_max": 12.523992,
+      "sigma_min": 0.04528155,
+      "left_sigma_factor": 0.952457,
+      "right_sigma_factor": 1.195269,
+      "tail_fraction": 0.041695,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 15.225,
+          "area_mV_s": 27.154,
+          "height_mV": 4.019,
+          "area_height_s": 6.756407066434436
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 15.231,
+          "area_mV_s": 32.234,
+          "height_mV": 4.739,
+          "area_height_s": 6.801856931842162
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 15.223,
+          "area_mV_s": 97.002,
+          "height_mV": 14.266,
+          "area_height_s": 6.799523342212253
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 15.233,
+          "area_mV_s": 111.607,
+          "height_mV": 14.239,
+          "area_height_s": 7.838120654540346
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 15.226,
+          "area_mV_s": 195.75,
+          "height_mV": 15.63,
+          "area_height_s": 12.523992322456813
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 15.23,
+          "area_mV_s": 406.465,
+          "height_mV": 59.611,
+          "area_height_s": 6.818624079448424
+        }
+      ]
+    },
+    "ПИД-2|Спирт бутиловый": {
+      "detector": "ПИД-2",
+      "component": "Спирт бутиловый",
+      "retention_time_mean_from_t1_t6": 16.034,
+      "area_height_s_median": 8.17748,
+      "area_height_s_min": 6.713864,
+      "area_height_s_max": 9.636707,
+      "sigma_min": 0.05437237,
+      "left_sigma_factor": 0.974824,
+      "right_sigma_factor": 1.126927,
+      "tail_fraction": 0.026784,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 16.043,
+          "area_mV_s": 0.997,
+          "height_mV": 0.148,
+          "area_height_s": 6.736486486486487
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 16.045,
+          "area_mV_s": 2.276,
+          "height_mV": 0.339,
+          "area_height_s": 6.71386430678466
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 16.031,
+          "area_mV_s": 6.716,
+          "height_mV": 0.875,
+          "area_height_s": 7.675428571428571
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 16.036,
+          "area_mV_s": 12.759,
+          "height_mV": 1.324,
+          "area_height_s": 9.636706948640484
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 16.024,
+          "area_mV_s": 21.31,
+          "height_mV": 2.338,
+          "area_height_s": 9.114627887082976
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 16.025,
+          "area_mV_s": 42.955,
+          "height_mV": 4.949,
+          "area_height_s": 8.679531218427964
+        }
+      ]
+    },
+    "ПИД-2|н-Пропилацетат": {
+      "detector": "ПИД-2",
+      "component": "н-Пропилацетат",
+      "retention_time_mean_from_t1_t6": 17.5435,
+      "area_height_s_median": 6.001144,
+      "area_height_s_min": 5.971957,
+      "area_height_s_max": 6.017266,
+      "sigma_min": 0.03990184,
+      "left_sigma_factor": 0.999561,
+      "right_sigma_factor": 1.051342,
+      "tail_fraction": 0.010293,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 17.545,
+          "area_mV_s": 20.167,
+          "height_mV": 3.365,
+          "area_height_s": 5.9931649331352155
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 17.544,
+          "area_mV_s": 44.399,
+          "height_mV": 7.387,
+          "area_height_s": 6.010423717341276
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 17.541,
+          "area_mV_s": 99.592,
+          "height_mV": 16.609,
+          "area_height_s": 5.9962670841110235
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 17.548,
+          "area_mV_s": 132.667,
+          "height_mV": 22.089,
+          "area_height_s": 6.006021096473358
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 17.536,
+          "area_mV_s": 225.485,
+          "height_mV": 37.473,
+          "area_height_s": 6.0172657646839065
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 17.547,
+          "area_mV_s": 400.999,
+          "height_mV": 67.147,
+          "area_height_s": 5.97195704945865
+        }
+      ]
+    },
+    "ПИД-2|Толуол": {
+      "detector": "ПИД-2",
+      "component": "Толуол",
+      "retention_time_mean_from_t1_t6": 20.278,
+      "area_height_s_median": 5.774474,
+      "area_height_s_min": 5.748722,
+      "area_height_s_max": 5.798642,
+      "sigma_min": 0.0383947,
+      "left_sigma_factor": 0.999491,
+      "right_sigma_factor": 1.051556,
+      "tail_fraction": 0.010339,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 20.278,
+          "area_mV_s": 24.731,
+          "height_mV": 4.302,
+          "area_height_s": 5.7487215248721535
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 20.278,
+          "area_mV_s": 48.937,
+          "height_mV": 8.466,
+          "area_height_s": 5.78041578077014
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 20.275,
+          "area_mV_s": 108.481,
+          "height_mV": 18.708,
+          "area_height_s": 5.798642292067565
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 20.283,
+          "area_mV_s": 143.587,
+          "height_mV": 24.931,
+          "area_height_s": 5.759375877421683
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 20.271,
+          "area_mV_s": 238.275,
+          "height_mV": 41.306,
+          "area_height_s": 5.768532416598074
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 20.283,
+          "area_mV_s": 418.748,
+          "height_mV": 72.415,
+          "area_height_s": 5.78261409928882
+        }
+      ]
+    },
+    "ПИД-2|Бутилацетат": {
+      "detector": "ПИД-2",
+      "component": "Бутилацетат",
+      "retention_time_mean_from_t1_t6": 22.546167,
+      "area_height_s_median": 5.573738,
+      "area_height_s_min": 5.547548,
+      "area_height_s_max": 5.60781,
+      "sigma_min": 0.03705999,
+      "left_sigma_factor": 0.999315,
+      "right_sigma_factor": 1.052093,
+      "tail_fraction": 0.010457,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 22.548,
+          "area_mV_s": 32.744,
+          "height_mV": 5.839,
+          "area_height_s": 5.607809556430896
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 22.546,
+          "area_mV_s": 70.595,
+          "height_mV": 12.632,
+          "area_height_s": 5.58858454718176
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 22.543,
+          "area_mV_s": 158.885,
+          "height_mV": 28.505,
+          "area_height_s": 5.573934397474127
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 22.55,
+          "area_mV_s": 208.815,
+          "height_mV": 37.634,
+          "area_height_s": 5.548573098793644
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 22.539,
+          "area_mV_s": 354.728,
+          "height_mV": 63.645,
+          "area_height_s": 5.573540733757562
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 22.551,
+          "area_mV_s": 621.919,
+          "height_mV": 112.107,
+          "area_height_s": 5.547548324368683
+        }
+      ]
+    },
+    "ПИД-2|Этилбензол": {
+      "detector": "ПИД-2",
+      "component": "Этилбензол",
+      "retention_time_mean_from_t1_t6": 24.9365,
+      "area_height_s_median": 5.544966,
+      "area_height_s_min": 5.488936,
+      "area_height_s_max": 5.562009,
+      "sigma_min": 0.03686869,
+      "left_sigma_factor": 0.999156,
+      "right_sigma_factor": 1.052579,
+      "tail_fraction": 0.010563,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 24.937,
+          "area_mV_s": 26.693,
+          "height_mV": 4.804,
+          "area_height_s": 5.556411323896753
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 24.935,
+          "area_mV_s": 52.84,
+          "height_mV": 9.523,
+          "area_height_s": 5.548671637089153
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 24.933,
+          "area_mV_s": 115.484,
+          "height_mV": 20.763,
+          "area_height_s": 5.562009343543803
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 24.943,
+          "area_mV_s": 154.063,
+          "height_mV": 27.948,
+          "area_height_s": 5.512487476742521
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 24.929,
+          "area_mV_s": 250.784,
+          "height_mV": 45.689,
+          "area_height_s": 5.488936067762481
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 24.942,
+          "area_mV_s": 452.261,
+          "height_mV": 81.617,
+          "area_height_s": 5.541259786564074
+        }
+      ]
+    },
+    "ПИД-2|м- п- Ксилолы": {
+      "detector": "ПИД-2",
+      "component": "м- п- Ксилолы",
+      "retention_time_mean_from_t1_t6": 25.305,
+      "area_height_s_median": 5.541106,
+      "area_height_s_min": 5.500947,
+      "area_height_s_max": 5.58452,
+      "sigma_min": 0.03684302,
+      "left_sigma_factor": 0.999149,
+      "right_sigma_factor": 1.052601,
+      "tail_fraction": 0.010567,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 25.305,
+          "area_mV_s": 51.877,
+          "height_mV": 9.376,
+          "area_height_s": 5.532956484641639
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 25.302,
+          "area_mV_s": 99.373,
+          "height_mV": 17.853,
+          "area_height_s": 5.566179353610037
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 25.301,
+          "area_mV_s": 217.722,
+          "height_mV": 39.579,
+          "area_height_s": 5.500947472144319
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 25.311,
+          "area_mV_s": 292.913,
+          "height_mV": 52.865,
+          "area_height_s": 5.540773668778965
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 25.299,
+          "area_mV_s": 482.994,
+          "height_mV": 86.488,
+          "area_height_s": 5.5845203958930725
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 25.312,
+          "area_mV_s": 853.06,
+          "height_mV": 153.942,
+          "area_height_s": 5.541437684322666
+        }
+      ]
+    },
+    "ПИД-2|о-Ксилол": {
+      "detector": "ПИД-2",
+      "component": "о-Ксилол",
+      "retention_time_mean_from_t1_t6": 26.6095,
+      "area_height_s_median": 7.375313,
+      "area_height_s_min": 7.348077,
+      "area_height_s_max": 7.410709,
+      "sigma_min": 0.04903874,
+      "left_sigma_factor": 0.999473,
+      "right_sigma_factor": 1.051609,
+      "tail_fraction": 0.010351,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 26.61,
+          "area_mV_s": 44.97,
+          "height_mV": 6.088,
+          "area_height_s": 7.386662286465177
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 26.606,
+          "area_mV_s": 85.47,
+          "height_mV": 11.6,
+          "area_height_s": 7.368103448275862
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 26.608,
+          "area_mV_s": 183.252,
+          "height_mV": 24.728,
+          "area_height_s": 7.410708508573277
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 26.615,
+          "area_mV_s": 250.736,
+          "height_mV": 34.107,
+          "area_height_s": 7.351452780954056
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 26.603,
+          "area_mV_s": 422.332,
+          "height_mV": 57.207,
+          "area_height_s": 7.382523117800269
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 26.615,
+          "area_mV_s": 731.986,
+          "height_mV": 99.616,
+          "area_height_s": 7.348076614198522
+        }
+      ]
+    },
+    "ПИД-2|Изопропилбензол": {
+      "detector": "ПИД-2",
+      "component": "Изопропилбензол",
+      "retention_time_mean_from_t1_t6": 27.728667,
+      "area_height_s_median": 5.787432,
+      "area_height_s_min": 5.733426,
+      "area_height_s_max": 5.816851,
+      "sigma_min": 0.03848085,
+      "left_sigma_factor": 0.999211,
+      "right_sigma_factor": 1.052412,
+      "tail_fraction": 0.010526,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 27.731,
+          "area_mV_s": 27.243,
+          "height_mV": 4.709,
+          "area_height_s": 5.785304735612657
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 27.727,
+          "area_mV_s": 51.978,
+          "height_mV": 8.965,
+          "area_height_s": 5.797880646960402
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 27.725,
+          "area_mV_s": 114.118,
+          "height_mV": 19.711,
+          "area_height_s": 5.7895591294201205
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 27.733,
+          "area_mV_s": 155.709,
+          "height_mV": 26.916,
+          "area_height_s": 5.7849977708426215
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 27.721,
+          "area_mV_s": 248.682,
+          "height_mV": 42.752,
+          "area_height_s": 5.816850673652694
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 27.735,
+          "area_mV_s": 458.267,
+          "height_mV": 79.929,
+          "area_height_s": 5.733425915500006
+        }
+      ]
+    },
+    "ПИД-2|альфа-Метилстирол": {
+      "detector": "ПИД-2",
+      "component": "альфа-Метилстирол",
+      "retention_time_mean_from_t1_t6": 30.400167,
+      "area_height_s_median": 5.260666,
+      "area_height_s_min": 5.232499,
+      "area_height_s_max": 5.371489,
+      "sigma_min": 0.03497837,
+      "left_sigma_factor": 0.998347,
+      "right_sigma_factor": 1.055049,
+      "tail_fraction": 0.011102,
+      "tail_tau_sigma": 3.6,
+      "measurements": [
+        {
+          "source": "т.1 3166.rtf",
+          "retention_time": 30.403,
+          "area_mV_s": 22.788,
+          "height_mV": 4.332,
+          "area_height_s": 5.26038781163435
+        },
+        {
+          "source": "т.2 3166.rtf",
+          "retention_time": 30.4,
+          "area_mV_s": 45.596,
+          "height_mV": 8.714,
+          "area_height_s": 5.232499426210695
+        },
+        {
+          "source": "т.3 3166.rtf",
+          "retention_time": 30.397,
+          "area_mV_s": 95.786,
+          "height_mV": 18.207,
+          "area_height_s": 5.260943593123524
+        },
+        {
+          "source": "т.4 3166.rtf",
+          "retention_time": 30.405,
+          "area_mV_s": 135.592,
+          "height_mV": 25.891,
+          "area_height_s": 5.237032173342089
+        },
+        {
+          "source": "т.5 3166.rtf",
+          "retention_time": 30.391,
+          "area_mV_s": 229.357,
+          "height_mV": 43.196,
+          "area_height_s": 5.309681451986295
+        },
+        {
+          "source": "т.6 3166.rtf",
+          "retention_time": 30.405,
+          "area_mV_s": 406.235,
+          "height_mV": 75.628,
+          "area_height_s": 5.371489395461999
+        }
+      ]
+    }
+  }
+}

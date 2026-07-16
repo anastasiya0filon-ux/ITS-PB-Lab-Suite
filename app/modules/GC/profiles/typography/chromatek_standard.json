@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "profile_id": "chromatek_standard",
+  "source": "app/modules/GC/chromatek_renderer/typography_passport.json",
+  "renderer": "native_windows_gdi",
+  "method_independent": true
+}

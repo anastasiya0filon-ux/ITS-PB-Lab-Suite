@@ -1,141 +1,115 @@
+# GC_PEAK_LABEL_SOFTNESS_FIX_25A
 # -*- coding: utf-8 -*-
 from __future__ import annotations
 
-import random
+from dataclasses import dataclass
 
 from . import geometry
 from .fonts import draw_vertical_text, load_font
-from .profiles import zone_for
+from .peak_label_readability_fix_08 import draw_vertical_text_readable
 from .spec import detector_spec
+from .typography_passport import TYPOGRAPHY
 
 
-ANALYTIC_FONT_PX = 7
-BACKGROUND_FONT_PX = 6
-
-# Один пиксель между вершиной и текстом: читаемо и близко к эталону.
-ANALYTIC_APEX_GAP = 1
-BACKGROUND_APEX_GAP = 0
-
-ANALYTIC_MIN_GAP_PX = 5
-ANALYTIC_SHIFT_STEP_PX = 2
-ANALYTIC_MAX_SHIFT_PX = 6
-
-BACKGROUND_EXCLUSION_PX = 8
-BACKGROUND_MIN_GAP_PX = 5
+@dataclass
+class _LabelPlacement:
+    peak: object
+    apex_t: float
+    apex_value: float
+    x: float
+    bottom_y: int
 
 
-def _nearest_time(samples, target):
-    return min(samples, key=lambda row: abs(row[0] - target)) if samples else None
-
-
-def _nearest_apex(samples, left, right):
-    rows = [row for row in samples if left <= row[0] <= right]
-    return max(rows, key=lambda row: row[1]) if rows else None
-
-
-def analytic_label_text(retention_time, component, area, detector):
-    return f"{retention_time:.3f} {component} {float(area):.3f}"
-
-
-def _resolve_x(base_x, used_x):
-    if all(abs(base_x - previous) >= ANALYTIC_MIN_GAP_PX for previous in used_x):
-        return base_x
-
-    for distance in range(
-        ANALYTIC_SHIFT_STEP_PX,
-        ANALYTIC_MAX_SHIFT_PX + 1,
-        ANALYTIC_SHIFT_STEP_PX,
-    ):
-        for candidate in (base_x - distance, base_x + distance):
-            if candidate <= geometry.PLOT_X0 + 1:
-                continue
-            if candidate >= geometry.PLOT_X1 - 1:
-                continue
-            if all(
-                abs(candidate - previous) >= ANALYTIC_MIN_GAP_PX
-                for previous in used_x
-            ):
-                return candidate
-
-    return base_x
+def _physical_apex(samples, target, left_limit, right_limit):
+    """Находит физический максимум только внутри области собственного пика."""
+    half_window = TYPOGRAPHY.search_half_window_min
+    left = max(target - half_window, left_limit)
+    right = min(target + half_window, right_limit)
+    candidates = [row for row in samples if left <= row[0] <= right]
+    return max(candidates, key=lambda row: row[1]) if candidates else None
 
 
 def draw_labels(
-    image, *, peaks, samples, events, detector, y_max, seed, x_min, x_max,
+    image,
+    *,
+    peaks,
+    samples,
+    events,
+    detector,
+    y_max,
+    seed,
+    x_min,
+    x_max,
 ):
+    """Рисует подписи согласно Chromatek Typography Passport 1.0.
+
+    Важные инварианты:
+    - X подписи равен X физического максимума собственного пика;
+    - координата пика, RT, площадь и сигнал не пересчитываются;
+    - искусственные раздвижки по X и Y отсутствуют;
+    - в плотных группах разрешено эталонное наложение текста.
+    """
+    del events, seed
+
     color = tuple(detector_spec(detector)["rgb"])
-    analytic_font = load_font(ANALYTIC_FONT_PX)
-    background_font = load_font(BACKGROUND_FONT_PX)
+    font = load_font(
+        TYPOGRAPHY.peak_font_px,
+        bold=TYPOGRAPHY.peak_font_bold,
+        face=TYPOGRAPHY.peak_font_family,
+        render_scale=TYPOGRAPHY.text_render_scale, softness=TYPOGRAPHY.peak_softness)
+    ordered = sorted(peaks, key=lambda p: float(p.retention_time_generated))
+    placements: list[_LabelPlacement] = []
 
-    ordered = sorted(peaks, key=lambda peak: float(peak.retention_time_generated))
-    analytic_x_positions = []
+    for index, peak in enumerate(ordered):
+        target = float(peak.retention_time_generated)
+        left_limit = float(x_min)
+        right_limit = float(x_max)
 
-    for peak in ordered:
-        tr = float(peak.retention_time_generated)
-        row = _nearest_time(samples, tr)
-        if row is None:
-            continue
+        # Границы по серединам между соседними RT не позволяют подписи
+        # привязаться к более высокому соседнему пику.
+        if index > 0:
+            previous = float(ordered[index - 1].retention_time_generated)
+            left_limit = (previous + target) / 2.0
+        if index + 1 < len(ordered):
+            following = float(ordered[index + 1].retention_time_generated)
+            right_limit = (target + following) / 2.0
 
-        _, amplitude = row
-        label = analytic_label_text(
-            tr,
-            str(peak.component),
-            peak.calculated_area,
-            detector,
-        )
-
-        base_x = geometry.x_to_px(tr, x_min, x_max)
-        x = _resolve_x(base_x, analytic_x_positions)
-        analytic_x_positions.append(x)
-
-        bottom_y = int(round(
-            geometry.y_to_px(amplitude, y_max) - ANALYTIC_APEX_GAP
-        ))
-
-        draw_vertical_text(
-            image,
-            label,
-            x,
-            bottom_y,
-            analytic_font,
-            color,
-            min_y=geometry.PLOT_Y0 + 1,
-            min_x=geometry.PLOT_X0 + 1,
-            max_x=geometry.PLOT_X1 - 1,
-        )
-
-    rnd = random.Random(seed ^ 0x91F3)
-    background_x_positions = []
-
-    for center, amplitude, width, kind in events:
-        zone = zone_for(center)
-        probability = float(zone["label_probability"]) * (
-            0.26 if center < 20.0 else 0.48
-        )
-        if kind > probability:
-            continue
-
-        apex = _nearest_apex(samples, center - 2.7 * width, center + 2.7 * width)
+        apex = _physical_apex(samples, target, left_limit, right_limit)
         if apex is None:
             continue
 
-        at, apex_value = apex
-        x = geometry.x_to_px(at, x_min, x_max)
+        apex_t, apex_value = apex
+        x = geometry.x_to_px(apex_t, x_min, x_max)
+        bottom_y = int(round(
+            geometry.y_to_px(apex_value, y_max) - TYPOGRAPHY.apex_gap_px
+        ))
 
-        if any(abs(x - used_x) < BACKGROUND_EXCLUSION_PX for used_x in analytic_x_positions):
-            continue
-        if any(abs(x - used_x) < BACKGROUND_MIN_GAP_PX for used_x in background_x_positions):
-            continue
+        placements.append(
+            _LabelPlacement(
+                peak=peak,
+                apex_t=float(apex_t),
+                apex_value=float(apex_value),
+                x=float(x),
+                bottom_y=bottom_y,
+            )
+        )
 
-        background_x_positions.append(x)
-        text = f"{at:.3f}" if kind < 0.35 else f"{at:.3f} {amplitude * 9:.3f}"
+    for placement in placements:
+        peak = placement.peak
+        label = TYPOGRAPHY.format_peak_label(
+            retention_time=float(peak.retention_time_generated),
+            component=peak.component,
+            area=float(peak.calculated_area),
+        )
 
-        draw_vertical_text(
+        # ROLLBACK_CHROMATEK_TYPOGRAPHY_ENGINE_TO_WORKING_FONT
+        # GC_PEAK_LABEL_READABILITY_FIX_08
+        draw_vertical_text_readable(
             image,
-            text,
-            x,
-            int(round(geometry.y_to_px(apex_value, y_max))),
-            background_font,
+            label,
+            placement.x,
+            placement.bottom_y,
+            font,
             color,
             min_y=geometry.PLOT_Y0 + 1,
             min_x=geometry.PLOT_X0 + 1,

@@ -55,8 +55,9 @@ def import_from(path: Path, name: str):
 icp = import_from(ICP_DIR / "icp_os_generator.py", "icp_os_generator_suite_qt")
 aas = import_from(AAS_DIR / "aas_report_generator.py", "aas_report_generator_suite_qt")
 tox = import_from(TOX_DIR / "toxicity_generator.py", "toxicity_generator_suite_qt")
-gc = import_from(GC_DIR / "gc_generator.py", "gc_generator_suite_qt")
+gc = import_from(GC_DIR / "methods" / "MUK_4_1_3166" / "adapter.py", "gc_muk_4_1_3166_adapter_suite_qt")
 gc_report = import_from(GC_DIR / "gc_report_generator.py", "gc_report_generator_suite_qt")
+gc_methods = import_from(GC_DIR / "platform" / "method_selection.py", "gc_method_selection_suite_qt")
 
 
 class AppComboBox(QComboBox):
@@ -461,20 +462,22 @@ class AasPage(ModulePage):
 
 class GcPage(ModulePage):
     def __init__(self, main_window):
-        super().__init__("Газовая хроматография", "МУК 4.1.3166 · генерация двух хроматограмм с независимыми моделями ПИД-1/ПИД-2")
+        super().__init__("Газовая хроматография", "Хроматэк-Кристалл 5000 · методика определяет математику и профиль отчёта")
         self.main = main_window
         self.common = CommonParams(
             show_operator=True,
             show_time=True,
             show_mode=False,
-            method_items=[("MUK_4_1_3166", "МУК 4.1.3166")],
+            method_items=gc_methods.combo_items(),
         )
         self.common.operator.setCurrentText("Васильева Д.В.")
         self.content.addWidget(self.common)
 
-        info = QLabel("Количество хроматограмм определяется методикой: 2")
-        info.setObjectName("Hint")
-        self.content.addWidget(info)
+        self.method_info = QLabel()
+        self.method_info.setObjectName("Hint")
+        self.content.addWidget(self.method_info)
+        self.common.method.currentIndexChanged.connect(self._on_method_changed)
+        self._on_method_changed()
 
         tabs = QTabWidget()
         self.content.addWidget(tabs, 1)
@@ -482,6 +485,33 @@ class GcPage(ModulePage):
         tabs.addTab(self._single_actual_tab(), "Одиночная — фактические")
         tabs.addTab(self._excel_tab("random"), "Массовая — рандом")
         tabs.addTab(self._excel_tab("actual"), "Массовая — фактические")
+
+    def _selected_method(self):
+        method_id = self.common.method.currentData()
+        if not method_id:
+            raise ValueError("Не выбрана методика газовой хроматографии")
+        return gc_methods.get_method(str(method_id))
+
+    def _on_method_changed(self, *_args):
+        try:
+            descriptor = self._selected_method()
+            self.method_info.setText(
+                f"Количество хроматограмм: {descriptor.chromatogram_count} · "
+                f"математика: {descriptor.math_profile} · "
+                f"отчёт: {descriptor.report_profile}"
+            )
+        except Exception as exc:
+            self.method_info.setText(str(exc))
+
+    def _ensure_current_method_supported(self):
+        descriptor = self._selected_method()
+        # На первом безопасном этапе рабочий генератор остаётся legacy-3166.
+        # При подключении нового НД здесь будет вызван его адаптер из registry.json.
+        if descriptor.method_id != "MUK_4_1_3166":
+            raise ValueError(
+                f"Для {descriptor.title} ещё не подключён математический адаптер"
+            )
+        return descriptor
 
     def _component_table(self, actual=False):
         columns = ["Компонент", "Базовая концентрация"] if not actual else ["Компонент", "Хроматограмма 1", "Хроматограмма 2"]
@@ -582,6 +612,7 @@ class GcPage(ModulePage):
 
     def _run_single_random(self):
         try:
+            self._ensure_current_method_supported()
             out = gc.build_sample(
                 self.gc_sample.text().strip(),
                 self.common.date.text(),
@@ -600,6 +631,7 @@ class GcPage(ModulePage):
 
     def _run_single_actual(self):
         try:
+            self._ensure_current_method_supported()
             out = gc.build_sample(
                 self.gc_actual_sample.text().strip(),
                 self.common.date.text(),
@@ -630,6 +662,7 @@ class GcPage(ModulePage):
 
     def _run_excel(self, line, mode):
         try:
+            self._ensure_current_method_supported()
             path = Path(line.text().strip())
             if not path.exists():
                 raise FileNotFoundError("Выберите Excel-файл")

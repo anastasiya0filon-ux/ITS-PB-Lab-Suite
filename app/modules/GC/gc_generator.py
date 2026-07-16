@@ -17,6 +17,7 @@ import json
 import math
 import random
 import re
+import statistics
 import zipfile
 from dataclasses import dataclass, asdict
 from datetime import datetime, timedelta
@@ -74,55 +75,109 @@ CHROMATOGRAM_COUNT = 2
 FINAL_RENDERER_VERSION = "chromatek-renderer-2.3-chromatek-final-style"
 
 COMPONENT_DEFAULTS = [
-    ("Гексан", 0.00001),
-    ("Гептан", 0.00001),
-    ("Ацетальдегид", 0.0001),
-    ("Метанол", 0.0001),
-    ("Ацетон", 0.0001),
-    ("Метилацетат", 0.0001),
-    ("Этилацетат", 0.0001),
-    ("Изопропанол", 0.0001),
-    ("Акрилонитрил", 0.003),
-    ("Н-пропанол", 0.0001),
-    ("Толуол", 0.00001),
-    ("Изобутанол", 0.0001),
-    ("Бензол", 0.00001),
-    ("Н-бутанол", 0.0001),
-    ("Бутилацетат", 0.0001),
-    ("Этилбензол", 0.00001),
-    ("п-Ксилол", 0.00001),
-    ("м-Ксилол", 0.00001),
-    ("Изопропилбензол", 0.00001),
-    ("о-Ксилол", 0.00001),
-    ("Стирол", 0.00001),
-    ("Метилстирол", 0.00001),
+    ('Гексан', 1e-05),
+    ('Гептан', 1e-05),
+    ('Ацетальдегид', 0.0001),
+    ('Спирт метиловый', 0.0001),
+    ('Ацетон', 0.0001),
+    ('Метилацетат', 0.0001),
+    ('Этилацетат', 0.0001),
+    ('Спирт изопропиловый', 0.0001),
+    ('Акрилонитрил', 0.003),
+    ('н-Пропилацетат', 0.0001),
+    ('Спирт пропиловый', 0.0001),
+    ('Толуол', 1e-05),
+    ('Бензол', 1e-05),
+    ('Спирт бутиловый', 0.0001),
+    ('Бутилацетат', 0.0001),
+    ('Этилбензол', 1e-05),
+    ('п-Ксилол', 1e-05),
+    ('м-Ксилол', 1e-05),
+    ('Изопропилбензол', 1e-05),
+    ('о-Ксилол', 1e-05),
+    ('Стирол', 1e-05),
+    ('альфа-Метилстирол', 1e-05),
 ]
 
+DETECTOR_COMPONENT_ORDER = {
+    "ПИД-1": [
+        'Гексан',
+        'Гептан',
+        'Ацетальдегид',
+        'Ацетон',
+        'Метилацетат',
+        'Этилацетат',
+        'Спирт метиловый',
+        'Спирт изопропиловый',
+        'Бензол',
+        'н-Пропилацетат',
+        'Акрилонитрил',
+        'Толуол',
+        'Бутилацетат',
+        'Спирт пропиловый',
+        'Этилбензол',
+        'п-Ксилол',
+        'м-Ксилол',
+        'Спирт бутиловый',
+        'Изопропилбензол',
+        'о-Ксилол',
+        'Стирол',
+        'альфа-Метилстирол',
+    ],
+    "ПИД-2": [
+        'Ацетальдегид',
+        'Спирт метиловый',
+        'Ацетон',
+        'Спирт изопропиловый',
+        'Метилацетат',
+        'Акрилонитрил',
+        'Гексан',
+        'Спирт пропиловый',
+        'Этилацетат',
+        'Бензол',
+        'Гептан',
+        'Спирт бутиловый',
+        'н-Пропилацетат',
+        'Толуол',
+        'Бутилацетат',
+        'Этилбензол',
+        'м- п- Ксилолы',
+        'о-Ксилол',
+        'Изопропилбензол',
+        'альфа-Метилстирол',
+    ],
+}
+
 ALIASES = {
-    "альфа-метилстирол": "Метилстирол",
-    "метилстирол": "Метилстирол",
-    "кумол": "Изопропилбензол",
-    "кумол (изопропил бензол)": "Изопропилбензол",
-    "кумол (изопропилбензол)": "Изопропилбензол",
-    "изопропил бензол": "Изопропилбензол",
-    "изопропилбензол": "Изопропилбензол",
-    "спирт изобутиловый": "Изобутанол",
-    "изобутанол": "Изобутанол",
-    "спирт метиловый": "Метанол",
-    "метанол": "Метанол",
-    "спирт изопропиловый": "Изопропанол",
-    "изопропанол": "Изопропанол",
-    "спирт бутиловый": "Н-бутанол",
-    "бутанол": "Н-бутанол",
-    "н-бутанол": "Н-бутанол",
-    "спирт пропиловый": "Н-пропанол",
-    "пропанол": "Н-пропанол",
-    "н-пропанол": "Н-пропанол",
-    "бутилацетат": "Бутилацетат",
-    "бутилацета": "Бутилацетат",
-    "м-ксилол": "м-Ксилол",
-    "п-ксилол": "п-Ксилол",
-    "о-ксилол": "о-Ксилол",
+    'альфа-метилстирол': 'альфа-Метилстирол',
+    'метилстирол': 'альфа-Метилстирол',
+    'кумол': 'Изопропилбензол',
+    'кумол (изопропил бензол)': 'Изопропилбензол',
+    'кумол (изопропилбензол)': 'Изопропилбензол',
+    'изопропил бензол': 'Изопропилбензол',
+    'изопропилбензол': 'Изопропилбензол',
+    'спирт метиловый': 'Спирт метиловый',
+    'метанол': 'Спирт метиловый',
+    'спирт изопропиловый': 'Спирт изопропиловый',
+    'изопропанол': 'Спирт изопропиловый',
+    'спирт бутиловый': 'Спирт бутиловый',
+    'бутанол': 'Спирт бутиловый',
+    'н-бутанол': 'Спирт бутиловый',
+    'спирт пропиловый': 'Спирт пропиловый',
+    'пропанол': 'Спирт пропиловый',
+    'н-пропанол': 'Спирт пропиловый',
+    'н-пропилацетат': 'н-Пропилацетат',
+    'н-пропил ацетат': 'н-Пропилацетат',
+    'пропилацетат': 'н-Пропилацетат',
+    'спирт изобутиловый': 'Спирт пропиловый',
+    'изобутанол': 'Спирт пропиловый',
+    'бутилацетат': 'Бутилацетат',
+    'бутилацета': 'Бутилацетат',
+    'м-ксилол': 'м-Ксилол',
+    'п-ксилол': 'п-Ксилол',
+    'о-ксилол': 'о-Ксилол',
+    'м- п- ксилолы': 'м- п- Ксилолы',
+    'м-п-ксилолы': 'м- п- Ксилолы',
 }
 
 SS_NS = "http://schemas.openxmlformats.org/spreadsheetml/2006/main"
@@ -147,15 +202,26 @@ class PeakRecord:
 
 
 def format_sig5(value: float) -> str:
-    """Ровно пять значащих цифр, включая конечные нули."""
-    number = float(value)
+    """Ровно пять значащих цифр без экспоненциальной записи.
+
+    Примеры:
+    0.00001 -> 0.000010000
+    0.0001  -> 0.00010000
+    0.003   -> 0.0030000
+    0.01    -> 0.010000
+    0.65    -> 0.65000
+    """
+    from decimal import Decimal, ROUND_HALF_UP
+
+    number = Decimal(str(value))
     if number == 0:
         return "0.0000"
-    exponent = math.floor(math.log10(abs(number)))
-    if exponent < -4 or exponent >= 5:
-        return f"{number:.4e}"
-    return f"{number:.{max(0, 4-exponent)}f}"
 
+    exponent = number.copy_abs().adjusted()
+    decimal_places = max(0, 4 - exponent)
+    quantum = Decimal(1).scaleb(-decimal_places)
+    rounded = number.quantize(quantum, rounding=ROUND_HALF_UP)
+    return format(rounded, f".{decimal_places}f")
 
 def safe_name(value: str) -> str:
     return re.sub(r'[\\/:*?"<>|]+', "_", str(value).strip() or "sample")
@@ -263,19 +329,82 @@ def normalize_component(name: str) -> str:
 
 def model_for(models: dict, component: str, detector: str) -> dict | None:
     normalized = normalize_component(component)
-    exact = models["index"].get((normalized.casefold(), detector))
-    if exact:
-        return exact
+    return models["index"].get((normalized.casefold(), detector))
 
-    # Combined detector entry, e.g. "Стирол, о-Ксилол".
-    for (model_name, model_detector), item in models["index"].items():
-        if model_detector != detector:
-            continue
-        tokens = [x.strip().casefold() for x in model_name.split(",")]
-        if normalized.casefold() in tokens:
-            return item
-    return None
 
+def _component_concentration(
+    pairs: dict[str, tuple[float, float]],
+    component: str,
+    chromatogram_index: int,
+) -> float | None:
+    """Возвращает концентрацию для эталонной строки детектора.
+
+    Для ПИД-2 строка "м- п- Ксилолы" формируется один раз из средних
+    концентраций отдельных м- и п-изомеров. Остальные строки используют
+    одноимённый компонент входного Excel.
+    """
+    position = chromatogram_index - 1
+    if component == "м- п- Ксилолы":
+        values = []
+        for name in ("м-Ксилол", "п-Ксилол"):
+            pair = pairs.get(name)
+            if pair is not None:
+                values.append(float(pair[position]))
+        return sum(values) / len(values) if values else None
+
+    pair = pairs.get(component)
+    return float(pair[position]) if pair is not None else None
+
+
+def _apply_linked_retention_transform(
+    peaks: list[PeakRecord],
+    *,
+    sample_code: str,
+    chromatogram_index: int,
+    detector: str,
+) -> None:
+    """One affine retention-time transformation for the whole detector."""
+    if not peaks:
+        return
+    rnd = random.Random(stable_seed(
+        METHOD_ID, sample_code, chromatogram_index, detector,
+        "detector-wide-retention-transform-v1",
+    ))
+    global_shift = max(-0.012, min(0.012, rnd.gauss(0.0, 0.0045)))
+    global_stretch = max(-0.004, min(0.004, rnd.gauss(0.0, 0.0015)))
+    anchor = statistics.mean(float(p.retention_time_reference) for p in peaks)
+    transformed_values = []
+    for peak in peaks:
+        reference = float(peak.retention_time_reference)
+        transformed_values.append(
+            anchor * (1.0 + global_shift)
+            + (reference - anchor) * (1.0 + global_shift + global_stretch)
+        )
+    movement_scale = 1.0
+    for peak, transformed in zip(peaks, transformed_values):
+        reference = float(peak.retention_time_reference)
+        delta = transformed - reference
+        limit = reference * 0.05
+        if abs(delta) > limit and abs(delta) > 1e-12:
+            movement_scale = min(movement_scale, limit / abs(delta))
+    previous = None
+    for peak, transformed in zip(peaks, transformed_values):
+        reference = float(peak.retention_time_reference)
+        final_value = round(reference + (transformed-reference)*movement_scale, 6)
+        if previous is not None and final_value <= previous:
+            raise RuntimeError(f"Нарушен порядок {detector}: {peak.component}")
+        peak.retention_time_generated = final_value
+        previous = final_value
+
+
+def _validate_linked_retention_times(peaks: list[PeakRecord]) -> None:
+    for index, peak in enumerate(peaks):
+        reference = float(peak.retention_time_reference)
+        generated = float(peak.retention_time_generated)
+        if not (reference*0.95 <= generated <= reference*1.05):
+            raise RuntimeError(f"{peak.detector}/{peak.component}: tR вне ±5%")
+        if index and generated <= float(peaks[index-1].retention_time_generated):
+            raise RuntimeError(f"{peak.detector}: нарушен порядок")
 
 def eval_quadratic_origin(model: dict, concentration: float) -> float:
     coeff = model["coefficients"]
@@ -283,10 +412,9 @@ def eval_quadratic_origin(model: dict, concentration: float) -> float:
 
 
 def generated_retention_time(reference: float, seed: int) -> float:
-    rnd = random.Random(seed)
-    # Жесткое окно ±5%; распределение сосредоточено ближе к среднему.
-    shift = max(-0.05, min(0.05, rnd.gauss(0.0, 0.014)))
-    return reference * (1.0 + shift)
+    del seed
+    return float(reference)
+
 
 
 def split_random_concentrations(base: float, seed: int) -> tuple[float, float]:
@@ -789,21 +917,38 @@ def build_sample(
     for chrom_idx in (1, 2):
         for detector in DETECTORS:
             peaks = []
-            for component, pair in pairs.items():
+            for component in DETECTOR_COMPONENT_ORDER[detector]:
+                concentration = _component_concentration(
+                    pairs,
+                    component,
+                    chrom_idx,
+                )
+                if concentration is None:
+                    continue
                 peak = calculate_peak(
                     models,
                     sample_code=sample_code,
                     chromatogram_index=chrom_idx,
                     detector=detector,
                     component=component,
-                    concentration=pair[chrom_idx - 1],
+                    concentration=concentration,
                     imperfection_level=imperfection_level,
                 )
                 if peak is not None:
                     peaks.append(peak)
-                    record = asdict(peak)
-                    package["peaks"].append(record)
-                    all_rows.append(record)
+
+            _apply_linked_retention_transform(
+                peaks,
+                sample_code=sample_code,
+                chromatogram_index=chrom_idx,
+                detector=detector,
+            )
+            _validate_linked_retention_times(peaks)
+
+            for peak in peaks:
+                record = asdict(peak)
+                package["peaks"].append(record)
+                all_rows.append(record)
 
             image_name = f"chromatogram_{chrom_idx}_{detector.replace('-', '_')}.png"
             component_values = {name: float(pair[chrom_idx - 1]) for name, pair in pairs.items()}

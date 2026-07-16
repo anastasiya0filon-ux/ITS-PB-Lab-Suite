@@ -1,0 +1,35 @@
+{
+  "name": "MUK 4.1.3166 Mathematical Engine",
+  "version": "FINAL_01",
+  "status": "frozen_for_visual_stage",
+  "method_id": "MUK_4_1_3166",
+  "created_at_local": "2026-07-15T16:13:39",
+  "rules": {
+    "model_unit": "method × component × detector",
+    "model_count": 42,
+    "calibration_points_per_model": 6,
+    "area": "independent linear 6-point per component and detector",
+    "height": "independent linear 6-point per component and detector",
+    "width": "deterministic piecewise-linear 6-point per component and detector",
+    "quantitative_randomness": false,
+    "retention_time_relative_limit": 0.05,
+    "pid_1_pid_2_independent": true
+  },
+  "files": [
+    {
+      "path": "app/modules/GC/methods/MUK_4_1_3166/adapter.py",
+      "sha256": "59ee3699b05a5808cfb40f55ec442640e6b18b47d76e8850fa968fe5f205c357",
+      "size_bytes": 4409
+    },
+    {
+      "path": "app/modules/GC/methods/MUK_4_1_3166/math_engine.py",
+      "sha256": "a953206928799604de3a7a7658398760d9606f9654203690d0ee60c4739ab78e",
+      "size_bytes": 2891
+    },
+    {
+      "path": "app/modules/GC/methods/MUK_4_1_3166/calibration_model.json",
+      "sha256": "23167b5664f0bb89ff02c1864bebd2f3c3662c07e676b144ef85374a7b004aa4",
+      "size_bytes": 210657
+    }
+  ]
+}

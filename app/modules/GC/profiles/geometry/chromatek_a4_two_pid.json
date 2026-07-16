@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "profile_id": "chromatek_a4_two_pid",
+  "source": "app/modules/GC/chromatek_renderer/measured_passport.json",
+  "layout": "A4_two_detectors",
+  "method_independent": true
+}

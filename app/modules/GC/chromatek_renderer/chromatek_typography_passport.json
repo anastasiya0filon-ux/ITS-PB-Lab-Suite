@@ -1,0 +1,407 @@
+{
+  "id": "CHROMATEK_TYPOGRAPHY_ENGINE_STAGE_02A",
+  "source": "only original Chromatek chromatogram strips supplied by user",
+  "accepted_strips": 52,
+  "word_gap_px": 3,
+  "glyph_gap_px": 1,
+  "components": {
+    "ПИД-1|Ацетальдегид": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAJUAAAANCAAAAACF/HO9AAAB8UlEQVR42s2V0W3bMBRFj6KMwIe4I5guMkIZoCNEHUJCOkIp2CNUgD1CXcQr2LUzgosw3aCxpRFMsB+SHDspqqJwgdw/Hl48XD4SfPCfZC3Yz8r6nQVQn1JVeP+lf+ipiZl77+fvnszW8mqVTJOT1tNTC2bRdAnM1xQ99XNzCP+oMxCttTphqLTQgHx7ez5qUhlIXLy6VgewK5XmlsEJU03ezwCqslkbluhwz6oaPMHuVOEWDbZQ2EJJ4Xc2ffR+Z5O1XyeQPXpfKFsoAOt948F6/zO1hTKLQtX8sLDkm7kBkP7WIVFFiexhZyqR6kcp+4opF5el6w3HvdHsMp4ZBeOL4d5f3gwbj2F88WYCaN3yo4714tW1AhJZvYSdqTQOJ1ftESXbfE9V82q9DaCoALLNzqLV9tgDiVpS8+dykQYjd1WzDqGFXTrH5EB4uu9h+xwldXGm0OIAGA+vjBHcoPUMmmO4SNA1f6ZtSV1+e1sKEpUt7OyVlps4jj9K872VpWkvXlFKX6G537uDjh6OPEQfZAXo6OFFaTFS2mIcx73haCQao1wN/yZVuAdc0GQbn2fZ2C38+hoCDy5fmyqz7g4CZJtpeZXnB54AhOWsIuQ1P/rb/aOaVLUnUE2070+qBv7LnOja/o3HnnhQnL3KafMLgJv496m5R6YAAAAASUVORK5CYII=",
+      "size": [
+        149,
+        13
+      ],
+      "samples": 1,
+      "source": "00_00_ПИД-1_2.515_Ацетальдегид.png"
+    },
+    "ПИД-1|Бензол": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAACYAAAAJCAAAAAB7rAGRAAAAzUlEQVR42o2OwU3DMBhGXxJGsJUZEqGMgA+MkC4RS6xglBksmRU4lBGK1IwQIBmBBnuE/jIHyoFTeefv03s4EZl7rnBDGBNXKfkXvzPt5exwXuF8f5CzQ3uR5wbsScSX2E0OhoG6i+bncryvHrIa1G39NSgI9UhJqKtj32i7vQ0Ku8kj7GazL/S6pilpFOkiTYVirKruhVBXI+y7vb0DINPqeGnTTV6jMX+jY2wbbYq15QMosdtJPaWwvMrck4G8m8UvU4jvnzkMbpkgfwMVEFdLLJL7uwAAAABJRU5ErkJggg==",
+      "size": [
+        38,
+        9
+      ],
+      "samples": 3,
+      "source": "08_02_ПИД-1_5.859_Бензол.png"
+    },
+    "ПИД-1|Бутилацета": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAD0AAAALCAAAAADpKtqFAAAA6UlEQVR42qWRoXKDYBCEN6mMvVRj4SVajb6XgERSe7QSfUyeoZnJM7Sp/iUJsUVSsEX+VwGRnU7D525ndm9uD7mZVYwbESXczBJzmNyphoi0as28iNLDmxLS1rwSn6xiiBJEaV2al7Q18zLq85hSRZAk1ymRVyWIQJSivXmlUQ/LsWJRQrQ3r/NW3wm7VRG7VVauzwOE3ZC/k8vYxcnQCH9nQVPELmM3CLun/LMBIOwCCZoiXi623df9ru/qc91PicdDD2zy+gNAfXk+PXZYbDt72aS7+jh1NelXWMI/K5Lf/r2Ousv/7/4BRud+YykkC/gAAAAASUVORK5CYII=",
+      "size": [
+        61,
+        11
+      ],
+      "samples": 4,
+      "source": "00_07_ПИД-1_10.795_Бутилацета.png"
+    },
+    "ПИД-1|Гексан": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAABsAAAAICAAAAAAt/du8AAAAo0lEQVR42lXMLQ7CQBiE4beAw+5HuMKuR6/gCHAJDsFHwhFALJp7IKpBNaHF4qBbXUWzCP7CyHkyw+JQKIBsFd2Y+dICqujG9E97IQcmkl8ZtcPs2OJsWTFqe/xHVveDl6whIl+rrcc5wrifz+RVfa3a+cciJqDMLEBKv898OljXEaA+J0Gy+DbdGnC+qUC8lOLwpvzsEtoVMaDdzYRLcJ0NzRMroDs/OtgwuQAAAABJRU5ErkJggg==",
+      "size": [
+        27,
+        8
+      ],
+      "samples": 1,
+      "source": "08_00_ПИД-1_2.172_Гексан.png"
+    },
+    "ПИД-1|Гептан": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAADcAAAADCAAAAAASW8ghAAAAd0lEQVR42lXL0Q2CMBRA0Sus0BpXaBniLcE8z9AV+OgQMIRxBBOpIxjpCk39wGC4nye5JyWw1bs5Qe+eXZpFbnf29Ap8pnV3cQ2Ajga85ARW7GI9Ypb/RmjbyxDC5joaunMDQEXLY41oeZv4ir64mDlUK/nnFQxfD0Qt3jP/18IAAAAASUVORK5CYII=",
+      "size": [
+        55,
+        3
+      ],
+      "samples": 1,
+      "source": "08_01_ПИД-1_2.449_Гептан.png"
+    },
+    "ПИД-1|Изобутанол": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAEEAAAALCAAAAAAFX7+TAAABS0lEQVR42o2S4U3cQBCFv7MpYUcHJXiJKCErJS0sUINPSjrA6GhhI18LSHELIOwSDLcuAbjdElhtfhiQQEpy789Io29GM0+Pximw907xQeIea/ZSASBGf54f/dFmvw0HAJbfH7unfJtg/xu0uvOYm/TSIC6l6wqlf6UbU7sK7canlF4aO6bR0jhF49QrxeopJVcAVnrov5c/sqrVl+WuroR12de73TF6d364bg+vupOyM29ezZSCdrmmgFPpImBH0y1kmuIQhX6g93GhkTi/o69Tk2H1nC6RN0oRoUC0HwC6k271FYAcwlx7GtnO1ta+/BmhXZbr10MyWgJQLM7U3bsrIehKzGLyYjBV2GabPQCKIJX6RGm2QJEfugnIdkzOD214eMwtXbhNZjPFyfsIZCZ/OZoAGcjMVN34Ye78Q/ai2i9Rf5Po+P9Y/AF9u6CUWHySoQAAAABJRU5ErkJggg==",
+      "size": [
+        65,
+        11
+      ],
+      "samples": 1,
+      "source": "00_08_ПИД-1_11.778_Изобутанол.png"
+    },
+    "ПИД-1|Изопропилбензол": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAGUAAAALCAAAAABD6Rw5AAABp0lEQVR42p2T0Y2bQBCGP1BK2CEF5Am4tBC4HnBSgzk3kBdwD9ikgJOi3OEazktaOINbiL3UwOYB27KxIkce7cPo17f/zs5oyAoFyXuhuDNksZveYlwAicP739g0H3/coj4ATHi995WJjbe3KRcIlG6J17bPkIW1Lz65tbYvVPbrxb5FY7FQ0VuhSHe2L5QKywPSZ2SFIiuSc6cBc4FENOhHZ4ZKJfD2qbILcebgPGqvSUYiEAYAS5kjHnOnTv2plQcTDYVfOA2YCxNZdUCyiSpHNVtTGzl81L5WpjbBpQgTpQFFB1hdo5vQm5kmFWdm7HzkpOjARYK2Blg9VGl03VJPrgYubQuBGMCYQz2543xeHX577jRgrvPN0ycD04W+RBzn6YSh+Ob3SPwqGghoAVqJiMOmi0cFHp0GzGVTbQHyvl/G+d60O8ojamW59yrKCxG96uD78yyP+PRcPa1tVG7Ldt2/JzyZPmey6X/+qYdLaT406hhZoZJiVFD2z12VLz5ZoYYDQL6bkmT+Kb/elyHiqK7/d02MgQ6h7dpAOiBCn8Y05OfxF1hf6G6gsX3pAAAAAElFTkSuQmCC",
+      "size": [
+        101,
+        11
+      ],
+      "samples": 1,
+      "source": "08_08_ПИД-1_14.545_Изопропилбензол.png"
+    },
+    "ПИД-1|Метанол": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAGMAAAAJCAAAAAADP811AAABdElEQVR42rWSsW7UQBCGv7NfYUe5V/AW19GyBY+QjShpsSWoqDfyVdSx5HuFSLEfgSimpjLKHi3dHetHuNVS3BkFEiSkiK8Yjf6df2Y1mhxQH18MPAtnhmPUb2Vr3vAd9UF/sedhAmcyYPomzS7Gg3ONMreNotrF2Cg7xtHiGoVrlDTx4MpdjAdnxzjaY/pomCwmAgJTEKUXW9DpPsPF2Ei7rNvlGtAaoD2roVvlnVEnc8nZKvhl3S7X3SrvzM1s+Bud7PUN5tO17zPWef4uzC9W3QGKCdDX0aX5f1Ltv5bHgQ/1J0kJpPR5Z4vh1Wt7lQGoFOZW3oOWwLHq/fTLWOf5quex/js/kiCLABqPR8O2D9lLRWmGo2dxIQOguQeEIMW8qhCMOaXqof4nQTRGedckpdEiBWjJLvbR1j2QIN11E6ly/jMk7y9HE6Dax8uqav1tHM8hsT3pPLWvaaNjsZlIvrfRDV0VY7H5x9t0z7nsjP/PTy7QsNvoVARZAAAAAElFTkSuQmCC",
+      "size": [
+        99,
+        9
+      ],
+      "samples": 4,
+      "source": "02_04_ПИД-1_4.717_Метанол.png"
+    },
+    "ПИД-1|Метилстирол": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAEoAAAAKCAAAAAA245fBAAABMUlEQVR42qWS3U3DMBCAvwRGsNOs4BQxQpMdqIQYIUFihEjtCClKRwhSywhVk47Aj7NCizNCrfBgBKE8od6LJX+f73z2kb/cAMSbQnBe+ASRAOLE4+xUJohAoTk/VU0CCTWIhT3m6d7aY54XIt4UgnRvj26piiHIqye7mSAW1lYKp/mgeyWkMZD1o+uP93BWhnM8orEHXjmae6Tx7cXdwy+QNKGeikxehV0qnOZD7SVJX4OU94fXTH5ddyprQNCBVLr56cOB9co0RkndmsZIp12CMVHftgCz+fcBKTUSJTXA8EccAJCB2/e+NB9o5FgDxsSTk9pjNGDa6BQQRUKZnVFKTGid5gO6WTcAS721bsrwds8dZLnrrNRbW6kBAPl4CFYsu7c9ZZoPH+C/kS/+DvQnMWKLRt8beBwAAAAASUVORK5CYII=",
+      "size": [
+        74,
+        10
+      ],
+      "samples": 4,
+      "source": "08_11_ПИД-1_19.812_Метилстирол.png"
+    },
+    "ПИД-1|Н-бутанол": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAADoAAAALCAAAAAAL9sH8AAABIklEQVR42p2S4U0CQRCFv+UoYTdgBy4YS4BoC0Ks4YiU4AFXwh05StAftGDMtQC6V4LIXAlszh8HiYQY0fkxyWTmZd6bN0SpBuoMoNOPkLOicVzqdO0uFudBm8flkNsC/rXVdOb+pRcmFpusNt7vosHKr+6IEk2UaJ16/2Qh3Phd0lAPUlXVdM/XEAd5uJUOXblvz7J2vLwOln2NAhQjc9UuQ43KWrFqVHOjlJpiUr+LFHlOXojqYsqauX32EwWjTz/BGFdILgZN+Y2wjINmLAKAynk0ruYRumAskLWC2X5SYY2canWmR7+zdQx5r8Ur0ZcH40Ss1T2KLu4UupRX318U4pwrASjcZH1THtqL8m1DFkYu//nwg8j+1ZzDZ1j53d4v001yZXVDtCoAAAAASUVORK5CYII=",
+      "size": [
+        58,
+        11
+      ],
+      "samples": 1,
+      "source": "00_09_ПИД-1_13.656_Н-бутанол.png"
+    },
+    "ПИД-1|Стирол": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAACgAAAAKCAAAAADj8UOMAAAA0UlEQVR42oWQ203DQBBFj7eGnaWG9faARQ9AD6yowYlowY5rwCQ1RDY1kHUNzriGLB+ReAghz9fo6s59DBDnPD+xOtL2Hrn1q8TYrHMAjNcJIM45X+q6sdWxsfVrn48V0ubce4hzvjRGFYDuZtO6FyCUUNwN7nRvo5TuHC3sZIsR+eXwYAfIb3sdtbSnSUcVLAuYSX5mFEnpurkvgVIUMIPbfrcuHmUAihDE6/sSvFRMJQkw6VlT/gjT9Xo4LECW3dnt6TTNdHGTxv9eUTf2D/YJD5dRhnTyK8YAAAAASUVORK5CYII=",
+      "size": [
+        40,
+        10
+      ],
+      "samples": 4,
+      "source": "08_10_ПИД-1_17.520_Стирол.png"
+    },
+    "ПИД-1|Толуол": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAACkAAAALCAAAAADHb/sXAAAAnUlEQVR42o3Q0Q2CMBRG4RNn4LpDyxAsgUPYIcAdquzgEio7SJkBb2ewPkFSEpP+j19ObprSvlNK6dFQss5XBdWB0m2lXFO6G3BL+vreG6w/Z7aVTuzx4yq4yYWn1lh9ZbaWUk2zjipURAhYRGNm+3daUYCRTkJua6mxNtIwWwJA4MSU23Zz0LAwuD6MABqmEHf2Z21nyv5TrM47+gE8RFO/7QOcnQAAAABJRU5ErkJggg==",
+      "size": [
+        41,
+        11
+      ],
+      "samples": 3,
+      "source": "10_04_ПИД-1_9.535_Толуол.png"
+    },
+    "ПИД-1|Этилацетат": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAGQAAAAMCAAAAACxLke/AAAB60lEQVR42q2TMW7bQBBFH00fYRfiFbSFq9Re3cHrNj0J20egQOYGIUJfwYHoFAFSxpGUMh2NrHKDWOQeQYtNIVJWkRSJM9XHx8w8YPAHhtLv0yNh2t1boe78Z7031Z0/6L+vkwNEHwmjr05vnOkmqwsBQHg3iZtUvxCiWR4Jadcg2DjbSwA2Xx2L7oUQOe3ss1Ay8z9T10uhos2h1f2Q1ZP3uzyvhH6oBNmT95UwrW8NeSXIKyErv8vTJ+93uWl9a/ZygBi5Ohbqy+Ra6UZu1WJE5N5Xsk6KOikBpQDqSQHNWdxoMXSlTM56mxR1UjZncaMXSVEn5QC5fbMpbzGtf/3NAXbtbK9SGzdmOoyXcXzdj0QjloDA7TORh8GXMts+pmLMyuifgtbLWU5EZ+3VbP4JukUPhKmz2Kl6vpcI/bjLRhIlLSBTG2fi0FOUI+/IPwHN2l4nSVE25rKO46Qob6JzoeVSKJTc752eC1K9cgBEl/ub8h2Q9HI6Qvr+EFJx5J+guiVyvv34SkmXPaaEAHW0TVcf7o3PV+v99OXWm+IeCBCWjSNkuV1DsHbe6h6yrZ9nWW0ffHsBgc3gEyAiFbcOyEWTdeVMNyv+uXLK30dYBusAbKTs+vAX/7dOFfsHoeskEMILlpV/8H8BawjxNRS/b0EAAAAASUVORK5CYII=",
+      "size": [
+        100,
+        12
+      ],
+      "samples": 4,
+      "source": "02_03_ПИД-1_4.468_Этилацетат.png"
+    },
+    "ПИД-1|о-Ксилол": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAAQAAAAGCAAAAADBUmCpAAAAJ0lEQVR42mNm0ArhZmFwELnKJPr/2hsmLYarDCzaIq8ZmEQY3jAAAHBKB8MspjxZAAAAAElFTkSuQmCC",
+      "size": [
+        4,
+        6
+      ],
+      "samples": 1,
+      "source": "10_09_ПИД-1_14.964_о-Ксилол.png"
+    },
+    "ПИД-2|Бензол": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAACYAAAAJCAAAAAB7rAGRAAAA0klEQVR42o2OsU3EQBQFxxYVfDfgwG7ACVsAssRWQOKtYSsgMA04oYElcQN3gaGAswQu4M7S/QLwUsIScAREx8TvaQavqpPlCjeEIXKVnH/xOyt6PXt8L/jejnr2FL3qcwVuUe1z3KKjoaNpN/NzOTyUj0k6uWs+O4HQDOSEpjzcV+KW105wi3qwk9llsq5x/hKEeJHGTBjKst0TmnKAfbtztwAkatkubUWV1mjM3+gt1lVhsrXmCOS45UNeYjiOOlkSkOykT6c5bG/vKXT+NEP6BixTVMI83hCoAAAAAElFTkSuQmCC",
+      "size": [
+        38,
+        9
+      ],
+      "samples": 1,
+      "source": "13_02_ПИД-2_11.185_Бензол.png"
+    },
+    "ПИД-2|Бутилацетат": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAEMAAAAKCAAAAADK9rwLAAABIklEQVR42qWRMU7DQBBF30a+QMYcAAnjA6RJuII5Q5aehslJ2C24gF1xgBgJDoBp6Fm7yAUyVzAFDkokJIr8ZqQ3o68/+uhut3utOEcZdTDO04zzlf2MddEMxfrmQhgj81jqV7T1RsY6rrRModV5NJ1H1I9xvxHGmLRMId8IY8zwnu6xk3Io7X5QCaaO6zKBq2svtC267HCAw4+LfNkvVILRosvYqASbUS8uu2rvSnIbpnBV/g4IBhRPO3UTF7n7fPM5nPIMwES61YPrptM8TwiF9ICs+0svv6+HcLA74jNArkbruSUdYkgHlPRA7vZyNZ8WZqvlweOIZ3jP9tFI12nq2H28GPiq6YC+36htwXsYrZFnUmiBYeInqrT4r0PVv/k3/zV3RBMNHX8AAAAASUVORK5CYII=",
+      "size": [
+        67,
+        10
+      ],
+      "samples": 4,
+      "source": "01_08_ПИД-2_18.471_Бутилацетат.png"
+    },
+    "ПИД-2|Изопропилбензол": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAGUAAAAKCAAAAACItc+cAAABhklEQVR42q2Rr3PTcBiHn2T8A7zf6qgm2G5mqeWGScCCIuxPSC13M9mQUEU1F8yYDjUb2GRmbHNLavrVJHWbDCIp12Z39K7HKz/33PP+2gm9mwe8iX3zwHal3n+8v93AmABq6LBtj+PzfO/rJuoJgE+ybRe/fj3bTJmALWnB8Jueh6hjrSd9RlrreSTh54k+dbthJO5pJARXeh6JOB9aZB4SRkIY+aumBjMBXzJI31hHSKCe7/4OpP4ysMZgDNPd3OuEgOMAxIMxohhbl0H/bT04KN1m8DVTg5ngy7QCvAs3MZ7mszKrpF20Tr6XWWWvh+BLCggVUGcZaf5MHV7/CMQ4vNajjkmowETZRQYwPUgC9/FJe/Lo4SovwJYSqKp2nk+W9WLabrtqajDTeNVL/wrKhdNXLst/Go6j+tVlJ3wpGWBTAOTiMnTuFm5nwKWpwUzukhmAf6FPiiwuf14RL9FanfzqJayHpNMK3o3aCyzO9H48i4szfe61B10xBS32rwoj4b/UH5W5zNYLIYkkAAAAAElFTkSuQmCC",
+      "size": [
+        101,
+        10
+      ],
+      "samples": 1,
+      "source": "13_08_ПИД-2_22.898_Изопропилбензол.png"
+    },
+    "ПИД-2|Метилстирол": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAEoAAAAJCAAAAACwd+VvAAABNUlEQVR42qWSPU7DMBSAP0e9AC89AINT9nZosiOGIo6QsCOG9AQIcQASiROkC91bIQF7nIHu1Bk4APEVwuCKFta+yfL3+f3Ij/x1BhA/3wvHRcAwEiCOFUen6sIINPbYTAyoSRoSapA868tuLvQlJ+Uo/yxdOpe+Kl06l1V3dQAyrS7NYyN5xqpoSefSVwHYXkvYOcj68cX3dlxUkwJFNFKgqnGpSOOb09u7PyAxk+1MsvB84lLxWgC1SuK+BpHrzVsW7tqdhTUgOBBtzX4OD9brzjgttu2ME68NwHWRbluAovh9EIZbBC0W4PBHPPAnf692WgCY8MwCzsXTfW0xwAgLuDb6DxhFol3jtJYprdcCwJq1AVhsl19+y1DNi4Ms95NVdvn1pA8AyMNmuGLh3j+oUq/9AH5tgp6OesDAAAAAAElFTkSuQmCC",
+      "size": [
+        74,
+        9
+      ],
+      "samples": 2,
+      "source": "11_09_ПИД-2_25.221_Метилстирол.png"
+    },
+    "ПИД-2|Стирол_о-Ксилол": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAGMAAAAJCAAAAAADP811AAABYElEQVR42p2RIVPDMACFX3v8AZLpYdJohlmHRK5oXINHFfxMhx4zVHPF7LCMGe5mW0zxbcyiSfkJRSTdKIjdLSp5+b685AJAFKoIccCIYgKxGO/ljmhEryRlTB7SgjGb5/s7gmYmofVBDRgN8/0VcFktAUAUSm2iKCb+IibRY6IWPuhUqYQBolCbmBi+zQAAPKhWxk2YVS3cUd3aPCE9mz0N5gA4B5xRNijHRNCLwZcgQHr60N5pmwFwzpEBEP5N/0Za1cId1SW0866AZECzfNN57R2XUuc1AUHdblOTeVO1idC8NoKAsjLfqQYmHdWVhP2qoLSszKxH2swj/35LT/onc0CnVPxRu7BZuVnvjoEOTZFzSXIADueU1R/fnFEf0kO1O9xmdlk981BL7u9UA9cd1a0meq3eubWyVQ2gofefvSVSvS6QitsqB+DFIQCbbTvzZRCm1YtKmFGvDdxVfwB1n7gIr5gk8gAAAABJRU5ErkJggg==",
+      "size": [
+        99,
+        9
+      ],
+      "samples": 4,
+      "source": "15_07_ПИД-2_21.876_Стирол_о-Ксилол.png"
+    },
+    "ПИД-2|Толуол": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAACkAAAAKCAAAAAAMMyiyAAAAoUlEQVR42o3OsQ3CMBRF0Ss2wF7BTg1dasowA54hWcEMQMcAqRgCUUKqDGCniWvsrECVSI6ElFceXX19qmcIITxKtqy2YkO1Y+uWUl5DuCswfRhtYxXaXjJbSiNPx68R0B5uvFOBTp/M5lLu3RC7JBAk8BTIOGW2/lOLCNBRS5/bXMapULJk0HgAzxmX23Kzja+e1jS+A4jOubSyP6tqtZIf3sdPRI8ovosAAAAASUVORK5CYII=",
+      "size": [
+        41,
+        10
+      ],
+      "samples": 1,
+      "source": "13_04_ПИД-2_16.317_Толуол.png"
+    },
+    "ПИД-2|Этилацетат": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAD0AAAALCAAAAADpKtqFAAABF0lEQVR42qWRoVLDUBBFT0K/YBMd1UYybU3zAVXQX2jaT3ipRqLznqouUQyaxmFpJLYpKgOOPiTyIWigAkO5aufM3r07uyyb5jbhVI2EdHmq/ez1g5fzoDrN7QGkXSYhTiMmVrWxqQrdjUkW8VaXSoxVYjw1c9qqEKfrRbzVoQpx2idrmuuwGOargQHiGKDoayjH0TqRQ8rU9cf7epivBqYcR+vkfpivBsZHR9HVW7vKpWwAwQK9ZZO1XIL500P6NeqId/juBgJbI/RkB8i0jtI2GpebQxUccX8kpEn15fYmUgE9dkDAPui2bvuetH+RI96ZzHg07ck3pYXZRVEBu+cs26/x5nNwtpA7trr84X+QUr9zn//oE54uawSfomd7AAAAAElFTkSuQmCC",
+      "size": [
+        61,
+        11
+      ],
+      "samples": 2,
+      "source": "05_06_ПИД-2_9.033_Этилацетат.png"
+    },
+    "ПИД-2|Этилбензол": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAEEAAAAECAAAAAD0CQ1GAAAAg0lEQVR42o3MMRECMRBA0Q9zClZDwAKrIWeAJgaoYiEogJk4uCYKKFAQmjPAzdwKOKKBhooqv/vNIyYhFE9vLkfwTysnLWa2xoEd/nCrvUAYZUE+lyX6+xlU6wCqtRtgmiK0FzQAlLrnOL4fQJgtu5hESxLCbGsSuZplx+/+KKGB2ypfBKcvCcy1M38AAAAASUVORK5CYII=",
+      "size": [
+        65,
+        4
+      ],
+      "samples": 4,
+      "source": "11_05_ПИД-2_20.438_Этилбензол.png"
+    }
+  },
+  "glyphs": {
+    "ПИД-1|.": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAABoAAAANCAAAAACS8iExAAAA+klEQVR42mWOoVLDQBRF7y64OsjmH8Iy/YWdSHwC/YVkarEpVOFpg0cREiQWshrbbhQDtnmxrexDJJ2B4cgj7j2I3nmfQS2YiwAzZt7fe9lTwW9G1qGYwkvVmd+mHi+UuAFEWPvrSCJamVJ464YsKfTwc0mWJKrzMjX4h6+OAQDU6aAz1CDhOSbjE9IuIBmveOlsTm6DHAAgPu9KtWz9UvydyZQ1tsrUbQdIHMJ7dOwqAOmGCwkM4f1aiBrAZHwpro6gLr5fdqPR9vp1xta00B87d/r1CMjDC02FnAOUq3QwEtTpQBk0g3APOqFGG0ACv8IBwJZxkruaix/vrHDmDJ+6jAAAAABJRU5ErkJggg==",
+      "size": [
+        26,
+        13
+      ],
+      "samples": 33,
+      "source": "10_09_ПИД-1_14.964_о-Ксилол.png"
+    },
+    "ПИД-1|0": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAAAAADF+lnMAAAAUUlEQVR42k3IQRGAIBBA0c9awS0BISjB3bOGYEZCaAZLOBpC7p7XDnjlHR/4o50RENLjrjSCeCq3BRDFMJTOECdeP2vtzmm2knVdVGwPLWwf/IecFO44e/w0AAAAAElFTkSuQmCC",
+      "size": [
+        9,
+        9
+      ],
+      "samples": 8,
+      "source": "00_07_ПИД-1_10.795_Бутилацета.png"
+    },
+    "ПИД-1|1": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAABUAAAANCAAAAABj+Xq8AAAAlklEQVR42l2O4Q2CMBBGXxtG6OkOOEQZQtyhJK5woCuYyAwuYSDuwA5WVzD1B2BS388vuXcPVZAQNAA0z3T3SLAAtQwAcN2aYe9qsYB345uVicaNBVB1QKSf59fugAVOxmzabrxdHIg/Powp1sumlkjbkeIHzE+IcgZflUNPQYaUMQE2X5fGfF0bc0PeOH9TANGA/nkXvq90KbzuJsALAAAAAElFTkSuQmCC",
+      "size": [
+        21,
+        13
+      ],
+      "samples": 29,
+      "source": "10_09_ПИД-1_14.964_о-Ксилол.png"
+    },
+    "ПИД-1|2": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAA4AAAALCAAAAABq7uO+AAAAgklEQVR42lXMsRHCIBhA4SdkBP5zBjKEDGGWCIUjkGMFvXMF07iEI1DACnphBQ4L0/j69xHSmfndHnZKLU1cLX49AUC4qWcRm1/AuLbQB6F3AJmz9kY5V8vowLCJNfx3MBUIEr3EGkTtBvhPW1DInPWlwv2oI8PP6PurKHlJboMO9C+rFTC1bI0hdAAAAABJRU5ErkJggg==",
+      "size": [
+        14,
+        11
+      ],
+      "samples": 11,
+      "source": "08_01_ПИД-1_2.449_Гептан.png"
+    },
+    "ПИД-1|3": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAAsAAAAJCAAAAADBD4nxAAAAZ0lEQVR42gXBsQ2DMBBA0W/iitoewk5NfUMwBRkCxsgKNIyAFFFTmxUQ5xE4hfdYzeweh9Pm5ACRn6KTekDYAMVDvgqQ/6UBiQVZ57I4Yq8LkEZ90cW9AtW1nndQEgc5NAQq+jFL3weCyyUJMEqvcwAAAABJRU5ErkJggg==",
+      "size": [
+        11,
+        9
+      ],
+      "samples": 5,
+      "source": "06_03_ПИД-1_4.473_Этилацетат.png"
+    },
+    "ПИД-1|4": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAAAAACMOxGCAAAAzklEQVR42k3EsVHDMBiA0U86L8CdftNCQWGFllrODjY7RGEGbGZITGbg5B2wd8DODFieIaIg3PGKR/WZLq/IMaWPAvx3uhyMHrbqBePF5os30EkLmurLBWWmcxyjYFgBTf8YvOOXlQiQAdw93Q/F6uoYxb+njqzebxbo8jml6JGw3T/cKMCVdjjhSjv0u3iqbMhA7JKux1WM5ayhloG/Qx43AY0z48p12U0q1EVG2QILObCU08xsN/rQKZU37a1SedO+icVK1Pw398+pGccfuZNUK6Pak8cAAAAASUVORK5CYII=",
+      "size": [
+        20,
+        13
+      ],
+      "samples": 20,
+      "source": "10_09_ПИД-1_14.964_о-Ксилол.png"
+    },
+    "ПИД-1|5": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAAgAAAAJCAAAAAAqODLyAAAATElEQVR42iXGSxVAQAAAwLFEWCX26SAEJZRQwkEahy1BBb8KHgdzmvIZZWlKVbMx9PVaxBtG4VhaEMrcRQjWIv1xXlDV7XtB2ON8wwcVqBIG6Y14ZQAAAABJRU5ErkJggg==",
+      "size": [
+        8,
+        9
+      ],
+      "samples": 21,
+      "source": "00_00_ПИД-1_2.515_Ацетальдегид.png"
+    },
+    "ПИД-1|6": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAABsAAAANCAAAAAB9MEoPAAAA2UlEQVR42m2P0XGDMBQEV5qUoIdrCNg1iCJIERBqEEpawKYK10CgCEgNsajBygcKX9mvm3k3N28xND/x2Rs3fsXRItf4dLje4HoN3MQjGV7NzWsd5RwsAGgwbECcZqalyNqwNKLaED2aXAIQwt6NnVKXe7yK8ryQswKs1s5lxTl6/FyWzQfo926dAe7bFG17yQal3mq5nT75B+eoapN+2R3+TnmYyXwYLWizOxyUsjCc1FQZtCSHhMR1A1gpDodjkmUP4YH+Tg6JYm+KleB0kxwShg26+MiGjV+J01q/NNq3cwAAAABJRU5ErkJggg==",
+      "size": [
+        27,
+        13
+      ],
+      "samples": 7,
+      "source": "10_09_ПИД-1_14.964_о-Ксилол.png"
+    },
+    "ПИД-1|7": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAA0AAAAMCAAAAACc3GgFAAAAlUlEQVR42jXHIQ7CMBiA0a8dR9gfkLOrRq8WTy8xEq5QwhkmOAJiKAyKkGEwUyNB4whjemrNEITnngKsNdUOwE5A0hYAJNXgpPrNCX+uCbcFmR+GEF7nIvMhKJyUKv/gD9sOjWzex7mRbnXP0exm0elZmst0bWwEIAl9XZP0GoC2HYFx1IBYuaostvIAH8I+JS5Cs+QLm8QyejUKt5kAAAAASUVORK5CYII=",
+      "size": [
+        13,
+        12
+      ],
+      "samples": 20,
+      "source": "02_04_ПИД-1_4.717_Метанол.png"
+    },
+    "ПИД-1|8": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAAwAAAAJCAAAAAAj05KIAAAAcElEQVR42iXHsRGCMBSA4Z+EyvoFZsijtnUK2AGWYAjOCWj0zvRWFnGIWKdUWIGTgq/7AH/fXhfwt9FA96tjK8O1wSLn/Han/JwdJesionwADITqqw+OSJ9saP2RpkgkFMBMf6dotQKYIoVuG2ME2AEtwB39GEFxmQAAAABJRU5ErkJggg==",
+      "size": [
+        12,
+        9
+      ],
+      "samples": 12,
+      "source": "10_11_ПИД-1_19.815_Метилстирол.png"
+    },
+    "ПИД-1|9": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAABUAAAANCAAAAABj+Xq8AAAAoUlEQVR42nXO0Q2CQBBF0cvEEmbsgaUIqtAisAehB9AeTKzBgD241IBLDawfi5qYeD8nk5cD1sV4yaljjEurx1bLWytamds+K42dZQ0AhUOcPsYwBOPdTns2/GTmMbnPRW4l43rM9taDcA5+4vz57a8z/8qTRammuLSanDImC3CyBpJTVgsoM1hyCph5D87Cd1ZWCw4PhOSUPFkOtR+A1fkCTW1HXZH/Pv4AAAAASUVORK5CYII=",
+      "size": [
+        21,
+        13
+      ],
+      "samples": 15,
+      "source": "10_09_ПИД-1_14.964_о-Ксилол.png"
+    },
+    "ПИД-2|.": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAACcAAAAKCAAAAAAS+hgBAAABJklEQVR42lWOoU/DUBjEfy0K5GtxI5l4rV0CokWCbCYXUJ1AovovTM+y/QHMNATcmGACycM0AUXWJTxI69Y3FJUgupFw4stdvsvdAUD0oNOAONNXEkCOdBr8u9gAorpsq0g8nR2ZLiDivK0i0V0dqkg2nB2AujT41ktp6g4KOq4qcHed8lnsObYqcL9Lmw0EBuTPYqsxlRC+tQTAYuuLhCJMx/kMqLwQz2PmZN50w5teiE/vFMWt6gevNcb0hq28OikvCBfL3rCV54XV2Jxr08R6901TlNTq0Ttf3cwg8qdLG0CKhQEpwRcmGQiQgfO1n3jZpwEZVMtmn3s81jr1+1p7E4NFoufrycfbQT9UKtHz9QSIM/0+EM3KROs/kaSjmOZ/JZPBL9XOgqYhx5vLAAAAAElFTkSuQmCC",
+      "size": [
+        39,
+        10
+      ],
+      "samples": 19,
+      "source": "09_05_ПИД-2_20.435_Этилбензол.png"
+    },
+    "ПИД-2|0": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAACgAAAAKCAAAAADj8UOMAAAA90lEQVR42o3QsU3DQBjF8f9ZmeDzAkGyPEAo7AEQhT0ANGdWuA2QDQMYKSxgGtMjF4YBLkUs0WJLvoKSnGACKJKCLnn1r3jvAUi11RzPiWxBztV0AgwkjO9dmyCVmw2mFEyZtW42SOXcOgI9uLmUQIR6aXVU/K4uvxIUoOz18hYpwotzrwXVrB4UAViLnWK5GV6LkGJwBrI+eUHGaWe9IHhg4T1Aeka9y5submpvhK7L9AYARSQjQMCHJKTJ949O6+5feeV9FEnCFHOAnX926Ua9f+Ztn+1R1ru70T75ty2NNqPd3wiAaR81gB7cOjKlpG0ph7mH8X+qEWXRzB1HVQAAAABJRU5ErkJggg==",
+      "size": [
+        40,
+        10
+      ],
+      "samples": 8,
+      "source": "09_05_ПИД-2_20.435_Этилбензол.png"
+    },
+    "ПИД-2|1": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAA4AAAABCAAAAADLdcDYAAAADUlEQVR42mN8xIAE+gENCQFz11K7ZgAAAABJRU5ErkJggg==",
+      "size": [
+        14,
+        1
+      ],
+      "samples": 16,
+      "source": "13_07_ПИД-2_21.887_Стирол_о-Ксилол.png"
+    },
+    "ПИД-2|2": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAABYAAAAKCAAAAACVy/EHAAAAv0lEQVR42mXIoW7CUBiA0e9va6qa3GqyiXVTpIFlya1aMrcVP3UhwSDRtUjSZOUBliytnlnSwBusCEx1k4kZBMXWbXg48thcUEnaXeZiZ8A575jXBuwf0c91mPbrznwkc1VH4VOqf637DCG4FZB8uBKlyK4r4wC8+N+A4ghQVVQ4gEH4b8ureE7h+2P9BrbbaZ1PO/dr8LiciRs8bDwV9CyQ7foodTgrP8H7e99Hk7tCALjRzWEUB21WGFWMyTgBo4U1SSi0j00AAAAASUVORK5CYII=",
+      "size": [
+        22,
+        10
+      ],
+      "samples": 17,
+      "source": "15_05_ПИД-2_20.432_Этилбензол.png"
+    },
+    "ПИД-2|3": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAA4AAAAKCAAAAAChsjAbAAAAg0lEQVR42i3JMRHCMBiA0S+5GCBBQIfUAAvBQtGQaqgBuCsOuAMFcYEA7megAsjQCCBggaGs7wHhGgHobvNoIOwEoAtHQRMQAFwW0Na/XwDe9eUZ9X69pGrvm0OrnXwBID8+uZoBqKSFlGlwsaZhdWYrwWr+TlJTFCxxKvNo7amUi/8BUy8msXBjLdwAAAAASUVORK5CYII=",
+      "size": [
+        14,
+        10
+      ],
+      "samples": 9,
+      "source": "11_05_ПИД-2_20.438_Этилбензол.png"
+    },
+    "ПИД-2|4": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAB8AAAAKCAAAAABp3trNAAAAwUlEQVR42l2PsQ3CMAAEPxYTfBagsD0AFGEGkhpREGbwCkEsgBQYgDQZAMIIpMoA2BIegHgFaJAg+fZe/zpgGFkaQB59nSDvfCnFEOd7DSB7zdol76t5yEa8WjcA4cIj0Lk+QAB5558F/0qhJ3XkAPl+CCI6zw7RYKWJO3XBoj7ZZsJAhOEJN3a6TK/tWplEQLIfOejIwkID9hqE07Aj3lNBxZSApsiNbUfcNqk37W3rvaogTcFFXfCrwZ33pfxJfQAHB0uGx7kALgAAAABJRU5ErkJggg==",
+      "size": [
+        31,
+        10
+      ],
+      "samples": 10,
+      "source": "13_05_ПИД-2_20.440_Этилбензол.png"
+    },
+    "ПИД-2|5": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAAcAAAAJCAAAAADbM2l/AAAAS0lEQVR42iXFTRFAUBgAwGUU8I0KKvipoIMORBBCBxkkoIJxUMDL4GAvi2F/tjYT9XtPZSGdJDmI/yEOGNcOxinIlyauRJFV/czxAVkpD1CrLJNFAAAAAElFTkSuQmCC",
+      "size": [
+        7,
+        9
+      ],
+      "samples": 5,
+      "source": "13_09_ПИД-2_25.224_Метилстирол.png"
+    },
+    "ПИД-2|6": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAAYAAAAJCAAAAAA08QJBAAAARElEQVR42mNgYPDadb+RgcGryYKBgYlB+PYJBgYmFeG4B2djWRhVj4VbWDBAAHOTvtBt1TimOgZzIQshJobFjOdiTwAA4dIPSbl4WKEAAAAASUVORK5CYII=",
+      "size": [
+        6,
+        9
+      ],
+      "samples": 3,
+      "source": "03_09_ПИД-2_18.468_Бутилацетат.png"
+    },
+    "ПИД-2|7": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAAYAAAAJCAAAAAA08QJBAAAAOklEQVR42gXBARGAIBAAsPFHAsiAGSClOWxCBswgFXBLz+DcCb3PQDcz7XsFoy6hnrWFZpFdZROKzQ/MNA3PmxUOggAAAABJRU5ErkJggg==",
+      "size": [
+        6,
+        9
+      ],
+      "samples": 5,
+      "source": "13_07_ПИД-2_21.887_Стирол_о-Ксилол.png"
+    },
+    "ПИД-2|8": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAA8AAAAJCAAAAADI5CmLAAAAf0lEQVR42i3EsRmCMBCA0f87N7jMkNSUsAJhBQs2kBUcwgVsHECZIXbWnBUfJd4KsdBXPIB4WW/t71aAvDel17w3pV8EAuaLR8wXV4GPB008PWjiLcAjvNL9/wHCcRtrV/M21m4XiBhGxjCSnM5VI1FNI1FdwOZhncp1HtaplC9qoDUuhuA+lwAAAABJRU5ErkJggg==",
+      "size": [
+        15,
+        9
+      ],
+      "samples": 17,
+      "source": "13_07_ПИД-2_21.887_Стирол_о-Ксилол.png"
+    },
+    "ПИД-2|9": {
+      "png": "iVBORw0KGgoAAAANSUhEUgAAAAMAAAAJCAAAAADS2MkFAAAALElEQVR42mNgUJ3GyFDAwKTKcItJmOEdEwMDAxMDAwPTWwYhpv9CaswMt30AaeoGmUSM2BkAAAAASUVORK5CYII=",
+      "size": [
+        3,
+        9
+      ],
+      "samples": 3,
+      "source": "05_06_ПИД-2_9.033_Этилацетат.png"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "profile_id": "PID_1",
+  "title": "ПИД-1",
+  "color": "black",
+  "line_width_px": 1,
+  "axis_color": "black",
+  "label_color": "black",
+  "method_independent": true
+}

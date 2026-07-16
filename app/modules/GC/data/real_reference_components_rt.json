@@ -1,0 +1,218 @@
+{
+  "source": "Реальные отчёты Хроматэк т.1–т.6, МУК 4.1.3166",
+  "tolerance_percent": 5,
+  "PID-1": [
+    {
+      "order": 1,
+      "component": "Гексан",
+      "retention_time_mean": 3.325
+    },
+    {
+      "order": 2,
+      "component": "Гептан",
+      "retention_time_mean": 3.754
+    },
+    {
+      "order": 3,
+      "component": "Ацетальдегид",
+      "retention_time_mean": 3.887
+    },
+    {
+      "order": 4,
+      "component": "Ацетон",
+      "retention_time_mean": 5.262
+    },
+    {
+      "order": 5,
+      "component": "Метилацетат",
+      "retention_time_mean": 5.507
+    },
+    {
+      "order": 6,
+      "component": "Этилацетат",
+      "retention_time_mean": 6.952
+    },
+    {
+      "order": 7,
+      "component": "Спирт метиловый",
+      "retention_time_mean": 7.32
+    },
+    {
+      "order": 8,
+      "component": "Спирт изопропиловый",
+      "retention_time_mean": 8.322
+    },
+    {
+      "order": 9,
+      "component": "Бензол",
+      "retention_time_mean": 8.872
+    },
+    {
+      "order": 10,
+      "component": "н-Пропилацетат",
+      "retention_time_mean": 10.118
+    },
+    {
+      "order": 11,
+      "component": "Акрилонитрил",
+      "retention_time_mean": 11.045
+    },
+    {
+      "order": 12,
+      "component": "Толуол",
+      "retention_time_mean": 12.831
+    },
+    {
+      "order": 13,
+      "component": "Бутилацетат",
+      "retention_time_mean": 14.046
+    },
+    {
+      "order": 14,
+      "component": "Спирт пропиловый",
+      "retention_time_mean": 14.884
+    },
+    {
+      "order": 15,
+      "component": "Этилбензол",
+      "retention_time_mean": 16.241
+    },
+    {
+      "order": 16,
+      "component": "п-Ксилол",
+      "retention_time_mean": 16.563
+    },
+    {
+      "order": 17,
+      "component": "м-Ксилол",
+      "retention_time_mean": 16.838
+    },
+    {
+      "order": 18,
+      "component": "Спирт бутиловый",
+      "retention_time_mean": 17.074
+    },
+    {
+      "order": 19,
+      "component": "Изопропилбензол",
+      "retention_time_mean": 18.11
+    },
+    {
+      "order": 20,
+      "component": "о-Ксилол",
+      "retention_time_mean": 18.631
+    },
+    {
+      "order": 21,
+      "component": "Стирол",
+      "retention_time_mean": 21.42
+    },
+    {
+      "order": 22,
+      "component": "альфа-Метилстирол",
+      "retention_time_mean": 23.946
+    }
+  ],
+  "PID-2": [
+    {
+      "order": 1,
+      "component": "Ацетальдегид",
+      "retention_time_mean": 4.327
+    },
+    {
+      "order": 2,
+      "component": "Спирт метиловый",
+      "retention_time_mean": 4.495
+    },
+    {
+      "order": 3,
+      "component": "Ацетон",
+      "retention_time_mean": 7.121
+    },
+    {
+      "order": 4,
+      "component": "Спирт изопропиловый",
+      "retention_time_mean": 7.364
+    },
+    {
+      "order": 5,
+      "component": "Метилацетат",
+      "retention_time_mean": 8.056
+    },
+    {
+      "order": 6,
+      "component": "Акрилонитрил",
+      "retention_time_mean": 9.101
+    },
+    {
+      "order": 7,
+      "component": "Гексан",
+      "retention_time_mean": 9.86
+    },
+    {
+      "order": 8,
+      "component": "Спирт пропиловый",
+      "retention_time_mean": 10.456
+    },
+    {
+      "order": 9,
+      "component": "Этилацетат",
+      "retention_time_mean": 12.185
+    },
+    {
+      "order": 10,
+      "component": "Бензол",
+      "retention_time_mean": 14.586
+    },
+    {
+      "order": 11,
+      "component": "Гептан",
+      "retention_time_mean": 15.228
+    },
+    {
+      "order": 12,
+      "component": "Спирт бутиловый",
+      "retention_time_mean": 16.034
+    },
+    {
+      "order": 13,
+      "component": "н-Пропилацетат",
+      "retention_time_mean": 17.544
+    },
+    {
+      "order": 14,
+      "component": "Толуол",
+      "retention_time_mean": 20.278
+    },
+    {
+      "order": 15,
+      "component": "Бутилацетат",
+      "retention_time_mean": 22.546
+    },
+    {
+      "order": 16,
+      "component": "Этилбензол",
+      "retention_time_mean": 24.937
+    },
+    {
+      "order": 17,
+      "component": "м- п- Ксилолы",
+      "retention_time_mean": 25.305
+    },
+    {
+      "order": 18,
+      "component": "о-Ксилол",
+      "retention_time_mean": 26.61
+    },
+    {
+      "order": 19,
+      "component": "Изопропилбензол",
+      "retention_time_mean": 27.729
+    },
+    {
+      "order": 20,
+      "component": "альфа-Метилстирол",
+      "retention_time_mean": 30.4
+    }
+  ]
+}

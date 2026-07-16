@@ -1,3 +1,10 @@
+# GC_AXIS_LINES_INTENSITY_75_FIX_26
+# GC_AXIS_LABEL_WEIGHT_SOFTNESS_FIX_24
+# GC_AXIS_LABEL_WEIGHT_INTENSITY_FIX_23A
+# GC_AXIS_LABEL_FINE_TUNE_FIX_22
+# GC_AXIS_LABEL_POSITION_AND_SIZE_FIX_21A
+# GC_AXIS_GDI_WIDTH_AND_OFFSET_FIX_20
+# GC_AXES_LABELS_ORIGINAL_MATCH_FIX_19A
 # -*- coding: utf-8 -*-
 from __future__ import annotations
 
@@ -7,21 +14,24 @@ from PIL import ImageDraw
 from . import geometry
 from .fonts import draw_bitmap_text, draw_vertical_text, load_font
 from .spec import detector_spec
+from .typography_passport import TYPOGRAPHY
 
 
-AXIS_FONT_PX = 7
 X_MINOR_STEP = 0.5
 X_MAJOR_STEP = 2.5
 
-X_MAJOR_TICK = 4
-X_MINOR_TICK = 2
-Y_MAJOR_TICK = 4
-Y_MINOR_TICK = 2
-
-X_LABEL_OFFSET = 5
-Y_LABEL_GAP = 5
+X_MAJOR_TICK = 7
+X_MINOR_TICK = 4
+Y_MAJOR_TICK = 7
+Y_MINOR_TICK = 4
 
 
+def _axis_line_color(rgb, intensity: float = 0.75):
+    factor = max(0.0, min(1.0, float(intensity)))
+    return tuple(
+        int(round(255 - (255 - int(channel)) * factor))
+        for channel in rgb
+    )
 def nice_y_max(value: float) -> float:
     value = max(float(value), 1e-9)
     exponent = math.floor(math.log10(value))
@@ -50,23 +60,23 @@ def draw_axes(
 ):
     draw = ImageDraw.Draw(image)
     color = tuple(detector_spec(detector)["axis_rgb"])
-    font = load_font(AXIS_FONT_PX)
+    scale_color = _axis_line_color(color, 0.75)
+    scale_gray = _axis_line_color((170, 170, 170), 0.75)
+    x_font = load_font(TYPOGRAPHY.x_axis_font_px, bold=TYPOGRAPHY.x_axis_font_bold, face=TYPOGRAPHY.x_axis_font_family, render_scale=TYPOGRAPHY.text_render_scale, width_scale=TYPOGRAPHY.x_axis_width_scale, size_scale=TYPOGRAPHY.axis_size_scale, weight_scale=TYPOGRAPHY.axis_weight_scale, intensity=TYPOGRAPHY.axis_intensity, softness=TYPOGRAPHY.axis_softness)
+    y_font = load_font(TYPOGRAPHY.y_axis_font_px, bold=TYPOGRAPHY.y_axis_font_bold, face=TYPOGRAPHY.y_axis_font_family, render_scale=TYPOGRAPHY.text_render_scale, width_scale=TYPOGRAPHY.y_axis_width_scale, size_scale=TYPOGRAPHY.axis_size_scale, weight_scale=TYPOGRAPHY.axis_weight_scale, intensity=TYPOGRAPHY.axis_intensity, softness=TYPOGRAPHY.axis_softness)
+    unit_font = load_font(TYPOGRAPHY.unit_font_px, bold=TYPOGRAPHY.unit_font_bold, face=TYPOGRAPHY.unit_font_family, render_scale=TYPOGRAPHY.text_render_scale, width_scale=TYPOGRAPHY.unit_width_scale, size_scale=TYPOGRAPHY.axis_size_scale, weight_scale=TYPOGRAPHY.axis_weight_scale, intensity=TYPOGRAPHY.axis_intensity, softness=TYPOGRAPHY.axis_softness)
 
-    # Геометрия и толщина — 1 px, как в эталонном растре.
     draw.line(
         (geometry.PLOT_X0, geometry.PLOT_Y0, geometry.PLOT_X1, geometry.PLOT_Y0),
-        fill=(170, 170, 170),
-        width=1,
+        fill=scale_gray, width=1,
     )
     draw.line(
         (geometry.PLOT_X0, geometry.PLOT_Y0, geometry.PLOT_X0, geometry.PLOT_Y1),
-        fill=color,
-        width=1,
+        fill=scale_color, width=1,
     )
     draw.line(
         (geometry.PLOT_X0, geometry.PLOT_Y1, geometry.PLOT_X1, geometry.PLOT_Y1),
-        fill=color,
-        width=1,
+        fill=scale_color, width=1,
     )
 
     value = math.ceil(x_min / X_MINOR_STEP) * X_MINOR_STEP
@@ -74,18 +84,12 @@ def draw_axes(
         x = geometry.x_to_px(value, x_min, x_max)
         is_major = abs(value / X_MAJOR_STEP - round(value / X_MAJOR_STEP)) < 1e-8
         tick = X_MAJOR_TICK if is_major else X_MINOR_TICK
-        draw.line((x, geometry.PLOT_Y1, x, geometry.PLOT_Y1 + tick), fill=color, width=1)
+        draw.line((x, geometry.PLOT_Y1, x, geometry.PLOT_Y1 + tick), fill=scale_color, width=1)
 
         if is_major and value > x_min + 0.01 and value < x_max - 0.15:
-            label = _format_tick(value, X_MAJOR_STEP)
             draw_bitmap_text(
-                image,
-                label,
-                x,
-                geometry.PLOT_Y1 + X_LABEL_OFFSET,
-                font,
-                color,
-                anchor="mm",
+                image, _format_tick(value, X_MAJOR_STEP), x,
+                geometry.PLOT_Y1 + TYPOGRAPHY.x_axis_label_offset_px, x_font, color, anchor="mm",
             )
         value += X_MINOR_STEP
 
@@ -101,18 +105,22 @@ def draw_axes(
         y = geometry.y_to_px(tick_value, y_max)
         draw.line(
             (geometry.PLOT_X0 - Y_MAJOR_TICK, y, geometry.PLOT_X0, y),
-            fill=color,
-            width=1,
+            fill=scale_color, width=1,
         )
         if index > 0:
-            draw_bitmap_text(
+            # GC_Y_AXIS_LABEL_ROTATION_FIX_16
+            draw_vertical_text(
                 image,
                 _format_tick(tick_value, step),
-                geometry.PLOT_X0 - Y_LABEL_GAP,
+                geometry.PLOT_X0 - TYPOGRAPHY.y_axis_label_gap_px,
                 y,
-                font,
+                y_font,
                 color,
-                anchor="rm",
+                bottom_gap=0,
+                min_y=geometry.PLOT_Y0,
+                min_x=0,
+                max_x=geometry.PLOT_X0 - 1,
+                center_on_y=True,
             )
 
         if index < count:
@@ -121,27 +129,14 @@ def draw_axes(
                 minor_y = geometry.y_to_px(minor_value, y_max)
                 draw.line(
                     (geometry.PLOT_X0 - Y_MINOR_TICK, minor_y, geometry.PLOT_X0, minor_y),
-                    fill=color,
-                    width=1,
+                    fill=scale_color, width=1,
                 )
 
     draw_vertical_text(
-        image,
-        "мВ",
-        7,
-        geometry.PLOT_Y0 + 18,
-        font,
-        color,
-        min_y=1,
-        min_x=0,
-        max_x=geometry.PLOT_X0 - 1,
+        image, "мВ", 7, geometry.PLOT_Y0 + 18, unit_font, color,
+        min_y=1, min_x=0, max_x=geometry.PLOT_X0 - 1,
     )
     draw_bitmap_text(
-        image,
-        "мин",
-        geometry.PLOT_X1,
-        geometry.PLOT_Y1 + 10,
-        font,
-        color,
-        anchor="rt",
+        image, "мин", geometry.PLOT_X1, geometry.PLOT_Y1 + 10,
+        unit_font, color, anchor="rt",
     )
